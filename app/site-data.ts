@@ -238,57 +238,56 @@ export const posts = [
     date: "2026",
     summary:
       "How regional insight, brand understanding, and digital execution shape stronger customer experiences.",
-    image: "https://storage.tentwenty.com/39/tentwenty_2025_febb46c21b.png"
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
   },
   {
     slug: "momentumx-digital-showreel",
     title: "MomentumX digital showreel",
     date: "2025",
     summary: "A moving snapshot of selected digital work, brand moments, and regional growth thinking.",
-    image: "https://storage.tentwenty.com/small_play_showreel_dca84a2c40.webp"
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80"
   },
   {
     slug: "why-digital-experience-still-matters",
     title: "why digital experience still matters",
     date: "2024",
     summary: "Why useful interfaces, fast platforms, and clear content still shape customer trust.",
-    image: "https://storage.tentwenty.com/small_AWS_and_Azure_Hosting_1_8f35b1ee0b.webp"
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80"
   },
   {
     slug: "turning-brand-ideas-into-digital-products",
     title: "turning brand ideas into digital products",
     date: "2024",
     summary: "The strategic and technical choices behind digital experiences people use and remember.",
-    image: "https://storage.tentwenty.com/small_S_DSC_0638_40569566bb_16f9862aea.webp"
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1400&q=80"
   },
   {
     slug: "designing-interaction-for-digital-experiences",
     title: "designing interaction for digital experiences",
     date: "2026",
     summary: "How interface, content, and motion help customers move from attention to action.",
-    image:
-      "https://storage.tentwenty.com/small_When_life_unfolds_in_front_of_the_camera_don_t_interrupt_it_with_ego_4aa57369ff.jpg"
+    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1400&q=80"
   },
   {
     slug: "what-global-brands-need-from-regional-digital-teams",
     title: "what global brands need from regional digital teams",
     date: "2025",
     summary: "Balancing brand consistency with market nuance, platform quality, and local user behavior.",
-    image: "https://storage.tentwenty.com/small_Ten_Twenty_x_Strapi_707c668cfd.jpg"
+    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=80"
   },
   {
     slug: "digital-growth-opportunities-in-the-middle-east",
     title: "digital growth opportunities in the middle east",
     date: "2023",
     summary: "A look at regional opportunity, user behavior, and digital brand growth across the Middle East.",
-    image: "https://storage.tentwenty.com/small_Frame_2131338744_1_a4fc0a8b24.jpg"
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80"
   },
   {
     slug: "inside-a-digital-delivery-mindset",
     title: "inside a digital delivery mindset",
     date: "2020",
     summary: "A studio note on speed, clarity, craft, and practical rollout for digital platforms.",
-    image: "https://storage.tentwenty.com/bas_215d404132.jpg"
+    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=80"
   }
 ];
 
@@ -321,8 +320,8 @@ export const blogDetailBlocks = [
 ];
 
 export const blogDetailMedia = [
-  "https://storage.tentwenty.com/large_Whats_App_Image_2026_03_18_at_17_03_22_3d9d52237a.webp",
-  "https://storage.tentwenty.com/16/94/When_life_unfolds_in_front_of_the_camera_don_t_interrupt_it_with_ego_4aa57369ff.jpg"
+  "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1400&q=80",
+  "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=80"
 ];
 
 export const aboutPage = {
