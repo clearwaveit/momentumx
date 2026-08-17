@@ -917,6 +917,15 @@ mark::before,
   aspect-ratio: 1.12;
 }
 
+.listingCard .detailMedia img {
+  filter: grayscale(1);
+  transition: filter 0.45s ease;
+}
+
+.listingCard:hover .detailMedia img {
+  filter: grayscale(0);
+}
+
 .workLogo,
 .caseLogoLarge,
 .workBrand {
