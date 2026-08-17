@@ -1,4 +1,13 @@
-export const services = [
+export type Service = {
+  slug: string;
+  title: string;
+  summary: string;
+  body: string;
+  image: string;
+  video?: string;
+};
+
+export const services: Service[] = [
   {
     slug: "website-ui-ux-design-and-development",
     title: "Website Design & Build",
@@ -6,9 +15,10 @@ export const services = [
       "Creative, responsive websites with content systems that stay easy to manage after launch.",
     body:
       "MomentumX creates websites that generate more clicks through refined visual design, clear user journeys, and practical CMS foundations. The work balances brand expression with performance, accessibility, and editorial control.",
-    image: "https://storage.tentwenty.com/small_Website_UIUX_Design_and_Development_ebdbed3d31.webp",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1064974329/rendition/720p/file.mp4?loc=external&log_user=0&signature=fb060fa5b22e73dec477b9bee7da9fdfede4c914425e71174256c3ec056f5fdb&user_id=20404911"
+    // image: "https://storage.tentwenty.com/small_Website_UIUX_Design_and_Development_ebdbed3d31.webp",
+    image: "/assets/imgs/services-1.png",
+    // video:
+    //   "https://player.vimeo.com/progressive_redirect/playback/1064974329/rendition/720p/file.mp4?loc=external&log_user=0&signature=fb060fa5b22e73dec477b9bee7da9fdfede4c914425e71174256c3ec056f5fdb&user_id=20404911"
   },
   {
     slug: "app-ui-ux-design-and-development",
@@ -16,9 +26,10 @@ export const services = [
     summary: "Native and cross-platform mobile apps shaped around real user behavior.",
     body:
       "From product strategy and UX flows to interface design and engineering, mobile app work is treated as a complete digital product. The focus is on fast navigation, useful features, and a polished experience across screen sizes.",
-    image: "https://storage.tentwenty.com/small_Mask_group_3_1_96df741620_47c47e2b74.webp",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1096949701/rendition/720p/file.mp4?loc=external&log_user=0&signature=39f7576c7b26eabaee6ae6cacafd39551d5716c492e712e88f824151f03ddb19"
+    // image: "https://storage.tentwenty.com/small_Mask_group_3_1_96df741620_47c47e2b74.webp",
+    image: "/assets/imgs/services-2.png",
+    // video:
+    //   "https://player.vimeo.com/progressive_redirect/playback/1096949701/rendition/720p/file.mp4?loc=external&log_user=0&signature=39f7576c7b26eabaee6ae6cacafd39551d5716c492e712e88f824151f03ddb19"
   },
   {
     slug: "ai-consultancy-and-implementation",
@@ -26,10 +37,10 @@ export const services = [
     summary: "AI consultancy and implementation for organizations ready to move from ideas to tools.",
     body:
       "AI work starts with identifying useful business cases, then designing prototypes, workflows, and integrations that can be adopted by teams. The aim is practical automation, better decisions, and measurable operational value.",
-    image:
-      "https://storage.tentwenty.com/small_Artificial_Intelligence_Consultancy_and_Implementation_v3_412198b2cc.webp",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1180785751/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=2234eb566b5ec5bbd384eb07afd23de891bf90694be298ac9e618a4d194bf0ce"
+    // image: "https://storage.tentwenty.com/small_Artificial_Intelligence_Consultancy_and_Implementation_v3_412198b2cc.webp",
+    image: "/assets/imgs/services-3.png",
+    // video:
+    //   "https://player.vimeo.com/progressive_redirect/playback/1180785751/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=2234eb566b5ec5bbd384eb07afd23de891bf90694be298ac9e618a4d194bf0ce"
   },
   {
     slug: "e-commerce-website-development",
@@ -37,9 +48,10 @@ export const services = [
     summary: "E-commerce platforms with strong product storytelling and conversion-minded journeys.",
     body:
       "E-commerce projects cover catalogue structure, checkout flows, payment integrations, fulfilment considerations, and the digital customer experience around them. The result is a storefront built for browsing, buying, and managing products.",
-    image: "https://storage.tentwenty.com/small_work_1_cover_square_e5535e1205.webp",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/787553887/rendition/720p/file.mp4?loc=external&signature=75c1c8aeb372612ddaced02827f766136f000d54fbd337c1b57d39d17773eff7"
+    // image: "https://storage.tentwenty.com/small_work_1_cover_square_e5535e1205.webp",
+    image: "/assets/imgs/services-4.png",
+    // video:
+    //   "https://player.vimeo.com/progressive_redirect/playback/787553887/rendition/720p/file.mp4?loc=external&signature=75c1c8aeb372612ddaced02827f766136f000d54fbd337c1b57d39d17773eff7"
   },
   {
     slug: "search-engine-optimization",
@@ -47,7 +59,8 @@ export const services = [
     summary: "Technical and content SEO designed around discoverability and long-term growth.",
     body:
       "SEO work includes technical audits, on-page structure, keyword mapping, content recommendations, performance improvements, and measurement. The goal is stronger search visibility without compromising the user experience.",
-    image: "https://storage.tentwenty.com/small_SEO_service_website_b31f590d78.webp"
+    // image: "https://storage.tentwenty.com/small_SEO_service_website_b31f590d78.webp",
+    image: "/assets/imgs/services-5.png"
   },
   {
     slug: "creative-and-digital-consulting",
@@ -55,9 +68,10 @@ export const services = [
     summary: "Digital strategy, product planning, and transformation support for ambitious teams.",
     body:
       "Consulting engagements help organizations understand audiences, sharpen product direction, plan digital ecosystems, and prioritize delivery. Strategy is connected to execution so ideas can move into shipped experiences.",
-    image: "https://storage.tentwenty.com/small_AWS_and_Azure_Hosting_1_8f35b1ee0b.webp",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1096861274/rendition/720p/file.mp4?loc=external&log_user=0&signature=a682a6ebf6953100276ad90c0de14ce7bbe4798482fd9aaac9bba2e6b455ead2"
+    // image: "https://storage.tentwenty.com/small_AWS_and_Azure_Hosting_1_8f35b1ee0b.webp",
+    image: "/assets/imgs/services-6.png",
+    // video:
+    //   "https://player.vimeo.com/progressive_redirect/playback/1096861274/rendition/720p/file.mp4?loc=external&log_user=0&signature=a682a6ebf6953100276ad90c0de14ce7bbe4798482fd9aaac9bba2e6b455ead2"
   },
   {
     slug: "video-and-film",
@@ -65,9 +79,10 @@ export const services = [
     summary: "Film, showreels, and video production for digital-first storytelling.",
     body:
       "Video and film work gives digital platforms and launches richer texture, from story development and production to edits optimized for websites, social platforms, launches, and presentations.",
-    image: "https://storage.tentwenty.com/small_play_showreel_dca84a2c40.webp",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1167677008/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=71b598eb513fb3db6adca688b284a06f9767cb2de3d9d2366d281d33cd82dcc1"
+    // image: "https://storage.tentwenty.com/small_play_showreel_dca84a2c40.webp",
+    image: "/assets/imgs/services-7.png",
+    // video:
+    //   "https://player.vimeo.com/progressive_redirect/playback/1167677008/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=71b598eb513fb3db6adca688b284a06f9767cb2de3d9d2366d281d33cd82dcc1"
   },
   {
     slug: "aws-and-azure-hosting",
