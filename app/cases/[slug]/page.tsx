@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { CtaBand, MediaBlock, PageHero, SiteFooter, SiteHeader } from "../../site-components";
+import { CaseGallery, CtaBand, MediaBlock, PageHero, SiteFooter, SiteHeader } from "../../site-components";
 import { caseDetailBlocks, caseDetailMedia, casePageDetails, cases } from "../../site-data";
 
 export function generateStaticParams() {
@@ -78,16 +78,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
           </div>
           <p className="contentNote">{detail.leadJourney.note}</p>
         </section>
-        <section className="caseGallery sectionPad">
-          {detail.visualStory.map((media, index) => (
-            <figure key={media.title}>
-              <img src={media.image} alt={media.title} />
-              <figcaption>
-                {String(index + 1).padStart(2, "0")}: {media.title} - {media.body}
-              </figcaption>
-            </figure>
-          ))}
-        </section>
+        <CaseGallery items={detail.visualStory} />
         <section className="caseSystem sectionPad">
           <div className="sectionHead dark">
             <p>the digital ecosystem</p>

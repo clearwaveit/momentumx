@@ -90,7 +90,7 @@ export const services: Service[] = [
       "Secure, scalable cloud architecture, deployment and infrastructure across AWS, Azure and modern cloud environments.",
     body:
       "Cloud and infrastructure work covers secure architecture, deployment environments, scaling, reliability and modern cloud operations across AWS, Azure and related platforms.",
-    image: "/assets/imgs/services-6.png"
+    image: "/assets/imgs/services-8.png"
   },
   {
     slug: "managed-services",
@@ -99,7 +99,7 @@ export const services: Service[] = [
       "Ongoing AI operations, application support, optimisation, maintenance and continuous development after launch.",
     body:
       "Managed services keep AI systems, applications and platforms improving after launch through operations, support, optimisation, maintenance and continuous development.",
-    image: "/assets/imgs/services-7.png"
+    image: "/assets/imgs/services-9.png"
   }
 ];
 
