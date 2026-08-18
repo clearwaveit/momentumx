@@ -6,84 +6,96 @@ import { AutoRail, SiteFooter, SiteHeader } from "./site-components";
 const services = [
   {
     number: "01",
-    title: "Website Design & Build",
-    // image: "https://storage.tentwenty.com/small_Website_UIUX_Design_and_Development_ebdbed3d31.webp",
-    image: "/assets/imgs/services-1.png"
-    // video:
-    //   "https://player.vimeo.com/progressive_redirect/playback/1064974329/rendition/720p/file.mp4?loc=external&log_user=0&signature=fb060fa5b22e73dec477b9bee7da9fdfede4c914425e71174256c3ec056f5fdb&user_id=20404911"
+    slug: "ai-consulting-and-transformation",
+    title: "AI consulting & transformation",
+    image: "/assets/imgs/services-1.png",
+    video:
+      "https://player.vimeo.com/progressive_redirect/playback/1180785751/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=2234eb566b5ec5bbd384eb07afd23de891bf90694be298ac9e618a4d194bf0ce"
   },
   {
     number: "02",
-    title: "Mobile App Design & Build",
-    // image: "https://storage.tentwenty.com/small_Mask_group_3_1_96df741620_47c47e2b74.webp",
-    image: "/assets/imgs/services-2.png"
-    // video:
-    //   "https://player.vimeo.com/progressive_redirect/playback/1096949701/rendition/720p/file.mp4?loc=external&log_user=0&signature=39f7576c7b26eabaee6ae6cacafd39551d5716c492e712e88f824151f03ddb19"
+    slug: "ai-solutions-and-intelligent-systems",
+    title: "AI solutions & intelligent systems",
+    image: "/assets/imgs/services-2.png",
+    video:
+      "https://player.vimeo.com/progressive_redirect/playback/1096949701/rendition/720p/file.mp4?loc=external&log_user=0&signature=39f7576c7b26eabaee6ae6cacafd39551d5716c492e712e88f824151f03ddb19"
   },
   {
     number: "03",
-    title: "Artificial Intelligence - AI",
-    // image:
-    //   "https://storage.tentwenty.com/small_Artificial_Intelligence_Consultancy_and_Implementation_v3_412198b2cc.webp",
-    image: "/assets/imgs/services-3.png"
-    // video:
-    //   "https://player.vimeo.com/progressive_redirect/playback/1180785751/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=2234eb566b5ec5bbd384eb07afd23de891bf90694be298ac9e618a4d194bf0ce"
+    slug: "automation-and-enterprise-solutions",
+    title: "automation & enterprise solutions",
+    image: "/assets/imgs/services-3.png",
+    video:
+      "https://player.vimeo.com/progressive_redirect/playback/1180785751/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=2234eb566b5ec5bbd384eb07afd23de891bf90694be298ac9e618a4d194bf0ce"
   },
   {
     number: "04",
-    title: "e-commerce website development",
-    // image:
-    //   "https://storage.tentwenty.com/small_work_1_cover_square_e5535e1205.webp",
-    image: "/assets/imgs/services-4.png"
-    // video:
-    //   "https://player.vimeo.com/progressive_redirect/playback/787553887/rendition/720p/file.mp4?loc=external&signature=75c1c8aeb372612ddaced02827f766136f000d54fbd337c1b57d39d17773eff7"
+    slug: "digital-experience-and-platforms",
+    title: "digital experience & platforms",
+    image: "/assets/imgs/services-4.png",
+    video:
+      "https://player.vimeo.com/progressive_redirect/playback/787553887/rendition/720p/file.mp4?loc=external&signature=75c1c8aeb372612ddaced02827f766136f000d54fbd337c1b57d39d17773eff7"
   },
   {
     number: "05",
-    title: "search engine optimization agency in dubai",
-    // image: "https://storage.tentwenty.com/small_SEO_service_website_b31f590d78.webp",
-    image: "/assets/imgs/services-5.png"
+    slug: "web-and-mobile-applications",
+    title: "web & mobile applications",
+    image: "/assets/imgs/services-5.png",
+    video:
+      "https://player.vimeo.com/progressive_redirect/playback/1064974329/rendition/720p/file.mp4?loc=external&log_user=0&signature=fb060fa5b22e73dec477b9bee7da9fdfede4c914425e71174256c3ec056f5fdb&user_id=20404911"
   },
   {
     number: "06",
-    title: "Strategic & Digital Consulting",
-    // image: "https://storage.tentwenty.com/small_AWS_and_Azure_Hosting_1_8f35b1ee0b.webp",
+    slug: "data-and-intelligence",
+    title: "data & intelligence",
     image: "/assets/imgs/services-6.png"
-    // video:
-    //   "https://player.vimeo.com/progressive_redirect/playback/1096861274/rendition/720p/file.mp4?loc=external&log_user=0&signature=a682a6ebf6953100276ad90c0de14ce7bbe4798482fd9aaac9bba2e6b455ead2"
   },
   {
     number: "07",
-    title: "video & film services",
-    // image: "https://storage.tentwenty.com/small_play_showreel_dca84a2c40.webp",
+    slug: "smart-and-connected-technology",
+    title: "smart & connected technology",
+    image: "/assets/imgs/services-7.png",
+    video:
+      "https://player.vimeo.com/progressive_redirect/playback/1096861274/rendition/720p/file.mp4?loc=external&log_user=0&signature=a682a6ebf6953100276ad90c0de14ce7bbe4798482fd9aaac9bba2e6b455ead2"
+  },
+  {
+    number: "08",
+    slug: "cloud-and-infrastructure",
+    title: "cloud & infrastructure",
+    image: "/assets/imgs/services-6.png"
+  },
+  {
+    number: "09",
+    slug: "managed-services",
+    title: "managed services",
     image: "/assets/imgs/services-7.png"
   }
 ];
 
 const proof = [
   {
-    title: "Momentum heritage",
+    title: "REGIONAL EXPERIENCE",
     body:
-      "Built from Momentum's regional client experience, with a sharper focus on digital services and product delivery.",
+      "Built on Momentum's established presence and experience across the Middle East.",
     image: "https://storage.tentwenty.com/small_S_DSC_0638_40569566bb_16f9862aea.webp"
   },
   {
-    title: "digital-first delivery",
+    title: "DIGITAL & AI DELIVERY",
     body:
-      "Websites, apps, AI workflows, commerce, content, and cloud foundations shaped around measurable growth.",
+      "Strategy, engineering and implementation across AI and digital technology.",
     image: "https://storage.tentwenty.com/small_Mask_group_3_1_96df741620_47c47e2b74.webp"
   },
   {
-    title: "brand-backed digital thinking",
+    title: "BUSINESS UNDERSTANDING",
     body:
-      "A practical mix of brand understanding, digital strategy, user experience, and implementation craft.",
+      "Solutions shaped around real operational, customer and market challenges.",
     image:
       "https://storage.tentwenty.com/60_digital_experts_building_excellence_6538127864.webp"
   },
   {
-    title: "trusted by global names",
+    title: "BUILT TO INNOVATE",
     body:
-      "Momentum's client history informs how MomentumX builds digital platforms for ambitious organizations.",
+      "Turning emerging technologies and recurring challenges into new solutions and IP.",
     image: "https://storage.tentwenty.com/small_Showreel_vertical_09d7c91a59.webp"
   }
 ];
@@ -91,43 +103,55 @@ const proof = [
 const cases = [
   {
     brand: "M&M's",
-    title: "Moments of Magic",
+    title: "Intelligent Consumer Experiences",
     body:
-      "A digital-ready brand story shaped around memorable moments, content, and audience attention.",
+      "Evolving brand engagement through personalisation, interactive technology and real-time audience intelligence.",
+    tags: "AI · EXPERIENCE · DATA",
     href: "/cases/moments-of-magic"
   },
   {
-    brand: "Pedigree & IAMS",
-    title: "Pawtopia",
+    brand: "Unilever",
+    title: "Retail Intelligence",
     body:
-      "A pet-focused digital engagement concept designed to bring community and product storytelling together.",
-    href: "/cases/pawtopia"
-  },
-  {
-    brand: "Tazal",
-    title: "A Michelin Affair",
-    body:
-      "A premium digital storytelling direction built around hospitality, attention, and a crafted experience.",
-    href: "/cases/a-michelin-affair"
+      "Extending shopper and retail experience with computer vision, merchandising intelligence and real-time performance insights.",
+    tags: "VISION AI · RETAIL · ANALYTICS",
+    href: "/cases/ride-back-in-style"
   },
   {
     brand: "BRF",
-    title: "Taste of Abu Dhabi",
+    title: "Connected Customer Experiences",
     body:
-      "A consumer-facing digital experience shaped for regional audience engagement and content visibility.",
+      "Bringing data and intelligence into physical and digital consumer engagement.",
+    tags: "DATA · DIGITAL · EXPERIENCE",
     href: "/cases/taste-of-abu-dhabi"
-  },
-  {
-    brand: "Unilever",
-    title: "Ride back in Style",
-    body:
-      "A lifestyle-led digital engagement connecting brand recall, useful content, and customer touchpoints.",
-    href: "/cases/ride-back-in-style"
   }
 ];
 
-const heroClients = ["Mars", "M&M's", "Holsten", "Skittles", "Snickers", "BRF"];
-const bookingWords = ["website", "app", "AI", "commerce", "strategy", "platform"];
+const labProjects = [
+  {
+    title: "SHELFVISION AI",
+    body: "Computer vision for shelf, stock and merchandising intelligence.",
+    status: "LAB PROTOTYPE"
+  },
+  {
+    title: "SMARTSPACE",
+    body: "Wi-Fi, sensor and AI-powered intelligence for physical spaces.",
+    status: "LAB PROTOTYPE"
+  },
+  {
+    title: "AML COPILOT",
+    body: "AI-assisted investigation and intelligence for compliance teams.",
+    status: "CONCEPT"
+  }
+];
+
+const showreelWords = [
+  "AI Retail Intelligence",
+  "Enterprise Platforms",
+  "Connected Experiences",
+  "Computer Vision",
+  "Digital Transformation"
+];
 
 function useRotatingWords(words: string[], delay = 1800) {
   const [index, setIndex] = useState(0);
@@ -144,10 +168,9 @@ function useRotatingWords(words: string[], delay = 1800) {
 }
 
 export default function Home() {
-  const client = useRotatingWords(heroClients, 2000);
-  const booking = useRotatingWords(bookingWords, 1500);
+  const showreelLabel = useRotatingWords(showreelWords, 1500);
   const [activeService, setActiveService] = useState(0);
-  const repeatedShowreel = useMemo(() => Array.from({ length: 10 }, () => "play showreel"), []);
+  const repeatedShowreel = useMemo(() => Array.from({ length: 10 }, () => "intelligence in motion"), []);
 
   useEffect(() => {
     document.querySelectorAll("video").forEach((video) => {
@@ -167,13 +190,10 @@ export default function Home() {
 
       <section className="hero sectionPad reveal">
         <h1>
-          creating digital growth opportunities for{" "}
-          <span className="clientSwap" key={client}>
-            {client}
-          </span>
+          transforming business through <span className="clientSwap">digital & AI</span>
         </h1>
         <a className="roundLink" href="#services">
-          what we can do for you?
+          explore what we do
         </a>
       </section>
 
@@ -193,12 +213,13 @@ export default function Home() {
             ))}
           </div>
         </div>
+        <div className="showreelLabel" key={showreelLabel}>{showreelLabel}</div>
       </section>
 
       <section className="services sectionPad reveal" id="services">
         <div className="sectionHead">
-          <p>our services</p>
-          <h2>helping brands by building elegant & refined digital experiences</h2>
+          <p>what we do</p>
+          <h2>helping businesses transform through technology, intelligence & innovation</h2>
         </div>
 
         <div className="servicesLayout">
@@ -215,16 +236,7 @@ export default function Home() {
           <div className="serviceList">
             {services.map((service, index) => (
               <a
-                href={`/services/${service.title
-                  .toLowerCase()
-                  .replace("artificial intelligence - ai", "ai-consultancy-and-implementation")
-                  .replace("website design & build", "website-ui-ux-design-and-development")
-                  .replace("mobile app design & build", "app-ui-ux-design-and-development")
-                  .replace("e-commerce website development", "e-commerce-website-development")
-                  .replace("search engine optimization agency in dubai", "search-engine-optimization")
-                  .replace("strategic & digital consulting", "creative-and-digital-consulting")
-                  .replace("video & film services", "video-and-film")
-                  .replaceAll(" ", "-")}`}
+                href={`/services/${service.slug}`}
                 key={service.title}
                 className={index === activeService ? "serviceRow isActive" : "serviceRow"}
                 onMouseEnter={() => setActiveService(index)}
@@ -244,12 +256,20 @@ export default function Home() {
             <img src="https://storage.tentwenty.com/small_S_DSC_0638_40569566bb_16f9862aea.webp" alt="" />
           </div>
           <div className="identityCopy">
-            <p className="eyebrow">born from Momentum, built for digital growth</p>
-            <h3>Digital services backed by regional brand understanding.</h3>
+            <p className="eyebrow">built on experience. evolved for what&apos;s next.</p>
+            <h3>regional experience backed by digital & AI capability.</h3>
             <p>
-              MomentumX carries forward Momentum's understanding of brands and audiences, then
-              turns that experience into websites, apps, AI-enabled tools, commerce, and digital
-              platforms for the next stage of growth.
+              MomentumX is the Digital & AI Transformation arm of Momentum, extending established
+              regional experience into AI, enterprise technology and intelligent digital solutions.
+            </p>
+            <p>
+              Built on Momentum&apos;s understanding of brands, businesses and consumers across the
+              Middle East, we combine that experience with capabilities in AI, software engineering,
+              automation, data and connected technology.
+            </p>
+            <p>
+              The result is technology grounded in real business challenges, real customer behaviour
+              and real market understanding.
             </p>
             <div className="proofStack">
               {proof.map((item) => (
@@ -260,7 +280,7 @@ export default function Home() {
               ))}
             </div>
             <a className="textLink" href="/about-us">
-              more about MomentumX
+              more about us
             </a>
           </div>
         </div>
@@ -268,8 +288,12 @@ export default function Home() {
 
       <section className="featured sectionPad reveal" id="featured">
         <div className="sectionHead dark">
-          <p>A selection of our</p>
-          <h2>featured engagements</h2>
+          <p>experience, evolved</p>
+          <h2>from experience to intelligence</h2>
+          <p>
+            Building on Momentum&apos;s real-world engagements to explore how AI, data and technology
+            can create the next generation of customer and business experiences.
+          </p>
         </div>
         <AutoRail>
           {cases.map((item) => (
@@ -278,34 +302,52 @@ export default function Home() {
               <div className="rule" />
               <h3>{item.title}</h3>
               <p>{item.body}</p>
+              <div className="tagList">{item.tags}</div>
               <a className="textLink light" href={item.href}>
                 Case study
               </a>
             </article>
           ))}
         </AutoRail>
-        <a className="textLink light largeLink" href="#enquiry">
-          Work with MomentumX
+        <p className="contentNote">
+          Detailed case-study pages distinguish Momentum&apos;s original delivered engagement from
+          MomentumX AI and digital extensions or concepts.
+        </p>
+      </section>
+
+      <section className="lab sectionPad reveal" id="innovation-lab">
+        <div className="sectionHead">
+          <p>innovation lab</p>
+          <h2>exploring what comes next</h2>
+          <p>
+            We turn emerging technologies and real business challenges into prototypes,
+            proof-of-concepts and new product ideas.
+          </p>
+        </div>
+        <div className="labGrid">
+          {labProjects.map((project) => (
+            <article key={project.title}>
+              <span>{project.status}</span>
+              <h3>{project.title}</h3>
+              <p>{project.body}</p>
+            </article>
+          ))}
+        </div>
+        <a className="textLink largeLink" href="/innovation-lab">
+          explore the lab
         </a>
       </section>
 
       <section className="booking sectionPad reveal" id="enquiry">
         <div>
-          <p className="eyebrow">Ready to elevate your digital presence?</p>
-          <h2>
-            Book your{" "}
-            <span className="bookingWord" key={booking}>
-              {booking}
-            </span>
-            <br />
-            consultation
-          </h2>
+          <p className="eyebrow">have a challenge worth transforming?</p>
+          <h2>let&apos;s explore what&apos;s possible</h2>
           <p className="bookingCopy">
-            Get your 30 minute slot with one of our experts to explore your website, app, AI,
-            commerce, or digital platform opportunity.
+            From AI opportunities to enterprise platforms, let&apos;s turn your next business
+            challenge into a working solution.
           </p>
-          <a className="buttonLink" href="#">
-            book a slot
+          <a className="buttonLink" href="/enquiry">
+            start a conversation
           </a>
         </div>
         <video

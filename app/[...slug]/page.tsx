@@ -1,5 +1,6 @@
+import type { CSSProperties } from "react";
 import { PageHero, SiteFooter, SiteHeader } from "../site-components";
-import { aboutPage, contactPage, utilityPages } from "../site-data";
+import { aboutPage, contactPage, innovationLabPage, utilityPages } from "../site-data";
 
 const careerTitles: Record<string, string> = {
   "android-app-developer": "android app developer",
@@ -45,6 +46,136 @@ export default async function UtilityPage({
             "MomentumX uses this space for company information, digital resources, credentials, and regional brand-led content."
         });
 
+  if (path === "innovation-lab" || path === "ai-lab") {
+    return (
+      <main>
+        <SiteHeader />
+        <section className="labHero sectionPad">
+          <div>
+            <p>{innovationLabPage.hero.eyebrow}</p>
+            <h1>
+              {innovationLabPage.hero.title.map((line) => (
+                <span key={line}>{line}</span>
+              ))}
+            </h1>
+            <p>{innovationLabPage.hero.summary}</p>
+            <a className="roundLink" href="#lab-projects">
+              explore the lab
+            </a>
+          </div>
+          <div className="labCanvas" aria-hidden="true">
+            {innovationLabPage.hero.fragments.map((fragment, index) => (
+              <span key={fragment} style={{ "--i": index } as CSSProperties}>
+                {fragment}
+              </span>
+            ))}
+          </div>
+        </section>
+        <section className="labPurpose sectionPad">
+          <div className="sectionHead">
+            <p>{innovationLabPage.purpose.eyebrow}</p>
+            <h2>{innovationLabPage.purpose.title}</h2>
+            <p>{innovationLabPage.purpose.body}</p>
+          </div>
+          <div className="labProgression">
+            {innovationLabPage.purpose.steps.map((step, index) => (
+              <span key={step}>{String(index + 1).padStart(2, "0")} / {step}</span>
+            ))}
+          </div>
+        </section>
+        <section className="labProjects sectionPad" id="lab-projects">
+          <div className="sectionHead">
+            <p>02 / CURRENTLY IN THE LAB</p>
+            <h2>Things we&apos;re exploring.</h2>
+          </div>
+          <div className="labProjectStack">
+            {innovationLabPage.projects.map((project, index) => (
+              <article className={`labProject ${project.visual}`} key={project.title}>
+                <div className="labProjectVisual" aria-hidden="true">
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                </div>
+                <div className="labProjectCopy">
+                  <span>{String(index + 1).padStart(2, "0")} — {project.category}</span>
+                  <h3>{project.title}</h3>
+                  <h4>{project.headline}</h4>
+                  <p>{project.body}</p>
+                  <p>{project.exploring}</p>
+                </div>
+                <div className="labProjectMetrics">
+                  <span>{project.status}</span>
+                  {project.metrics.map((metric) => (
+                    <strong key={metric}>{metric}</strong>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="industryIndex sectionPad">
+          <div className="sectionHead">
+            <p>03 / ACROSS INDUSTRIES</p>
+            <h2>Different industries. Similar problems worth solving.</h2>
+          </div>
+          <div>
+            {innovationLabPage.industries.map(([industry, body]) => (
+              <article key={industry}>
+                <h3>{industry}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="labReality sectionPad">
+          <div className="sectionHead dark">
+            <p>04 / HOW IDEAS EVOLVE</p>
+            <h2>{innovationLabPage.reality.title}</h2>
+            <p>{innovationLabPage.reality.body}</p>
+          </div>
+          <div className="realityPath">
+            <div>
+              {innovationLabPage.reality.path.map((step) => (
+                <span key={step}>{step}</span>
+              ))}
+            </div>
+            <div>
+              {innovationLabPage.reality.branches.map((branch) => (
+                <span key={branch}>{branch}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="statusSystem sectionPad">
+          <h2>experiment status system</h2>
+          <div>
+            {innovationLabPage.statuses.map(([status, body]) => (
+              <article key={status}>
+                <h3>{status}</h3>
+                <p>{body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="labBuild sectionPad">
+          <p>{innovationLabPage.cta.eyebrow}</p>
+          <h2>{innovationLabPage.cta.title}</h2>
+          <p>{innovationLabPage.cta.body}</p>
+          <div>
+            <a className="buttonLink" href="/enquiry">
+              bring us a challenge
+            </a>
+            <a className="textLink light" href="/services">
+              explore our services
+            </a>
+          </div>
+        </section>
+        <SiteFooter />
+      </main>
+    );
+  }
+
   return (
     <main>
       <SiteHeader />
@@ -56,15 +187,12 @@ export default async function UtilityPage({
             <div>
               <span className="sectionNumber">01.</span>
               <h2>{aboutPage.title}</h2>
-              <p>
-                A distributed team of strategists, designers, technologists, content specialists,
-                and delivery leads creating digital services and customer experiences across the
-                region.
-              </p>
+              <p>{aboutPage.summary}</p>
+              <p>{aboutPage.intro}</p>
             </div>
           </section>
           <section className="statsBand sectionPad">
-            <h2>{aboutPage.summary}</h2>
+            <h2>{aboutPage.statement}</h2>
             <div>
               {aboutPage.stats.map(([value, label]) => (
                 <article key={label}>
@@ -82,22 +210,58 @@ export default async function UtilityPage({
             </div>
           </section>
           <section className="relatedRail sectionPad">
-            <h2>leadership & management team</h2>
+            <h2>the people behind momentumX</h2>
             <div className="miniCardGrid">
-              {aboutPage.leaders.map((leader, index) => (
-                <a className="miniMediaCard" href="/about-us" key={leader}>
+              {aboutPage.people.map(([capability, label], index) => (
+                <a className="miniMediaCard" href="/about-us" key={capability}>
                   <img src={aboutPage.gallery[index % aboutPage.gallery.length]} alt="" />
-                  <span>team</span>
-                  <strong>{leader}</strong>
+                  <span>{capability}</span>
+                  <strong>{label}</strong>
                 </a>
               ))}
             </div>
           </section>
-          <section className="testimonialBlock sectionPad">
-            <h2>a selection of our accolades</h2>
-            {aboutPage.awards.map((award) => (
-              <blockquote key={award}>{award}</blockquote>
+          <section className="evolutionSection sectionPad">
+            <div className="sectionHead">
+              <p>our evolution</p>
+              <h2>experience that keeps evolving.</h2>
+              <p>
+                MomentumX represents the evolution of our experience - applying technology and
+                intelligence to increasingly complex business challenges.
+              </p>
+            </div>
+            <div className="evolutionFlow">
+              {aboutPage.evolution.map((step, index) => (
+                <article key={step}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <strong>{step}</strong>
+                </article>
+              ))}
+            </div>
+          </section>
+          <section className="testimonialBlock aboutStrengths sectionPad">
+            <h2>what we bring together</h2>
+            {aboutPage.strengths.map((strength) => (
+              <article key={strength.title}>
+                <h3>{strength.title}</h3>
+                <p>{strength.body}</p>
+              </article>
             ))}
+          </section>
+          <section className="clientWall sectionPad">
+            <div className="sectionHead">
+              <p>our heritage</p>
+              <h2>built on Momentum.</h2>
+              <p>
+                MomentumX builds on Momentum&apos;s established experience working with leading
+                organisations and brands across the Middle East.
+              </p>
+            </div>
+            <div>
+              {aboutPage.heritageClients.map((client) => (
+                <span key={client}>{client}</span>
+              ))}
+            </div>
           </section>
         </>
       ) : path === "contact-us" || top === "enquiry" ? (

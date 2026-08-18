@@ -52,7 +52,7 @@ export function SiteFooter() {
         <h3>Get in touch</h3>
         <p>hello@momentumx.com</p>
         <p>+971 04 569 3033</p>
-        <p className="tagline">digital services with Momentum heritage</p>
+        <p className="tagline">Momentum gives us the experience. MomentumX adds the intelligence.</p>
       </div>
     </footer>
   );
@@ -102,10 +102,14 @@ export function PageHero({
 export function CtaBand() {
   return (
     <section className="ctaBand sectionPad">
-      <p>Ready to elevate your digital presence?</p>
-      <h2>Book your digital consultation</h2>
-      <a className="buttonLink" href="/book-meeting">
-        book a slot
+      <p>have a challenge worth transforming?</p>
+      <h2>Let&apos;s build what&apos;s next.</h2>
+      <p className="ctaCopy">
+        From an AI opportunity to a complete digital platform, talk to us about your next
+        transformation initiative.
+      </p>
+      <a className="buttonLink" href="/enquiry">
+        start a conversation
       </a>
     </section>
   );

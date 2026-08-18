@@ -37,7 +37,6 @@ body {
   font-weight: 300;
   line-height: 1.4;
   letter-spacing: -0.048rem;
-  text-transform: lowercase;
 }
 
 a {
@@ -547,6 +546,21 @@ mark::before,
   margin: 0 2.75rem;
 }
 
+.showreelLabel {
+  position: absolute;
+  right: var(--page-x);
+  bottom: var(--page-x);
+  z-index: 2;
+  max-width: min(44rem, calc(100% - var(--page-x) * 2));
+  color: #fff;
+  font-size: var(--h3);
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: right;
+  text-transform: none;
+  animation: wordIn 0.55s var(--ease-out) both;
+}
+
 .featured {
   background: #000;
   color: #fff;
@@ -558,6 +572,13 @@ mark::before,
 .sectionHead.dark p,
 .caseCard p {
   color: rgba(255, 255, 255, 0.48);
+}
+
+.sectionHead.dark > p:last-child {
+  max-width: 78rem;
+  margin-top: 3rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: var(--p2);
 }
 
 .caseRail {
@@ -639,6 +660,26 @@ mark::before,
 .caseCard:hover .textLink {
   opacity: 1;
   transform: translateX(0);
+}
+
+.tagList,
+.contentNote,
+.labGrid span {
+  font-size: var(--small);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tagList {
+  margin-top: 3rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.contentNote {
+  max-width: 86rem;
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.56);
 }
 
 .autoRail:hover {
@@ -813,6 +854,22 @@ mark::before,
   align-items: start;
 }
 
+.capabilityLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-top: 0;
+  padding-bottom: 6rem;
+}
+
+.capabilityLine p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
 .detailCopy {
   display: flex;
   flex-direction: column;
@@ -832,6 +889,46 @@ mark::before,
   padding-top: 1.4rem;
   border-top: 1px solid var(--line);
   font-size: var(--p2);
+}
+
+.detailCopy li strong {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 400;
+}
+
+.detailCopy li span {
+  color: var(--muted);
+}
+
+.principleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 2rem;
+  background: var(--line);
+}
+
+.principleGrid article {
+  min-height: 18rem;
+  padding: 2rem;
+  background: #fff;
+}
+
+.principleGrid strong {
+  display: block;
+  margin-bottom: 2rem;
+  font-size: var(--small);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+
+.principleGrid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--small);
+  line-height: 1.45;
 }
 
 .relatedRail {
@@ -983,15 +1080,92 @@ mark::before,
   color: #fff;
 }
 
+.lab {
+  background: #f6f6f6;
+}
+
+.labGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  background: transparent;
+}
+
+.labGrid article {
+  position: relative;
+  min-height: 36rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.8rem;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+.labGrid article::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 7rem;
+  height: 0.45rem;
+  background: var(--primary);
+}
+
+.labGrid article::after {
+  content: "";
+  position: absolute;
+  right: 2.4rem;
+  bottom: 2.4rem;
+  width: 8rem;
+  height: 8rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.labGrid span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.labGrid h3 {
+  max-width: 26rem;
+  margin: auto 0 2rem;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.labGrid p {
+  position: relative;
+  z-index: 1;
+  max-width: 35rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.lab .largeLink {
+  color: var(--ink);
+}
+
 .ctaBand p {
   margin: 0 0 3rem;
   color: rgba(255, 255, 255, 0.62);
   font-size: var(--p1);
 }
 
+.ctaBand .ctaCopy {
+  max-width: 72rem;
+  margin-bottom: 5rem;
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
 .ctaBand h2 {
   max-width: 82rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   font-size: var(--h2);
   line-height: 1.1;
 }
@@ -1018,8 +1192,19 @@ mark::before,
   line-height: 1.1;
 }
 
+.sectionIntro {
+  grid-column: 2;
+  margin: -3rem 0 4rem;
+  color: var(--muted);
+  font-size: var(--p1);
+  line-height: 1.4;
+}
+
 .processGrid,
 .techGrid,
+.subServiceGrid,
+.capabilityGrid,
+.valueGrid,
 .officeGrid,
 .jobDetail {
   display: grid;
@@ -1029,12 +1214,18 @@ mark::before,
 }
 
 .processGrid,
-.techGrid {
+.techGrid,
+.subServiceGrid,
+.capabilityGrid,
+.valueGrid {
   grid-column: 2;
 }
 
 .processGrid article,
 .techGrid article,
+.subServiceGrid article,
+.capabilityGrid article,
+.valueGrid article,
 .officeGrid article,
 .jobDetail article {
   min-height: 24rem;
@@ -1042,8 +1233,111 @@ mark::before,
   background: #fff;
 }
 
+.subServiceGrid,
+.capabilityGrid,
+.valueGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.subServiceGrid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.subServiceGrid article {
+  grid-column: span 3;
+  min-height: 32rem;
+  position: relative;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.subServiceGrid article:nth-child(1),
+.subServiceGrid article:nth-child(6) {
+  grid-column: span 6;
+}
+
+.subServiceGrid article:nth-child(4n + 2) {
+  background: #f6f6f6;
+}
+
+.subServiceGrid article,
+.valueGrid article {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.subServiceGrid span {
+  color: var(--muted);
+  font-size: var(--p2);
+}
+
+.subServiceGrid article::after {
+  content: "";
+  position: absolute;
+  inset: auto 2.5rem 2.5rem auto;
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.capabilityGrid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  background: transparent;
+}
+
+.capabilityGrid article {
+  min-height: 12rem;
+  display: flex;
+  align-items: flex-end;
+  border-left: 0.45rem solid var(--primary);
+  background: #f6f6f6;
+}
+
+.capabilityGrid article:first-child {
+  grid-column: span 2;
+  min-height: 24rem;
+  background: #000;
+  color: #fff;
+}
+
+.capabilityGrid article:first-child p {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.valueGrid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  background: transparent;
+}
+
+.valueGrid article {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(22rem, 0.32fr) minmax(0, 1fr);
+  gap: 5rem;
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+}
+
+.valueGrid article:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.valueGrid h3 {
+  font-size: var(--p1);
+  letter-spacing: 0.06em;
+}
+
 .processGrid h3,
 .techGrid h3,
+.subServiceGrid h3,
+.capabilityGrid h3,
+.valueGrid h3,
 .officeGrid h2,
 .jobDetail h2,
 .articleBody h2,
@@ -1055,6 +1349,9 @@ mark::before,
 }
 
 .processGrid p,
+.subServiceGrid p,
+.capabilityGrid p,
+.valueGrid p,
 .officeGrid p,
 .jobDetail p,
 .jobDetail li {
@@ -1062,6 +1359,208 @@ mark::before,
   color: var(--muted);
   font-size: var(--p2);
   line-height: 1.45;
+}
+
+.serviceProcessGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+  border-top: 0;
+  background: transparent;
+}
+
+.serviceProcessGrid article {
+  position: relative;
+  min-height: 31rem;
+  display: grid;
+  align-content: space-between;
+  gap: 4rem;
+  padding: 3rem;
+  border: 1px solid var(--line);
+  background: #f6f6f6;
+  overflow: hidden;
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.serviceProcessGrid article:nth-child(2n) {
+  padding-left: 3rem;
+  border-left: 1px solid var(--line);
+}
+
+.serviceProcessGrid article::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 7rem;
+  height: 0.45rem;
+  background: var(--primary);
+}
+
+.serviceProcessGrid article:hover {
+  border-color: rgba(0, 0, 0, 0.24);
+  background: #fff;
+  transform: translateY(-0.4rem);
+}
+
+.serviceProcessGrid span {
+  position: absolute;
+  top: 2.4rem;
+  right: 2.4rem;
+  color: rgba(0, 0, 0, 0.08);
+  font-size: clamp(7rem, 7vw, 12rem);
+  line-height: 0.72;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+
+.serviceProcessGrid h3 {
+  position: relative;
+  max-width: 36rem;
+  margin: 7rem 0 2rem;
+  font-size: var(--h3);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.serviceProcessGrid p {
+  position: relative;
+  max-width: 48rem;
+}
+
+.journeySection {
+  position: relative;
+  display: grid;
+  gap: 6rem;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+.journeySection::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 34rem;
+  background:
+    linear-gradient(90deg, rgba(243, 237, 72, 0.16), transparent 42%),
+    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.06));
+  pointer-events: none;
+}
+
+.journeySection > div:first-child {
+  position: relative;
+  z-index: 1;
+  max-width: 96rem;
+}
+
+.journeySection h2,
+.journeySection h3 {
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+.journeySection h2 {
+  margin-top: 3rem;
+  font-size: var(--h2);
+  line-height: 1.1;
+}
+
+.journeySection h3 {
+  margin-top: 3rem;
+  font-size: var(--h3);
+  line-height: 1.25;
+}
+
+.journeySection p {
+  max-width: 78rem;
+  margin: 2rem 0 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.journeyFlow {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 1.2rem;
+  padding-top: 3.2rem;
+  background: transparent;
+}
+
+.journeyFlow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary), rgba(255, 255, 255, 0.22));
+}
+
+.journeyStep {
+  position: relative;
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.journeyStep::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6.4rem;
+  height: 0.45rem;
+  background: var(--primary);
+}
+
+.journeyStep:hover {
+  border-color: rgba(243, 237, 72, 0.55);
+  background: rgba(243, 237, 72, 0.12);
+  transform: translateY(-0.4rem);
+}
+
+.journeyStep span {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: var(--small);
+  line-height: 1;
+}
+
+.journeyStep strong {
+  max-width: 18rem;
+  font-size: clamp(1.6rem, 1.15vw, 2.2rem);
+  font-weight: 300;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.journeyNote {
+  position: relative;
+  z-index: 1;
+  margin-top: 0 !important;
+  color: #fff !important;
+  font-size: var(--h3) !important;
+  line-height: 1.3 !important;
+}
+
+.insightOnlyCard {
+  justify-content: space-between;
+  padding: 2rem;
 }
 
 .techGrid img {
@@ -1148,10 +1647,14 @@ mark::before,
 
 .aboutHeroMedia p {
   max-width: 62rem;
-  margin: 0;
+  margin: 0 0 2rem;
   color: var(--muted);
   font-size: var(--p1);
   line-height: 1.4;
+}
+
+.aboutHeroMedia p:last-child {
+  margin-bottom: 0;
 }
 
 .statsBand > div {
@@ -1196,6 +1699,524 @@ mark::before,
   width: 34rem;
   aspect-ratio: 0.86;
   object-fit: cover;
+}
+
+.evolutionSection {
+  background: #000;
+  color: #fff;
+}
+
+.evolutionSection .sectionHead p {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.evolutionFlow {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.evolutionFlow article {
+  position: relative;
+  min-height: 26rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.4rem;
+  background: #111;
+  overflow: hidden;
+}
+
+.evolutionFlow article::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 5.6rem;
+  height: 0.45rem;
+  background: var(--primary);
+}
+
+.evolutionFlow span {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: var(--small);
+}
+
+.evolutionFlow strong {
+  font-size: clamp(1.6rem, 1.2vw, 2.2rem);
+  font-weight: 300;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.aboutStrengths {
+  background: #f6f6f6;
+}
+
+.aboutStrengths article {
+  display: grid;
+  grid-template-columns: minmax(24rem, 0.35fr) minmax(0, 1fr);
+  gap: 5rem;
+  padding: 4rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.aboutStrengths h3 {
+  margin: 0;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.aboutStrengths p {
+  max-width: 78rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.clientWall > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.clientWall span {
+  min-height: 14rem;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: #fff;
+  font-size: var(--h3);
+  line-height: 1;
+  text-align: center;
+  text-transform: none;
+}
+
+.labHero {
+  min-height: 92rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(34rem, 0.75fr);
+  gap: 7rem;
+  align-items: center;
+  padding-top: 16rem;
+}
+
+.labHero > div:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.labHero p {
+  max-width: 76rem;
+  margin: 0 0 3rem;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.labHero > div:first-child > p:first-child {
+  font-size: var(--p1);
+}
+
+.labHero h1 {
+  max-width: 100rem;
+  margin: 0 0 4rem;
+  font-size: var(--h1);
+  font-weight: 300;
+  line-height: 1.03;
+  letter-spacing: 0;
+}
+
+.labHero h1 span {
+  display: block;
+}
+
+.labCanvas {
+  position: relative;
+  min-height: 58rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    #f6f6f6;
+  background-size: 5.2rem 5.2rem;
+  overflow: hidden;
+}
+
+.labCanvas::before,
+.labCanvas::after {
+  content: "";
+  position: absolute;
+  border: 2px solid var(--primary);
+}
+
+.labCanvas::before {
+  inset: 11rem 7rem auto auto;
+  width: 18rem;
+  height: 12rem;
+}
+
+.labCanvas::after {
+  left: 5rem;
+  bottom: 7rem;
+  width: 24rem;
+  height: 14rem;
+  border-color: #000;
+}
+
+.labCanvas span {
+  position: absolute;
+  left: calc(8% + (var(--i) % 3) * 28%);
+  top: calc(10% + var(--i) * 10.5%);
+  max-width: 18rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  background: rgba(255, 255, 255, 0.82);
+  font-size: var(--small);
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  animation: labSignal 4.8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.42s);
+}
+
+.labPurpose {
+  background: #f6f6f6;
+}
+
+.labPurpose .sectionHead p:last-child,
+.industryIndex .sectionHead p:last-child {
+  max-width: 86rem;
+  color: var(--muted);
+  font-size: var(--p2);
+}
+
+.labProgression {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  background: var(--line);
+}
+
+.labProgression span {
+  flex: 1 1 18rem;
+  min-height: 12rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  background: #fff;
+  font-size: var(--p2);
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+.labProjects {
+  background: #fff;
+}
+
+.labProjectStack {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.labProject {
+  display: grid;
+  grid-template-columns: minmax(32rem, 0.8fr) minmax(32rem, 1fr) minmax(26rem, 0.55fr);
+  min-height: 48rem;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.labProjectVisual {
+  position: relative;
+  min-height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+.labProjectVisual div {
+  position: absolute;
+  border: 1px solid var(--primary);
+}
+
+.labProject.shelf .labProjectVisual div:nth-child(1) {
+  inset: 15% 15% auto 12%;
+  height: 7rem;
+}
+
+.labProject.shelf .labProjectVisual div:nth-child(2) {
+  inset: 36% 28% auto 18%;
+  height: 9rem;
+}
+
+.labProject.shelf .labProjectVisual div:nth-child(3) {
+  inset: 61% 14% auto 32%;
+  height: 8rem;
+}
+
+.labProject.space .labProjectVisual {
+  background:
+    radial-gradient(circle at 30% 35%, rgba(243, 237, 72, 0.55), transparent 18%),
+    radial-gradient(circle at 64% 58%, rgba(243, 237, 72, 0.32), transparent 22%),
+    #0a0a0a;
+}
+
+.labProject.space .labProjectVisual div,
+.labProject.flow .labProjectVisual div {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  background: var(--primary);
+  animation: labPoint 5s ease-in-out infinite;
+}
+
+.labProject.space .labProjectVisual div:nth-child(1),
+.labProject.flow .labProjectVisual div:nth-child(1) {
+  left: 24%;
+  top: 24%;
+}
+
+.labProject.space .labProjectVisual div:nth-child(2),
+.labProject.flow .labProjectVisual div:nth-child(2) {
+  left: 62%;
+  top: 46%;
+  animation-delay: -1s;
+}
+
+.labProject.space .labProjectVisual div:nth-child(3),
+.labProject.flow .labProjectVisual div:nth-child(3) {
+  left: 44%;
+  top: 68%;
+  animation-delay: -2s;
+}
+
+.labProject.aml .labProjectVisual,
+.labProject.procure .labProjectVisual,
+.labProject.knowledge .labProjectVisual {
+  background:
+    linear-gradient(90deg, rgba(243, 237, 72, 0.18), transparent 40%),
+    #0a0a0a;
+}
+
+.labProject.aml .labProjectVisual div,
+.labProject.procure .labProjectVisual div,
+.labProject.knowledge .labProjectVisual div {
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.labProject.aml .labProjectVisual div:nth-child(1),
+.labProject.procure .labProjectVisual div:nth-child(1),
+.labProject.knowledge .labProjectVisual div:nth-child(1) {
+  top: 28%;
+}
+
+.labProject.aml .labProjectVisual div:nth-child(2),
+.labProject.procure .labProjectVisual div:nth-child(2),
+.labProject.knowledge .labProjectVisual div:nth-child(2) {
+  top: 45%;
+}
+
+.labProject.aml .labProjectVisual div:nth-child(3),
+.labProject.procure .labProjectVisual div:nth-child(3),
+.labProject.knowledge .labProjectVisual div:nth-child(3) {
+  top: 62%;
+}
+
+.labProjectCopy,
+.labProjectMetrics {
+  padding: 3rem;
+}
+
+.labProjectCopy {
+  display: flex;
+  flex-direction: column;
+}
+
+.labProjectCopy > span,
+.labProjectMetrics > span {
+  color: var(--muted);
+  font-size: var(--small);
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+}
+
+.labProjectCopy h3 {
+  margin: auto 0 2rem;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.05;
+}
+
+.labProjectCopy h4 {
+  max-width: 48rem;
+  margin: 0 0 2rem;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.labProjectCopy p {
+  max-width: 62rem;
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.labProjectMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-left: 1px solid var(--line);
+  background: #f6f6f6;
+}
+
+.labProjectMetrics strong {
+  display: block;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--line);
+  font-size: var(--small);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.industryIndex > div:last-child {
+  border-top: 1px solid var(--line);
+}
+
+.industryIndex article {
+  display: grid;
+  grid-template-columns: minmax(32rem, 0.48fr) minmax(0, 1fr);
+  gap: 5rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.industryIndex h3 {
+  margin: 0;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.industryIndex p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.labReality {
+  background: #000;
+  color: #fff;
+}
+
+.realityPath {
+  display: grid;
+  gap: 2rem;
+}
+
+.realityPath > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.realityPath span {
+  min-height: 10rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  color: #fff;
+  font-size: var(--p2);
+  line-height: 1.2;
+}
+
+.realityPath > div:first-child span {
+  flex: 1 1 24rem;
+}
+
+.realityPath > div:last-child {
+  padding-left: 18%;
+}
+
+.realityPath > div:last-child span {
+  flex: 1 1 28rem;
+  border-color: var(--primary);
+}
+
+.statusSystem h2 {
+  margin: 0 0 5rem;
+  font-size: var(--h2);
+  font-weight: 300;
+}
+
+.statusSystem > div {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.statusSystem article {
+  min-height: 20rem;
+  padding: 2.4rem;
+  background: #fff;
+}
+
+.statusSystem h3 {
+  margin: 0 0 4rem;
+  font-size: var(--p2);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.statusSystem p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.labBuild {
+  background: #000;
+  color: #fff;
+}
+
+.labBuild > p:first-child {
+  margin: 0 0 3rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: var(--p1);
+}
+
+.labBuild h2 {
+  max-width: 86rem;
+  margin: 0 0 3rem;
+  font-size: var(--h1-booking);
+  font-weight: 300;
+  line-height: 1.05;
+}
+
+.labBuild > p:not(:first-child) {
+  max-width: 78rem;
+  margin: 0 0 5rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.labBuild > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
 }
 
 .contactForm {
@@ -1292,6 +2313,89 @@ mark::before,
   font-size: var(--p2);
 }
 
+.caseJourney {
+  background: #f6f6f6;
+}
+
+.caseJourneyGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.caseJourneyGrid article {
+  min-height: 28rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.4rem;
+  background: #fff;
+}
+
+.caseJourneyGrid span {
+  color: var(--muted);
+  font-size: var(--small);
+}
+
+.caseJourneyGrid h3 {
+  margin: auto 0 2rem;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+.caseJourneyGrid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--small);
+  line-height: 1.45;
+}
+
+.caseJourney .contentNote {
+  color: var(--muted);
+}
+
+.caseSystem {
+  background: #000;
+  color: #fff;
+}
+
+.caseSystemFlow {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.caseSystemFlow span {
+  min-height: 15rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  background: #111;
+  font-size: var(--small);
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.caseMarketList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.caseMarketList span {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 0.65rem 1.4rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: var(--small);
+  line-height: 1.2;
+}
+
 .articleMediaGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1347,6 +2451,28 @@ mark::before,
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes labSignal {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-0.6rem);
+  }
+}
+
+@keyframes labPoint {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(3.2rem, 1.8rem);
   }
 }
 
@@ -1475,8 +2601,28 @@ mark::before,
   .identityPanel,
   .aboutHeroMedia,
   .booking,
+  .labHero,
+  .labProject,
+  .industryIndex article,
   .footer {
     grid-template-columns: 1fr;
+  }
+
+  .labCanvas {
+    min-height: 42rem;
+  }
+
+  .labProjectVisual {
+    min-height: 32rem;
+  }
+
+  .labProjectMetrics {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .statusSystem > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .identityMedia,
@@ -1487,6 +2633,11 @@ mark::before,
   .booking {
     min-height: 82rem;
     align-items: start;
+  }
+
+  .principleGrid,
+  .journeyFlow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .bookingVideo {
@@ -1681,6 +2832,13 @@ mark::before,
     font-size: 3.6rem;
   }
 
+  .showreelLabel {
+    right: var(--page-x);
+    bottom: 2rem;
+    max-width: 24rem;
+    font-size: var(--p2);
+  }
+
   .showreelMarquee span::before {
     margin: 0 0.75rem;
   }
@@ -1729,6 +2887,8 @@ mark::before,
   .listingGrid,
   .workGrid,
   .newsGrid,
+  .labGrid,
+  .principleGrid,
   .aboutHeroMedia,
   .detailLayout,
   .caseDetail,
@@ -1737,20 +2897,89 @@ mark::before,
   .numberedSection,
   .processGrid,
   .techGrid,
+  .subServiceGrid,
+  .capabilityGrid,
+  .valueGrid,
   .officeGrid,
   .statsBand > div,
+  .evolutionFlow,
+  .aboutStrengths article,
+  .clientWall > div:last-child,
+  .caseJourneyGrid,
+  .caseSystemFlow,
+  .statusSystem > div,
   .contactForm > div,
   .portfolioLinks > div,
   .jobDetail,
   .storyStack article,
-  .articleMediaGrid {
+  .articleMediaGrid,
+  .journeyFlow {
     grid-template-columns: 1fr;
   }
 
   .numberedSection > h2,
+  .sectionIntro,
   .processGrid,
-  .techGrid {
+  .techGrid,
+  .subServiceGrid,
+  .capabilityGrid,
+  .valueGrid {
     grid-column: 1;
+  }
+
+  .capabilityLine {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 0;
+  }
+
+  .subServiceGrid article,
+  .subServiceGrid article:nth-child(1),
+  .subServiceGrid article:nth-child(6),
+  .capabilityGrid article:first-child {
+    grid-column: auto;
+  }
+
+  .subServiceGrid article,
+  .capabilityGrid article,
+  .valueGrid article {
+    min-height: 0;
+  }
+
+  .valueGrid article {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2.8rem 0;
+  }
+
+  .journeyFlow {
+    gap: 1.4rem;
+    padding-top: 2.8rem;
+  }
+
+  .journeyStep {
+    min-height: 13rem;
+  }
+
+  .journeyStep::before {
+    width: 5.4rem;
+  }
+
+  .serviceProcessGrid article,
+  .serviceProcessGrid article:nth-child(2n) {
+    min-height: 23rem;
+    padding: 2.4rem;
+    border-left: 0;
+  }
+
+  .serviceProcessGrid span {
+    top: 2rem;
+    right: 2rem;
+    font-size: 6.4rem;
+  }
+
+  .serviceProcessGrid h3 {
+    margin-top: 5.5rem;
   }
 
   .listingCard,
@@ -1763,6 +2992,52 @@ mark::before,
 
   .imageMarquee img {
     width: 24rem;
+  }
+
+  .evolutionFlow article,
+  .caseJourneyGrid article,
+  .caseSystemFlow span,
+  .clientWall span {
+    min-height: 13rem;
+  }
+
+  .aboutStrengths article {
+    gap: 1.5rem;
+    padding: 3rem 0;
+  }
+
+  .labHero {
+    min-height: 0;
+    gap: 4rem;
+    padding-top: 12rem;
+  }
+
+  .labCanvas {
+    min-height: 34rem;
+  }
+
+  .labCanvas span {
+    max-width: 14rem;
+    font-size: 1.1rem;
+  }
+
+  .labProgression span,
+  .realityPath span,
+  .statusSystem article {
+    min-height: 11rem;
+  }
+
+  .labProjectCopy,
+  .labProjectMetrics {
+    padding: 2.4rem;
+  }
+
+  .labProjectCopy h3 {
+    margin-top: 5rem;
+  }
+
+  .realityPath > div:last-child {
+    padding-left: 0;
   }
 
   .storyStack h2,

@@ -3,7 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "MomentumX",
-  description: "MomentumX is a new digital services company with Momentum heritage, building websites, apps, AI tools, commerce, and digital platforms."
+  description:
+    "MomentumX is a Digital & AI Transformation company helping businesses transform through technology, intelligence, and innovation."
 };
 
 export default function RootLayout({

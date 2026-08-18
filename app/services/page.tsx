@@ -7,8 +7,8 @@ export default function ServicesPage() {
       <SiteHeader />
       <PageHero
         eyebrow="our services"
-        title="helping brands by building elegant & refined digital experiences"
-        summary="Digital services that support websites, apps, AI workflows, commerce, platforms, content, and long-term customer engagement."
+        title="Digital & AI transformation, built around your business."
+        summary="From AI strategy and intelligent systems to enterprise platforms and connected experiences, we bring together the expertise needed to advise, build, integrate and scale."
       />
       <section className="listingGrid sectionPad">
         {services.map((service, index) => (
