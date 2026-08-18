@@ -62,13 +62,13 @@ const services = [
     number: "08",
     slug: "cloud-and-infrastructure",
     title: "cloud & infrastructure",
-    image: "/assets/imgs/services-6.png"
+    image: "/assets/imgs/services-8.png"
   },
   {
     number: "09",
     slug: "managed-services",
     title: "managed services",
-    image: "/assets/imgs/services-7.png"
+    image: "/assets/imgs/services-9.png"
   }
 ];
 
@@ -124,6 +124,14 @@ const cases = [
       "Bringing data and intelligence into physical and digital consumer engagement.",
     tags: "DATA · DIGITAL · EXPERIENCE",
     href: "/cases/taste-of-abu-dhabi"
+  },
+  {
+    brand: "Nolte",
+    title: "Digital Growth Platform",
+    body:
+      "Creating a premium product-discovery and lead-generation platform, extended with an AI knowledge assistant for multi-market expansion.",
+    tags: "AI · PLATFORM · CMS",
+    href: "/cases/nolte-digital-transformation"
   }
 ];
 
@@ -198,14 +206,17 @@ export default function Home() {
       </section>
 
       <section className="showreel reveal">
-        <video
-          src="https://customer-d1g9djed8qknar4r.cloudflarestream.com/d750f8048b43ed107e82597ce328be4f/downloads/default.mp4"
-          poster="https://storage.tentwenty.com/small_play_showreel_dca84a2c40.webp"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <div className="showreelMedia">
+          <video
+            src="https://customer-d1g9djed8qknar4r.cloudflarestream.com/d750f8048b43ed107e82597ce328be4f/downloads/default.mp4"
+            poster="https://storage.tentwenty.com/small_play_showreel_dca84a2c40.webp"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <div className="showreelLabel" key={showreelLabel}>{showreelLabel}</div>
+        </div>
         <div className="showreelMarquee">
           <div>
             {repeatedShowreel.map((label, index) => (
@@ -213,7 +224,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="showreelLabel" key={showreelLabel}>{showreelLabel}</div>
       </section>
 
       <section className="services sectionPad reveal" id="services">

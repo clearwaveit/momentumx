@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import { ContactForm } from "../contact-form";
 import { PageHero, SiteFooter, SiteHeader } from "../site-components";
 import { aboutPage, contactPage, innovationLabPage, utilityPages } from "../site-data";
 
@@ -65,7 +66,7 @@ export default async function UtilityPage({
           </div>
           <div className="labCanvas" aria-hidden="true">
             {innovationLabPage.hero.fragments.map((fragment, index) => (
-              <span key={fragment} style={{ "--i": index } as CSSProperties}>
+              <span key={fragment} style={{ "--i": index, "--col": index % 3 } as CSSProperties}>
                 {fragment}
               </span>
             ))}
@@ -277,18 +278,7 @@ export default async function UtilityPage({
               </article>
             ))}
           </section>
-          <section className="contactForm sectionPad">
-            <h2>send us a message</h2>
-            <div>
-              <input placeholder="name" />
-              <input placeholder="email" />
-              <input placeholder="company" />
-              <textarea placeholder="tell us about your project!" />
-            </div>
-            <a className="buttonLink" href="mailto:hello@momentumx.com">
-              submit enquiry
-            </a>
-          </section>
+          <ContactForm />
           <section className="portfolioLinks sectionPad">
             <h2>Portfolios</h2>
             <div>

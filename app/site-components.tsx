@@ -1,27 +1,120 @@
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { usePathname } from "next/navigation";
 import { navItems } from "./site-data";
+
+export function RevealObserver() {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const sections = [
+      ...document.querySelectorAll<HTMLElement>("main > section, main > article, main > footer")
+    ];
+    const slides = [...document.querySelectorAll<HTMLElement>(".caseGallery figure")];
+
+    if (!sections.length && !slides.length) {
+      return;
+    }
+
+    const markVisible = (element: Element) => {
+      element.classList.add("isInView");
+    };
+
+    const inView = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            markVisible(entry.target);
+            inView.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    sections.forEach((element) => {
+      if (element.classList.contains("caseGallery")) {
+        markVisible(element);
+        return;
+      }
+
+      const rect = element.getBoundingClientRect();
+      const alreadyVisible = rect.top < window.innerHeight * 0.92 && rect.bottom > 48;
+
+      if (alreadyVisible) {
+        markVisible(element);
+      } else {
+        inView.observe(element);
+      }
+    });
+
+    slides.forEach((slide) => inView.observe(slide));
+
+    return () => inView.disconnect();
+  }, [pathname]);
+
+  return null;
+}
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  return (
-    <header className="siteHeader">
-      <a className="logo" href="/" aria-label="MomentumX home">
-        MomentumX
-      </a>
-      <nav className={menuOpen ? "nav isOpen" : "nav"} aria-label="Primary navigation">
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    setMenuOpen((open) => !open);
+  };
+
+  const overlay = (
+    <nav
+      className={menuOpen ? "navOverlay isOpen" : "navOverlay"}
+      aria-label="Mobile navigation"
+      aria-hidden={!menuOpen}
+    >
+      <div className="navOverlayBar">
+        <a className="logo" href="/" aria-label="MomentumX home" onClick={closeMenu}>
+          MomentumX
+        </a>
+        <button type="button" className="menuButton" onPointerUp={closeMenu}>
+          close
+        </button>
+      </div>
+      <div className="navOverlayLinks">
         {navItems.map((item) => (
-          <a key={item.href} href={item.href}>
+          <a key={item.href} href={item.href} onClick={closeMenu}>
             {item.label}
           </a>
         ))}
-      </nav>
-      <button className="menuButton" onClick={() => setMenuOpen((open) => !open)}>
-        {menuOpen ? "close" : "menu"}
-      </button>
-    </header>
+      </div>
+    </nav>
+  );
+
+  return (
+    <>
+      <header className="siteHeader">
+        <a className="logo" href="/" aria-label="MomentumX home">
+          MomentumX
+        </a>
+        <nav className="nav" aria-label="Primary navigation">
+          {navItems.map((item) => (
+            <a key={item.href} href={item.href}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <button type="button" className="menuButton" onPointerUp={toggleMenu}>
+          menu
+        </button>
+      </header>
+      {mounted ? createPortal(overlay, document.body) : null}
+    </>
   );
 }
 
@@ -38,15 +131,17 @@ export function SiteFooter() {
       <div>
         <h3>Dubai Office</h3>
         <p>605, Tower A, Empire Heights, Business Bay, Dubai</p>
-        <a className="textLink" href="https://maps.app.goo.gl/2wv4CWYZo7KxQvYM8">
-          Get Directions
-        </a>
-        <a className="textLink" href="/careers">
-          Careers
-        </a>
-        <a className="textLink" href="/book-meeting">
-          Plan Appointment
-        </a>
+        <div className="footerLinks">
+          <a className="textLink" href="https://maps.app.goo.gl/2wv4CWYZo7KxQvYM8">
+            Get Directions
+          </a>
+          <a className="textLink" href="/careers">
+            Careers
+          </a>
+          <a className="textLink" href="/book-meeting">
+            Plan Appointment
+          </a>
+        </div>
       </div>
       <div>
         <h3>Get in touch</h3>
@@ -124,6 +219,12 @@ export function AutoRail({ children, className = "caseRail" }: { children: React
       return;
     }
 
+    const getStep = () => {
+      const card = rail.querySelector<HTMLElement>(":scope > *");
+      const gap = Number.parseFloat(window.getComputedStyle(rail).columnGap) || 0;
+      return (card?.getBoundingClientRect().width ?? Math.max(rail.clientWidth * 0.36, 280)) + gap;
+    };
+
     const timer = window.setInterval(() => {
       if (rail.matches(":hover")) {
         return;
@@ -137,7 +238,7 @@ export function AutoRail({ children, className = "caseRail" }: { children: React
       if (rail.scrollLeft >= maxScroll - 8) {
         rail.scrollTo({ left: 0, behavior: "smooth" });
       } else {
-        rail.scrollBy({ left: Math.max(rail.clientWidth * 0.36, 280), behavior: "smooth" });
+        rail.scrollBy({ left: getStep(), behavior: "smooth" });
       }
     }, 2600);
 
@@ -148,5 +249,25 @@ export function AutoRail({ children, className = "caseRail" }: { children: React
     <div className={`${className} autoRail`} ref={railRef}>
       {children}
     </div>
+  );
+}
+
+export function CaseGallery({
+  items
+}: {
+  items: { title: string; body?: string; image: string }[];
+}) {
+  return (
+    <section className="caseGallery sectionPad">
+      {items.map((media, index) => (
+        <figure key={media.title}>
+          <img src={media.image} alt={media.title} />
+          <figcaption>
+            {String(index + 1).padStart(2, "0")}: {media.title}
+            {media.body ? ` - ${media.body}` : ""}
+          </figcaption>
+        </figure>
+      ))}
+    </section>
   );
 }
