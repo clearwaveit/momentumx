@@ -1,6 +1,97 @@
 import { notFound } from "next/navigation";
-import { AutoRail, CtaBand, MediaBlock, PageHero, SiteFooter, SiteHeader } from "../../site-components";
+import { AutoRail, CoverScroll, CtaBand, MediaBlock, PageHero, SiteFooter, SiteHeader } from "../../site-components";
 import { cases, posts, serviceDetailBlocks, servicePageDetails, services } from "../../site-data";
+
+const figmaAssets = {
+  hero: "/assets/figma/service-detail/hero.png",
+  principles: [
+    "/assets/figma/service-detail/principle-1.png",
+    "/assets/figma/service-detail/principle-2.png",
+    "/assets/figma/service-detail/principle-3.png"
+  ],
+  execution: "/assets/figma/service-detail/execution.png",
+  capabilityLarge: "/assets/figma/service-detail/capability-large.png",
+  capabilitySmall: "/assets/figma/service-detail/capability-small.png",
+  cta: "/assets/figma/service-detail/cta.png",
+  otherServices: [
+    "/assets/figma/service-detail/service-ai.png",
+    "/assets/figma/service-detail/service-auto.png",
+    "/assets/figma/service-detail/service-data.png"
+  ]
+};
+
+const coverIcons = [
+  "/assets/figma/service-detail/Simplification (1).png",
+  "/assets/figma/service-detail/Simplification.png",
+  "/assets/figma/service-detail/Simplification (2).png",
+  "/assets/figma/service-detail/Simplification (3).png"
+];
+
+const coverCards = [
+  {
+    title: "AI Readiness Assessment",
+    body: "Assess your data, technology, processes, capabilities and organisational readiness for AI adoption."
+  },
+  {
+    title: "AI Strategy & Roadmaps",
+    body: "Define where AI fits within your organisation and establish a prioritised implementation roadmap."
+  },
+  {
+    title: "AI Opportunity Discovery",
+    body: "Turn promising opportunities into prototypes and PoCs to validate feasibility and business potential."
+  },
+  {
+    title: "Digital Transformation Consulting",
+    body: "Identify where technology can improve processes, customer experiences and business models beyond AI alone."
+  },
+  {
+    title: "AI Governance & Responsible AI",
+    body: "Establish practical frameworks for security, privacy, governance, human oversight and responsible adoption."
+  },
+  {
+    title: "Proof of Concept Development",
+    body: "Turn promising opportunities into prototypes and PoCs to validate feasibility and business potential."
+  },
+  {
+    title: "AI Adoption & Change Management",
+    body: "Help teams integrate new technologies into day-to-day operations through adoption planning and enablement."
+  },
+  {
+    title: "Executive & Team AI Training",
+    body: "Practical workshops designed around how leadership and teams can use AI within their organisation."
+  }
+];
+
+const coverMarks = [
+  "/assets/figma/service-detail/water-mark-x-1.png",
+  "/assets/figma/service-detail/water-mark-x-2.png"
+];
+
+const valueCards = [
+  {
+    title: "Customer Experience",
+    body: "AI assistants, personalisation and customer intelligence designed around moments that matter."
+  },
+  {
+    title: "Sales & Marketing",
+    body: "Lead intelligence, content workflows, recommendations and automation across growth teams."
+  },
+  {
+    title: "Operations",
+    body: "Process automation, knowledge AI and document intelligence for everyday work."
+  },
+  {
+    title: "Finance & Compliance",
+    body: "Document processing, risk intelligence and practical compliance assistance."
+  }
+];
+
+function toFigmaTitle(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/\b\w/g, (letter) => letter.toUpperCase())
+    .replace(/\s*-\s*/g, " - ");
+}
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -24,6 +115,192 @@ export default async function ServiceDetailPage({
     const relatedServices = detail.otherServices
       .map((relatedSlug) => services.find((item) => item.slug === relatedSlug))
       .filter((item): item is (typeof services)[number] => Boolean(item));
+
+    if (service.slug === "ai-consulting-and-transformation") {
+      return (
+        <main className="figmaServiceDetail">
+          <SiteHeader />
+          <section className="figmaServiceHero sectionPad">
+            <div className="figmaServiceHeroCopy">
+              <h1 aria-label="AI consulting & transformation">
+                <span>AI consulting</span>
+                <span>&amp; transformation</span>
+              </h1>
+              <p>{detail.hero.summary}</p>
+            </div>
+            <a className="buttonLink" href="/enquiry">
+              Start a conversation
+            </a>
+          </section>
+          <section className="figmaHeroMedia">
+            <img src={figmaAssets.hero} alt="" />
+          </section>
+          <section className="figmaIntro sectionPad">
+            <h2>{detail.intro.title}</h2>
+            <div>
+              <p>{detail.intro.lead}</p>
+              {detail.intro.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </section>
+          <section className="figmaPrinciples sectionPad">
+            {detail.intro.principles.map((principle, index) => (
+              <article key={principle.title}>
+                <img src={figmaAssets.principles[index]} alt="" />
+                <h3>{toFigmaTitle(principle.title)}</h3>
+                <p>{principle.body}</p>
+              </article>
+            ))}
+          </section>
+          <section className="figmaCover sectionPad">
+            <CoverScroll
+              heading={
+                <>
+                  <div className="figmaLabel">
+                    <span />
+                    <p>{detail.subServices.title}</p>
+                  </div>
+                  <h2>AI Consulting &amp; Transformation</h2>
+                </>
+              }
+            >
+              {coverCards.map((item, index) => (
+                <article key={item.title}>
+                  {coverMarks.map((mark) => (
+                    <img key={mark} className="figmaSubServiceMark" src={mark} alt="" />
+                  ))}
+                  <span>
+                    <img src={coverIcons[index % coverIcons.length]} alt="" />
+                  </span>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </CoverScroll>
+          </section>
+          <section className="figmaWork">
+            <div className="figmaWorkHeading sectionPad">
+              <span>How we work</span>
+              <h2>{detail.process.title}</h2>
+            </div>
+            <div className="figmaProcess">
+              {detail.process.items.map((step, index) => (
+                <article key={step.title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+          <section className="figmaExecution">
+            <img src={figmaAssets.execution} alt="" />
+            <div className="sectionPad">
+              <div className="figmaLabel">
+                <span />
+                <p>From Strategy To Execution</p>
+              </div>
+              <h2>{detail.execution.title}</h2>
+              <p>{detail.execution.body}</p>
+              <div className="figmaExecutionSteps">
+                {detail.execution.steps.map((step) => (
+                  <span key={step}>{step}</span>
+                ))}
+              </div>
+              <strong>{detail.execution.note}</strong>
+            </div>
+          </section>
+          <section className="figmaCapabilities sectionPad">
+            <h2>Technology &amp; Capabilities</h2>
+            <article className="figmaCapabilityLead">
+              <div>
+                <span>01</span>
+                <h3>{detail.capabilities.title}</h3>
+                <p>{detail.capabilities.body}</p>
+              </div>
+              <div className="figmaCapabilityImages">
+                <img src={figmaAssets.capabilitySmall} alt="" />
+                <img src={figmaAssets.capabilityLarge} alt="" />
+              </div>
+            </article>
+            <div className="figmaCapabilityList">
+              {detail.capabilities.items.slice(0, 5).map((item) => (
+                <a key={item} href="/enquiry">
+                  {item}
+                  <span>+</span>
+                </a>
+              ))}
+            </div>
+          </section>
+          <section className="figmaValue sectionPad">
+            <h2>Where This Service Creates Value</h2>
+            <div>
+              {valueCards.map((item, index) => (
+                <article key={item.title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+          <section className="figmaLab sectionPad">
+            <div>
+              <h2>{detail.lab?.title}</h2>
+              <p>{detail.lab?.body}</p>
+            </div>
+            <div className="figmaLabItems">
+              {detail.lab?.items.map((item) => (
+                <article key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+          <section className="figmaInsights sectionPad">
+            <h2>related insights</h2>
+            <div>
+              {detail.insights.slice(0, 3).map((insight) => (
+                <a key={insight} href="/blog">
+                  <strong>{insight}</strong>
+                  <span>April 7, 2025 - News &amp; Insights</span>
+                  <em>Explore more</em>
+                </a>
+              ))}
+            </div>
+          </section>
+          <section className="figmaOtherServices sectionPad">
+            <h2>other services</h2>
+            <div>
+              {relatedServices.slice(0, 3).map((item, index) => (
+                <a key={item.slug} href={`/services/${item.slug}`}>
+                  <img src={figmaAssets.otherServices[index]} alt="" />
+                  <strong>{item.title}</strong>
+                  <span>+</span>
+                </a>
+              ))}
+            </div>
+          </section>
+          <section className="figmaCta sectionPad">
+            <div>
+              <div className="figmaLabel">
+                <span />
+                <p>{detail.cta.eyebrow}</p>
+              </div>
+              <h2>{detail.cta.title}</h2>
+              <p>{detail.cta.body}</p>
+              <a className="buttonLink" href={detail.cta.href}>
+                {detail.cta.label}
+              </a>
+            </div>
+            <img src={figmaAssets.cta} alt="" />
+          </section>
+          <SiteFooter />
+        </main>
+      );
+    }
 
     return (
       <main>

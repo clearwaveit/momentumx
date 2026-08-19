@@ -252,6 +252,114 @@ export function AutoRail({ children, className = "caseRail" }: { children: React
   );
 }
 
+export function CoverScroll({
+  heading,
+  children
+}: {
+  heading: ReactNode;
+  children: ReactNode;
+}) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    const sticky = stickyRef.current;
+    const viewport = viewportRef.current;
+    const track = trackRef.current;
+
+    if (!wrap || !sticky || !viewport || !track) {
+      return;
+    }
+
+    const desktop = window.matchMedia("(min-width: 1181px)");
+    let frame = 0;
+
+    const overflow = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
+
+    const pinTop = () => Math.max(0, (window.innerHeight - sticky.offsetHeight) / 2);
+
+    const layout = () => {
+      if (!desktop.matches) {
+        wrap.style.height = "";
+        sticky.style.height = "";
+        sticky.style.top = "";
+        track.style.transform = "";
+        return;
+      }
+
+      sticky.style.height = "";
+      sticky.style.top = `${pinTop()}px`;
+      wrap.style.height = `${sticky.offsetHeight + overflow()}px`;
+    };
+
+    const paint = () => {
+      frame = 0;
+
+      if (!desktop.matches) {
+        track.style.transform = "";
+        return;
+      }
+
+      const distance = overflow();
+      const start = pinTop();
+      const shifted = Math.min(distance, Math.max(0, start - wrap.getBoundingClientRect().top));
+      track.style.transform = `translate3d(${-shifted}px, 0, 0)`;
+    };
+
+    const onScroll = () => {
+      if (frame) {
+        return;
+      }
+
+      frame = window.requestAnimationFrame(paint);
+    };
+
+    const onResize = () => {
+      layout();
+      paint();
+    };
+
+    layout();
+    window.requestAnimationFrame(() => {
+      layout();
+      paint();
+    });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    desktop.addEventListener("change", onResize);
+
+    const resize = new ResizeObserver(onResize);
+    resize.observe(track);
+    resize.observe(viewport);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      desktop.removeEventListener("change", onResize);
+      resize.disconnect();
+      window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  return (
+    <>
+      {heading}
+      <div className="figmaCoverScroll" ref={wrapRef}>
+        <div className="figmaCoverSticky" ref={stickyRef}>
+          <div className="figmaSubServicesViewport" ref={viewportRef}>
+            <div className="figmaSubServices" ref={trackRef}>
+              {children}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
 export function CaseGallery({
   items
 }: {
