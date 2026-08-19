@@ -2280,6 +2280,253 @@ mark::before,
   gap: 3rem;
 }
 
+.industriesHero {
+  min-height: 78rem;
+  display: grid;
+  align-content: end;
+  gap: 3rem;
+  background:
+    linear-gradient(90deg, rgba(243, 237, 72, 0.12), transparent 42%),
+    radial-gradient(circle at 82% 26%, rgba(0, 0, 0, 0.08), transparent 26rem),
+    #f4f4f4;
+}
+
+.industriesHero p:first-child,
+.industriesIntro span,
+.industryMeta p,
+.industryProof strong,
+.industryLab > div:first-child > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--small);
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+}
+
+.industriesHero h1 {
+  max-width: 110rem;
+  margin: 0;
+  font-size: var(--h1);
+  font-weight: 300;
+  line-height: 0.95;
+}
+
+.industriesHero p:last-child,
+.industriesIntro p,
+.industryCopy > p,
+.industryLab p {
+  max-width: 76rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p1);
+  line-height: 1.45;
+}
+
+.industriesIntro {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.28fr) minmax(0, 1fr);
+  gap: 5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.industriesIntro h2 {
+  max-width: 70rem;
+  margin: 0;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.05;
+}
+
+.industriesIntro p {
+  grid-column: 2;
+  max-width: 86rem;
+}
+
+.industriesEditorial {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.22fr) minmax(0, 1fr);
+  gap: 7rem;
+}
+
+.industriesEditorial aside {
+  position: sticky;
+  top: 10rem;
+  align-self: start;
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.industriesEditorial aside a {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 1.2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+  color: #111;
+  font-size: var(--small);
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.industriesEditorial aside span,
+.industryMeta span {
+  color: var(--muted);
+}
+
+.industriesEditorial > div {
+  border-top: 1px solid var(--line);
+}
+
+.industriesEditorial article {
+  min-height: 56rem;
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.26fr) minmax(0, 1fr);
+  gap: 5rem;
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 9rem;
+}
+
+.industryMeta span {
+  display: block;
+  margin-bottom: 1.8rem;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.industryCopy h2 {
+  max-width: 76rem;
+  margin: 0 0 2.4rem;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.08;
+}
+
+.industryTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 4rem 0;
+}
+
+.industryTags span {
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #111;
+  font-size: var(--small);
+  line-height: 1.2;
+}
+
+.industryProof {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.industryProof > div {
+  min-height: 17rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 2rem;
+  background: #f7f7f7;
+}
+
+.industryProof a,
+.industryProof span {
+  color: #111;
+  font-size: var(--p2);
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.industryProof a {
+  width: fit-content;
+  border-bottom: 1px solid currentColor;
+}
+
+.industryFlow > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 5rem;
+  background: var(--line);
+}
+
+.industryFlow > div:last-child span {
+  min-height: 15rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  background: #fff;
+  color: #111;
+  font-size: var(--small);
+  line-height: 1.35;
+}
+
+.industryFlow > div:last-child span:nth-child(even) {
+  background: #f3f3f3;
+}
+
+.industryLab {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(34rem, 0.3fr);
+  gap: 1px;
+  background: #000;
+  color: #fff;
+}
+
+.industryLab > div {
+  padding: 6rem var(--page-x);
+}
+
+.industryLab > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.industryLab h2 {
+  max-width: 82rem;
+  margin: 0;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.05;
+}
+
+.industryLab p {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.industryLab > div:last-child {
+  display: grid;
+  gap: 1px;
+  padding-left: 0;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.industryLab article {
+  min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.4rem;
+  background: #0b0b0b;
+}
+
+.industryLab strong {
+  font-size: var(--p2);
+  font-weight: 400;
+}
+
+.industryLab span {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: var(--small);
+}
+
 .contactForm {
   background: #000;
   color: #fff;
@@ -2924,6 +3171,10 @@ main > section.caseGallery {
   .labHero,
   .labProject,
   .industryIndex article,
+  .industriesIntro,
+  .industriesEditorial,
+  .industriesEditorial article,
+  .industryLab,
   .footer,
   .detailLayout,
   .caseDetail,
@@ -2962,8 +3213,36 @@ main > section.caseGallery {
     grid-column: 1 / -1;
   }
 
-  .subServiceGrid {
-    grid-template-columns: 1fr;
+  .industriesIntro p {
+    grid-column: 1;
+  }
+
+  .industriesEditorial aside {
+    position: relative;
+    top: auto;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(17rem, max-content);
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+
+  .industriesEditorial aside a {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    padding-right: 2rem;
+  }
+
+  .industriesEditorial article {
+    min-height: 0;
+    gap: 2.4rem;
+  }
+
+  .industryFlow > div:last-child,
+  .industryProof {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .industryLab > div:last-child {
+    padding-left: var(--page-x);
   }
 
   .labCanvas {
@@ -3297,7 +3576,9 @@ main > section.caseGallery {
   .jobDetail,
   .storyStack article,
   .articleMediaGrid,
-  .journeyFlow {
+  .journeyFlow,
+  .industryProof,
+  .industryFlow > div:last-child {
     grid-template-columns: 1fr;
   }
 
@@ -3394,6 +3675,35 @@ main > section.caseGallery {
     min-height: 0;
     gap: 4rem;
     padding-top: 12rem;
+  }
+
+  .industriesHero {
+    min-height: 62rem;
+    padding-top: 12rem;
+  }
+
+  .industriesEditorial {
+    gap: 4rem;
+  }
+
+  .industriesEditorial aside {
+    margin-right: calc(var(--page-x) * -1);
+  }
+
+  .industryMeta span {
+    font-size: 5.4rem;
+  }
+
+  .industryTags {
+    margin: 3rem 0;
+  }
+
+  .industryFlow > div:last-child span {
+    min-height: 10rem;
+  }
+
+  .industryLab > div {
+    padding: 5rem var(--page-x);
   }
 
   .labCanvas {

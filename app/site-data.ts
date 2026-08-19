@@ -943,6 +943,72 @@ export const servicePageDetails: Record<
 
 export const cases = [
   {
+    slug: "whiskas-interactive-cat-game",
+    title: "A game designed for cats, not humans.",
+    client: "Whiskas",
+    summary:
+      "An interactive digital campaign that turned an iPad into a playground for cats and transformed playful moments into campaign entries.",
+    image: "https://storage.tentwenty.com/small_play_showreel_dca84a2c40.webp",
+    logo: "Whiskas",
+    services: [
+      "gamification",
+      "interactive experience",
+      "UGC",
+      "campaign technology",
+      "digital engagement"
+    ]
+  },
+  {
+    slug: "bank-muscat-ibm-api-connect",
+    title: "Building the API layer for connected corporate banking.",
+    client: "Bank Muscat",
+    summary:
+      "Implementation of IBM API Connect, creating a managed API environment for secure B2B and corporate banking connectivity.",
+    image: "https://storage.tentwenty.com/small_AWS_and_Azure_Hosting_1_8f35b1ee0b.webp",
+    logo: "Bank Muscat",
+    services: [
+      "API management",
+      "enterprise integration",
+      "API security",
+      "B2B connectivity",
+      "IBM technology"
+    ]
+  },
+  {
+    slug: "ferrero-back-to-school-campaign",
+    title: "From receipt to reward. In one conversation.",
+    client: "Ferrero Group",
+    summary:
+      "A WhatsApp-first promotional platform connecting receipt submission, OCR processing, campaign qualification and instant-win outcomes.",
+    image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp",
+    logo: "Ferrero Group",
+    services: [
+      "WhatsApp",
+      "OCR",
+      "receipt processing",
+      "qualification engine",
+      "instant-win logic",
+      "campaign operations"
+    ]
+  },
+  {
+    slug: "dentazon-ai-dental-care-platform",
+    title: "From a dental concern to the right care.",
+    client: "Dentazon",
+    summary:
+      "A connected dental-care platform combining AI-assisted guidance, structured patient history, dentist discovery and appointment management.",
+    image: "https://storage.tentwenty.com/small_Mask_group_3_1_96df741620_47c47e2b74.webp",
+    logo: "Dentazon",
+    services: [
+      "AI assistant",
+      "patient experience",
+      "healthcare platform",
+      "dentist discovery",
+      "appointment system",
+      "patient records"
+    ]
+  },
+  {
     slug: "nolte-digital-transformation",
     title: "One digital foundation. Built to grow across markets.",
     client: "Nolte",
@@ -958,6 +1024,23 @@ export const cases = [
       "lead generation",
       "AI knowledge assistant",
       "multi-market platform"
+    ]
+  },
+  {
+    slug: "du-retail-intelligence-platform",
+    title: "Turning every retail visit into market intelligence.",
+    client: "du",
+    summary:
+      "A field intelligence platform designed to transform retail observations, images and video into structured commercial intelligence.",
+    image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp",
+    logo: "du",
+    services: [
+      "enterprise platform",
+      "field operations",
+      "computer vision",
+      "data & BI",
+      "geospatial intelligence",
+      "dashboards"
     ]
   },
   {
@@ -1055,7 +1138,9 @@ export const casePageDetails: Record<
     eyebrow: string;
     metadata: { label: string; value: string }[];
     story: { title: string; body: string }[];
+    builtIntro?: string;
     built: { title: string; body: string }[];
+    journeyEyebrow?: string;
     leadJourney: {
       title: string;
       body: string;
@@ -1069,6 +1154,7 @@ export const casePageDetails: Record<
       steps: string[];
       markets: string[];
     };
+    ecosystemEyebrow?: string;
     capabilities: string[];
     impact: { title: string; body: string }[];
     testimonial?: { quote: string; attribution: string };
@@ -1076,6 +1162,746 @@ export const casePageDetails: Record<
     cta: { eyebrow: string; title: string; body: string; href: string; label: string };
   }
 > = {
+  "whiskas-interactive-cat-game": {
+    eyebrow: "WHISKAS · GAMIFIED CONSUMER EXPERIENCE",
+    metadata: [
+      { label: "Client", value: "Whiskas" },
+      { label: "Engagement", value: "Interactive Cat Game / Gamified Campaign" },
+      {
+        label: "Capabilities",
+        value:
+          "Gamification · Interactive Experience · UGC · Campaign Technology · Digital Engagement"
+      },
+      { label: "Experience", value: "Tablet-based interactive game + video-led campaign participation" }
+    ],
+    story: [
+      {
+        title: "THE IDEA",
+        body:
+          "Instead of creating another digital game for pet owners, the experience was designed around the natural behaviour of cats: curiosity, movement, chasing and play."
+      },
+      {
+        title: "THE INTERACTION",
+        body:
+          "An iPad placed on the floor becomes the play surface. Animated elements appear and move across the display, encouraging the cat to follow, chase and physically interact with the screen."
+      },
+      {
+        title: "THE CONTENT",
+        body:
+          "While the cat plays, the owner records the interaction. The gameplay becomes more than an on-screen experience: it creates authentic, entertaining user-generated content around the brand."
+      },
+      {
+        title: "THE CAMPAIGN",
+        body:
+          "Owners upload their videos as campaign submissions, turning a simple interactive game into a participation mechanic built around pets, people and shareable content."
+      }
+    ],
+    builtIntro:
+      "A playful campaign experience that turns screen interaction into physical play, owner-created video and digital participation.",
+    built: [
+      {
+        title: "Interactive Cat Game",
+        body: "A tablet-based game experience designed specifically around feline interaction."
+      },
+      {
+        title: "Motion-Based Game Mechanics",
+        body: "Animated elements appear and travel across the screen to encourage chasing and tapping."
+      },
+      {
+        title: "Touch Interaction",
+        body: "On-screen reactions are designed around physical interaction with the tablet."
+      },
+      {
+        title: "Campaign Experience",
+        body: "A digital journey connects the game to the wider Whiskas activation."
+      },
+      {
+        title: "UGC Participation Flow",
+        body: "Owners can record and submit their cat's gameplay as campaign participation."
+      },
+      {
+        title: "Video Submission Journey",
+        body: "Owner-recorded content is turned into a structured participation asset."
+      },
+      {
+        title: "Campaign Entry Logic",
+        body: "Valid submissions connect with the campaign entry process."
+      },
+      {
+        title: "Responsive Digital Experience",
+        body: "The campaign experience is designed across the relevant consumer devices and touchpoints."
+      }
+    ],
+    journeyEyebrow: "the campaign journey",
+    leadJourney: {
+      title: "Play. Capture. Upload. Enter.",
+      body:
+        "The campaign turns a tablet game into a fluid participation journey, with the pet as the player and the owner as the content creator.",
+      steps: [
+        { title: "DISCOVER", body: "The owner discovers the Whiskas campaign and interactive cat game." },
+        { title: "OPEN", body: "The game is opened on a tablet or iPad." },
+        { title: "PLACE", body: "The device is placed on the floor within reach of the cat." },
+        { title: "PLAY", body: "Moving interactive elements encourage the cat to chase and tap the screen." },
+        { title: "RECORD", body: "The owner captures the cat's reaction and gameplay on video." },
+        { title: "UPLOAD", body: "The video is submitted through the campaign participation flow." },
+        { title: "ENTER", body: "The content becomes a valid campaign entry according to campaign rules." },
+        { title: "WIN", body: "Selected participants have the opportunity to receive campaign rewards." }
+      ],
+      note:
+        "The public case study avoids inventing scores, leaderboards, voting, moderation or reward mechanics beyond the confirmed campaign journey."
+    },
+    visualStory: [
+      {
+        title: "THE IDEA",
+        body: "A digital game made for a non-human player, with the product's real end beneficiary at the centre.",
+        image: "https://storage.tentwenty.com/small_play_showreel_dca84a2c40.webp"
+      },
+      {
+        title: "THE PLAY",
+        body: "Moving elements trigger curiosity, chasing, tapping and physical interaction with the screen.",
+        image: "https://storage.tentwenty.com/small_Showreel_vertical_09d7c91a59.webp"
+      },
+      {
+        title: "THE MOMENT",
+        body: "The owner captures the interaction as video, turning gameplay into a shareable campaign moment.",
+        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
+      },
+      {
+        title: "THE ENTRY",
+        body: "Video upload and campaign submission turn the owner-recorded moment into participation.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+      },
+      {
+        title: "THE CONTENT",
+        body: "Gameplay becomes user-generated campaign material built around authentic pet-owner moments.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+      }
+    ],
+    ecosystemEyebrow: "the experience architecture",
+    ecosystem: {
+      title: "A simple experience. A connected campaign journey.",
+      body:
+        "The strength of the campaign is its simplicity at the front end: the technology creates a playful trigger, while the participation journey converts that moment into campaign engagement.",
+      steps: [
+        "WHISKAS CAMPAIGN",
+        "INTERACTIVE TABLET GAME",
+        "CAT INTERACTION",
+        "OWNER VIDEO",
+        "UPLOAD / SUBMISSION",
+        "CAMPAIGN ENTRY",
+        "WINNER / REWARD PROCESS"
+      ],
+      markets: ["THE PET", "THE OWNER", "THE BRAND"]
+    },
+    capabilities: [
+      "Interactive Game",
+      "Motion Mechanics",
+      "Touch Interaction",
+      "Campaign Experience",
+      "UGC Flow",
+      "Video Submission",
+      "Campaign Entry Logic",
+      "Digital Engagement"
+    ],
+    impact: [
+      {
+        title: "PET-FIRST INTERACTION",
+        body: "A digital experience designed around the behaviour of the product's real end beneficiary."
+      },
+      {
+        title: "OWNER ENGAGEMENT",
+        body: "Owners become participants through watching, recording and submitting the experience."
+      },
+      {
+        title: "CONTENT GENERATION",
+        body: "The campaign mechanic naturally produces video content from real interactions."
+      },
+      {
+        title: "PHYSICAL + DIGITAL",
+        body: "A screen-based experience creates a tangible real-world reaction and campaign moment."
+      },
+      {
+        title: "MEMORABLE BRAND EXPERIENCE",
+        body: "The brand becomes associated with an entertaining interaction between pet and owner."
+      }
+    ],
+    relatedWork: [
+      { title: "Ferrero Group - Conversational Campaign", body: "OCR · Automation", href: "/cases/ferrero-back-to-school-campaign" },
+      { title: "du Retail Intelligence Platform", body: "Enterprise Transformation · Computer Vision · BI", href: "/cases/du-retail-intelligence-platform" },
+      { title: "Dentazon - AI Healthcare Product", body: "AI Product · Healthcare", href: "/cases/dentazon-ai-dental-care-platform" },
+      { title: "Bank Muscat - IBM API Connect", body: "Enterprise Integration", href: "/cases/bank-muscat-ibm-api-connect" },
+      { title: "Nolte - Digital Experience & Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" }
+    ],
+    cta: {
+      eyebrow: "have an idea people should interact with?",
+      title: "Turn creative ideas into digital experiences.",
+      body:
+        "MomentumX combines creative thinking, interaction design and technology to build campaign experiences people - and sometimes their pets - actually want to engage with.",
+      href: "/enquiry",
+      label: "start a conversation"
+    }
+  },
+  "bank-muscat-ibm-api-connect": {
+    eyebrow: "BANK MUSCAT · ENTERPRISE INTEGRATION",
+    metadata: [
+      { label: "Client", value: "Bank Muscat" },
+      { label: "Engagement", value: "IBM API Connect Implementation" },
+      { label: "Industry", value: "Banking & Financial Services" },
+      {
+        label: "Capabilities",
+        value:
+          "API Management · Enterprise Integration · API Security · B2B Connectivity · IBM Technology"
+      },
+      { label: "Technology", value: "IBM API Connect" }
+    ],
+    story: [
+      {
+        title: "THE BUSINESS",
+        body:
+          "Corporate banking does not operate in isolation. Enterprise customers increasingly need banking capabilities to connect with the systems they already use to run finance, treasury and business operations."
+      },
+      {
+        title: "THE CHALLENGE",
+        body:
+          "Connecting enterprise customers to banking services requires more than exposing endpoints. The environment needs to manage how APIs are published, secured, accessed, governed and monitored."
+      },
+      {
+        title: "THE PLATFORM",
+        body:
+          "MomentumX implemented IBM API Connect as the API management platform supporting Bank Muscat's B2B connectivity requirements."
+      },
+      {
+        title: "THE TRANSFORMATION",
+        body:
+          "The API management layer creates a foundation through which banking capabilities can integrate more effectively into corporate technology environments."
+      }
+    ],
+    builtIntro:
+      "A managed enterprise API foundation designed for secure, governed B2B banking connectivity.",
+    built: [
+      {
+        title: "IBM API Connect Implementation",
+        body: "Deployment and configuration of IBM API Connect within the required enterprise environment."
+      },
+      {
+        title: "API Management",
+        body: "A framework for managing and exposing APIs to authorised B2B consumers."
+      },
+      {
+        title: "API Gateway",
+        body: "A controlled gateway layer through which API traffic is managed."
+      },
+      {
+        title: "Security & Access",
+        body: "Authentication, access and API security controls implemented within the solution scope."
+      },
+      {
+        title: "API Policies",
+        body: "Configured policies govern how API requests are handled across the managed layer."
+      },
+      {
+        title: "API Publishing",
+        body: "Structured publication and management of APIs through IBM API Connect."
+      },
+      {
+        title: "B2B Connectivity",
+        body: "Authorised corporate systems can connect with available banking services through the managed API environment."
+      },
+      {
+        title: "Monitoring & Management",
+        body: "Operational visibility into API activity and platform behaviour within the implemented scope."
+      }
+    ],
+    journeyEyebrow: "how the connection works",
+    leadJourney: {
+      title: "From enterprise request to banking response.",
+      body:
+        "A single authorised request moves through authentication, policy controls, routing and response within a managed API environment.",
+      steps: [
+        { title: "REQUEST", body: "A corporate system initiates an authorised API request." },
+        { title: "AUTHENTICATE", body: "Access and credentials are validated." },
+        { title: "APPLY POLICIES", body: "Configured API policies and controls are applied." },
+        { title: "ROUTE", body: "The request is securely routed towards the appropriate banking service." },
+        { title: "PROCESS", body: "Banking systems process the authorised request." },
+        { title: "RESPOND", body: "The response returns through the managed API layer." },
+        { title: "ENTERPRISE SYSTEM", body: "The corporate application receives the response." }
+      ],
+      note:
+        "The public case-study view remains conceptual and does not expose confidential endpoints, security configuration, network topology or internal controls."
+    },
+    visualStory: [
+      {
+        title: "THE ENTERPRISE",
+        body: "Corporate finance, treasury and business systems require controlled banking connectivity.",
+        image: "https://storage.tentwenty.com/small_AWS_and_Azure_Hosting_1_8f35b1ee0b.webp"
+      },
+      {
+        title: "THE BRIDGE",
+        body: "IBM API Connect acts as the managed bridge between banking systems and authorised corporate consumers.",
+        image: "https://storage.tentwenty.com/small_tech_stack_1f2d5c8d39.jpg"
+      },
+      {
+        title: "THE REQUEST",
+        body: "Authentication, policy handling, routing, banking service processing and response form one controlled flow.",
+        image: "https://storage.tentwenty.com/small_api_x_tentwenty_2afbcfdd98.jpg"
+      },
+      {
+        title: "THE CONTROL",
+        body: "Management, security, policies and monitoring give the API environment operational governance.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+      },
+      {
+        title: "THE CONNECTION",
+        body: "Banking capabilities can sit closer to corporate applications and workflows through authorised API consumption.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+      }
+    ],
+    ecosystemEyebrow: "the architecture",
+    ecosystem: {
+      title: "One managed layer between the bank and the enterprise.",
+      body:
+        "IBM API Connect provides the management layer between Bank Muscat systems and authorised B2B or corporate customers, supporting API gateway, security, access, policies, governance, monitoring and publishing.",
+      steps: [
+        "BANK MUSCAT SYSTEMS",
+        "API GATEWAY",
+        "API MANAGEMENT",
+        "SECURITY & ACCESS",
+        "POLICIES",
+        "MONITORING",
+        "API PUBLISHING",
+        "B2B / CORPORATE CUSTOMERS"
+      ],
+      markets: ["ERP", "FINANCE SYSTEMS", "TREASURY PLATFORMS", "BUSINESS APPLICATIONS"]
+    },
+    capabilities: [
+      "IBM API Connect",
+      "API Management",
+      "API Gateway",
+      "Security",
+      "Policies",
+      "Monitoring",
+      "Enterprise Integration",
+      "B2B Connectivity"
+    ],
+    impact: [
+      {
+        title: "MANAGED CONNECTIVITY",
+        body: "A structured API environment between Bank Muscat and authorised B2B consumers."
+      },
+      {
+        title: "ENTERPRISE GOVERNANCE",
+        body: "Centralised management of API access, policies and controls."
+      },
+      {
+        title: "SCALABLE FOUNDATION",
+        body: "An API management architecture capable of supporting expanding B2B digital services."
+      },
+      {
+        title: "CONNECTED EXPERIENCE",
+        body: "A technical foundation for bringing banking capabilities closer to corporate systems and workflows."
+      }
+    ],
+    relatedWork: [
+      { title: "Ferrero Group - Conversational Campaign Platform", body: "OCR · Automation", href: "/cases/ferrero-back-to-school-campaign" },
+      { title: "du Retail Intelligence Platform", body: "Enterprise Transformation · Computer Vision · BI", href: "/cases/du-retail-intelligence-platform" },
+      { title: "Dentazon - AI Healthcare Product", body: "AI Product · Healthcare", href: "/cases/dentazon-ai-dental-care-platform" },
+      { title: "Nolte - Digital Experience & Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" }
+    ],
+    cta: {
+      eyebrow: "building enterprise systems that need to connect?",
+      title: "Make integration part of the architecture.",
+      body:
+        "MomentumX implements enterprise technology and integration platforms that connect complex systems securely, reliably and at scale.",
+      href: "/enquiry",
+      label: "start a conversation"
+    }
+  },
+  "ferrero-back-to-school-campaign": {
+    eyebrow: "FERRERO GROUP · INTELLIGENT CAMPAIGN PLATFORM",
+    metadata: [
+      { label: "Client", value: "Ferrero Group" },
+      { label: "Campaign", value: "Back to School" },
+      { label: "Brands", value: "Nutella / Kinder" },
+      { label: "Market", value: "Saudi Arabia" },
+      { label: "Engagement", value: "Conversational Campaign Platform" },
+      {
+        label: "Capabilities",
+        value:
+          "WhatsApp · OCR · Receipt Processing · Qualification Engine · Instant-Win Logic · Campaign Operations"
+      }
+    ],
+    story: [
+      {
+        title: "THE PARTICIPATION",
+        body:
+          "Instead of sending participants through a traditional campaign website and registration flow, the experience brings campaign participation directly into WhatsApp."
+      },
+      {
+        title: "THE INTELLIGENCE",
+        body:
+          "Participants upload their purchase receipt inside the conversation. OCR and campaign logic read and structure the information required to process participation and assess eligibility."
+      },
+      {
+        title: "THE DECISION",
+        body:
+          "Eligible receipts are converted into campaign entries and passed into automated campaign logic that determines the participant's instant-win outcome."
+      },
+      {
+        title: "THE MOMENT",
+        body:
+          "Rather than asking participants to wait for a future draw, the platform can return the outcome within the same WhatsApp journey, making the result part of the campaign experience itself."
+      }
+    ],
+    builtIntro:
+      "A conversational campaign engine designed to reduce friction between purchase, participation and result.",
+    built: [
+      {
+        title: "WhatsApp Campaign Chatbot",
+        body: "An end-to-end conversational participation journey built around a channel consumers already use."
+      },
+      {
+        title: "Receipt Upload & Processing",
+        body: "Participants submit purchase evidence directly within the campaign flow."
+      },
+      {
+        title: "OCR Integration",
+        body: "Submitted receipts are processed so relevant purchase information can be extracted and structured."
+      },
+      {
+        title: "Campaign Qualification Engine",
+        body: "Campaign eligibility and qualifying-purchase rules are applied consistently within the platform."
+      },
+      {
+        title: "Receipt Review Workflow",
+        body: "Operational review supports unclear, corrected or non-qualifying submissions."
+      },
+      {
+        title: "Duplicate Receipt Controls",
+        body: "Controls help identify repeated receipt submissions and protect campaign integrity."
+      },
+      {
+        title: "Automated Entry Management",
+        body: "Qualifying participation is recorded automatically as campaign entries."
+      },
+      {
+        title: "Instant-Win Engine",
+        body: "Automated campaign logic determines outcomes according to configured campaign rules."
+      },
+      {
+        title: "Prize Allocation Logic",
+        body: "Winning outcomes connect into the configured reward and fulfilment journey."
+      },
+      {
+        title: "Campaign Operations Platform",
+        body: "Participants, receipts, qualification status, winner outcomes and reporting are managed in one campaign environment."
+      }
+    ],
+    journeyEyebrow: "the consumer journey",
+    leadJourney: {
+      title: "From discovery to reward.",
+      body:
+        "The experience turns participation into one continuous WhatsApp-led journey, with receipt processing and campaign logic working behind the conversation.",
+      steps: [
+        { title: "DISCOVER", body: "The consumer encounters the Back to School promotion and begins participation." },
+        { title: "WHATSAPP", body: "The campaign opens as a guided conversational experience." },
+        { title: "UPLOAD RECEIPT", body: "The participant submits purchase evidence directly in the chat." },
+        { title: "READ", body: "OCR extracts relevant receipt information." },
+        { title: "VALIDATE", body: "The system checks the receipt and required campaign information." },
+        { title: "QUALIFY", body: "Campaign rules determine whether the purchase is eligible." },
+        { title: "ENTER", body: "A qualifying participation is recorded automatically." },
+        { title: "INSTANT RESULT", body: "The instant-win engine determines the outcome according to campaign logic." },
+        { title: "REWARD", body: "Winning participants move into the appropriate prize or fulfilment journey." }
+      ],
+      note:
+        "Confidential probability, prize-allocation and campaign-control logic should remain abstracted in public-facing material."
+    },
+    visualStory: [
+      {
+        title: "THE CONVERSATION",
+        body: "Consumers participate directly through a guided WhatsApp campaign journey.",
+        image: "https://storage.tentwenty.com/small_03_01_1_1_e912deeb08.jpg"
+      },
+      {
+        title: "THE RECEIPT",
+        body: "Purchase evidence becomes structured campaign data through OCR and document processing.",
+        image: "https://storage.tentwenty.com/G42_Project_Brief_f04fb77727.jpg"
+      },
+      {
+        title: "THE DECISION",
+        body: "Validation, qualification and automated entry creation connect the receipt to campaign logic.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+      },
+      {
+        title: "THE MOMENT",
+        body: "The outcome returns within the same conversation, making participation and result part of one experience.",
+        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
+      },
+      {
+        title: "THE OPERATIONS",
+        body: "A campaign operations layer manages receipts, entries, winners, prize allocation and reporting.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+      }
+    ],
+    ecosystemEyebrow: "the campaign engine",
+    ecosystem: {
+      title: "One conversation. An entire campaign engine behind it.",
+      body:
+        "The receipt is the bridge between a real-world purchase and digital campaign participation. Behind the consumer experience, the operational layer manages participants, receipts, qualification status, entries, winner outcomes and reporting.",
+      steps: [
+        "WHATSAPP",
+        "RECEIPT",
+        "OCR",
+        "VALIDATION",
+        "QUALIFICATION",
+        "ENTRY",
+        "WIN ENGINE",
+        "RESULT",
+        "REWARD"
+      ],
+      markets: ["CONSUMER LAYER", "INTELLIGENCE / AUTOMATION", "CAMPAIGN OPERATIONS"]
+    },
+    capabilities: [
+      "WhatsApp Campaign Chatbot",
+      "Receipt Processing",
+      "OCR Integration",
+      "Qualification Engine",
+      "Instant-Win Logic",
+      "Prize Allocation",
+      "Winner Communication",
+      "Campaign Reporting"
+    ],
+    impact: [
+      {
+        title: "CONVERSATIONAL ENTRY",
+        body: "Bring participation into a channel consumers already use."
+      },
+      {
+        title: "AUTOMATED PROCESSING",
+        body: "Convert uploaded purchase evidence into structured campaign information."
+      },
+      {
+        title: "RULE-BASED QUALIFICATION",
+        body: "Apply campaign requirements consistently within the platform."
+      },
+      {
+        title: "INSTANT OUTCOME",
+        body: "Connect participation and result within the same customer journey."
+      },
+      {
+        title: "CONNECTED OPERATIONS",
+        body: "Bring receipts, entries, qualification and winner management into one campaign environment."
+      }
+    ],
+    relatedWork: [
+      { title: "du Retail Intelligence Platform", body: "Enterprise Transformation · Computer Vision · BI", href: "/cases/du-retail-intelligence-platform" },
+      { title: "Dentazon - AI Healthcare Product", body: "AI Product · Healthcare", href: "/cases/dentazon-ai-dental-care-platform" },
+      { title: "Nolte - Digital Experience & Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" },
+      { title: "ShelfVision AI", body: "Innovation Lab · Computer Vision", href: "/innovation-lab" }
+    ],
+    cta: {
+      eyebrow: "have a campaign journey worth making smarter?",
+      title: "Turn participation into an experience.",
+      body:
+        "MomentumX combines conversational technology, automation, data and digital experience to build campaign platforms around real consumer behaviour.",
+      href: "/enquiry",
+      label: "start a conversation"
+    }
+  },
+  "dentazon-ai-dental-care-platform": {
+    eyebrow: "DENTAZON · AI-POWERED HEALTHCARE",
+    metadata: [
+      { label: "Client", value: "Dentazon" },
+      { label: "Engagement", value: "AI-Powered Dental Care Platform" },
+      {
+        label: "Capabilities",
+        value:
+          "AI Assistant · Patient Experience · Healthcare Platform · Dentist Discovery · Appointment System · Patient Records"
+      },
+      { label: "Platform", value: "Web / Digital Healthcare" }
+    ],
+    story: [
+      {
+        title: "THE PROBLEM",
+        body:
+          "Dental concerns often begin with uncertainty. Patients may not know what their symptoms mean, how urgent the issue could be, or which type of dental professional they should approach."
+      },
+      {
+        title: "THE IDEA",
+        body:
+          "Dentazon was designed to make the beginning of the care journey easier: use AI-assisted interaction to understand the concern, collect relevant context and guide the patient towards an appropriate next step."
+      },
+      {
+        title: "THE CONNECTION",
+        body:
+          "The experience connects guidance with real-world action, helping patients move from an initial concern towards dentist discovery, appointment booking and professional consultation."
+      },
+      {
+        title: "THE PLATFORM",
+        body:
+          "AI assistance, patient history, dentist access, appointments and care records are brought together within one digital ecosystem rather than existing as disconnected experiences."
+      }
+    ],
+    builtIntro:
+      "A connected healthcare product designed to move patients from uncertainty towards appropriate professional care.",
+    built: [
+      {
+        title: "AI Dental Assistant",
+        body: "Conversational support helps patients describe dental concerns naturally and receive preliminary guidance within appropriate clinical boundaries."
+      },
+      {
+        title: "AI-Assisted Oral Health Screening",
+        body: "An intelligent first layer gathers relevant symptoms, context and history before directing the patient towards the right next step."
+      },
+      {
+        title: "Conversational Patient History",
+        body: "Patient conversations are transformed into structured symptom and history information that can support the care journey."
+      },
+      {
+        title: "Patient Profile & Records",
+        body: "Relevant interactions, appointments and care information remain connected rather than disappearing after the first AI interaction."
+      },
+      {
+        title: "Dentist Discovery",
+        body: "Patients can move from guidance into finding appropriate dental professionals and understanding available care options."
+      },
+      {
+        title: "Appointment Booking & Management",
+        body: "The care journey moves directly from concern and guidance into scheduling an appointment."
+      },
+      {
+        title: "Dentist-Side Patient Overview",
+        body: "Dental professionals can review relevant patient context before or during consultation."
+      },
+      {
+        title: "Consultation / Care Records",
+        body: "Care records help maintain continuity across the patient-to-dentist journey."
+      },
+      {
+        title: "Digital Healthcare Platform Architecture",
+        body: "The product foundation connects AI assistance, patient experience, dentist workflows and healthcare records into one platform."
+      }
+    ],
+    journeyEyebrow: "the core journey",
+    leadJourney: {
+      title: "From question to care.",
+      body:
+        "Dentazon's core value is not simply generating an AI response. It connects intelligence to an actionable care journey.",
+      steps: [
+        {
+          title: "ASK",
+          body: "The patient describes a dental concern naturally."
+        },
+        {
+          title: "UNDERSTAND",
+          body: "The system progressively gathers relevant symptoms, context and history."
+        },
+        {
+          title: "GUIDE",
+          body: "AI-assisted logic provides preliminary guidance within appropriate clinical boundaries."
+        },
+        {
+          title: "CONNECT",
+          body: "The patient is guided towards an appropriate dental professional or care pathway."
+        },
+        {
+          title: "BOOK",
+          body: "The journey moves directly into appointment scheduling."
+        },
+        {
+          title: "CARE",
+          body: "Relevant information can support the professional consultation and ongoing patient record."
+        }
+      ],
+      note:
+        "The AI experience supports guidance and routing. It should not be presented as a definitive clinical diagnosis or a replacement for dental judgement."
+    },
+    visualStory: [
+      {
+        title: "THE CONCERN",
+        body: "Start with a real patient question and a conversational AI assistant designed around a healthcare journey.",
+        image: "https://storage.tentwenty.com/small_03_01_1_1_e912deeb08.jpg"
+      },
+      {
+        title: "THE INTELLIGENCE",
+        body: "Turn conversation into structured symptom context, patient history and next-step guidance.",
+        image: "https://storage.tentwenty.com/small_Artificial_Intelligence_Consultancy_and_Implementation_v3_412198b2cc.webp"
+      },
+      {
+        title: "THE CONNECTION",
+        body: "Move from guidance to dentist discovery, profiles and appropriate care pathways.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+      },
+      {
+        title: "THE ACTION",
+        body: "Book care without leaving the journey, with appointment availability and confirmation connected to the patient record.",
+        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
+      },
+      {
+        title: "THE CONTINUITY",
+        body: "Give the dentist useful context through patient summaries, history and consultation records.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+      }
+    ],
+    ecosystemEyebrow: "connected care ecosystem",
+    ecosystem: {
+      title: "From AI answer to real-world action.",
+      body:
+        "The key product idea is continuity: information collected at the beginning of the journey should contribute to what happens next rather than disappearing after the AI interaction.",
+      steps: [
+        "PATIENT CONCERN",
+        "AI ASSISTANCE",
+        "STRUCTURED HISTORY",
+        "CARE GUIDANCE",
+        "DENTIST MATCHING",
+        "APPOINTMENT",
+        "CONSULTATION",
+        "HEALTH RECORD"
+      ],
+      markets: ["PATIENT", "AI ASSISTS", "DENTIST", "CLINICAL ASSESSMENT", "CARE RECORD"]
+    },
+    capabilities: [
+      "AI Assistant",
+      "Patient Experience",
+      "Healthcare Platform",
+      "Dentist Discovery",
+      "Appointment System",
+      "Patient Records",
+      "Dentist Workspace",
+      "Connected Care"
+    ],
+    impact: [
+      {
+        title: "ASSISTED FIRST STEP",
+        body: "Give patients a structured way to begin when they are unsure what to do."
+      },
+      {
+        title: "CONNECTED JOURNEY",
+        body: "Bring guidance, dentist discovery and appointments into one experience."
+      },
+      {
+        title: "STRUCTURED CONTEXT",
+        body: "Turn patient conversation into information that can support the next stage of care."
+      },
+      {
+        title: "HUMAN HANDOFF",
+        body: "Connect digital intelligence to professional dental assessment rather than stopping at an AI answer."
+      }
+    ],
+    relatedWork: [
+      { title: "du Retail Intelligence Platform", body: "Enterprise Transformation · Computer Vision · BI", href: "/cases/du-retail-intelligence-platform" },
+      { title: "Nolte - Digital Experience & Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" },
+      { title: "M&M's - Moments of Magic", body: "Consumer Experience", href: "/cases/moments-of-magic" },
+      { title: "ShelfVision AI", body: "Innovation Lab · Computer Vision", href: "/innovation-lab" }
+    ],
+    cta: {
+      eyebrow: "have a customer journey AI could make easier?",
+      title: "Build intelligence into the experience.",
+      body:
+        "MomentumX combines AI, product design and technology to create digital experiences that move beyond answers and towards useful action.",
+      href: "/enquiry",
+      label: "start a conversation"
+    }
+  },
   "nolte-digital-transformation": {
     eyebrow: "NOLTE · DIGITAL TRANSFORMATION",
     metadata: [
@@ -1258,6 +2084,198 @@ export const casePageDetails: Record<
       title: "Let's build what's next.",
       body:
         "From customer journeys and enterprise platforms to intelligent experiences, let's explore what technology can unlock for your business.",
+      href: "/enquiry",
+      label: "start a conversation"
+    }
+  },
+  "du-retail-intelligence-platform": {
+    eyebrow: "DU · RETAIL INTELLIGENCE",
+    metadata: [
+      { label: "Client", value: "du" },
+      { label: "Engagement", value: "Retail Intelligence Platform" },
+      {
+        label: "Capabilities",
+        value:
+          "Enterprise Platform · Field Operations · Computer Vision · Data & BI · Geospatial Intelligence · Dashboards"
+      },
+      { label: "Environment", value: "Field Application + Central Intelligence Platform" },
+      { label: "Market", value: "UAE" }
+    ],
+    story: [
+      {
+        title: "THE FIELD",
+        body:
+          "Market intelligence starts at the outlet. du representatives visit retail locations across the market, capturing structured commercial observations together with photographs and video."
+      },
+      {
+        title: "THE VISION",
+        body:
+          "Computer vision analyses visual evidence captured in the field, turning relevant information from images and video into additional structured retail data."
+      },
+      {
+        title: "THE PLATFORM",
+        body:
+          "Field observations, visual intelligence, outlet information and geographic data are consolidated into a central platform, creating a continuously evolving view of du and competitor activity across the retail network."
+      },
+      {
+        title: "THE INTELLIGENCE",
+        body:
+          "Business intelligence dashboards, stakeholder views and intelligent maps transform outlet-level data into commercial and competitive insight that can be explored by location, product, channel and other relevant dimensions."
+      }
+    ],
+    builtIntro:
+      "A connected field and intelligence environment designed to turn outlet visits into structured market visibility.",
+    built: [
+      {
+        title: "Field Survey / Retail Audit Application",
+        body: "A field-facing application for capturing outlet visits, retail observations, photographs, video and location information."
+      },
+      {
+        title: "Outlet & Visit Management",
+        body: "Structured outlet records and visit workflows give teams a more consistent way to collect, organise and review field activity."
+      },
+      {
+        title: "Photo & Video Capture",
+        body: "Visual evidence from the field adds richer context beyond manually entered survey information."
+      },
+      {
+        title: "Computer Vision Processing",
+        body: "Computer vision transforms relevant visual evidence into structured information that can be combined with field and outlet data."
+      },
+      {
+        title: "Product / Brand Visual Recognition",
+        body: "Visual recognition supports analysis of relevant product presence, brand visibility, merchandising and competitor activity."
+      },
+      {
+        title: "Central Retail Intelligence Platform",
+        body: "Field observations, visual intelligence, outlet data and commercial context are consolidated into one connected platform."
+      },
+      {
+        title: "Geospatial / Map Intelligence",
+        body: "Outlet-level information can be explored geographically across areas, territories and regions."
+      },
+      {
+        title: "Business Intelligence Dashboards",
+        body: "Stakeholder dashboards translate detailed field information into relevant commercial, operational and competitive views."
+      },
+      {
+        title: "Role-Based Access & Reporting",
+        body: "Different stakeholders can access views shaped around leadership, sales, marketing, field management and product needs."
+      }
+    ],
+    journeyEyebrow: "the intelligence flow",
+    leadJourney: {
+      title: "From field visit to action.",
+      body:
+        "The platform connects field capture, computer vision, data consolidation, geographic intelligence and BI so retail activity can be understood as a live market view.",
+      steps: [
+        { title: "FIELD VISIT", body: "A representative visits the retail outlet." },
+        {
+          title: "CAPTURE",
+          body: "Structured survey data, photographs, video and location information are collected."
+        },
+        {
+          title: "COMPUTER VISION",
+          body: "Visual content is analysed to identify and structure relevant retail information."
+        },
+        {
+          title: "DATA PLATFORM",
+          body: "Field and visual intelligence are consolidated into outlet-level records."
+        },
+        {
+          title: "GEO INTELLIGENCE",
+          body: "Information is mapped across outlets, territories and regions."
+        },
+        {
+          title: "BI & ANALYTICS",
+          body: "Commercial, product and competitor data is transformed into stakeholder views."
+        },
+        {
+          title: "ACTION",
+          body: "Teams use the intelligence to understand patterns, gaps, competitive activity and opportunities."
+        }
+      ],
+      note:
+        "Any figures shown in future interface mockups should be treated as illustrative UI data, not project performance claims."
+    },
+    visualStory: [
+      {
+        title: "THE FIELD",
+        body: "Capture what is happening at the outlet through a structured field application and visit workflow.",
+        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
+      },
+      {
+        title: "THE VISION",
+        body: "Photos and video become a second intelligence layer through practical computer-vision analysis.",
+        image: "https://storage.tentwenty.com/small_Artificial_Intelligence_Consultancy_and_Implementation_v3_412198b2cc.webp"
+      },
+      {
+        title: "THE MARKET",
+        body: "Outlet intelligence can be explored geographically through map views, filters and clustered market activity.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+      },
+      {
+        title: "THE INTELLIGENCE",
+        body: "BI dashboards turn field data into stakeholder views across product, competitor, territory and management needs.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+      }
+    ],
+    ecosystemEyebrow: "intelligent map and BI",
+    ecosystem: {
+      title: "Intelligence with a location.",
+      body:
+        "Outlet and field intelligence becomes significantly more useful when it can be understood geographically. The platform brings retail observations onto an interactive market view so stakeholders can explore patterns across locations and territories.",
+      steps: [
+        "FIELD DATA",
+        "VISUAL EVIDENCE",
+        "COMPUTER VISION",
+        "OUTLET PROFILE",
+        "MAP VIEW",
+        "FILTERS",
+        "DASHBOARDS",
+        "STAKEHOLDER ACTION"
+      ],
+      markets: ["EMIRATE", "AREA", "OUTLET TYPE", "PRODUCT", "DU / COMPETITOR", "VISIT STATUS"]
+    },
+    capabilities: [
+      "Enterprise Platform",
+      "Field Operations",
+      "Computer Vision",
+      "Data & BI",
+      "Geospatial Intelligence",
+      "Dashboards",
+      "Competitor Intelligence",
+      "Role-Based Access"
+    ],
+    impact: [
+      {
+        title: "CONNECTED FIELD DATA",
+        body: "Retail observations, images, video and location are brought into one intelligence environment."
+      },
+      {
+        title: "VISUAL INTELLIGENCE",
+        body: "Computer vision extends field reporting by extracting structured information from visual evidence."
+      },
+      {
+        title: "GEOGRAPHIC VISIBILITY",
+        body: "Outlet-level intelligence can be explored spatially across the market."
+      },
+      {
+        title: "STAKEHOLDER ACCESS",
+        body: "BI views translate detailed field information into relevant management and operational perspectives."
+      }
+    ],
+    relatedWork: [
+      { title: "Nolte - Digital Experience & Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" },
+      { title: "M&M's - Moments of Magic", body: "Consumer Experience", href: "/cases/moments-of-magic" },
+      { title: "ShelfVision AI", body: "AI / Innovation Lab", href: "/innovation-lab" },
+      { title: "Meta Studio", body: "Digital Product", href: "/cases" }
+    ],
+    cta: {
+      eyebrow: "have a complex operation worth understanding better?",
+      title: "Turn data into intelligence.",
+      body:
+        "From field operations and enterprise platforms to computer vision and business intelligence, MomentumX builds technology around real operational challenges.",
       href: "/enquiry",
       label: "start a conversation"
     }
@@ -1571,7 +2589,138 @@ export const innovationLabPage = {
   }
 };
 
+export const industriesPage = {
+  hero: {
+    eyebrow: "INDUSTRIES",
+    title: "Technology shaped around how industries actually work.",
+    summary:
+      "MomentumX combines digital, AI and enterprise technology to solve challenges specific to different industries - from customer experience and operations to intelligence, automation and connected systems."
+  },
+  intro: {
+    eyebrow: "WHERE WE WORK",
+    title: "Different industries. Different challenges.",
+    body:
+      "Technology only creates value when it understands the environment around it. We combine industry context with technology, data and experience design to build solutions around real operational and customer challenges."
+  },
+  industries: [
+    {
+      name: "Banking & Financial Services",
+      index: "01",
+      headline: "Build intelligence without compromising control.",
+      body: "AI, data and enterprise technology for highly regulated financial environments.",
+      capabilities: ["AML & Compliance", "API Management & Integration", "Document Intelligence", "Workflow Automation", "Data & BI", "Enterprise AI"],
+      work: [{ label: "Bank Muscat - IBM API Connect", href: "/cases/bank-muscat-ibm-api-connect" }],
+      lab: [{ label: "AML Copilot", href: "/innovation-lab" }]
+    },
+    {
+      name: "Retail & FMCG",
+      index: "02",
+      headline: "See what's happening from shelf to consumer.",
+      body: "Connect field operations, retail environments and consumer engagement with data and intelligent technology.",
+      capabilities: ["Retail Intelligence", "Computer Vision", "Shelf Intelligence", "Field Operations", "Consumer Campaigns", "Loyalty & Gamification"],
+      work: [
+        { label: "du Retail Intelligence", href: "/cases/du-retail-intelligence-platform" },
+        { label: "Ferrero Group", href: "/cases/ferrero-back-to-school-campaign" },
+        { label: "Whiskas", href: "/cases/whiskas-interactive-cat-game" }
+      ],
+      lab: [{ label: "ShelfVision AI", href: "/innovation-lab" }]
+    },
+    {
+      name: "Government & Public Sector",
+      index: "03",
+      headline: "Make complex services simpler to access and operate.",
+      body: "Digital platforms and intelligent systems designed around citizens, employees and government operations.",
+      capabilities: ["Digital Services", "Enterprise Platforms", "Workflow Automation", "AI Assistants", "Document Intelligence", "Data & Analytics"],
+      work: [],
+      lab: []
+    },
+    {
+      name: "Aviation & Airports",
+      index: "04",
+      headline: "Connect operations, people and intelligence.",
+      body: "Technology for complex environments where procurement, movement, operations and real-time information intersect.",
+      capabilities: ["Procurement Platforms", "Passenger Flow Intelligence", "Operational Dashboards", "Workflow Automation", "Vendor Management", "Data & BI"],
+      work: [],
+      lab: [
+        { label: "ProcureAI", href: "/innovation-lab" },
+        { label: "Flow Intelligence", href: "/innovation-lab" }
+      ]
+    },
+    {
+      name: "Healthcare",
+      index: "05",
+      headline: "Build technology around the care journey.",
+      body: "AI-assisted and digital platforms that connect patients, professionals, information and services.",
+      capabilities: ["AI-Assisted Experiences", "Patient Platforms", "Appointment Systems", "Healthcare CRM", "Knowledge Systems", "Workflow Automation"],
+      work: [{ label: "Dentazon - AI-Powered Dental Care Platform", href: "/cases/dentazon-ai-dental-care-platform" }],
+      lab: []
+    },
+    {
+      name: "Real Estate & Hospitality",
+      index: "06",
+      headline: "Understand spaces. Improve experiences.",
+      body: "Connect physical environments with digital services, customer intelligence and operational technology.",
+      capabilities: ["Smart Spaces", "Occupancy & Movement Intelligence", "Customer Experience", "CRM", "Booking & Service Platforms", "Data & Analytics"],
+      work: [],
+      lab: [{ label: "SmartSpace", href: "/innovation-lab" }]
+    },
+    {
+      name: "Enterprise & Professional Services",
+      index: "07",
+      headline: "Turn disconnected operations into connected systems.",
+      body: "Build technology around how organisations actually work - across customers, employees, documents, workflows and decisions.",
+      capabilities: ["CRM", "ERP & Enterprise Platforms", "Workflow Automation", "Enterprise AI", "Knowledge Assistants", "Document Intelligence", "BI & Reporting"],
+      work: [],
+      lab: [{ label: "Enterprise Knowledge Copilot", href: "/innovation-lab" }]
+    },
+    {
+      name: "Marketing, Media & Consumer",
+      index: "08",
+      headline: "Turn audiences into participants.",
+      body: "Technology that connects campaigns, physical experiences and digital interaction.",
+      capabilities: ["MarTech", "Conversational Campaigns", "Gamification", "Interactive Experiences", "Loyalty Platforms", "Personalisation", "Campaign Automation"],
+      work: [
+        { label: "Ferrero Group", href: "/cases/ferrero-back-to-school-campaign" },
+        { label: "Whiskas", href: "/cases/whiskas-interactive-cat-game" }
+      ],
+      lab: [{ label: "Campaign and experience prototypes", href: "/innovation-lab" }]
+    }
+  ],
+  crossIndustry: {
+    eyebrow: "BEYOND VERTICALS",
+    title: "Some problems cross every industry.",
+    flow: ["CUSTOMER EXPERIENCE", "OPERATIONS", "AUTOMATION", "DATA", "INTELLIGENCE", "INTEGRATION"],
+    body:
+      "Our industry experience gives us context. Our technology capabilities allow us to connect ideas across sectors - applying what works in one environment to solve problems differently in another."
+  },
+  lab: {
+    eyebrow: "MOMENTUMX INNOVATION LAB",
+    title: "Exploring what's next across industries.",
+    body:
+      "From computer vision in retail and spatial intelligence in airports to AI-assisted AML and procurement, the MomentumX Innovation Lab explores how emerging technology can address real industry problems.",
+    projects: [
+      ["SHELFVISION AI", "Retail"],
+      ["AML COPILOT", "Banking"],
+      ["PROCUREAI", "Enterprise / Procurement"],
+      ["SMARTSPACE", "Physical Environments"]
+    ]
+  },
+  cta: {
+    eyebrow: "your industry isn't the starting point",
+    title: "Your challenge is.",
+    body:
+      "You don't need to know which technology you need. Bring us the business problem, operational challenge or customer opportunity - we'll help determine what should be built around it.",
+    label: "talk to us"
+  }
+};
+
 export const utilityPages: Record<string, { title: string; summary: string; body: string }> = {
+  industries: {
+    title: "industries",
+    summary: "Technology shaped around how industries actually work.",
+    body:
+      "MomentumX combines industry context with digital, AI and enterprise technology to solve real operational and customer challenges."
+  },
   "about-us": {
     title: "about momentumX",
     summary: "The digital & AI transformation arm of Momentum, built for what comes next.",
@@ -1654,7 +2803,6 @@ export const utilityPages: Record<string, { title: string; summary: string; body
 
 export const navItems = [
   { label: "services", href: "/services" },
-  { label: "solutions", href: "/solutions" },
   { label: "innovation lab", href: "/innovation-lab" },
   { label: "work", href: "/cases" },
   { label: "about", href: "/about-us" },

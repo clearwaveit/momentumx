@@ -49,7 +49,8 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
           <span className="sectionNumber">02.</span>
           <h2>what we built</h2>
           <p className="sectionIntro">
-            A premium digital ecosystem designed around discovery, conversion and regional scalability.
+            {detail.builtIntro ??
+              "A premium digital ecosystem designed around discovery, conversion and regional scalability."}
           </p>
           <div className="subServiceGrid">
             {detail.built.map((builtItem, index) => (
@@ -63,7 +64,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
         </section>
         <section className="caseJourney sectionPad">
           <div className="sectionHead">
-            <p>from browsing to conversation</p>
+            <p>{detail.journeyEyebrow ?? "from browsing to conversation"}</p>
             <h2>{detail.leadJourney.title}</h2>
             <p>{detail.leadJourney.body}</p>
           </div>
@@ -81,7 +82,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
         <CaseGallery items={detail.visualStory} />
         <section className="caseSystem sectionPad">
           <div className="sectionHead dark">
-            <p>the digital ecosystem</p>
+            <p>{detail.ecosystemEyebrow ?? "the digital ecosystem"}</p>
             <h2>{detail.ecosystem.title}</h2>
             <p>{detail.ecosystem.body}</p>
           </div>
@@ -95,26 +96,6 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
               <span key={market}>{market}</span>
             ))}
           </div>
-        </section>
-        <section className="numberedSection sectionPad">
-          <span className="sectionNumber">03.</span>
-          <h2>capabilities</h2>
-          <div className="capabilityGrid">
-            {detail.capabilities.map((capability) => (
-              <article key={capability}>
-                <h3>{capability}</h3>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section className="testimonialBlock aboutStrengths sectionPad">
-          <h2>from one website to a scalable digital foundation.</h2>
-          {detail.impact.map((impact) => (
-            <article key={impact.title}>
-              <h3>{impact.title}</h3>
-              <p>{impact.body}</p>
-            </article>
-          ))}
         </section>
         <section className="relatedRail sectionPad">
           <h2>explore more work</h2>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { AutoRail, SiteFooter, SiteHeader } from "./site-components";
 
 const services = [
@@ -38,20 +38,12 @@ const services = [
   },
   {
     number: "05",
-    slug: "web-and-mobile-applications",
-    title: "web & mobile applications",
-    image: "/assets/imgs/services-5.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1064974329/rendition/720p/file.mp4?loc=external&log_user=0&signature=fb060fa5b22e73dec477b9bee7da9fdfede4c914425e71174256c3ec056f5fdb&user_id=20404911"
-  },
-  {
-    number: "06",
     slug: "data-and-intelligence",
     title: "data & intelligence",
     image: "/assets/imgs/services-6.png"
   },
   {
-    number: "07",
+    number: "06",
     slug: "smart-and-connected-technology",
     title: "smart & connected technology",
     image: "/assets/imgs/services-7.png",
@@ -59,13 +51,7 @@ const services = [
       "https://player.vimeo.com/progressive_redirect/playback/1096861274/rendition/720p/file.mp4?loc=external&log_user=0&signature=a682a6ebf6953100276ad90c0de14ce7bbe4798482fd9aaac9bba2e6b455ead2"
   },
   {
-    number: "08",
-    slug: "cloud-and-infrastructure",
-    title: "cloud & infrastructure",
-    image: "/assets/imgs/services-8.png"
-  },
-  {
-    number: "09",
+    number: "07",
     slug: "managed-services",
     title: "managed services",
     image: "/assets/imgs/services-9.png"
@@ -101,6 +87,46 @@ const proof = [
 ];
 
 const cases = [
+  {
+    brand: "Whiskas",
+    title: "Interactive Cat Game",
+    body:
+      "A tablet-based game turning pet play into user-generated campaign participation.",
+    tags: "GAMIFICATION · UGC · CAMPAIGN",
+    href: "/cases/whiskas-interactive-cat-game"
+  },
+  {
+    brand: "Bank Muscat",
+    title: "IBM API Connect Implementation",
+    body:
+      "Building a managed API layer for secure B2B and corporate banking connectivity.",
+    tags: "BANKING · API MANAGEMENT · B2B",
+    href: "/cases/bank-muscat-ibm-api-connect"
+  },
+  {
+    brand: "Ferrero Group",
+    title: "Back to School Campaign",
+    body:
+      "A WhatsApp-first promotional platform connecting receipt submission, OCR and instant-win outcomes.",
+    tags: "WHATSAPP · OCR · MARTECH",
+    href: "/cases/ferrero-back-to-school-campaign"
+  },
+  {
+    brand: "Dentazon",
+    title: "AI Dental Care Platform",
+    body:
+      "Connecting AI-assisted guidance, patient history, dentist discovery and appointment management.",
+    tags: "AI PRODUCT · HEALTHCARE · CARE",
+    href: "/cases/dentazon-ai-dental-care-platform"
+  },
+  {
+    brand: "du",
+    title: "Retail Intelligence Platform",
+    body:
+      "Transforming retail observations, images and video into structured market intelligence.",
+    tags: "COMPUTER VISION · DATA · BI",
+    href: "/cases/du-retail-intelligence-platform"
+  },
   {
     brand: "M&M's",
     title: "Intelligent Consumer Experiences",
@@ -178,7 +204,6 @@ function useRotatingWords(words: string[], delay = 1800) {
 export default function Home() {
   const showreelLabel = useRotatingWords(showreelWords, 1500);
   const [activeService, setActiveService] = useState(0);
-  const repeatedShowreel = useMemo(() => Array.from({ length: 10 }, () => "intelligence in motion"), []);
 
   useEffect(() => {
     document.querySelectorAll("video").forEach((video) => {
@@ -216,13 +241,6 @@ export default function Home() {
             playsInline
           />
           <div className="showreelLabel" key={showreelLabel}>{showreelLabel}</div>
-        </div>
-        <div className="showreelMarquee">
-          <div>
-            {repeatedShowreel.map((label, index) => (
-              <span key={`${label}-${index}`}>{label}</span>
-            ))}
-          </div>
         </div>
       </section>
 

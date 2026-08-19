@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import { ContactForm } from "../contact-form";
 import { PageHero, SiteFooter, SiteHeader } from "../site-components";
-import { aboutPage, contactPage, innovationLabPage, utilityPages } from "../site-data";
+import { aboutPage, contactPage, industriesPage, innovationLabPage, utilityPages } from "../site-data";
 
 const careerTitles: Record<string, string> = {
   "android-app-developer": "android app developer",
@@ -166,6 +166,119 @@ export default async function UtilityPage({
           <div>
             <a className="buttonLink" href="/enquiry">
               bring us a challenge
+            </a>
+            <a className="textLink light" href="/services">
+              explore our services
+            </a>
+          </div>
+        </section>
+        <SiteFooter />
+      </main>
+    );
+  }
+
+  if (path === "industries") {
+    return (
+      <main>
+        <SiteHeader />
+        <section className="industriesHero sectionPad">
+          <p>{industriesPage.hero.eyebrow}</p>
+          <h1>{industriesPage.hero.title}</h1>
+          <p>{industriesPage.hero.summary}</p>
+        </section>
+        <section className="industriesIntro sectionPad">
+          <span>{industriesPage.intro.eyebrow}</span>
+          <h2>{industriesPage.intro.title}</h2>
+          <p>{industriesPage.intro.body}</p>
+        </section>
+        <section className="industriesEditorial sectionPad">
+          <aside aria-label="Industry index">
+            {industriesPage.industries.map((industry) => (
+              <a href={`#industry-${industry.index}`} key={industry.index}>
+                <span>{industry.index}</span>
+                {industry.name}
+              </a>
+            ))}
+          </aside>
+          <div>
+            {industriesPage.industries.map((industry) => (
+              <article id={`industry-${industry.index}`} key={industry.name}>
+                <div className="industryMeta">
+                  <span>{industry.index}</span>
+                  <p>{industry.name}</p>
+                </div>
+                <div className="industryCopy">
+                  <h2>{industry.headline}</h2>
+                  <p>{industry.body}</p>
+                  <div className="industryTags">
+                    {industry.capabilities.map((capability) => (
+                      <span key={capability}>{capability}</span>
+                    ))}
+                  </div>
+                  <div className="industryProof">
+                    <div>
+                      <strong>Relevant work</strong>
+                      {industry.work.length ? (
+                        industry.work.map((work) => (
+                          <a href={work.href} key={work.label}>{work.label}</a>
+                        ))
+                      ) : (
+                        <span>Approved credentials to be added.</span>
+                      )}
+                    </div>
+                    <div>
+                      <strong>Innovation Lab</strong>
+                      {industry.lab.length ? (
+                        industry.lab.map((lab) => (
+                          <a href={lab.href} key={lab.label}>{lab.label}</a>
+                        ))
+                      ) : (
+                        <span>Lab concept to be defined.</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="industryFlow sectionPad">
+          <div className="sectionHead">
+            <p>{industriesPage.crossIndustry.eyebrow}</p>
+            <h2>{industriesPage.crossIndustry.title}</h2>
+            <p>{industriesPage.crossIndustry.body}</p>
+          </div>
+          <div>
+            {industriesPage.crossIndustry.flow.map((step, index) => (
+              <span key={step}>{String(index + 1).padStart(2, "0")} / {step}</span>
+            ))}
+          </div>
+        </section>
+        <section className="industryLab sectionPad">
+          <div>
+            <p>{industriesPage.lab.eyebrow}</p>
+            <h2>{industriesPage.lab.title}</h2>
+            <p>{industriesPage.lab.body}</p>
+            <a className="buttonLink" href="/innovation-lab">
+              explore the lab
+            </a>
+          </div>
+          <div>
+            {industriesPage.lab.projects.map(([project, context]) => (
+              <article key={project}>
+                <strong>{project}</strong>
+                <span>{context}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="labBuild sectionPad">
+          <p>{industriesPage.cta.eyebrow}</p>
+          <h2>{industriesPage.cta.title}</h2>
+          <p>{industriesPage.cta.body}</p>
+          <div>
+            <a className="buttonLink" href="/enquiry">
+              {industriesPage.cta.label}
             </a>
             <a className="textLink light" href="/services">
               explore our services
