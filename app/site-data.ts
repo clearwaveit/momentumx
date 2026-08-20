@@ -340,11 +340,11 @@ export const servicePageDetails: Record<
         "Explore how our AI Innovation Lab turns emerging technologies and business challenges into working concepts.",
       items: [
         {
-          title: "ShelfVision AI",
+          title: "Shelf Vision AI",
           body: "Computer vision for shelf, stock and merchandising intelligence."
         },
         {
-          title: "SmartSpace",
+          title: "Smart Space",
           body: "Wi-Fi, sensor and AI-powered intelligence for physical spaces."
         },
         {
@@ -366,12 +366,12 @@ export const servicePageDetails: Record<
       "smart-and-connected-technology"
     ],
     cta: {
-      eyebrow: "ready to identify where AI can create value?",
+      eyebrow: "Ready to identify where AI can create value?",
       title: "Start your AI transformation.",
       body:
         "Let's identify the opportunities, priorities and practical next steps for your organisation.",
       href: "/book-meeting",
-      label: "book a consultation"
+      label: "Book a consultation"
     }
   },
   "ai-solutions-and-intelligent-systems": {

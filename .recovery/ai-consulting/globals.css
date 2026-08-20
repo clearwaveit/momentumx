@@ -1,0 +1,6318 @@
+:root {
+  --primary: #f3ed48;
+  --ink: #050505;
+  --muted: rgba(0, 0, 0, 0.56);
+  --paper: #ffffff;
+  --line: rgba(0, 0, 0, 0.12);
+  --h1: 8rem;
+  --h1-booking: 8rem;
+  --h2: 5rem;
+  --h3: 2.7rem;
+  --h4: 2.4rem;
+  --p1: 2.4rem;
+  --p2: 1.8rem;
+  --small: 1.4rem;
+  --page-x: 6.5rem;
+  --section-y: 10rem;
+  --section-y-large: 16rem;
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  max-width: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--p1);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.048rem;
+}
+
+h1, h2, h3, p {
+  overflow-wrap: anywhere;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+main {
+  overflow-x: clip;
+}
+
+.sectionPad {
+  padding: var(--section-y-large) var(--page-x);
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center start;
+  padding: var(--page-x);
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  animation: loaderExit 1.1s var(--ease-in-out) 1.75s forwards;
+}
+
+.loaderText {
+  width: max-content;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: min(var(--h1), calc((100vw - var(--page-x) * 2) / 20));
+  line-height: 1.1;
+  letter-spacing: 0;
+  clip-path: inset(0 100% 0 0);
+  animation: loaderText 1.25s steps(36, end) both;
+}
+
+.loader b,
+mark,
+.clientSwap,
+.bookingWord {
+  position: relative;
+  z-index: 0;
+  padding: 0 0.12em;
+  background: transparent;
+  color: inherit;
+  font-weight: 300;
+}
+
+.loader b::before,
+mark::before,
+.clientSwap::before,
+.bookingWord::before {
+  content: "";
+  position: absolute;
+  inset: 0.06em -0.04em 0.02em;
+  z-index: -1;
+  background: var(--primary);
+}
+
+.loader span {
+  color: rgba(255, 255, 255, 0.54);
+}
+
+.siteHeader {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.4rem var(--page-x);
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.04rem;
+  line-height: 1;
+  text-transform: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.navOverlay {
+  display: none;
+}
+
+.nav a,
+.navOverlayLinks a,
+.menuButton,
+.roundLink,
+.buttonLink,
+.textLink {
+  position: relative;
+  font-size: var(--p3, 1.84rem);
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+.nav a::after,
+.textLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.15em;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+}
+
+.nav a:hover::after,
+.textLink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.menuButton {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5rem;
+  padding-top: 15rem;
+  padding-bottom: 6rem;
+}
+
+.hero h1 {
+  max-width: min(122rem, 100%);
+  margin: 0;
+  font-size: clamp(3.2rem, 6.2vw, var(--h1));
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.clientSwap,
+.bookingWord {
+  display: inline-block;
+  text-transform: none;
+  animation: wordIn 0.55s var(--ease-out) both;
+}
+
+.roundLink,
+.buttonLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  max-width: 100%;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  padding: 0.25rem 1.8rem 0.35rem;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.buttonLink::after,
+.roundLink::after {
+  content: "→";
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.roundLink:hover,
+.buttonLink:hover {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.roundLink:hover::after,
+.buttonLink:hover::after {
+  transform: translateX(0.35rem);
+}
+
+.sectionHead {
+  max-width: 81rem;
+  margin-bottom: 7rem;
+}
+
+.sectionHead p,
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: var(--p1);
+  line-height: 1.4;
+}
+
+.sectionHead h2,
+.identity > h2,
+.featured h2 {
+  margin: 0;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.services {
+  padding-top: 10rem;
+  padding-bottom: 16rem;
+  scroll-margin-top: 9rem;
+}
+
+.servicesLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  gap: 8rem;
+  align-items: start;
+}
+
+.serviceMedia {
+  position: sticky;
+  top: 10rem;
+  height: 65.5rem;
+  max-height: calc(100vh - 14rem);
+  min-height: 40rem;
+  overflow: hidden;
+  background: #eee;
+}
+
+.serviceMedia figure {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity 0.45s ease,
+    transform 0.75s ease;
+}
+
+.serviceMedia figure.isActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.serviceMedia img,
+.serviceMedia video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.serviceMedia video {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.serviceMedia figure.isActive video {
+  opacity: 1;
+}
+
+.serviceList {
+  border-top: 1px solid var(--line);
+}
+
+.serviceRow {
+  position: relative;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  min-height: 10rem;
+  padding-left: 0;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  transition:
+    padding-left 0.5s var(--ease-in-out),
+    color 0.5s var(--ease-in-out);
+}
+
+.serviceRow::before,
+.footer nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-in-out);
+}
+
+.serviceRow:hover::before,
+.serviceRow.isActive::before,
+.footer nav a:hover::before {
+  transform: scaleX(1);
+}
+
+.serviceRow:hover,
+.serviceRow.isActive,
+.footer nav a:hover {
+  color: #fff;
+}
+
+.serviceRow:hover,
+.serviceRow.isActive {
+  padding-left: 2.8rem;
+}
+
+.serviceRow span {
+  align-self: start;
+  padding-top: 2.6rem;
+  color: currentColor;
+  font-size: var(--p2);
+  opacity: 0.45;
+}
+
+.serviceRow strong {
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+
+.identity {
+  background: #f6f6f6;
+  scroll-margin-top: 9rem;
+}
+
+.identityPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 8rem;
+  align-items: stretch;
+  margin-top: 7rem;
+}
+
+.identityMedia {
+  position: relative;
+  min-height: clamp(32rem, 58vh, 68rem);
+  overflow: hidden;
+  background: #ddd;
+}
+
+.identityMedia img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+.identityCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.identityCopy h3 {
+  margin: 0;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.identityCopy > p:not(.eyebrow),
+.bookingCopy,
+.caseCard p,
+.footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.4;
+  letter-spacing: -0.048rem;
+}
+
+.identityCopy > p:not(.eyebrow) {
+  max-width: 70rem;
+  margin-top: 3rem;
+}
+
+.proofStack {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 6rem;
+  background: var(--line);
+}
+
+.proofStack article {
+  min-height: 20rem;
+  padding: 2.4rem;
+  background: #fff;
+}
+
+.proofStack span {
+  display: block;
+  margin-bottom: 2rem;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.proofStack p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.textLink {
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+  margin-top: 2rem;
+}
+
+.booking {
+  position: relative;
+  isolation: isolate;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(22rem, 42%);
+  gap: 4rem;
+  align-items: center;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  scroll-margin-top: 9rem;
+}
+
+.booking > div {
+  min-width: 0;
+}
+
+.booking .eyebrow {
+  margin-bottom: 7rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.booking h2 {
+  max-width: min(83rem, 100%);
+  margin: 0;
+  font-size: clamp(3.2rem, 5.2vw, var(--h1-booking));
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.bookingCopy {
+  max-width: min(74rem, 100%);
+  margin: 3.5rem 0 7rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.bookingVideo {
+  width: 100%;
+  max-width: 68rem;
+  aspect-ratio: 0.82;
+  object-fit: cover;
+  opacity: 0.72;
+  transform: translateX(clamp(0rem, 4vw, 8rem));
+}
+
+.showreel {
+  background: #000;
+}
+
+.showreelMedia {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+
+.showreel video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.72;
+}
+
+.showreelMarquee {
+  overflow: hidden;
+  padding: 3.2rem 0;
+  color: #fff;
+  pointer-events: none;
+}
+
+.showreelMarquee div {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.showreelMarquee span {
+  white-space: nowrap;
+  font-size: clamp(2.2rem, 3.4vw, 5.2rem);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.showreelMarquee span::before {
+  content: ".";
+  margin: 0 1.4rem;
+}
+
+.showreelLabel {
+  position: absolute;
+  right: var(--page-x);
+  bottom: var(--page-x);
+  z-index: 2;
+  max-width: min(44rem, calc(100% - var(--page-x) * 2));
+  color: #fff;
+  font-size: var(--h3);
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-align: right;
+  text-transform: none;
+  animation: wordIn 0.55s var(--ease-out) both;
+}
+
+.featured {
+  background: #000;
+  color: #fff;
+  padding-top: 16rem;
+  padding-bottom: 16rem;
+  scroll-margin-top: 9rem;
+}
+
+.sectionHead.dark p,
+.caseCard p {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.sectionHead.dark > p:last-child {
+  max-width: 78rem;
+  margin-top: 3rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: var(--p2);
+}
+
+.caseRail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 31.333333%;
+  gap: 11rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  width: calc(100% + var(--page-x) * 2);
+  margin-left: calc(var(--page-x) * -1);
+  padding: 7rem var(--page-x) 8rem;
+  scroll-padding-inline: var(--page-x);
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.caseRail::-webkit-scrollbar {
+  height: 0.8rem;
+}
+
+.caseRail::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.caseCard {
+  min-height: 47rem;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+}
+
+.caseCard img {
+  width: 16rem;
+  height: 8rem;
+  object-fit: contain;
+  object-position: left center;
+  margin-bottom: 2.75rem;
+}
+
+.caseBrand {
+  width: max-content;
+  max-width: 100%;
+  min-height: 8rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.75rem;
+  color: #fff;
+  font-size: 4.2rem;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.caseCard .rule {
+  width: 4rem;
+  height: 1px;
+  margin-bottom: 2.75rem;
+  background: #fff;
+}
+
+.caseCard h3 {
+  margin: 0 0 1.25rem;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+
+.caseCard .textLink {
+  margin-top: auto;
+  transform: translateX(4rem);
+  opacity: 0;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.caseCard:hover .textLink {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.tagList,
+.contentNote,
+.labGrid span {
+  font-size: var(--small);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tagList {
+  margin-top: 3rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.contentNote {
+  max-width: 86rem;
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.autoRail:hover {
+  cursor: grab;
+}
+
+.light {
+  color: #fff;
+}
+
+.largeLink {
+  font-size: var(--h3);
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 0.35fr) minmax(0, 0.3fr);
+  gap: 12rem;
+  background: #fff;
+  padding-top: 8rem;
+  padding-bottom: 6rem;
+}
+
+.footer nav {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-width: 0;
+}
+
+.footer nav a {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  padding: 0 0.4rem;
+  max-width: 100%;
+  font-size: clamp(2.6rem, 2.2vw + 1.8rem, 6.7rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.footer h3 {
+  margin: 0 0 1rem;
+  font-size: var(--p1);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.footer .tagline {
+  margin-top: 7rem;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin-top: 2rem;
+}
+
+.footerLinks .textLink {
+  margin-top: 0;
+}
+
+.subHero {
+  min-height: min(62rem, 100svh);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 3rem;
+  padding-top: 16rem;
+  padding-bottom: 8rem;
+}
+
+.subHero p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p1);
+}
+
+.subHero h1 {
+  max-width: min(105rem, 100%);
+  margin: 0;
+  font-size: clamp(3.2rem, 6.2vw, var(--h1));
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.subHeroSummary {
+  max-width: 72rem;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.4;
+}
+
+.listingGrid,
+.workGrid,
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.listingCard,
+.workCard,
+.newsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 54rem;
+  padding: 3rem;
+  background: #fff;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.listingCard:hover,
+.workCard:hover,
+.newsCard:hover {
+  background: #000;
+  color: #fff;
+}
+
+.listingCard > span,
+.newsCard > span {
+  color: currentColor;
+  font-size: var(--p2);
+  opacity: 0.55;
+}
+
+.listingCard h2,
+.workCard h2,
+.newsCard h2,
+.relatedRail h2,
+.detailCopy h2,
+.ctaBand h2 {
+  margin: 0;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.listingCard p,
+.workCard p,
+.newsCard p,
+.detailCopy p,
+.articleBody p {
+  margin: 0;
+  color: currentColor;
+  font-size: var(--p2);
+  line-height: 1.45;
+  opacity: 0.65;
+}
+
+.detailMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 0.98;
+  overflow: hidden;
+  background: #5b857d;
+}
+
+.detailMedia img,
+.detailMedia video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detailMedia video {
+  opacity: 0.9;
+}
+
+.detailLayout,
+.caseDetail {
+  display: grid;
+  grid-template-columns: minmax(0, 47%) minmax(0, 1fr);
+  gap: 8rem;
+  align-items: start;
+}
+
+.capabilityLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-top: 0;
+  padding-bottom: 6rem;
+}
+
+.capabilityLine p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.detailCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.detailCopy ul {
+  display: grid;
+  gap: 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.detailCopy li {
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+  font-size: var(--p2);
+}
+
+.detailCopy li strong {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 400;
+}
+
+.detailCopy li span {
+  color: var(--muted);
+}
+
+.principleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 2rem;
+  background: var(--line);
+}
+
+.principleGrid article {
+  min-height: 18rem;
+  padding: 2rem;
+  background: #fff;
+}
+
+.principleGrid strong {
+  display: block;
+  margin-bottom: 2rem;
+  font-size: var(--small);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+
+.principleGrid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--small);
+  line-height: 1.45;
+}
+
+.relatedRail {
+  padding-top: 6rem;
+}
+
+.relatedRail > div {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 4rem;
+  background: var(--line);
+}
+
+.relatedRail > .miniCardGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.relatedRail a {
+  min-height: 16rem;
+  padding: 2rem;
+  background: #fff;
+  font-size: var(--h3);
+  line-height: 1.25;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.relatedRail a:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+.miniMediaCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  min-height: 34rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+.relatedRail .miniMediaCard {
+  padding: 0;
+}
+
+.miniMediaCard img {
+  width: 100%;
+  aspect-ratio: 1.15;
+  object-fit: cover;
+}
+
+.miniMediaCard span,
+.miniMediaCard strong {
+  padding-inline: 2rem;
+}
+
+.miniMediaCard span {
+  color: currentColor;
+  font-size: var(--small);
+  opacity: 0.55;
+}
+
+.miniMediaCard strong {
+  padding-bottom: 2rem;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.22;
+}
+
+.newsGrid .newsCard:first-child {
+  grid-column: span 2;
+}
+
+.newsGrid .newsCard:first-child img {
+  aspect-ratio: 1.65;
+}
+
+.workCard .detailMedia,
+.newsCard img,
+.listingCard .detailMedia {
+  aspect-ratio: 1.12;
+}
+
+.listingCard .detailMedia img {
+  filter: grayscale(1);
+  transition: filter 0.45s ease;
+}
+
+.listingCard:hover .detailMedia img {
+  filter: grayscale(0);
+}
+
+.workLogo,
+.caseLogoLarge,
+.workBrand {
+  width: 16rem;
+  height: 8rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.caseLogoLarge {
+  width: 22rem;
+}
+
+.workBrand,
+.textLogo {
+  width: auto;
+  height: auto;
+  min-height: 6rem;
+  display: flex;
+  align-items: center;
+  color: currentColor;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.caseLogoLarge.textLogo {
+  width: auto;
+  max-width: 42rem;
+  min-height: 8rem;
+  font-size: var(--h2);
+}
+
+.newsCard img,
+.articleBody img {
+  width: 100%;
+  aspect-ratio: 1.45;
+  object-fit: cover;
+}
+
+.articleBody {
+  display: grid;
+  gap: 4rem;
+  max-width: 96rem;
+}
+
+.articleBody .buttonLink {
+  margin-top: 1rem;
+}
+
+.ctaBand {
+  background: #000;
+  color: #fff;
+}
+
+.lab {
+  background: #f6f6f6;
+}
+
+.labGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  background: transparent;
+}
+
+.labGrid article {
+  position: relative;
+  min-height: 36rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.8rem;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+.labGrid article::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 7rem;
+  height: 0.45rem;
+  background: var(--primary);
+}
+
+.labGrid article::after {
+  content: "";
+  position: absolute;
+  right: 2.4rem;
+  bottom: 2.4rem;
+  width: 8rem;
+  height: 8rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.labGrid span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.labGrid h3 {
+  max-width: 26rem;
+  margin: auto 0 2rem;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.labGrid p {
+  position: relative;
+  z-index: 1;
+  max-width: 35rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.lab .largeLink {
+  color: var(--ink);
+}
+
+.ctaBand p {
+  margin: 0 0 3rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: var(--p1);
+}
+
+.ctaBand .ctaCopy {
+  max-width: 72rem;
+  margin-bottom: 5rem;
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.ctaBand h2 {
+  max-width: 82rem;
+  margin-bottom: 3rem;
+  font-size: var(--h2);
+  line-height: 1.1;
+}
+
+.sectionNumber {
+  display: block;
+  color: var(--muted);
+  font-size: var(--h3);
+  line-height: 1.3;
+}
+
+.numberedSection {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 1fr);
+  gap: 5rem;
+  border-top: 1px solid var(--line);
+}
+
+.numberedSection > h2 {
+  grid-column: 2;
+  margin: 0 0 5rem;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.sectionIntro {
+  grid-column: 2;
+  margin: -3rem 0 4rem;
+  color: var(--muted);
+  font-size: var(--p1);
+  line-height: 1.4;
+}
+
+.processGrid,
+.techGrid,
+.subServiceGrid,
+.capabilityGrid,
+.valueGrid,
+.officeGrid,
+.jobDetail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.processGrid,
+.techGrid,
+.subServiceGrid,
+.capabilityGrid,
+.valueGrid {
+  grid-column: 2;
+}
+
+.processGrid article,
+.techGrid article,
+.subServiceGrid article,
+.capabilityGrid article,
+.valueGrid article,
+.officeGrid article,
+.jobDetail article {
+  min-height: 24rem;
+  padding: 2.5rem;
+  background: #fff;
+}
+
+.subServiceGrid,
+.capabilityGrid,
+.valueGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.subServiceGrid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.subServiceGrid article {
+  grid-column: span 3;
+  min-height: 32rem;
+  position: relative;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.subServiceGrid article:nth-child(1),
+.subServiceGrid article:nth-child(6) {
+  grid-column: span 6;
+}
+
+.subServiceGrid article:nth-child(4n + 2) {
+  background: #f6f6f6;
+}
+
+.subServiceGrid article,
+.valueGrid article {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.subServiceGrid span {
+  color: var(--muted);
+  font-size: var(--p2);
+}
+
+.subServiceGrid article::after {
+  content: "";
+  position: absolute;
+  inset: auto 2.5rem 2.5rem auto;
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.capabilityGrid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  background: transparent;
+}
+
+.capabilityGrid article {
+  min-width: 0;
+  min-height: 12rem;
+  display: flex;
+  align-items: flex-end;
+  border-left: 0.45rem solid var(--primary);
+  background: #f6f6f6;
+}
+
+.capabilityGrid article:first-child {
+  grid-column: span 2;
+  min-height: 24rem;
+  background: #000;
+  color: #fff;
+}
+
+.capabilityGrid article:first-child p {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.valueGrid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  background: transparent;
+}
+
+.valueGrid article {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(22rem, 0.32fr) minmax(0, 1fr);
+  gap: 5rem;
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+}
+
+.valueGrid article:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.valueGrid h3 {
+  font-size: var(--p1);
+  letter-spacing: 0.06em;
+}
+
+.processGrid h3,
+.techGrid h3,
+.subServiceGrid h3,
+.capabilityGrid h3,
+.valueGrid h3,
+.officeGrid h2,
+.jobDetail h2,
+.articleBody h2,
+.articleBody h3 {
+  margin: 0 0 2rem;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+.processGrid p,
+.subServiceGrid p,
+.capabilityGrid p,
+.valueGrid p,
+.officeGrid p,
+.jobDetail p,
+.jobDetail li {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.serviceProcessGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+  border-top: 0;
+  background: transparent;
+}
+
+.serviceProcessGrid article {
+  position: relative;
+  min-height: 31rem;
+  display: grid;
+  align-content: space-between;
+  gap: 4rem;
+  padding: 3rem;
+  border: 1px solid var(--line);
+  background: #f6f6f6;
+  overflow: hidden;
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.serviceProcessGrid article:nth-child(2n) {
+  padding-left: 3rem;
+  border-left: 1px solid var(--line);
+}
+
+.serviceProcessGrid article::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 7rem;
+  height: 0.45rem;
+  background: var(--primary);
+}
+
+.serviceProcessGrid article:hover {
+  border-color: rgba(0, 0, 0, 0.24);
+  background: #fff;
+  transform: translateY(-0.4rem);
+}
+
+.serviceProcessGrid span {
+  position: absolute;
+  top: 2.4rem;
+  right: 2.4rem;
+  color: rgba(0, 0, 0, 0.08);
+  font-size: clamp(7rem, 7vw, 12rem);
+  line-height: 0.72;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+
+.serviceProcessGrid h3 {
+  position: relative;
+  max-width: 36rem;
+  margin: 7rem 0 2rem;
+  font-size: var(--h3);
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.serviceProcessGrid p {
+  position: relative;
+  max-width: 48rem;
+}
+
+.journeySection {
+  position: relative;
+  display: grid;
+  gap: 6rem;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+.journeySection::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 34rem;
+  background:
+    linear-gradient(90deg, rgba(243, 237, 72, 0.16), transparent 42%),
+    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.06));
+  pointer-events: none;
+}
+
+.journeySection > div:first-child {
+  position: relative;
+  z-index: 1;
+  max-width: 96rem;
+}
+
+.journeySection h2,
+.journeySection h3 {
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0;
+}
+
+.journeySection h2 {
+  margin-top: 3rem;
+  font-size: var(--h2);
+  line-height: 1.1;
+}
+
+.journeySection h3 {
+  margin-top: 3rem;
+  font-size: var(--h3);
+  line-height: 1.25;
+}
+
+.journeySection p {
+  max-width: 78rem;
+  margin: 2rem 0 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.journeyFlow {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 1.2rem;
+  padding-top: 3.2rem;
+  background: transparent;
+}
+
+.journeyFlow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary), rgba(255, 255, 255, 0.22));
+}
+
+.journeyStep {
+  position: relative;
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.journeyStep::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6.4rem;
+  height: 0.45rem;
+  background: var(--primary);
+}
+
+.journeyStep:hover {
+  border-color: rgba(243, 237, 72, 0.55);
+  background: rgba(243, 237, 72, 0.12);
+  transform: translateY(-0.4rem);
+}
+
+.journeyStep span {
+  color: rgba(255, 255, 255, 0.46);
+  font-size: var(--small);
+  line-height: 1;
+}
+
+.journeyStep strong {
+  max-width: 18rem;
+  font-size: clamp(1.6rem, 1.15vw, 2.2rem);
+  font-weight: 300;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.journeyNote {
+  position: relative;
+  z-index: 1;
+  margin-top: 0 !important;
+  color: #fff !important;
+  font-size: var(--h3) !important;
+  line-height: 1.3 !important;
+}
+
+.insightOnlyCard {
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.relatedRail .insightOnlyCard span {
+  transition: padding-top 0.3s ease;
+}
+
+.relatedRail .insightOnlyCard:hover span {
+  padding-top: 2rem;
+}
+
+.techGrid img {
+  width: 100%;
+  aspect-ratio: 1.2;
+  object-fit: cover;
+  margin-bottom: 2rem;
+}
+
+.testimonialBlock {
+  background: #f6f6f6;
+}
+
+.testimonialBlock h2,
+.statsBand h2 {
+  max-width: 86rem;
+  margin: 0 0 5rem;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.testimonialBlock blockquote {
+  max-width: 112rem;
+  margin: 0;
+  padding: 4rem 0;
+  border-top: 1px solid var(--line);
+  font-size: var(--h3);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.storyStack {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+}
+
+.storyStack article {
+  display: grid;
+  grid-template-columns: 12rem minmax(0, 122rem);
+  gap: 5rem;
+  padding: 6rem;
+  background: #fff;
+}
+
+.storyStack h2 {
+  grid-column: 2;
+  margin: 0 0 2rem;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.storyStack p {
+  grid-column: 2;
+  max-width: 104rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.figmaServiceDetail {
+  background: #fff;
+}
+
+.figmaServiceDetail .sectionPad {
+  padding-right: var(--page-x);
+  padding-left: var(--page-x);
+}
+
+.figmaServiceHero {
+  min-height: 51.4rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: end;
+  gap: 4rem;
+  padding-top: 15.5rem;
+  padding-bottom: 5.8rem;
+}
+
+.figmaServiceHeroCopy {
+  max-width: 73.6rem;
+}
+
+.figmaServiceHero h1 {
+  margin: 0;
+  font-size: clamp(5.2rem, 5vw, 8rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.figmaServiceHero h1 span {
+  display: block;
+}
+
+.figmaServiceHero p,
+.figmaIntro p,
+.figmaPrinciples p,
+.figmaSubServices p,
+.figmaWorkCard p,
+.figmaCapabilities p,
+.figmaLab p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.55;
+}
+
+.figmaServiceHero p {
+  max-width: 72rem;
+  margin-top: 3.8rem;
+}
+
+.figmaHeroMedia {
+  height: 90rem;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.figmaHeroMedia img,
+.figmaPrinciples img,
+.figmaOtherServices img,
+.figmaCta > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.figmaIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.18fr);
+  gap: 14rem;
+  align-items: start;
+  padding-top: 10rem;
+  padding-bottom: 6rem;
+}
+
+.figmaIntro h2,
+.figmaCover h2,
+.figmaCapabilities h2,
+.figmaValue h2,
+.figmaLab h2,
+.figmaInsights h2,
+.figmaOtherServices h2,
+.figmaCta h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(3.2rem, 2.5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.figmaIntro div {
+  display: grid;
+  gap: 2.8rem;
+}
+
+.figmaPrinciples {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+  padding-top: 7rem;
+  padding-bottom: 12rem;
+}
+
+.figmaPrinciples article {
+  min-height: 52.6rem;
+  padding: 1.8rem;
+  background: #f5f5f5;
+  transition: background 0.3s ease;
+}
+
+.figmaPrinciples img {
+  aspect-ratio: 1.218;
+  height: auto;
+  margin-bottom: 2.4rem;
+}
+
+.figmaPrinciples h3 {
+  margin: 0 0 2rem;
+  color: #000;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0;
+  transition: color 0.3s ease;
+}
+
+.figmaPrinciples p {
+  transition: color 0.3s ease;
+}
+
+.figmaPrinciples article:hover {
+  background: #000;
+}
+
+.figmaPrinciples article:hover h3,
+.figmaPrinciples article:hover p {
+  color: #fff;
+}
+
+.figmaSubServices h3,
+.figmaCapabilities h3,
+.figmaLab h3 {
+  margin: 0 0 2rem;
+  color: #000;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.figmaCover {
+  background: #f4f4f4;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+
+.figmaSubServices {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  column-gap: 5px;
+  row-gap: calc(43rem + 5px);
+  margin-top: 6.4rem;
+  padding-top: calc(43rem + 5px);
+}
+
+.figmaSubServices article {
+  position: relative;
+  min-height: 43rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding: 2.8rem;
+  background: #fff;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(2.8rem);
+  transition: background 0.3s ease;
+}
+
+.figmaSubServices article:nth-child(4n + 2) {
+  transform: translateY(calc(-100% - 5px + 2.8rem));
+}
+
+.figmaSubServices article h3,
+.figmaSubServices article p {
+  transition: color 0.3s ease;
+}
+
+.figmaSubServices article:hover {
+  background: #000;
+}
+
+.figmaSubServices article:hover h3,
+.figmaSubServices article:hover p {
+  color: #fff;
+}
+
+.figmaCover.isInView .figmaSubServices article:nth-child(1) {
+  animation: coverCardIn 0.55s var(--ease-out) 0.08s forwards;
+}
+
+.figmaCover.isInView .figmaSubServices article:nth-child(2) {
+  animation: coverCardInDiagonal 0.55s var(--ease-out) 0.18s forwards;
+}
+
+.figmaCover.isInView .figmaSubServices article:nth-child(3) {
+  animation: coverCardIn 0.55s var(--ease-out) 0.28s forwards;
+}
+
+.figmaCover.isInView .figmaSubServices article:nth-child(4) {
+  animation: coverCardIn 0.55s var(--ease-out) 0.38s forwards;
+}
+
+.figmaCover.isInView .figmaSubServices article:nth-child(5) {
+  animation: coverCardIn 0.55s var(--ease-out) 0.48s forwards;
+}
+
+.figmaCover.isInView .figmaSubServices article:nth-child(6) {
+  animation: coverCardInDiagonal 0.55s var(--ease-out) 0.58s forwards;
+}
+
+.figmaCover.isInView .figmaSubServices article:nth-child(7) {
+  animation: coverCardIn 0.55s var(--ease-out) 0.68s forwards;
+}
+
+.figmaCover.isInView .figmaSubServices article:nth-child(8) {
+  animation: coverCardIn 0.55s var(--ease-out) 0.78s forwards;
+}
+
+@keyframes coverCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(2.8rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes coverCardInDiagonal {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-100% - 5px + 2.8rem));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(calc(-100% - 5px));
+  }
+}
+
+.figmaLabel {
+  width: max-content;
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.7rem;
+  margin-bottom: 4.6rem;
+  padding: 1.3rem 2rem;
+  background: #fff;
+}
+
+.figmaLabel span {
+  width: 1.7rem;
+  height: 1.7rem;
+  flex: 0 0 auto;
+  background: var(--primary);
+}
+
+.figmaLabel p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.9;
+}
+
+.figmaCover > h2 {
+  margin-bottom: 0;
+  color: #000;
+  font-size: clamp(3.6rem, 3vw, 5.2rem);
+  font-weight: 400;
+}
+
+.figmaSubServiceMark {
+  position: absolute;
+  right: 0;
+  pointer-events: none;
+  z-index: 0;
+  width: 17.4rem;
+  height: auto;
+}
+
+.figmaSubServiceMark:first-of-type {
+  bottom: 5.6rem;
+}
+
+.figmaSubServiceMark:nth-of-type(2) {
+  bottom: 0;
+}
+
+.figmaSubServices article > span {
+  position: relative;
+  z-index: 1;
+  width: 4.8rem;
+  height: 4.8rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 0;
+  flex: 0 0 auto;
+  background: var(--primary);
+}
+
+.figmaSubServices article > span img {
+  width: 2.8rem;
+  height: 2.8rem;
+  object-fit: contain;
+}
+
+.figmaSubServices article h3 {
+  position: relative;
+  z-index: 1;
+  margin: auto 0 1.2rem;
+  font-weight: 500;
+}
+
+.figmaSubServices article p {
+  position: relative;
+  z-index: 1;
+  max-width: 32rem;
+  margin-top: 0;
+}
+
+.figmaWork {
+  position: relative;
+  overflow: visible;
+  margin-top: 12rem;
+  background: #fff;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.figmaWorkInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+}
+
+@media (min-width: 1500px) {
+  .figmaWorkInner {
+    left: 50%;
+    width: 160rem;
+    transform: translateX(-50%);
+  }
+}
+
+.figmaWorkWatermark {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(146.1rem, calc(100% - 14rem));
+  margin: 0;
+  color: rgba(0, 0, 0, 0.06);
+  font-size: clamp(9rem, 11.8vw, 18.9rem);
+  font-weight: 700;
+  line-height: 0.714;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  transform: translateX(-50%) translateY(2.4rem);
+  z-index: 2;
+  opacity: 0;
+  transition:
+    opacity 0.75s var(--ease-out),
+    transform 0.75s var(--ease-out);
+}
+
+.figmaWorkStage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: clamp(64rem, 62vw, 95rem);
+  min-height: 64rem;
+}
+
+.figmaWorkPhone {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+  overflow: visible;
+  opacity: 0;
+  transform: translateY(4rem);
+  transition:
+    opacity 0.85s var(--ease-out) 0.35s,
+    transform 0.85s var(--ease-out) 0.35s;
+}
+
+.figmaWorkPhone img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+}
+
+.figmaWorkCard {
+  position: absolute;
+  z-index: 3;
+  width: clamp(24rem, 24vw, 38.5rem);
+  min-height: clamp(16rem, 13vw, 19.9rem);
+  height: auto;
+  padding: clamp(2rem, 2vw, 3.8rem) clamp(1.6rem, 1.8vw, 3.2rem);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: none;
+  opacity: 0;
+  transition:
+    border-color 0.45s ease,
+    color 0.45s ease;
+}
+
+.figmaWorkCard::after {
+  content: "";
+  position: absolute;
+  width: 1.3rem;
+  height: 1.3rem;
+  background: var(--primary);
+  transition: opacity 0.35s ease;
+  z-index: 2;
+}
+
+.figmaWorkCardFill {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.figmaWorkCardFill::before {
+  content: "";
+  position: absolute;
+  width: 1.3rem;
+  height: 1.3rem;
+  background: var(--primary);
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    transform 0.55s var(--ease-out),
+    opacity 0.2s ease;
+}
+
+.figmaWorkCard--1 {
+  top: 24%;
+  left: 6%;
+  transform: translateX(-7rem);
+}
+
+.figmaWorkCard--1::after {
+  left: calc(100% + 2px);
+  top: calc(100% + 2px);
+}
+
+.figmaWorkCard--1 .figmaWorkCardFill::before {
+  right: 0;
+  bottom: 0;
+  transform-origin: bottom right;
+}
+
+.figmaWorkCard--2 {
+  top: 32%;
+  right: 6%;
+  left: auto;
+  transform: translateX(7rem);
+}
+
+.figmaWorkCard--2::after {
+  right: 100%;
+  top: calc(100% + 2px);
+}
+
+.figmaWorkCard--2 .figmaWorkCardFill::before {
+  left: 0;
+  bottom: 0;
+  transform-origin: bottom left;
+}
+
+.figmaWorkCard--3 {
+  top: 64%;
+  left: 6%;
+  transform: translateX(-7rem);
+}
+
+.figmaWorkCard--3::after {
+  left: calc(100% + 2px);
+  top: calc(100% + 2px);
+}
+
+.figmaWorkCard--3 .figmaWorkCardFill::before {
+  right: 0;
+  bottom: 0;
+  transform-origin: bottom right;
+}
+
+.figmaWorkCard--4 {
+  top: 66%;
+  right: 6%;
+  left: auto;
+  transform: translateX(7rem);
+}
+
+.figmaWorkCard--4::after {
+  right: 100%;
+  top: calc(100% + 2px);
+}
+
+.figmaWorkCard--4 .figmaWorkCardFill::before {
+  left: 0;
+  bottom: 0;
+  transform-origin: bottom left;
+}
+
+.figmaWorkCard > span:not(.figmaWorkCardFill),
+.figmaWorkCard h3,
+.figmaWorkCard p {
+  position: relative;
+  z-index: 1;
+  transition: color 0.45s ease;
+}
+
+.figmaWorkCard > span:not(.figmaWorkCardFill) {
+  display: block;
+  margin-bottom: 2.5rem;
+  color: rgba(0, 0, 0, 0.28);
+  font-size: 2rem;
+  line-height: 1.6rem;
+}
+
+.figmaWorkCard h3 {
+  margin: 0 0 2.5rem;
+  color: #000;
+  font-size: clamp(1.6rem, 1.1vw, 1.8rem);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.figmaWorkCard p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.4rem, 1.1vw, 1.8rem);
+  line-height: 1.55;
+}
+
+.figmaWorkCard:hover {
+  border-color: var(--primary);
+}
+
+.figmaWorkCard:hover::after {
+  opacity: 0;
+}
+
+.figmaWorkCard:hover .figmaWorkCardFill::before {
+  opacity: 1;
+  transform: scale(85);
+}
+
+.figmaWorkCard:hover > span:not(.figmaWorkCardFill),
+.figmaWorkCard:hover h3,
+.figmaWorkCard:hover p {
+  color: #000;
+}
+
+main > section.figmaWork {
+  opacity: 1;
+  transform: none;
+}
+
+.figmaWork.isInView .figmaWorkWatermark {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 0.05s;
+}
+
+.figmaWork.isInView .figmaWorkPhone {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.figmaWork.isInView .figmaWorkCard--1 {
+  animation: workCardFromLeft 0.75s var(--ease-out) 0.7s forwards;
+}
+
+.figmaWork.isInView .figmaWorkCard--2 {
+  animation: workCardFromRight 0.75s var(--ease-out) 0.82s forwards;
+}
+
+.figmaWork.isInView .figmaWorkCard--3 {
+  animation: workCardFromLeft 0.75s var(--ease-out) 0.94s forwards;
+}
+
+.figmaWork.isInView .figmaWorkCard--4 {
+  animation: workCardFromRight 0.75s var(--ease-out) 1.06s forwards;
+}
+
+@keyframes workCardFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-7rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes workCardFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(7rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes workCardFromUp {
+  from {
+    opacity: 0;
+    transform: translateY(2.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.figmaExecution {
+  position: relative;
+  min-height: 94rem;
+  display: grid;
+  align-items: stretch;
+  overflow: hidden;
+  color: #fff;
+}
+
+.figmaExecution > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: none;
+}
+
+.figmaExecution::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.figmaExecutionInner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: none;
+  min-height: 94rem;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-content: stretch;
+  gap: 0;
+  padding-top: 12rem;
+  padding-bottom: 8rem;
+}
+
+.figmaExecutionHead {
+  display: grid;
+  grid-template-columns: minmax(0, 49.4rem) minmax(0, 53.6rem);
+  justify-content: space-between;
+  gap: 4rem;
+  align-items: start;
+  margin-bottom: 0;
+}
+
+.figmaExecutionHead > div {
+  position: static;
+  width: auto;
+  max-width: 49.4rem;
+}
+
+.figmaExecutionHead h2 {
+  margin: 0 0 1.9rem;
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 5rem;
+  letter-spacing: 0;
+  text-transform: none;
+  max-width: none;
+  white-space: normal;
+}
+
+.figmaExecutionHead > div > p,
+.figmaExecutionHead > p {
+  margin: 0;
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  max-width: none;
+}
+
+.figmaExecutionHead > p {
+  position: static;
+  width: auto;
+  max-width: 53.6rem;
+  text-align: left;
+  justify-self: end;
+}
+
+.figmaExecutionCards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+  position: static;
+  width: 100%;
+  margin-top: 0;
+  align-self: end;
+}
+
+.figmaExecutionCards article {
+  position: relative;
+  width: 100%;
+  min-height: 26.4rem;
+  height: auto;
+  padding: 4rem 2.9rem;
+  overflow: hidden;
+  border: 1.2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  backdrop-filter: blur(15px);
+}
+
+.figmaExecutionCards span {
+  position: static;
+  width: 7.56rem;
+  height: 7.56rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 2.8rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: none;
+}
+
+.figmaExecutionCards span img {
+  width: 3.8rem;
+  height: 3.8rem;
+  object-fit: contain;
+}
+
+.figmaExecutionCards h3 {
+  position: static;
+  width: auto;
+  margin: 0 0 1.4rem;
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.figmaExecutionCards p {
+  position: static;
+  width: auto;
+  max-width: 39.3rem;
+  margin: 0;
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+.figmaCapabilities {
+  background: var(--primary);
+}
+
+.figmaValue {
+  background: #fff;
+}
+
+.figmaCapabilities {
+  padding-top: 13rem;
+  padding-bottom: 10rem;
+}
+
+.figmaCapabilityLead {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.62fr) minmax(34rem, 0.38fr);
+  gap: 6rem;
+  align-items: center;
+  margin-top: 0;
+  padding: 8rem 0 5.6rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.figmaCapabilityNumber {
+  display: block;
+  margin-bottom: 2.6rem;
+  color: rgba(0, 0, 0, 0.33);
+  font-size: 2rem;
+  font-style: normal;
+  line-height: 1;
+}
+
+.figmaCapabilityLead p {
+  max-width: 54.2rem;
+  color: #000;
+}
+
+.figmaCapabilityImages {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 1.4rem;
+  align-items: end;
+  min-height: 0;
+  padding-top: 5.6rem;
+  margin-bottom: 0;
+}
+
+.figmaCapabilityImages > img {
+  position: static;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.figmaCapabilityImages > img:first-of-type,
+.figmaCapabilityImages > img:last-of-type {
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  width: 100%;
+  height: auto;
+}
+
+.figmaCapabilityImages > .figmaCapabilityIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  width: 4rem;
+  height: 4rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  cursor: pointer;
+}
+
+.figmaCapabilityList {
+  display: grid;
+  margin-top: 7rem;
+}
+
+.figmaCapabilityTrigger {
+  width: 100%;
+  min-height: 10.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  background: transparent;
+  color: #000;
+  font: inherit;
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.figmaCapabilityIcon {
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  transition: transform 0.28s var(--ease-out);
+}
+
+.figmaCapabilityIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.figmaCapabilityIcon.isOpen,
+.figmaCapabilityItem.isOpen .figmaCapabilityIcon {
+  transform: rotate(90deg);
+}
+
+.figmaCapabilityList a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 10.7rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000;
+  font-size: 3rem;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.figmaCapabilityTrigger > .figmaCapabilityIcon,
+.figmaOtherServices span {
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.figmaValue {
+  padding-top: 12rem;
+  padding-bottom: 7.9rem;
+  overflow: hidden;
+}
+
+.figmaValueHead {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  min-height: 4.3rem;
+  margin-bottom: 5.3rem;
+}
+
+.figmaValue .figmaLabel {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+  background: transparent;
+  padding: 1.3rem 2rem;
+  transform: translateY(-50%);
+}
+
+.figmaValueHead h2 {
+  margin: 0;
+  text-align: center;
+  max-width: 61.1rem;
+}
+
+.figmaValueMarquee {
+  width: calc(100% + (var(--page-x) * 2));
+  margin-left: calc(var(--page-x) * -1);
+  overflow: hidden;
+}
+
+.figmaValueTrack {
+  display: flex;
+  gap: 2.3rem;
+  width: max-content;
+  padding: 1.9rem 0 0;
+  animation: marquee 45s linear infinite;
+}
+
+.figmaValueMarquee:hover .figmaValueTrack {
+  animation-play-state: paused;
+}
+
+.figmaValueTrack article {
+  position: relative;
+  flex: 0 0 38.4rem;
+  width: 38.4rem;
+  max-width: 38.4rem;
+  min-width: 28rem;
+  height: 55rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3.2rem 3.2rem 4.6rem 2.8rem;
+  overflow: hidden;
+  background: #111;
+  color: #fff;
+}
+
+.figmaValueTrack article.isTextTop {
+  justify-content: flex-start;
+  padding-top: 4.6rem;
+  padding-left: 3.46rem;
+}
+
+.figmaValueTrack article > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.figmaValueTrack article:nth-child(4n + 1) > img {
+  object-position: 59% center;
+}
+
+.figmaValueTrack article:nth-child(4n + 4) > img {
+  object-position: 70% center;
+}
+
+.figmaValueTrack article::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(102, 102, 102, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.figmaValueTrack article.isTextTop::after {
+  background:
+    radial-gradient(ellipse 3.8rem 2.75rem at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%),
+    rgba(0, 0, 0, 0.18);
+}
+
+.figmaValueTrack article > div {
+  position: relative;
+  z-index: 1;
+}
+
+.figmaValueTrack h3 {
+  margin: 0 0 2.5rem;
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1;
+  text-transform: none;
+}
+
+.figmaValueTrack p {
+  margin: 0;
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+.figmaCollaboration {
+  position: relative;
+  min-height: 94rem;
+  display: grid;
+  align-items: stretch;
+  overflow: hidden;
+  background: #111;
+  color: #fff;
+}
+
+.figmaCollaborationBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.figmaCollaborationBg img,
+.figmaCollaboration > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.figmaCollaborationBg img {
+  opacity: 0;
+  transition: opacity 0.55s ease;
+}
+
+.figmaCollaborationBg img.isActive {
+  opacity: 1;
+}
+
+.figmaCollaboration::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 80rem 47rem at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%),
+    rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.figmaCollaborationInner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: none;
+  min-height: 94rem;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 8rem;
+  align-content: start;
+  padding-top: 12rem;
+  padding-bottom: 8rem;
+}
+
+.figmaCollaborationHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 4rem 8rem;
+  align-items: start;
+}
+
+.figmaCollaborationHead > div {
+  position: static;
+  width: auto;
+  max-width: 54rem;
+}
+
+.figmaCollaborationHead h2 {
+  margin: 0 0 3rem;
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 5rem;
+  letter-spacing: 0;
+  text-transform: capitalize;
+}
+
+.figmaCollaborationHead > div > p {
+  margin: 0;
+  color: #fff;
+  font-size: 2.2rem;
+  line-height: 1;
+  text-transform: lowercase;
+}
+
+.figmaCollaborationHead > p {
+  position: static;
+  width: auto;
+  max-width: 54rem;
+  margin: 0;
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  text-align: left;
+  justify-self: start;
+}
+
+.figmaCollaboration article {
+  position: relative;
+  width: min(39.7rem, 100%);
+  min-height: 42.3rem;
+  height: auto;
+  margin: 0;
+  padding: 5.5rem 3.4rem 8rem;
+  border-top: 3px solid var(--primary);
+  background: #fff;
+  color: #000;
+  align-self: end;
+}
+
+.figmaCollaborationCopy {
+  opacity: 1;
+  transition: opacity 0.22s ease;
+}
+
+.figmaCollaborationCopy.isFading {
+  opacity: 0;
+}
+
+.figmaCollaboration article h3 {
+  margin: 0 0 2.5rem;
+  color: #000;
+  font-size: 2.6rem;
+  font-weight: 300;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+.figmaCollaboration article p {
+  width: auto;
+  max-width: 33.7rem;
+  margin: 0 0 2.2rem;
+  color: var(--muted);
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+.figmaCollaborationTags {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+}
+
+.figmaCollaborationTags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3.9rem;
+  padding: 1.3rem 2rem;
+  background: var(--primary);
+  color: #000;
+  font-size: 1.8rem;
+  line-height: 1.3rem;
+}
+
+.figmaCollaborationArrows {
+  position: absolute;
+  left: 3.4rem;
+  bottom: 2.9rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.figmaCollaborationArrows span,
+.figmaCollaborationArrows button {
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: #f4f4f4;
+  color: #000;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  appearance: none;
+}
+
+.figmaCollaborationArrows button:hover {
+  background: #ebebeb;
+}
+
+.figmaCollaborationArrows button:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.figmaLab {
+  background: var(--primary);
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+
+.figmaLabHeader {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 3rem 6rem;
+  align-items: end;
+  margin-bottom: 7.8rem;
+}
+
+.figmaLabHeader .figmaLabel {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+  background: #fff;
+}
+
+.figmaLab h2 {
+  margin-bottom: 0;
+  max-width: 61rem;
+}
+
+.figmaLabHeader > p {
+  grid-column: 1;
+  max-width: 73.6rem;
+  color: rgba(0, 0, 0, 0.68);
+}
+
+.figmaLabHeader .buttonLink {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+  align-self: end;
+}
+
+.figmaLabItems {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+.figmaLabItems article {
+  display: grid;
+  grid-template-rows: 36.2rem 13.6rem;
+  min-height: 49.8rem;
+  background: #f3f3f3;
+  color: #000;
+  overflow: hidden;
+  gap: 0;
+}
+
+.figmaLabItems article > img {
+  display: block;
+  position: static;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+.figmaLabItems article > div {
+  margin: 0;
+  padding: 2.6rem 3rem;
+  border-top: 1px solid var(--primary);
+  background: #f3f3f3;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.figmaLabItems h3 {
+  color: #000;
+  margin-bottom: 1.8rem;
+  transition: color 0.3s ease;
+}
+
+.figmaLabItems p {
+  color: rgba(0, 0, 0, 0.56);
+  transition: color 0.3s ease;
+}
+
+.figmaLabItems article:hover > div {
+  background: #000;
+}
+
+.figmaLabItems article:hover h3,
+.figmaLabItems article:hover p {
+  color: #fff;
+}
+
+.figmaInsights {
+  position: relative;
+  background: #f4f4f4;
+  padding-top: 12rem;
+  padding-bottom: 10rem;
+}
+
+.figmaInsights h2 {
+  margin: 0 0 5rem;
+  text-transform: capitalize;
+}
+
+.figmaInsights > div {
+  display: grid;
+}
+
+.figmaInsights a {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content max-content;
+  gap: 3rem 6rem;
+  align-items: start;
+  min-height: 0;
+  padding: 4rem 0 5.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  color: inherit;
+  text-decoration: none;
+}
+
+.figmaInsights a:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.figmaInsights a::after {
+  content: none;
+}
+
+.figmaInsights strong {
+  position: static;
+  display: block;
+  grid-column: 1;
+  grid-row: 1;
+  width: auto;
+  max-width: 54rem;
+  color: #000;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.25;
+  text-transform: none;
+}
+
+.figmaInsights a strong {
+  text-transform: none;
+}
+
+.figmaInsights .figmaInsightBody {
+  position: static;
+  display: block;
+  grid-column: 1;
+  grid-row: 2;
+  width: auto;
+  max-width: 54rem;
+  margin-top: 1.6rem;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.55;
+}
+
+.figmaInsights .figmaInsightMeta {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  grid-column: 2;
+  grid-row: 1;
+  width: auto;
+  max-width: none;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.55;
+  white-space: nowrap;
+}
+
+.figmaInsights .figmaInsightMeta i {
+  width: 0.8rem;
+  height: 0.8rem;
+  display: block;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #6b6b6b;
+}
+
+.figmaInsights em {
+  position: static;
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  color: #000;
+  font-size: 1.84rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.figmaInsights em::after {
+  content: " →";
+}
+
+.figmaOtherServices {
+  background: #fff;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+
+.figmaOtherServices h2 {
+  margin-bottom: 3.9rem;
+  text-transform: capitalize;
+}
+
+.figmaOtherServices > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.figmaOtherServices a {
+  position: relative;
+  height: 61.7rem;
+  min-height: 61.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4rem 3rem 3.7rem;
+  overflow: hidden;
+  color: #fff;
+  background: #000;
+}
+
+.figmaOtherServices > div > a > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.figmaOtherServices a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(102, 102, 102, 0) 100%),
+    linear-gradient(180deg, rgba(102, 102, 102, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.figmaOtherServices strong,
+.figmaOtherServices span {
+  position: relative;
+  z-index: 1;
+}
+
+.figmaOtherServices span {
+  width: 4rem;
+  height: 4rem;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+}
+
+.figmaOtherServices span img {
+  width: 4rem;
+  height: 4rem;
+  display: block;
+  object-fit: contain;
+}
+
+.figmaOtherServices strong {
+  max-width: 34rem;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+.figmaOtherServices a:hover > img {
+  transform: scale(1.04);
+}
+
+.figmaCta {
+  position: relative;
+  z-index: 1;
+  display: block;
+  height: 61.1rem;
+  min-height: 61.1rem;
+  padding-top: 16.1rem;
+  padding-bottom: 0;
+  background: #0c0c0c;
+  color: #fff;
+  overflow: visible;
+}
+
+.figmaCta > div {
+  position: relative;
+  z-index: 1;
+  width: 52.4rem;
+}
+
+.figmaCta .figmaLabel {
+  width: max-content;
+  margin-bottom: 5.4rem;
+}
+
+.figmaCta h2,
+.figmaCta p {
+  color: #fff;
+}
+
+.figmaCta .figmaLabel p {
+  color: rgba(0, 0, 0, 0.56);
+}
+
+.figmaCta > div > p {
+  max-width: 52.4rem;
+  margin: 2.5rem 0 2.5rem;
+  color: #fff;
+  font-size: var(--p2);
+  line-height: 1.55;
+}
+
+.figmaCta .buttonLink {
+  color: #fff;
+  border-color: #fff;
+}
+
+.figmaCta > img {
+  position: absolute;
+  top: -7.8rem;
+  left: calc(50% + 21rem);
+  width: 43.5rem;
+  height: 72.5rem;
+  object-position: top center;
+  object-fit: cover;
+}
+
+.aboutHeroMedia {
+  display: grid;
+  grid-template-columns: minmax(36rem, 1.05fr) minmax(32rem, 0.95fr);
+  gap: 8rem;
+  align-items: end;
+  padding-top: 5rem;
+}
+
+.aboutHeroMedia img {
+  width: 100%;
+  aspect-ratio: 1.18;
+  object-fit: cover;
+}
+
+.aboutHeroMedia h2 {
+  margin: 2rem 0 3rem;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.aboutHeroMedia p {
+  max-width: 62rem;
+  margin: 0 0 2rem;
+  color: var(--muted);
+  font-size: var(--p1);
+  line-height: 1.4;
+}
+
+.aboutHeroMedia p:last-child {
+  margin-bottom: 0;
+}
+
+.statsBand > div {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.statsBand article {
+  min-height: 18rem;
+  padding: 2.5rem;
+  background: #fff;
+}
+
+.statsBand strong {
+  display: block;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.statsBand span {
+  color: var(--muted);
+  font-size: var(--p2);
+}
+
+.imageMarquee {
+  overflow: hidden;
+  background: #000;
+  padding: 4rem 0;
+}
+
+.imageMarquee > div {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.imageMarquee img {
+  width: 34rem;
+  aspect-ratio: 0.86;
+  object-fit: cover;
+}
+
+.evolutionSection {
+  background: #000;
+  color: #fff;
+}
+
+.evolutionSection .sectionHead p {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.evolutionFlow {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.evolutionFlow article {
+  position: relative;
+  min-height: 26rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.4rem;
+  background: #111;
+  overflow: hidden;
+}
+
+.evolutionFlow article::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 5.6rem;
+  height: 0.45rem;
+  background: var(--primary);
+}
+
+.evolutionFlow span {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: var(--small);
+}
+
+.evolutionFlow strong {
+  font-size: clamp(1.6rem, 1.2vw, 2.2rem);
+  font-weight: 300;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.aboutStrengths {
+  background: #f6f6f6;
+}
+
+.aboutStrengths article {
+  display: grid;
+  grid-template-columns: minmax(24rem, 0.35fr) minmax(0, 1fr);
+  gap: 5rem;
+  padding: 4rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.aboutStrengths h3 {
+  margin: 0;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.aboutStrengths p {
+  max-width: 78rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.clientWall > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.clientWall span {
+  min-height: 14rem;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: #fff;
+  font-size: var(--h3);
+  line-height: 1;
+  text-align: center;
+  text-transform: none;
+}
+
+.labHero {
+  min-height: min(92rem, 100svh);
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 0.75fr);
+  gap: 7rem;
+  align-items: center;
+  padding-top: 16rem;
+}
+
+.labHero > div:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.labHero p {
+  max-width: 76rem;
+  margin: 0 0 3rem;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.labHero > div:first-child > p:first-child {
+  font-size: var(--p1);
+}
+
+.labHero h1 {
+  max-width: min(100rem, 100%);
+  margin: 0 0 4rem;
+  font-size: clamp(3.2rem, 6.2vw, var(--h1));
+  font-weight: 300;
+  line-height: 1.03;
+  letter-spacing: 0;
+}
+
+.labHero h1 span {
+  display: block;
+}
+
+.labCanvas {
+  position: relative;
+  min-height: 58rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    #f6f6f6;
+  background-size: 5.2rem 5.2rem;
+  overflow: hidden;
+}
+
+.labCanvas::before,
+.labCanvas::after {
+  content: "";
+  position: absolute;
+  border: 2px solid var(--primary);
+}
+
+.labCanvas::before {
+  inset: 11rem 7rem auto auto;
+  width: 18rem;
+  height: 12rem;
+}
+
+.labCanvas::after {
+  left: 5rem;
+  bottom: 7rem;
+  width: 24rem;
+  height: 14rem;
+  border-color: #000;
+}
+
+.labCanvas span {
+  position: absolute;
+  left: calc(8% + var(--col) * 28%);
+  top: calc(10% + var(--i) * 10.5%);
+  max-width: 18rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  background: rgba(255, 255, 255, 0.82);
+  font-size: var(--small);
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  animation: labSignal 4.8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.42s);
+}
+
+.labPurpose {
+  background: #f6f6f6;
+}
+
+.labPurpose .sectionHead p:last-child,
+.industryIndex .sectionHead p:last-child {
+  max-width: 86rem;
+  color: var(--muted);
+  font-size: var(--p2);
+}
+
+.labProgression {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  background: var(--line);
+}
+
+.labProgression span {
+  flex: 1 1 18rem;
+  min-height: 12rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  background: #fff;
+  font-size: var(--p2);
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+.labProjects {
+  background: #fff;
+}
+
+.labProjectStack {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.labProject {
+  display: grid;
+  grid-template-columns: minmax(32rem, 0.8fr) minmax(32rem, 1fr) minmax(26rem, 0.55fr);
+  min-height: 48rem;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.labProjectVisual {
+  position: relative;
+  min-height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+.labProjectVisual div {
+  position: absolute;
+  border: 1px solid var(--primary);
+}
+
+.labProject.shelf .labProjectVisual div:nth-child(1) {
+  inset: 15% 15% auto 12%;
+  height: 7rem;
+}
+
+.labProject.shelf .labProjectVisual div:nth-child(2) {
+  inset: 36% 28% auto 18%;
+  height: 9rem;
+}
+
+.labProject.shelf .labProjectVisual div:nth-child(3) {
+  inset: 61% 14% auto 32%;
+  height: 8rem;
+}
+
+.labProject.space .labProjectVisual {
+  background:
+    radial-gradient(circle at 30% 35%, rgba(243, 237, 72, 0.55), transparent 18%),
+    radial-gradient(circle at 64% 58%, rgba(243, 237, 72, 0.32), transparent 22%),
+    #0a0a0a;
+}
+
+.labProject.space .labProjectVisual div,
+.labProject.flow .labProjectVisual div {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  background: var(--primary);
+  animation: labPoint 5s ease-in-out infinite;
+}
+
+.labProject.space .labProjectVisual div:nth-child(1),
+.labProject.flow .labProjectVisual div:nth-child(1) {
+  left: 24%;
+  top: 24%;
+}
+
+.labProject.space .labProjectVisual div:nth-child(2),
+.labProject.flow .labProjectVisual div:nth-child(2) {
+  left: 62%;
+  top: 46%;
+  animation-delay: -1s;
+}
+
+.labProject.space .labProjectVisual div:nth-child(3),
+.labProject.flow .labProjectVisual div:nth-child(3) {
+  left: 44%;
+  top: 68%;
+  animation-delay: -2s;
+}
+
+.labProject.aml .labProjectVisual,
+.labProject.procure .labProjectVisual,
+.labProject.knowledge .labProjectVisual {
+  background:
+    linear-gradient(90deg, rgba(243, 237, 72, 0.18), transparent 40%),
+    #0a0a0a;
+}
+
+.labProject.aml .labProjectVisual div,
+.labProject.procure .labProjectVisual div,
+.labProject.knowledge .labProjectVisual div {
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.labProject.aml .labProjectVisual div:nth-child(1),
+.labProject.procure .labProjectVisual div:nth-child(1),
+.labProject.knowledge .labProjectVisual div:nth-child(1) {
+  top: 28%;
+}
+
+.labProject.aml .labProjectVisual div:nth-child(2),
+.labProject.procure .labProjectVisual div:nth-child(2),
+.labProject.knowledge .labProjectVisual div:nth-child(2) {
+  top: 45%;
+}
+
+.labProject.aml .labProjectVisual div:nth-child(3),
+.labProject.procure .labProjectVisual div:nth-child(3),
+.labProject.knowledge .labProjectVisual div:nth-child(3) {
+  top: 62%;
+}
+
+.labProjectCopy,
+.labProjectMetrics {
+  padding: 3rem;
+}
+
+.labProjectCopy {
+  display: flex;
+  flex-direction: column;
+}
+
+.labProjectCopy > span,
+.labProjectMetrics > span {
+  color: var(--muted);
+  font-size: var(--small);
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+}
+
+.labProjectCopy h3 {
+  margin: auto 0 2rem;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.05;
+}
+
+.labProjectCopy h4 {
+  max-width: 48rem;
+  margin: 0 0 2rem;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.labProjectCopy p {
+  max-width: 62rem;
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.labProjectMetrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-left: 1px solid var(--line);
+  background: #f6f6f6;
+}
+
+.labProjectMetrics strong {
+  display: block;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--line);
+  font-size: var(--small);
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.industryIndex > div:last-child {
+  border-top: 1px solid var(--line);
+}
+
+.industryIndex article {
+  display: grid;
+  grid-template-columns: minmax(32rem, 0.48fr) minmax(0, 1fr);
+  gap: 5rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.industryIndex h3 {
+  margin: 0;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.industryIndex p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.labReality {
+  background: #000;
+  color: #fff;
+}
+
+.realityPath {
+  display: grid;
+  gap: 2rem;
+}
+
+.realityPath > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.realityPath span {
+  min-height: 10rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  color: #fff;
+  font-size: var(--p2);
+  line-height: 1.2;
+}
+
+.realityPath > div:first-child span {
+  flex: 1 1 24rem;
+}
+
+.realityPath > div:last-child {
+  padding-left: 18%;
+}
+
+.realityPath > div:last-child span {
+  flex: 1 1 28rem;
+  border-color: var(--primary);
+}
+
+.statusSystem h2 {
+  margin: 0 0 5rem;
+  font-size: var(--h2);
+  font-weight: 300;
+}
+
+.statusSystem > div {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.statusSystem article {
+  min-height: 20rem;
+  padding: 2.4rem;
+  background: #fff;
+}
+
+.statusSystem h3 {
+  margin: 0 0 4rem;
+  font-size: var(--p2);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.statusSystem p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.labBuild {
+  background: #000;
+  color: #fff;
+}
+
+.labBuild > p:first-child {
+  margin: 0 0 3rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: var(--p1);
+}
+
+.labBuild h2 {
+  max-width: 86rem;
+  margin: 0 0 3rem;
+  font-size: var(--h1-booking);
+  font-weight: 300;
+  line-height: 1.05;
+}
+
+.labBuild > p:not(:first-child) {
+  max-width: 78rem;
+  margin: 0 0 5rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: var(--p2);
+  line-height: 1.45;
+}
+
+.labBuild > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+}
+
+.industriesHero {
+  min-height: 78rem;
+  display: grid;
+  align-content: end;
+  gap: 3rem;
+  background:
+    linear-gradient(90deg, rgba(243, 237, 72, 0.12), transparent 42%),
+    radial-gradient(circle at 82% 26%, rgba(0, 0, 0, 0.08), transparent 26rem),
+    #f4f4f4;
+}
+
+.industriesHero p:first-child,
+.industriesIntro span,
+.industryMeta p,
+.industryProof strong,
+.industryLab > div:first-child > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--small);
+  line-height: 1.3;
+  letter-spacing: 0.06em;
+}
+
+.industriesHero h1 {
+  max-width: 110rem;
+  margin: 0;
+  font-size: var(--h1);
+  font-weight: 300;
+  line-height: 0.95;
+}
+
+.industriesHero p:last-child,
+.industriesIntro p,
+.industryCopy > p,
+.industryLab p {
+  max-width: 76rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p1);
+  line-height: 1.45;
+}
+
+.industriesIntro {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.28fr) minmax(0, 1fr);
+  gap: 5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.industriesIntro h2 {
+  max-width: 70rem;
+  margin: 0;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.05;
+}
+
+.industriesIntro p {
+  grid-column: 2;
+  max-width: 86rem;
+}
+
+.industriesEditorial {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.22fr) minmax(0, 1fr);
+  gap: 7rem;
+}
+
+.industriesEditorial aside {
+  position: sticky;
+  top: 10rem;
+  align-self: start;
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+
+.industriesEditorial aside a {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 1.2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+  color: #111;
+  font-size: var(--small);
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.industriesEditorial aside span,
+.industryMeta span {
+  color: var(--muted);
+}
+
+.industriesEditorial > div {
+  border-top: 1px solid var(--line);
+}
+
+.industriesEditorial article {
+  min-height: 56rem;
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.26fr) minmax(0, 1fr);
+  gap: 5rem;
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 9rem;
+}
+
+.industryMeta span {
+  display: block;
+  margin-bottom: 1.8rem;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.industryCopy h2 {
+  max-width: 76rem;
+  margin: 0 0 2.4rem;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.08;
+}
+
+.industryTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 4rem 0;
+}
+
+.industryTags span {
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #111;
+  font-size: var(--small);
+  line-height: 1.2;
+}
+
+.industryProof {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.industryProof > div {
+  min-height: 17rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 2rem;
+  background: #f7f7f7;
+}
+
+.industryProof a,
+.industryProof span {
+  color: #111;
+  font-size: var(--p2);
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.industryProof a {
+  width: fit-content;
+  border-bottom: 1px solid currentColor;
+}
+
+.industryFlow > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 5rem;
+  background: var(--line);
+}
+
+.industryFlow > div:last-child span {
+  min-height: 15rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  background: #fff;
+  color: #111;
+  font-size: var(--small);
+  line-height: 1.35;
+}
+
+.industryFlow > div:last-child span:nth-child(even) {
+  background: #f3f3f3;
+}
+
+.industryLab {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(34rem, 0.3fr);
+  gap: 1px;
+  background: #000;
+  color: #fff;
+}
+
+.industryLab > div {
+  padding: 6rem var(--page-x);
+}
+
+.industryLab > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.industryLab h2 {
+  max-width: 82rem;
+  margin: 0;
+  font-size: var(--h2);
+  font-weight: 300;
+  line-height: 1.05;
+}
+
+.industryLab p {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.industryLab > div:last-child {
+  display: grid;
+  gap: 1px;
+  padding-left: 0;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.industryLab article {
+  min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.4rem;
+  background: #0b0b0b;
+}
+
+.industryLab strong {
+  font-size: var(--p2);
+  font-weight: 400;
+}
+
+.industryLab span {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: var(--small);
+}
+
+.contactForm {
+  background: #000;
+  color: #fff;
+}
+
+.contactForm h2,
+.portfolioLinks h2 {
+  margin: 0 0 5rem;
+  font-size: var(--h2);
+  font-weight: 300;
+}
+
+.contactForm form {
+  position: relative;
+}
+
+.contactForm > div,
+.contactForm .contactFields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.contactField {
+  min-width: 0;
+  background: #111;
+}
+
+.contactFieldWide {
+  grid-column: 1 / -1;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  min-height: 7rem;
+  padding: 2rem;
+  border: 0;
+  outline: none;
+  background: #111;
+  color: #fff;
+  font: inherit;
+}
+
+.contactForm textarea {
+  grid-column: 1 / -1;
+  min-height: 18rem;
+}
+
+.contactForm .contactFields input:focus,
+.contactForm .contactFields textarea:focus {
+  box-shadow: inset 0 2px 0 0 var(--primary);
+}
+
+.contactForm input.isInvalid,
+.contactForm textarea.isInvalid {
+  box-shadow: inset 0 2px 0 0 var(--primary);
+}
+
+.contactForm [role="alert"] {
+  margin: 0;
+  padding: 0 2rem 1.4rem;
+  color: var(--primary);
+  font-size: var(--small);
+}
+
+.contactHoneypot {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contactConsent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  width: max-content;
+  max-width: 100%;
+  margin-bottom: 3rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: var(--p2);
+  cursor: pointer;
+}
+
+.contactConsent input {
+  width: 1.8rem;
+  min-height: 1.8rem;
+  margin-top: 0.4rem;
+  padding: 0;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+}
+
+.contactForm .buttonLink {
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.contactForm .buttonLink:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  transform: none;
+}
+
+.contactStatus {
+  margin: 2rem 0 0;
+  font-size: var(--p2);
+}
+
+.contactStatus.isSuccess {
+  color: #fff;
+}
+
+.contactStatus.isError {
+  color: var(--primary);
+}
+
+.portfolioLinks > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.portfolioLinks a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 16rem;
+  padding: 3rem;
+  background: #fff;
+  font-size: var(--h3);
+}
+
+.portfolioLinks img {
+  max-width: 12rem;
+  max-height: 5rem;
+}
+
+.jobDetail {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.jobDetail ul {
+  display: grid;
+  gap: 1.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.caseGallery {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+}
+
+.caseGallery figure {
+  margin: 0;
+  padding: 3rem;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.caseGallery img {
+  width: 100%;
+  max-height: 78rem;
+  object-fit: cover;
+  outline: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(3.2rem);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
+}
+
+.caseGallery figcaption {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: var(--p2);
+  opacity: 0;
+  transform: translateY(2.4rem);
+  transition:
+    opacity 0.8s var(--ease-out) 0.12s,
+    transform 0.8s var(--ease-out) 0.12s;
+}
+
+.caseGallery figure.isInView img,
+.caseGallery figure.isInView figcaption {
+  opacity: 1;
+  transform: none;
+}
+
+.caseJourney {
+  background: #f6f6f6;
+}
+
+.caseJourneyGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.caseJourneyGrid article {
+  min-height: 28rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.4rem;
+  background: #fff;
+}
+
+.caseJourneyGrid span {
+  color: var(--muted);
+  font-size: var(--small);
+}
+
+.caseJourneyGrid h3 {
+  margin: auto 0 2rem;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+.caseJourneyGrid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--small);
+  line-height: 1.45;
+}
+
+.caseJourney .contentNote {
+  color: var(--muted);
+}
+
+.caseSystem {
+  background: #000;
+  color: #fff;
+}
+
+.caseSystemFlow {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.caseSystemFlow span {
+  min-height: 15rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  background: #111;
+  font-size: var(--small);
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.caseMarketList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.caseMarketList span {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 0.65rem 1.4rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: var(--small);
+  line-height: 1.2;
+}
+
+.articleMediaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.articleMediaGrid img {
+  aspect-ratio: 1.15;
+  object-fit: cover;
+}
+
+main > section,
+main > article,
+main > footer {
+  opacity: 0;
+  transform: translateY(2.8rem);
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 0.9s var(--ease-out);
+}
+
+main > section.isInView,
+main > article.isInView,
+main > footer.isInView {
+  opacity: 1;
+  transform: none;
+}
+
+main > section.caseGallery {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes loaderText {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes navDrop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes loaderExit {
+  to {
+    transform: translateY(-102%);
+    border-radius: 0 0 50% 50%;
+    visibility: hidden;
+  }
+}
+
+@keyframes wordIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.22em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes labSignal {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-0.6rem);
+  }
+}
+
+@keyframes labPoint {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(3.2rem, 1.8rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  main > section,
+  main > article,
+  main > footer {
+    opacity: 1;
+    transform: none;
+  }
+
+  .figmaWorkWatermark,
+  .figmaWorkPhone,
+  .figmaWorkCard {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .figmaSubServices article {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  .figmaSubServices article:nth-child(4n + 2) {
+    transform: translateY(calc(-100% - 5px)) !important;
+  }
+
+  .caseGallery img,
+  .caseGallery figcaption {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 1500px) {
+  .capabilityGrid article:first-child {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .capabilityGrid article:first-child h3,
+  .capabilityGrid article:first-child p {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .capabilityGrid article:first-child h3 {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 1180px) {
+  :root {
+    --page-x: 5rem;
+  }
+
+  .servicesLayout {
+    gap: 5rem;
+  }
+
+  .listingGrid,
+  .workGrid,
+  .newsGrid,
+  .processGrid,
+  .techGrid,
+  .officeGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .capabilityGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .capabilityGrid article:first-child {
+    grid-column: span 3;
+    min-height: 0;
+    padding: 2.8rem;
+  }
+
+  .subServiceGrid article,
+  .subServiceGrid article:nth-child(1),
+  .subServiceGrid article:nth-child(6) {
+    grid-column: span 6;
+  }
+
+  .caseRail {
+    grid-auto-columns: 58.333333%;
+  }
+
+  .caseJourneyGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --h1: 5.8rem;
+    --h1-booking: 4.8rem;
+    --h2: 3.6rem;
+    --h3: 2rem;
+    --h4: 1.8rem;
+    --p1: 2rem;
+    --p2: 1.8rem;
+    --section-y-large: 9rem;
+    --page-x: 5rem;
+  }
+
+  .siteHeader {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .menuButton {
+    display: block;
+    z-index: 3;
+  }
+
+  .logo {
+    position: relative;
+    z-index: 3;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .navOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 200;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: #fff;
+    color: #000;
+  }
+
+  .navOverlay.isOpen {
+    display: flex;
+    animation: navDrop 0.45s var(--ease-in-out);
+  }
+
+  .navOverlayBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    padding: 2rem var(--page-x);
+  }
+
+  .navOverlayLinks {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.2rem;
+    min-height: 0;
+    padding: 1.2rem var(--page-x) max(4rem, env(safe-area-inset-bottom));
+  }
+
+  .navOverlayBar .menuButton {
+    display: block;
+    color: #000;
+  }
+
+  .navOverlayBar .logo {
+    mix-blend-mode: normal;
+    color: #000;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04rem;
+  }
+
+  .navOverlayLinks a {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding-top: 15rem;
+  }
+
+  .hero h1 {
+    max-width: min(68rem, 100%);
+  }
+
+  .sectionHead {
+    margin-bottom: 5rem;
+  }
+
+  .services,
+  .featured {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+
+  .serviceMedia {
+    height: min(53rem, 70vh);
+    max-height: calc(100vh - 14rem);
+    min-height: 28rem;
+  }
+
+  .serviceRow {
+    min-height: 8rem;
+  }
+
+  .identityPanel {
+    gap: 5rem;
+  }
+
+  .identityMedia {
+    min-height: clamp(28rem, 48vh, 42rem);
+  }
+
+  .booking {
+    min-height: 0;
+    gap: 3rem;
+  }
+
+  .showreelMarquee span {
+    font-size: 4rem;
+  }
+
+  .footer {
+    grid-template-columns: minmax(0, 0.8fr) repeat(2, minmax(0, 0.35fr));
+    gap: 4rem;
+  }
+
+  .footer nav a {
+    font-size: clamp(2.6rem, 3.6vw, 4.7rem);
+  }
+}
+
+@media (max-width: 990px) {
+  :root {
+    --h1: 5.2rem;
+    --h1-booking: 4.8rem;
+    --h2: 3.4rem;
+    --h3: 2.2rem;
+    --p1: 2rem;
+    --p2: 1.8rem;
+    --page-x: 4rem;
+    --section-y-large: 8rem;
+  }
+
+  .servicesLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .serviceMedia {
+    position: relative;
+    top: auto;
+    height: auto;
+    max-height: none;
+    min-height: 0;
+    aspect-ratio: 1.2;
+  }
+
+  .identityPanel,
+  .aboutHeroMedia,
+  .booking,
+  .labHero,
+  .labProject,
+  .industryIndex article,
+  .industriesIntro,
+  .industriesEditorial,
+  .industriesEditorial article,
+  .industryLab,
+  .footer,
+  .detailLayout,
+  .caseDetail,
+  .numberedSection,
+  .valueGrid article,
+  .storyStack article {
+    grid-template-columns: 1fr;
+  }
+
+  .listingGrid,
+  .workGrid,
+  .newsGrid,
+  .processGrid,
+  .techGrid,
+  .officeGrid,
+  .principleGrid,
+  .journeyFlow,
+  .caseJourneyGrid,
+  .capabilityGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .capabilityGrid article:first-child {
+    grid-column: 1 / -1;
+    min-height: 0;
+    padding: 2.4rem;
+  }
+
+  .capabilityGrid article:first-child,
+  .subServiceGrid article,
+  .subServiceGrid article:nth-child(1),
+  .subServiceGrid article:nth-child(6),
+  .numberedSection > h2,
+  .sectionIntro,
+  .processGrid,
+  .techGrid,
+  .subServiceGrid,
+  .capabilityGrid,
+  .valueGrid,
+  .storyStack h2,
+  .storyStack p {
+    grid-column: 1 / -1;
+  }
+
+  .industriesIntro p {
+    grid-column: 1;
+  }
+
+  .industriesEditorial aside {
+    position: relative;
+    top: auto;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(17rem, max-content);
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+
+  .industriesEditorial aside a {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    padding-right: 2rem;
+  }
+
+  .industriesEditorial article {
+    min-height: 0;
+    gap: 2.4rem;
+  }
+
+  .industryFlow > div:last-child,
+  .industryProof {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .industryLab > div:last-child {
+    padding-left: var(--page-x);
+  }
+
+  .labCanvas {
+    min-height: 42rem;
+  }
+
+  .labProjectVisual {
+    min-height: 32rem;
+  }
+
+  .labProjectMetrics {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .statusSystem > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .identityMedia {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+    max-height: 42vh;
+  }
+
+  .booking {
+    min-height: 0;
+    align-items: start;
+    gap: 4rem;
+  }
+
+  .booking h2 {
+    font-size: clamp(3.2rem, 7vw, 5.2rem);
+  }
+
+  .bookingVideo {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    width: min(42rem, 100%);
+    max-width: 100%;
+    justify-self: end;
+    transform: none;
+    opacity: 0.72;
+  }
+
+  .caseRail {
+    grid-auto-columns: 72%;
+    gap: 8rem;
+  }
+
+  .storyStack article {
+    gap: 2rem;
+    padding: 3.5rem;
+  }
+
+  .detailLayout,
+  .caseDetail,
+  .identityPanel {
+    gap: 4rem;
+  }
+
+  .footer nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    column-gap: 2.4rem;
+    row-gap: 0.2rem;
+    width: 100%;
+  }
+
+  .footer nav a {
+    font-size: clamp(2.4rem, 5.4vw, 3.7rem);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-x: 2rem;
+  }
+
+  .siteHeader {
+    padding: 1.8rem var(--page-x);
+  }
+
+  .logo {
+    font-size: 2.2rem;
+  }
+
+  .menuButton {
+    display: block;
+    z-index: 3;
+  }
+
+  .logo {
+    position: relative;
+    z-index: 3;
+  }
+
+  .navOverlayLinks a {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+
+  .navOverlayBar {
+    padding: 1.8rem var(--page-x);
+  }
+
+  .navOverlayBar .logo {
+    font-size: 2.2rem;
+  }
+
+  .hero {
+    min-height: 100svh;
+  }
+
+  .proofStack {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --h1: 3.4rem;
+    --h1-booking: 3.4rem;
+    --h2: 3rem;
+    --h3: 1.8rem;
+    --h4: 1.8rem;
+    --p1: 1.8rem;
+    --p2: 1.8rem;
+    --small: 1.4rem;
+    --page-x: 2rem;
+    --section-y-large: 5rem;
+  }
+
+  body {
+    letter-spacing: 0;
+  }
+
+  .sectionPad {
+    padding: 5rem var(--page-x);
+  }
+
+  .loaderText {
+    font-size: 2.8rem;
+  }
+
+  .hero {
+    min-height: 100svh;
+    justify-content: center;
+    gap: 4rem;
+    padding-top: 9.5rem;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+  }
+
+  .roundLink,
+  .buttonLink {
+    padding: 0.55rem 1.6rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+  }
+
+  .services,
+  .featured {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+  }
+
+  .sectionHead {
+    max-width: 90%;
+    margin-bottom: 3rem;
+  }
+
+  .serviceMedia {
+    aspect-ratio: 0.99;
+  }
+
+  .serviceRow {
+    grid-template-columns: 1fr;
+    min-height: 8.4rem;
+  }
+
+  .serviceRow:hover,
+  .serviceRow.isActive {
+    padding-left: 1.6rem;
+  }
+
+  .serviceRow span {
+    padding-top: 2.3rem;
+  }
+
+  .identityPanel {
+    margin-top: 3rem;
+    gap: 3rem;
+  }
+
+  .identityMedia {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+    max-height: 36vh;
+  }
+
+  .proofStack {
+    margin-top: 3rem;
+  }
+
+  .proofStack article {
+    min-height: 0;
+    padding: 2rem;
+  }
+
+  .booking {
+    min-height: 0;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    gap: 3rem;
+  }
+
+  .booking .eyebrow {
+    margin-bottom: 3rem;
+  }
+
+  .bookingCopy {
+    margin: 2.5rem 0 3rem;
+  }
+
+  .bookingVideo {
+    width: min(28rem, 100%);
+    justify-self: start;
+  }
+
+  .showreelMedia {
+    aspect-ratio: 1;
+  }
+
+  .showreelMarquee span {
+    font-size: 2.4rem;
+  }
+
+  .showreelMarquee {
+    padding: 2.4rem 0;
+  }
+
+  .showreelLabel {
+    right: var(--page-x);
+    bottom: 2rem;
+    max-width: 24rem;
+    font-size: var(--p2);
+  }
+
+  .showreelMarquee span::before {
+    margin: 0 0.75rem;
+  }
+
+  .caseRail {
+    grid-auto-columns: 80.333333%;
+    gap: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+  }
+
+  .caseCard {
+    min-height: 38rem;
+  }
+
+  .caseCard img {
+    width: 12rem;
+    height: 6rem;
+  }
+
+  .caseCard .textLink {
+    opacity: 1;
+    transform: none;
+  }
+
+  .footer {
+    gap: 4rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .footer nav {
+    grid-template-columns: 1fr;
+  }
+
+  .footer nav a {
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+  }
+
+  .footer .tagline {
+    margin-top: 3rem;
+  }
+
+  .subHero {
+    min-height: 0;
+    padding-top: 12rem;
+    padding-bottom: 5rem;
+  }
+
+  .listingGrid,
+  .workGrid,
+  .newsGrid,
+  .labGrid,
+  .principleGrid,
+  .aboutHeroMedia,
+  .detailLayout,
+  .caseDetail,
+  .relatedRail > div,
+  .relatedRail > .miniCardGrid,
+  .numberedSection,
+  .processGrid,
+  .techGrid,
+  .subServiceGrid,
+  .capabilityGrid,
+  .valueGrid,
+  .officeGrid,
+  .statsBand > div,
+  .evolutionFlow,
+  .aboutStrengths article,
+  .clientWall > div:last-child,
+  .caseJourneyGrid,
+  .caseSystemFlow,
+  .statusSystem > div,
+  .contactForm > div,
+  .contactForm .contactFields,
+  .portfolioLinks > div,
+  .jobDetail,
+  .storyStack article,
+  .articleMediaGrid,
+  .journeyFlow,
+  .industryProof,
+  .industryFlow > div:last-child {
+    grid-template-columns: 1fr;
+  }
+
+  .numberedSection > h2,
+  .sectionIntro,
+  .processGrid,
+  .techGrid,
+  .subServiceGrid,
+  .capabilityGrid,
+  .valueGrid {
+    grid-column: 1;
+  }
+
+  .capabilityLine {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 0;
+  }
+
+  .subServiceGrid article,
+  .subServiceGrid article:nth-child(1),
+  .subServiceGrid article:nth-child(6),
+  .capabilityGrid article:first-child {
+    grid-column: auto;
+  }
+
+  .subServiceGrid article,
+  .capabilityGrid article,
+  .valueGrid article {
+    min-height: 0;
+  }
+
+  .valueGrid article {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2.8rem 0;
+  }
+
+  .journeyFlow {
+    gap: 1.4rem;
+    padding-top: 2.8rem;
+  }
+
+  .journeyStep {
+    min-height: 13rem;
+  }
+
+  .journeyStep::before {
+    width: 5.4rem;
+  }
+
+  .serviceProcessGrid article,
+  .serviceProcessGrid article:nth-child(2n) {
+    min-height: 23rem;
+    padding: 2.4rem;
+    border-left: 0;
+  }
+
+  .serviceProcessGrid span {
+    top: 2rem;
+    right: 2rem;
+    font-size: 6.4rem;
+  }
+
+  .serviceProcessGrid h3 {
+    margin-top: 5.5rem;
+  }
+
+  .listingCard,
+  .workCard,
+  .newsCard,
+  .storyStack article {
+    min-height: 0;
+    padding: 2rem;
+  }
+
+  .imageMarquee img {
+    width: 24rem;
+  }
+
+  .evolutionFlow article,
+  .caseJourneyGrid article,
+  .caseSystemFlow span,
+  .clientWall span {
+    min-height: 13rem;
+  }
+
+  .aboutStrengths article {
+    gap: 1.5rem;
+    padding: 3rem 0;
+  }
+
+  .labHero {
+    min-height: 0;
+    gap: 4rem;
+    padding-top: 12rem;
+  }
+
+  .industriesHero {
+    min-height: 62rem;
+    padding-top: 12rem;
+  }
+
+  .industriesEditorial {
+    gap: 4rem;
+  }
+
+  .industriesEditorial aside {
+    margin-right: calc(var(--page-x) * -1);
+  }
+
+  .industryMeta span {
+    font-size: 5.4rem;
+  }
+
+  .industryTags {
+    margin: 3rem 0;
+  }
+
+  .industryFlow > div:last-child span {
+    min-height: 10rem;
+  }
+
+  .industryLab > div {
+    padding: 5rem var(--page-x);
+  }
+
+  .labCanvas {
+    min-height: 34rem;
+  }
+
+  .labCanvas span {
+    max-width: 14rem;
+    font-size: 1.1rem;
+  }
+
+  .labProgression span,
+  .realityPath span,
+  .statusSystem article {
+    min-height: 11rem;
+  }
+
+  .labProjectCopy,
+  .labProjectMetrics {
+    padding: 2.4rem;
+  }
+
+  .labProjectCopy h3 {
+    margin-top: 5rem;
+  }
+
+  .realityPath > div:last-child {
+    padding-left: 0;
+  }
+
+  .storyStack h2,
+  .storyStack p {
+    grid-column: 1;
+  }
+
+  .newsGrid .newsCard:first-child {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 1180px) {
+  .figmaServiceHero,
+  .figmaIntro,
+  .figmaCapabilityLead,
+  .figmaCta {
+    grid-template-columns: 1fr;
+  }
+
+  .figmaServiceHero {
+    min-height: 0;
+    gap: 3rem;
+    padding-top: 12rem;
+    padding-bottom: 4rem;
+  }
+
+  .figmaServiceHero h1 {
+    font-size: clamp(4.4rem, 6vw, 6.4rem);
+  }
+
+  .figmaServiceHero p,
+  .figmaIntro p,
+  .figmaPrinciples p,
+  .figmaSubServices p,
+  .figmaCapabilities p,
+  .figmaLab p {
+    font-size: clamp(1.6rem, 1.6vw, 1.8rem);
+  }
+
+  .figmaHeroMedia {
+    height: auto;
+    aspect-ratio: 16 / 10;
+    max-height: 62rem;
+  }
+
+  .figmaIntro {
+    gap: 4rem;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+  }
+
+  .figmaPrinciples,
+  .figmaSubServices,
+  .figmaLabItems,
+  .figmaOtherServices > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .figmaPrinciples {
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+    gap: 1.4rem;
+  }
+
+  .figmaPrinciples article {
+    min-height: 0;
+    padding: 1.6rem;
+  }
+
+  .figmaPrinciples h3,
+  .figmaSubServices h3,
+  .figmaLabItems h3,
+  .figmaExecutionCards h3,
+  .figmaOtherServices strong {
+    font-size: clamp(1.8rem, 2vw, 2.2rem);
+  }
+
+  .figmaCapabilityLead {
+    gap: 3rem;
+    margin-top: 3rem;
+    padding: 5rem 0 4rem;
+    align-items: start;
+  }
+
+  .figmaCapabilityImages {
+    width: min(100%, 42rem);
+    justify-self: end;
+    padding-top: 4.8rem;
+    gap: 1.2rem;
+  }
+
+  .figmaCapabilityImages > img:first-of-type,
+  .figmaCapabilityImages > img:last-of-type {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .figmaCapabilityImages > .figmaCapabilityIcon {
+    top: 0;
+  }
+
+  .figmaCapabilityTrigger {
+    min-height: 9rem;
+    font-size: clamp(2.2rem, 2.4vw, 2.8rem);
+  }
+
+  .figmaSubServices article {
+    height: auto;
+    min-height: 30rem;
+    gap: 1.6rem;
+    padding: 2.2rem;
+  }
+
+  .figmaSubServices article > span {
+    width: 4.2rem;
+    height: 4.2rem;
+  }
+
+  .figmaSubServices article > span img {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .figmaSubServices article h3 {
+    margin: 0 0 1rem;
+  }
+
+  .figmaLabItems article {
+    grid-template-rows: minmax(22rem, 28rem) auto;
+    min-height: 0;
+  }
+
+  .figmaLabItems article > div {
+    padding: 2rem 2.2rem;
+  }
+
+  .figmaOtherServices a {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 0.72;
+    padding: 3rem 2.4rem 3rem;
+  }
+
+  .figmaCollaboration article {
+    width: min(39.7rem, 100%);
+    min-height: 0;
+    height: auto;
+  }
+
+  .figmaCta {
+    height: auto;
+    min-height: 0;
+    padding-top: 8rem;
+  }
+
+  .figmaInsights strong {
+    font-size: clamp(1.8rem, 2vw, 2.2rem);
+  }
+
+  .figmaValueTrack {
+    gap: 1.4rem;
+    animation-duration: 40s;
+  }
+
+  .figmaValueTrack article {
+    flex: 0 0 calc((100vw - (var(--page-x) * 2) - 1.4rem) / 2);
+    width: calc((100vw - (var(--page-x) * 2) - 1.4rem) / 2);
+    min-width: 28rem;
+    max-width: 38rem;
+    height: 48rem;
+  }
+
+  .figmaValueHead {
+    min-height: 0;
+    justify-items: start;
+    gap: 2.4rem;
+    margin-bottom: 5rem;
+  }
+
+  .figmaValue .figmaLabel {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
+  .figmaValueHead h2 {
+    text-align: left;
+    max-width: none;
+  }
+
+  .figmaSubServices {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.4rem;
+    row-gap: calc(30rem + 1.4rem);
+    margin-top: 3.2rem;
+    padding-top: calc(30rem + 1.4rem);
+  }
+
+  .figmaSubServices article {
+    height: auto;
+    min-height: 30rem;
+    transform: translateY(2.8rem);
+  }
+
+  .figmaSubServices article:nth-child(4n + 2) {
+    transform: translateY(2.8rem);
+  }
+
+  .figmaSubServices article:nth-child(2n) {
+    transform: translateY(calc(-100% - 1.4rem + 2.8rem));
+  }
+
+  .figmaCover.isInView .figmaSubServices article:nth-child(odd) {
+    animation-name: coverCardIn;
+  }
+
+  .figmaCover.isInView .figmaSubServices article:nth-child(even) {
+    animation-name: coverCardInTabletDiagonal;
+  }
+
+  @keyframes coverCardInTabletDiagonal {
+    from {
+      opacity: 0;
+      transform: translateY(calc(-100% - 1.4rem + 2.8rem));
+    }
+    to {
+      opacity: 1;
+      transform: translateY(calc(-100% - 1.4rem));
+    }
+  }
+
+  .figmaWork {
+    margin-top: 8rem;
+    padding: 4rem var(--page-x) 6rem;
+    overflow: visible;
+  }
+
+  .figmaWorkInner {
+    left: auto;
+    width: 100%;
+    transform: none;
+  }
+
+  .figmaWorkStage {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem 1.4rem;
+    align-items: stretch;
+  }
+
+  .figmaWorkPhone {
+    position: relative;
+    inset: auto;
+    grid-column: 1 / -1;
+    height: auto;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    overflow: visible;
+    transform: translateY(3rem);
+  }
+
+  .figmaWorkPhone img {
+    width: min(100%, 42rem);
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 auto;
+  }
+
+  .figmaWorkWatermark {
+    position: relative;
+    top: auto;
+    left: auto;
+    grid-column: 1 / -1;
+    width: 100%;
+    transform: translateY(1.6rem);
+    margin: 0.4rem 0 1.2rem;
+    font-size: clamp(4.8rem, 9vw, 8rem);
+    line-height: 0.9;
+    white-space: normal;
+    z-index: 0;
+  }
+
+  .figmaWork.isInView .figmaWorkWatermark {
+    transform: none;
+  }
+
+  .figmaWork.isInView .figmaWorkPhone {
+    transform: none;
+  }
+
+  .figmaWorkCard {
+    position: relative;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    padding: 2.4rem 2rem 2.6rem;
+  }
+
+  .figmaWorkCard h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .figmaWorkCard p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .figmaWorkCard > span:not(.figmaWorkCardFill) {
+    margin-bottom: 1.6rem;
+  }
+
+  .figmaExecution {
+    min-height: 0;
+  }
+
+  .figmaExecutionInner {
+    min-height: 0;
+    grid-template-rows: auto;
+    gap: 8rem;
+    padding-top: 9rem;
+    padding-bottom: 8rem;
+  }
+
+  .figmaExecutionHead {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+    margin-bottom: 0;
+  }
+
+  .figmaExecutionHead > p {
+    text-align: left;
+    justify-self: start;
+    max-width: none;
+  }
+
+  .figmaExecutionHead h2 {
+    font-size: clamp(3.2rem, 2.8vw, 4rem);
+    line-height: 1.25;
+  }
+
+  .figmaExecutionCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-self: stretch;
+  }
+
+  .figmaCollaboration {
+    min-height: 0;
+  }
+
+  .figmaCollaborationInner {
+    min-height: 0;
+    gap: 6rem;
+    padding-top: 9rem;
+    padding-bottom: 8rem;
+  }
+
+  .figmaCollaborationHead {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .figmaCollaborationHead > p {
+    text-align: left;
+    justify-self: start;
+    max-width: none;
+  }
+
+  .figmaCollaborationHead h2 {
+    font-size: clamp(3.2rem, 4vw, 4rem);
+    line-height: 1.25;
+  }
+
+  .figmaInsights a {
+    grid-template-columns: minmax(0, 1fr) max-content;
+    gap: 2rem 3rem;
+  }
+
+  .figmaInsights .figmaInsightMeta {
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 0.8rem;
+  }
+
+  .figmaInsights em {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .figmaLabHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .figmaLabHeader .buttonLink {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+  }
+
+  .figmaCta {
+    height: auto;
+    min-height: 0;
+    padding-top: 8rem;
+    padding-bottom: 0;
+  }
+
+  .figmaCta > div {
+    width: min(52.4rem, 100%);
+  }
+
+  .figmaCta h2 {
+    font-size: clamp(3.2rem, 4vw, 4rem);
+  }
+
+  .figmaCta > img {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(43.5rem, 100%);
+    height: auto;
+    margin: 4rem 0 0 auto;
+    aspect-ratio: 435 / 725;
+  }
+
+  .figmaExecutionCards article {
+    min-height: 0;
+    padding: 3rem 2.4rem;
+  }
+
+  .figmaExecutionCards p {
+    font-size: 1.6rem;
+    line-height: 1.55;
+  }
+}
+
+@media (max-width: 768px) {
+  .figmaServiceHero {
+    min-height: 0;
+    gap: 2.4rem;
+    padding-top: 11rem;
+    padding-bottom: 4rem;
+  }
+
+  .figmaServiceHero h1 {
+    font-size: clamp(3.6rem, 11vw, 5.2rem);
+  }
+
+  .figmaServiceHero p,
+  .figmaIntro p,
+  .figmaPrinciples p,
+  .figmaSubServices p,
+  .figmaCapabilities p,
+  .figmaLab p,
+  .figmaExecutionCards p,
+  .figmaCollaboration article p {
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  .figmaHeroMedia {
+    height: auto;
+    aspect-ratio: 0.92;
+    max-height: none;
+  }
+
+  .figmaIntro,
+  .figmaPrinciples,
+  .figmaCover,
+  .figmaExecutionInner,
+  .figmaCapabilities,
+  .figmaValue,
+  .figmaLab,
+  .figmaCollaborationInner,
+  .figmaInsights,
+  .figmaOtherServices,
+  .figmaCta {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .figmaIntro h2,
+  .figmaCover > h2,
+  .figmaCapabilities h2,
+  .figmaValue h2,
+  .figmaLab h2,
+  .figmaInsights h2,
+  .figmaOtherServices h2,
+  .figmaCta h2,
+  .figmaExecutionHead h2,
+  .figmaCollaborationHead h2 {
+    font-size: clamp(2.8rem, 8vw, 3.6rem);
+    line-height: 1.2;
+  }
+
+  .figmaPrinciples article,
+  .figmaSubServices article {
+    padding: 1.6rem;
+    min-height: 0;
+  }
+
+  .figmaSubServices article {
+    min-height: 0;
+  }
+
+  .figmaPrinciples h3,
+  .figmaSubServices h3,
+  .figmaLabItems h3,
+  .figmaExecutionCards h3,
+  .figmaOtherServices strong,
+  .figmaInsights strong,
+  .figmaCollaboration article h3 {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+  }
+
+  .figmaCapabilityLead {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin-top: 2.4rem;
+    padding: 4rem 0 3.2rem;
+  }
+
+  .figmaCapabilityImages {
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    padding-top: 4.4rem;
+    gap: 1rem;
+    justify-self: stretch;
+  }
+
+  .figmaCapabilityImages > img:first-of-type,
+  .figmaCapabilityImages > img:last-of-type {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .figmaCapabilityImages > .figmaCapabilityIcon {
+    top: 0;
+  }
+
+  .figmaCapabilityTrigger {
+    min-height: 7.2rem;
+    font-size: clamp(1.8rem, 5.5vw, 2.2rem);
+    gap: 1.2rem;
+  }
+
+  .figmaCapabilityIcon {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+
+  .figmaSubServices article {
+    min-height: 0;
+    gap: 1.4rem;
+    padding: 1.8rem;
+  }
+
+  .figmaSubServices article > span {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .figmaSubServices article > span img {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .figmaSubServices article h3 {
+    margin: 1.2rem 0 0.8rem;
+  }
+
+  .figmaLabItems article {
+    grid-template-rows: minmax(20rem, 42vw) auto;
+    min-height: 0;
+  }
+
+  .figmaLabItems article > div {
+    padding: 2rem 1.8rem;
+  }
+
+  .figmaOtherServices a {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 0.85;
+    padding: 2.4rem 2rem 2.4rem;
+  }
+
+  .figmaCollaboration article {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    padding: 3.2rem 2rem 7rem;
+  }
+
+  .figmaCta {
+    height: auto;
+    min-height: 0;
+    padding-top: 5rem;
+    gap: 3rem;
+  }
+
+  .figmaCta > img {
+    width: min(28rem, 100%);
+    margin: 3rem 0 0;
+  }
+
+  .figmaWork {
+    padding-top: 2.5rem;
+    padding-bottom: 0;
+  }
+
+  .figmaIntro {
+    gap: 3rem;
+  }
+
+  .figmaPrinciples,
+  .figmaSubServices,
+  .figmaLabItems,
+  .figmaOtherServices > div {
+    grid-template-columns: 1fr;
+  }
+
+  .figmaSubServices {
+    padding-top: 0;
+    margin-top: 2.4rem;
+    row-gap: 1.6rem;
+    column-gap: 1.6rem;
+  }
+
+  .figmaSubServices article,
+  .figmaSubServices article:nth-child(2n),
+  .figmaSubServices article:nth-child(4n + 2) {
+    transform: translateY(2.4rem);
+  }
+
+  .figmaCover.isInView .figmaSubServices article:nth-child(odd),
+  .figmaCover.isInView .figmaSubServices article:nth-child(even) {
+    animation-name: coverCardIn;
+  }
+
+  .figmaCover.isInView .figmaSubServices article {
+    animation-name: coverCardIn;
+  }
+
+  .figmaPrinciples article,
+  .figmaSubServices article,
+  .figmaOtherServices a {
+    min-height: 0;
+  }
+
+  .figmaPrinciples article,
+  .figmaSubServices article {
+    padding: 2rem;
+  }
+
+  .figmaValueMarquee {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .figmaValueTrack {
+    animation-duration: 32s;
+    padding-bottom: 0;
+  }
+
+  .figmaValueTrack article {
+    flex: 0 0 min(85vw, 34rem);
+    width: min(85vw, 34rem);
+    min-width: 0;
+    max-width: none;
+    height: 42rem;
+  }
+
+  .figmaValueTrack article > div {
+    padding: 0;
+  }
+
+  .figmaValueHead {
+    margin-bottom: 4rem;
+  }
+
+  .figmaValueHead h2 {
+    font-size: clamp(2.8rem, 8vw, 3.6rem);
+  }
+
+  .figmaLabItems article {
+    grid-template-rows: minmax(20rem, 42vw) auto;
+    min-height: 0;
+  }
+
+  .figmaCover > h2 {
+    margin-bottom: 3.2rem;
+  }
+
+  .figmaSubServices {
+    margin-top: 2.4rem;
+  }
+
+  .figmaSubServices article {
+    min-height: 0;
+  }
+
+  .figmaWork {
+    margin-top: 5rem;
+    padding: 2.5rem var(--page-x) 4rem;
+  }
+
+  .figmaWorkWatermark {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: translateY(1.4rem);
+    margin: 0.2rem 0 0.8rem;
+    font-size: clamp(3.6rem, 12vw, 5.6rem);
+    white-space: normal;
+    z-index: 0;
+  }
+
+  .figmaWork.isInView .figmaWorkWatermark {
+    transform: none;
+  }
+
+  .figmaWorkStage {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .figmaWorkPhone {
+    position: relative;
+    inset: auto;
+    grid-column: 1;
+    height: auto;
+    min-height: 0;
+    order: 0;
+    transform: translateY(2.4rem);
+  }
+
+  .figmaWork.isInView .figmaWorkPhone {
+    transform: none;
+  }
+
+  .figmaWorkPhone img {
+    width: min(100%, 30rem);
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  .figmaWorkCard {
+    position: relative;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    padding: 2.2rem 2rem 2.4rem;
+  }
+
+  .figmaWorkCard--1,
+  .figmaWorkCard--3 {
+    transform: translateY(2.4rem);
+  }
+
+  .figmaWorkCard--2,
+  .figmaWorkCard--4 {
+    transform: translateY(2.4rem);
+  }
+
+  .figmaWork.isInView .figmaWorkCard--1 {
+    animation: workCardFromUp 0.7s var(--ease-out) 0.7s forwards;
+  }
+
+  .figmaWork.isInView .figmaWorkCard--2 {
+    animation: workCardFromUp 0.7s var(--ease-out) 0.82s forwards;
+  }
+
+  .figmaWork.isInView .figmaWorkCard--3 {
+    animation: workCardFromUp 0.7s var(--ease-out) 0.94s forwards;
+  }
+
+  .figmaWork.isInView .figmaWorkCard--4 {
+    animation: workCardFromUp 0.7s var(--ease-out) 1.06s forwards;
+  }
+
+  .figmaWorkCard h3 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .figmaWorkCard p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .figmaExecution {
+    min-height: 0;
+  }
+
+  .figmaExecutionInner {
+    min-height: 0;
+    grid-template-rows: auto;
+    gap: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .figmaExecutionCards {
+    grid-template-columns: 1fr;
+    align-self: stretch;
+  }
+
+  .figmaExecutionCards article {
+    min-height: 0;
+  }
+
+  .figmaCollaboration {
+    min-height: 0;
+  }
+
+  .figmaCollaborationInner {
+    min-height: 0;
+    gap: 4rem;
+  }
+
+  .figmaCollaborationHead {
+    grid-template-columns: 1fr;
+  }
+
+  .figmaCollaborationHead h2 {
+    font-size: clamp(2.8rem, 8vw, 3.6rem);
+    line-height: 1.2;
+  }
+
+  .figmaCollaboration article {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 3.2rem 2rem 7rem;
+  }
+
+  .figmaCollaboration article p {
+    width: auto;
+    max-width: none;
+  }
+
+  .figmaInsights a {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 3rem 0;
+  }
+
+  .figmaInsights .figmaInsightBody {
+    margin-top: 0;
+  }
+
+  .figmaInsights .figmaInsightMeta,
+  .figmaInsights em {
+    justify-self: start;
+  }
+
+  .figmaCta {
+    gap: 3rem;
+    padding-bottom: 0;
+  }
+
+  .figmaCta > img {
+    width: min(28rem, 100%);
+    height: auto;
+    aspect-ratio: 0.79;
+    margin: 3rem 0 0;
+  }
+}

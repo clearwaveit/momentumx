@@ -298,6 +298,114 @@ export function AutoRail({ children, className = "caseRail" }: { children: React
   );
 }
 
+export function CoverScroll({
+  heading,
+  children
+}: {
+  heading: ReactNode;
+  children: ReactNode;
+}) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    const sticky = stickyRef.current;
+    const viewport = viewportRef.current;
+    const track = trackRef.current;
+
+    if (!wrap || !sticky || !viewport || !track) {
+      return;
+    }
+
+    const desktop = window.matchMedia("(min-width: 1181px)");
+    let frame = 0;
+
+    const overflow = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
+
+    const pinTop = () => Math.max(0, (window.innerHeight - sticky.offsetHeight) / 2);
+
+    const layout = () => {
+      if (!desktop.matches) {
+        wrap.style.height = "";
+        sticky.style.height = "";
+        sticky.style.top = "";
+        track.style.transform = "";
+        return;
+      }
+
+      sticky.style.height = "";
+      sticky.style.top = `${pinTop()}px`;
+      wrap.style.height = `${sticky.offsetHeight + overflow()}px`;
+    };
+
+    const paint = () => {
+      frame = 0;
+
+      if (!desktop.matches) {
+        track.style.transform = "";
+        return;
+      }
+
+      const distance = overflow();
+      const start = pinTop();
+      const shifted = Math.min(distance, Math.max(0, start - wrap.getBoundingClientRect().top));
+      track.style.transform = `translate3d(${-shifted}px, 0, 0)`;
+    };
+
+    const onScroll = () => {
+      if (frame) {
+        return;
+      }
+
+      frame = window.requestAnimationFrame(paint);
+    };
+
+    const onResize = () => {
+      layout();
+      paint();
+    };
+
+    layout();
+    window.requestAnimationFrame(() => {
+      layout();
+      paint();
+    });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    desktop.addEventListener("change", onResize);
+
+    const resize = new ResizeObserver(onResize);
+    resize.observe(track);
+    resize.observe(viewport);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      desktop.removeEventListener("change", onResize);
+      resize.disconnect();
+      window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
+  return (
+    <>
+      {heading}
+      <div className="figmaCoverScroll" ref={wrapRef}>
+        <div className="figmaCoverSticky" ref={stickyRef}>
+          <div className="figmaSubServicesViewport" ref={viewportRef}>
+            <div className="figmaSubServices" ref={trackRef}>
+              {children}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
 export function CaseGallery({
   items
 }: {
@@ -315,5 +423,158 @@ export function CaseGallery({
         </figure>
       ))}
     </section>
+  );
+}
+
+export function CollaborationSlider({
+  slides
+}: {
+  slides: {
+    title: string;
+    body: string;
+    tags: string[];
+    image: string;
+  }[];
+}) {
+  const [index, setIndex] = useState(0);
+  const [fading, setFading] = useState(false);
+  const slide = slides[index] ?? slides[0];
+
+  const goTo = (next: number) => {
+    if (fading || slides.length < 2) {
+      return;
+    }
+
+    setFading(true);
+    window.setTimeout(() => {
+      setIndex((next + slides.length) % slides.length);
+      setFading(false);
+    }, 220);
+  };
+
+  if (!slide) {
+    return null;
+  }
+
+  return (
+    <section className="figmaCollaboration">
+      <div className="figmaCollaborationBg">
+        {slides.map((item, slideIndex) => (
+          <img
+            key={item.image + item.title}
+            src={item.image}
+            alt=""
+            className={slideIndex === index ? "isActive" : undefined}
+          />
+        ))}
+      </div>
+      <div className="figmaCollaborationInner sectionPad">
+        <div className="figmaCollaborationHead">
+          <div>
+            <h2>delivered work and transformation concepts</h2>
+            <p>featured engagements</p>
+          </div>
+          <p>
+            Relevant delivered work is combined with clearly labelled MomentumX Lab and transformation concepts.
+          </p>
+        </div>
+        <article>
+          <div className={fading ? "figmaCollaborationCopy isFading" : "figmaCollaborationCopy"}>
+            <h3>{slide.title}</h3>
+            <p>{slide.body}</p>
+            <div className="figmaCollaborationTags">
+              {slide.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+          </div>
+          <div className="figmaCollaborationArrows">
+            <button
+              type="button"
+              aria-label="Previous engagement"
+              disabled={fading}
+              onClick={() => goTo(index - 1)}
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              aria-label="Next engagement"
+              disabled={fading}
+              onClick={() => goTo(index + 1)}
+            >
+              →
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+  );
+}
+
+export function CapabilityAccordion({
+  items
+}: {
+  items: {
+    title: string;
+    body: string;
+    images: [string, string];
+  }[];
+}) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const arrowIcon = "/assets/figma/service-detail/arrow-icon.svg";
+
+  const toggle = (index: number) => {
+    setOpenIndex((current) => (current === index ? null : index));
+  };
+
+  return (
+    <div className="figmaCapabilityList">
+      {items.map((item, index) => {
+        const open = openIndex === index;
+
+        return (
+          <div
+            key={item.title}
+            className={open ? "figmaCapabilityItem isOpen" : "figmaCapabilityItem"}
+          >
+            {open ? (
+              <article className="figmaCapabilityLead">
+                <div>
+                  <em className="figmaCapabilityNumber">{String(index + 1).padStart(2, "0")}</em>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+                <div className="figmaCapabilityImages">
+                  <button
+                    type="button"
+                    className="figmaCapabilityIcon isOpen"
+                    aria-label={`Collapse ${item.title}`}
+                    aria-expanded={true}
+                    onClick={() => toggle(index)}
+                  >
+                    <img src={arrowIcon} alt="" />
+                  </button>
+                  <img src={item.images[0]} alt="" />
+                  <img src={item.images[1]} alt="" />
+                </div>
+              </article>
+            ) : (
+              <button
+                type="button"
+                className="figmaCapabilityTrigger"
+                aria-expanded={false}
+                onClick={() => toggle(index)}
+              >
+                {item.title}
+                <span className="figmaCapabilityIcon" aria-hidden="true">
+                  <img src={arrowIcon} alt="" />
+                </span>
+              </button>
+            )}
+          </div>
+        );
+      })}
+    </div>
   );
 }
