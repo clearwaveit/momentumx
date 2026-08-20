@@ -129,14 +129,6 @@ export default async function ServiceDetailPage({
     icon: figmaAssets.executionIcons[index % figmaAssets.executionIcons.length]
   }));
   const valueItems = detail.valueAreas.items;
-  const capabilityImages: [string, string][] = [
-    [figmaAssets.capabilitySmall, figmaAssets.capabilityLarge],
-    [figmaAssets.principles[0], figmaAssets.principles[1]],
-    [figmaAssets.principles[1], figmaAssets.principles[2]],
-    [figmaAssets.principles[2], figmaAssets.capabilitySmall],
-    [figmaAssets.valueImages[0], figmaAssets.valueImages[1]],
-    [figmaAssets.valueImages[1], figmaAssets.valueImages[2]]
-  ];
 
   return (
     <main className="figmaServiceDetail">
@@ -217,7 +209,16 @@ export default async function ServiceDetailPage({
         </div>
       </section>
       <section className="figmaExecution">
-        <img src={figmaAssets.executionBg} alt="" />
+        <video
+          className="figmaExecutionMedia"
+          src="/assets/videos/service-details-1.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
         <div className="figmaExecutionInner sectionPad">
           <div className="figmaExecutionHead">
             <div>
@@ -245,13 +246,11 @@ export default async function ServiceDetailPage({
           items={[
             {
               title: detail.capabilities.title,
-              body: detail.capabilities.body,
-              images: capabilityImages[0]
+              body: detail.capabilities.body
             },
-            ...detail.capabilities.items.slice(0, 5).map((item, index) => ({
+            ...detail.capabilities.items.slice(0, 5).map((item) => ({
               title: item,
-              body: `Practical ${item.toLowerCase()} applied around your existing systems, data and long-term transformation priorities.`,
-              images: capabilityImages[(index + 1) % capabilityImages.length]
+              body: `Practical ${item.toLowerCase()} applied around your existing systems, data and long-term transformation priorities.`
             }))
           ]}
         />

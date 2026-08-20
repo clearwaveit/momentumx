@@ -5165,25 +5165,35 @@ main > section.caseGallery {
 .labHeroX {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  grid-template-columns: minmax(0, 65.3rem) minmax(42rem, 1fr);
   align-items: center;
-  gap: 4rem;
-  min-height: 79.7rem;
-  padding: 8rem var(--page-x);
+  gap: clamp(4rem, 9vw, 14rem);
+  min-height: 74.5rem;
+  padding: 0 var(--page-x);
   overflow: hidden;
   background:
-    radial-gradient(60% 50% at 12% 8%, rgba(214, 205, 240, 0.45) 0%, rgba(214, 205, 240, 0) 100%),
-    radial-gradient(55% 45% at 92% 14%, rgba(198, 226, 205, 0.4) 0%, rgba(198, 226, 205, 0) 100%),
-    linear-gradient(180deg, #f7f5fb 0%, #f5f9fc 55%, #f4f8fc 100%);
+    /* soft lavender wash — center / behind orb */
+    radial-gradient(58% 48% at 58% 42%, rgba(214, 200, 236, 0.55) 0%, rgba(214, 200, 236, 0) 72%),
+    /* mint / lime glow — top right */
+    radial-gradient(42% 38% at 92% 8%, rgba(198, 232, 176, 0.58) 0%, rgba(198, 232, 176, 0) 70%),
+    /* soft pink / violet — bottom right of orb */
+    radial-gradient(36% 34% at 88% 78%, rgba(232, 210, 236, 0.5) 0%, rgba(232, 210, 236, 0) 72%),
+    /* cool blue-white — top left */
+    radial-gradient(48% 40% at 8% 6%, rgba(232, 238, 250, 0.85) 0%, rgba(232, 238, 250, 0) 68%),
+    /* faint green-blue — mid left */
+    radial-gradient(40% 36% at 18% 70%, rgba(220, 236, 232, 0.45) 0%, rgba(220, 236, 232, 0) 70%),
+    linear-gradient(180deg, #f7f8fc 0%, #f5f7fb 45%, #f8fafc 100%);
 }
 
 .labHeroCopy {
   position: relative;
-  z-index: 1;
-  max-width: 78rem;
+  z-index: 2;
+  width: 653px;
+  max-width: 100%;
 }
 
 .labHeroEyebrow {
+  display: none;
   font-size: 1.6rem;
   line-height: 2.4rem;
   color: var(--muted);
@@ -5191,42 +5201,55 @@ main > section.caseGallery {
 }
 
 .labHeroX h1 {
-  display: flex;
-  flex-direction: column;
-  margin-top: 2.4rem;
-  font-size: clamp(3.4rem, 3.875vw, 6.2rem);
-  line-height: 1.18;
-  color: var(--ink);
+  display: block;
+  width: 653px;
+  max-width: 100%;
+  margin-top: 0;
+  color: #010101;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 68px;
+  letter-spacing: 0;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .labHeroSummary {
-  max-width: 59rem;
-  margin-top: 3rem;
+  max-width: 653px;
+  margin-top: 4rem;
   font-size: 1.8rem;
   line-height: 2.8rem;
   color: var(--muted);
 }
 
 .labHeroX .svcPill {
-  margin-top: 4.4rem;
+  margin-top: 4rem;
 }
 
-/* the artboard's blurred gradient sphere, rebuilt in CSS so it
-   stays sharp at any size */
-.labHeroOrb {
+/* right-column video — soft orb lives in the asset, feathered like Figma */
+.labHeroMedia {
   position: relative;
   justify-self: center;
-  width: min(66rem, 100%);
+  align-self: center;
+  width: min(52rem, 100%);
   aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(42% 38% at 32% 34%, rgba(214, 92, 214, 0.85) 0%, rgba(214, 92, 214, 0) 72%),
-    radial-gradient(46% 40% at 62% 56%, rgba(38, 52, 235, 0.92) 0%, rgba(38, 52, 235, 0) 74%),
-    radial-gradient(40% 34% at 74% 34%, rgba(150, 160, 232, 0.7) 0%, rgba(150, 160, 232, 0) 76%),
-    radial-gradient(50% 46% at 40% 78%, rgba(233, 231, 246, 0.95) 0%, rgba(233, 231, 246, 0) 78%),
-    linear-gradient(150deg, #dfe3f4 0%, #eceaf6 45%, #f2f0fa 100%);
-  filter: blur(26px);
-  opacity: 0.95;
+  display: grid;
+  place-items: center;
+  margin-top: -1.8rem;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 38%, rgba(0, 0, 0, 0.55) 52%, transparent 72%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 38%, rgba(0, 0, 0, 0.55) 52%, transparent 72%);
+}
+
+.labHeroOrb {
+  width: 135%;
+  height: 135%;
+  max-width: none;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  background: transparent;
 }
 
 /* --- signal strip ------------------------------------------ */
@@ -5235,17 +5258,17 @@ main > section.caseGallery {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   border-top: 1px solid rgba(10, 30, 60, 0.07);
-  background: linear-gradient(180deg, #f5f9fc 0%, #f8fbfd 100%);
+  background: #f5f9fd;
 }
 
 .labSignals span {
   display: grid;
   place-items: center;
-  min-height: 15rem;
+  min-height: 18.6rem;
   padding: 2rem;
   border-right: 1px solid rgba(10, 30, 60, 0.07);
   border-bottom: 1px solid rgba(10, 30, 60, 0.07);
-  font-size: 1.8rem;
+  font-size: 2rem;
   line-height: 2.8rem;
   color: rgba(0, 0, 0, 0.42);
   text-align: center;
@@ -5504,58 +5527,81 @@ main > section.caseGallery {
 /* --- across industries ------------------------------------- */
 
 .labIndustries {
-  padding: 11rem 0 10rem;
+  padding-top: 11rem;
+  padding-bottom: 10rem;
   background: #fff;
+  overflow: hidden;
 }
 
 .labIndustriesHead {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: 1fr;
   align-items: center;
-  gap: 2.4rem;
-  padding: 0 var(--page-x);
+  justify-items: center;
+  min-height: 4.3rem;
+  margin-bottom: 5.3rem;
+}
+
+.labIndustriesHead .svcEyebrow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+  transform: translateY(-50%);
 }
 
 .labIndustriesHead h2 {
-  grid-column: 2;
-  max-width: 52rem;
+  margin: 0;
+  max-width: 61.1rem;
   font-size: clamp(2.8rem, 2.5vw, 4rem);
   line-height: 1.25;
   color: var(--ink);
   text-align: center;
 }
 
-.labIndustriesRail {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 24%;
-  gap: 2.3rem;
-  margin-top: 6rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-  scroll-snap-type: x mandatory;
-}
-
-.labIndustriesRail::-webkit-scrollbar {
-  display: none;
-}
-
-.labIndustriesRail article {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  height: 55rem;
-  padding: 3rem;
+.labIndustriesMarquee {
+  width: calc(100% + (var(--page-x) * 2));
+  margin-left: calc(var(--page-x) * -1);
   overflow: hidden;
+}
+
+.labIndustriesTrack {
+  display: flex;
+  gap: 2.3rem;
+  width: max-content;
+  padding: 1.9rem 0 0;
+  animation: marquee 45s linear infinite;
+}
+
+.labIndustriesMarquee:hover .labIndustriesTrack {
+  animation-play-state: paused;
+}
+
+.labIndustriesTrack article {
+  position: relative;
+  flex: 0 0 38.4rem;
+  width: 38.4rem;
+  max-width: 38.4rem;
+  min-width: 28rem;
+  height: 55rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3.2rem 3.2rem 4.6rem 2.8rem;
+  overflow: hidden;
+  background: #111;
   color: #fff;
-  scroll-snap-align: start;
 }
 
-.labIndustriesRail article:nth-child(even) {
-  align-items: flex-start;
+.labIndustriesTrack article.isTextTop {
+  justify-content: flex-start;
+  padding-top: 4.6rem;
+  padding-left: 3.46rem;
 }
 
-.labIndustriesRail img {
+.labIndustriesTrack article > img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -5563,29 +5609,44 @@ main > section.caseGallery {
   object-fit: cover;
 }
 
-.labIndustriesRail article::after {
+.labIndustriesTrack article:nth-child(4n + 1) > img {
+  object-position: 59% center;
+}
+
+.labIndustriesTrack article:nth-child(4n + 4) > img {
+  object-position: 70% center;
+}
+
+.labIndustriesTrack article::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0) 58%);
+  background: linear-gradient(180deg, rgba(102, 102, 102, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
 }
 
-.labIndustriesRail article:nth-child(even)::after {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0) 58%);
+.labIndustriesTrack article.isTextTop::after {
+  background:
+    radial-gradient(ellipse 3.8rem 2.75rem at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%),
+    rgba(0, 0, 0, 0.18);
 }
 
-.labIndustriesRail article > div {
+.labIndustriesTrack article > div {
   position: relative;
   z-index: 1;
 }
 
-.labIndustriesRail h3 {
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
-  line-height: 1.2;
+.labIndustriesTrack h3 {
+  margin: 0 0 2.5rem;
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1;
+  text-transform: none;
 }
 
-.labIndustriesRail p {
-  margin-top: 1.4rem;
+.labIndustriesTrack p {
+  margin: 0;
+  color: #fff;
   font-size: 1.8rem;
   line-height: 2.8rem;
 }
@@ -5593,28 +5654,32 @@ main > section.caseGallery {
 /* --- how ideas evolve -------------------------------------- */
 
 .labEvolve {
-  padding: 10rem var(--page-x) 12rem;
-  background: linear-gradient(160deg, #f7fafd 0%, #eaf1fa 55%, #f6f9fc 100%);
+  padding: 12rem var(--page-x) 14rem;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 35%, #e7f0f8 0%, rgba(231, 240, 248, 0) 58%),
+    linear-gradient(180deg, #f7fafd 0%, #eef4fa 48%, #f8fafc 100%);
   text-align: center;
 }
 
 .labEvolveEyebrow {
+  margin: 0;
   font-size: 1.8rem;
   line-height: 2.8rem;
-  color: var(--ink);
+  color: rgba(0, 0, 0, 0.56);
 }
 
 .labEvolve h2 {
-  max-width: 78rem;
+  max-width: 82rem;
   margin: 2.4rem auto 0;
   font-size: clamp(2.8rem, 2.5vw, 4rem);
+  font-weight: 400;
   line-height: 1.25;
   color: var(--ink);
 }
 
 .labEvolveBody {
   max-width: 76rem;
-  margin: 3rem auto 0;
+  margin: 3.2rem auto 0;
   font-size: 1.8rem;
   line-height: 2.8rem;
   color: var(--muted);
@@ -5623,44 +5688,49 @@ main > section.caseGallery {
 .labEvolveGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: start;
-  gap: 1.8rem;
-  max-width: 139.8rem;
-  margin: 7rem auto 0;
+  align-items: end;
+  gap: 2.4rem;
+  max-width: 128rem;
+  margin: 10rem auto 0;
+  padding-top: 8rem;
 }
 
 .labEvolveGrid article {
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
-  min-height: 48.7rem;
-  padding: 5rem 3rem 4rem;
+  align-items: center;
+  min-height: 44rem;
+  padding: 5.6rem 3.2rem 4.8rem;
   background: #f2f1f4;
   border-top: 3px solid var(--primary);
   text-align: center;
 }
 
-/* the artboard raises the middle card */
 .labEvolveGrid article:nth-child(2) {
-  margin-top: -9rem;
+  min-height: 56rem;
 }
 
 .labEvolveGrid h3 {
-  font-size: clamp(2.4rem, 2vw, 3.2rem);
-  line-height: 1.2;
+  margin: 0 0 2.8rem;
+  font-size: clamp(2.6rem, 2.1vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1.15;
   color: var(--ink);
 }
 
-/* title sits high, body + rule + meta group at the foot of the card */
 .labEvolveGrid p {
-  margin-top: auto;
+  margin: 0;
+  max-width: 30rem;
   font-size: 1.8rem;
   line-height: 2.8rem;
   color: var(--muted);
 }
 
 .labEvolveGrid span {
-  padding-top: 2.4rem;
+  display: block;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 2.8rem;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   font-size: 1.8rem;
   line-height: 2.8rem;
@@ -5672,26 +5742,40 @@ main > section.caseGallery {
 .labStatuses {
   position: relative;
   display: grid;
-  grid-template-columns: 721fr 879fr;
-  align-items: start;
-  min-height: 56rem;
+  grid-template-columns: minmax(0, 1fr) 82.2rem;
+  align-items: stretch;
+  min-height: 47.3rem;
   overflow: hidden;
   background: var(--primary);
 }
 
 .labStatusesCopy {
-  padding: 10rem 6rem 10rem var(--page-x);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4.8rem 5.6rem 4.8rem var(--page-x);
   border-right: 1px solid rgba(0, 0, 0, 0.18);
 }
 
 .labStatuses h2 {
-  font-size: clamp(2.4rem, 2vw, 3.2rem);
+  margin: 0;
+  font-size: clamp(2.8rem, 2.4vw, 3.6rem);
+  font-weight: 400;
   line-height: 1.2;
   color: var(--ink);
 }
 
+.labStatusesIntro {
+  max-width: 42rem;
+  margin: 2rem 0 0;
+  font-size: 1.7rem;
+  line-height: 2.6rem;
+  color: rgba(0, 0, 0, 0.62);
+}
+
 .labStatusList {
-  margin: 5.2rem 0 0;
+  margin: 3.6rem 0 0;
   padding: 0;
   list-style: none;
 }
@@ -5702,7 +5786,7 @@ main > section.caseGallery {
 
 .labStatusList button {
   display: grid;
-  grid-template-columns: 5.6rem 3rem minmax(0, 1fr);
+  grid-template-columns: 4.8rem 2.8rem minmax(0, 1fr);
   align-items: baseline;
   width: 100%;
   padding: 0;
@@ -5714,14 +5798,14 @@ main > section.caseGallery {
 }
 
 .labStatusNumber {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   line-height: 2.6rem;
-  color: rgba(0, 0, 0, 0.32);
+  color: rgba(0, 0, 0, 0.28);
   transition: color 0.25s var(--ease-out);
 }
 
 .labStatusArrow {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   line-height: 2.6rem;
   color: var(--ink);
   opacity: 0;
@@ -5729,9 +5813,9 @@ main > section.caseGallery {
 }
 
 .labStatusName {
-  font-size: 1.9rem;
+  font-size: 2rem;
   line-height: 2.6rem;
-  color: rgba(0, 0, 0, 0.32);
+  color: rgba(0, 0, 0, 0.28);
   transition: color 0.25s var(--ease-out);
 }
 
@@ -5748,48 +5832,81 @@ main > section.caseGallery {
   color: rgba(0, 0, 0, 0.62);
 }
 
-.labStatusList p {
-  margin: 0.6rem 0 0;
-  max-width: 34rem;
-  padding-left: 8.6rem;
-  font-size: 1.7rem;
-  line-height: 2.6rem;
-  color: rgba(0, 0, 0, 0.62);
+.labStatusDetail {
+  max-width: 36rem;
+  margin: 0.8rem 0 0.8rem;
+  padding-left: 7.6rem;
 }
 
-/* the device bleeds off the right edge and is cropped by the band */
+.labStatusDetail strong {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+  color: var(--ink);
+}
+
+.labStatusDetail p {
+  margin: 0.4rem 0 0;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: rgba(0, 0, 0, 0.56);
+}
+
+/* Figma: 822×462 device, 11px from top, flush bottom + right */
 .labStatusesMedia {
   position: relative;
-  align-self: end;
-  min-height: 56rem;
+  min-height: 47.3rem;
+  overflow: hidden;
+  background: var(--primary);
 }
 
 .labStatusesMedia img {
   position: absolute;
-  right: -8%;
-  bottom: -6rem;
-  width: 104%;
-  height: auto;
+  right: 0;
+  bottom: 0;
+  width: 82.2rem;
+  height: 46.2rem;
   max-width: none;
+  object-fit: cover;
+  object-position: left top;
+  pointer-events: none;
+  user-select: none;
 }
 
 /* --- closing CTA ------------------------------------------- */
 
 .labCta {
-  padding: 11rem var(--page-x) 12rem;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(32rem, 48rem);
+  align-items: center;
+  height: 61.1rem;
+  min-height: 61.1rem;
+  padding: 0 0 0 var(--page-x);
+  overflow: visible;
   background: #eaeaea;
   color: var(--ink);
 }
 
+.labCtaCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 58rem;
+  padding: 10rem 4rem 10rem 0;
+}
+
 .labCta h2 {
-  margin-top: 4.2rem;
-  font-size: clamp(2.4rem, 2vw, 3.2rem);
+  margin: 4.2rem 0 0;
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  font-weight: 400;
   line-height: 1.2;
 }
 
 .labCtaBody {
   max-width: 56rem;
-  margin-top: 2.4rem;
+  margin: 2.4rem 0 0;
   font-size: 1.8rem;
   line-height: 2.8rem;
   color: var(--ink);
@@ -5799,16 +5916,40 @@ main > section.caseGallery {
   margin-top: 4rem;
 }
 
+/* no top overflow — feet hang below the gray band */
+.labCtaMedia {
+  position: absolute;
+  right: 0;
+  bottom: -5.2rem;
+  z-index: 0;
+  width: auto;
+  height: 56rem;
+  max-width: min(43.5rem, 40vw);
+  object-fit: contain;
+  object-position: bottom right;
+  pointer-events: none;
+  user-select: none;
+}
+
 /* --- lab page: responsive ---------------------------------- */
 
 @media (max-width: 1180px) {
-  .labIndustriesRail {
-    grid-auto-columns: 32%;
+  .labSteps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .labSteps,
-  .labStatuses > div {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .labStatuses {
+    grid-template-columns: minmax(0, 1fr) minmax(36rem, 52%);
+    min-height: 42rem;
+  }
+
+  .labStatusesMedia {
+    min-height: 42rem;
+  }
+
+  .labStatusesMedia img {
+    width: 100%;
+    height: calc(100% - 1.1rem);
   }
 }
 
@@ -5820,9 +5961,26 @@ main > section.caseGallery {
     padding-bottom: 6rem;
   }
 
-  .labHeroOrb {
+  .labHeroCopy {
+    width: 100%;
+    max-width: none;
+  }
+
+  .labHeroX h1 {
+    width: 100%;
+    font-size: clamp(34px, 8vw, 60px);
+    line-height: 1.13;
+  }
+
+  .labHeroMedia {
     order: -1;
-    width: min(38rem, 80%);
+    justify-self: center;
+    width: min(42rem, 88%);
+  }
+
+  .labHeroOrb {
+    width: 135%;
+    height: 135%;
   }
 
   .labSignals {
@@ -5853,46 +6011,100 @@ main > section.caseGallery {
   }
 
   .labIndustriesHead {
-    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    justify-items: start;
+    margin-bottom: 3.2rem;
+  }
+
+  .labIndustriesHead .svcEyebrow {
+    position: static;
+    transform: none;
+    margin-bottom: 2rem;
   }
 
   .labIndustriesHead h2 {
-    grid-column: 1;
     max-width: none;
     text-align: left;
   }
 
-  .labIndustriesRail {
-    grid-auto-columns: 46%;
+  .labIndustriesTrack article {
+    flex: 0 0 32rem;
+    width: 32rem;
+    max-width: 32rem;
+    min-width: 24rem;
+    height: 48rem;
   }
 
   .labEvolveGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    padding-top: 0;
+    gap: 1.8rem;
   }
 
-  .labEvolveGrid article {
-    min-height: 0;
-  }
-
+  .labEvolveGrid article,
   .labEvolveGrid article:nth-child(2) {
-    margin-top: 0;
+    min-height: 36rem;
+  }
+
+  .labEvolveGrid article:nth-child(3) {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    justify-self: center;
   }
 
   .labPurposeX,
   .labExplore,
   .labIndustries,
-  .labEvolve,
-  .labStatuses,
-  .labCta {
+  .labEvolve {
     padding-top: 8rem;
     padding-bottom: 8rem;
+  }
+
+  .labCta {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+    padding: 0 var(--page-x);
+    overflow: visible;
+  }
+
+  .labCtaCopy {
+    padding: 8rem 0 36rem;
+  }
+
+  .labCtaMedia {
+    right: 0;
+    bottom: -2.4rem;
+    width: auto;
+    max-width: 24rem;
+    height: 36rem;
+  }
+
+  .labStatuses {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .labStatusesCopy {
+    padding: 6rem var(--page-x);
+    border-right: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  }
+
+  .labStatusesMedia {
+    min-height: 36rem;
+  }
+
+  .labStatusesMedia img {
+    width: 100%;
+    height: calc(100% - 1.1rem);
   }
 }
 
 @media (max-width: 768px) {
   .labSignals,
   .labSteps,
-  .labStatuses > div,
   .labEvolveGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -5910,12 +6122,12 @@ main > section.caseGallery {
     font-size: 1.6rem;
   }
 
-  .labIndustriesRail {
-    grid-auto-columns: 78%;
-  }
-
-  .labIndustriesRail article {
+  .labIndustriesTrack article {
+    flex: 0 0 28rem;
+    width: 28rem;
+    max-width: 28rem;
     height: 44rem;
+    padding: 2.4rem;
   }
 
   .labPurposeBody {
@@ -5930,13 +6142,33 @@ main > section.caseGallery {
 
 @media (max-width: 640px) {
   .labSteps,
-  .labStatuses > div,
   .labEvolveGrid {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .labIndustriesRail {
-    grid-auto-columns: 88%;
+  .labEvolveGrid article:nth-child(3) {
+    grid-column: auto;
+    max-width: none;
+  }
+
+  .labStatusDetail {
+    padding-left: 0;
+  }
+
+  .labStatusesMedia {
+    min-height: 34rem;
+  }
+
+  .labIndustriesTrack {
+    animation-duration: 36s;
+  }
+
+  .labIndustriesTrack article {
+    flex: 0 0 24rem;
+    width: 24rem;
+    max-width: 24rem;
+    min-width: 22rem;
+    height: 40rem;
   }
 }
 
@@ -5948,6 +6180,902 @@ main > section.caseGallery {
 .figmaServiceDetail .sectionPad {
   padding-right: var(--page-x);
   padding-left: var(--page-x);
+}
+
+.whiskasCase {
+  --whiskas-x: var(--page-x);
+  --whiskas-yellow: #f3ed48;
+  background: #fff;
+  color: #050505;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.whiskasCase .sectionPad {
+  padding-right: var(--page-x);
+  padding-left: var(--page-x);
+}
+
+.whiskasCase .siteHeader.isSolid {
+  background: #fff;
+}
+
+.whiskasHero {
+  min-height: 48.697rem;
+  display: flex;
+  align-items: end;
+  padding-top: 14.4rem;
+  padding-bottom: 6.997rem;
+}
+
+.whiskasHero > div {
+  width: min(73.6rem, 100%);
+}
+
+.whiskasHero h1 {
+  margin: 0 0 4rem;
+  font-size: 8rem;
+  font-weight: 400;
+  line-height: 8.8rem;
+  letter-spacing: 0;
+}
+
+.whiskasHeroMeta,
+.whiskasHeroSummary {
+  margin: 0;
+  font-size: var(--p2);
+  line-height: 1.55;
+}
+
+.whiskasHeroMeta {
+  margin-bottom: 3.4rem;
+  color: #000;
+  font-size: 2.2rem;
+  line-height: normal;
+}
+
+.whiskasHeroSummary {
+  max-width: 68rem;
+  color: var(--muted);
+}
+
+.whiskasHeroImage {
+  position: relative;
+  width: 100%;
+  height: 90rem;
+  min-height: 42rem;
+  margin: 0;
+  overflow: hidden;
+  background: #e5e0d2;
+}
+
+.whiskasHeroImage img,
+.whiskasJourneyMedia,
+.whiskasRelated img,
+.whiskasCta > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.whiskasHeroImage img {
+  position: absolute;
+  inset: 0;
+}
+
+.whiskasMeta {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 9.1rem var(--page-x) 0;
+  background: #000;
+  color: #fff;
+}
+
+.whiskasMeta::before {
+  content: "";
+  position: absolute;
+  top: 9.1rem;
+  bottom: 0;
+  left: calc(50% - 0.5px);
+  width: 1px;
+  background: rgba(208, 212, 200, 0.22);
+  pointer-events: none;
+}
+
+.whiskasMetaHead {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 2.4rem;
+  max-width: calc(50% - 4.8rem);
+  padding-bottom: 8.4rem;
+}
+
+.whiskasMetaHead p,
+.whiskasMetaHead h2 {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.whiskasMetaHead p {
+  font-size: 2rem;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.whiskasMetaHead h2 {
+  font-size: 4rem;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.whiskasMetaGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 0;
+}
+
+.whiskasMetaGrid article {
+  position: relative;
+  min-height: 38.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4.8rem;
+  padding: 5.2rem 4.8rem 5.6rem 0;
+  border-bottom: 1px solid rgba(208, 212, 200, 0.22);
+}
+
+.whiskasMetaGrid article:nth-child(2n) {
+  padding-left: 4.8rem;
+  padding-right: 0;
+}
+
+.whiskasMetaGrid article:nth-last-child(-n + 2) {
+  border-bottom: 0;
+  padding-bottom: 7.4rem;
+}
+
+.whiskasMetaGrid strong {
+  display: block;
+  color: rgba(255, 255, 255, 0.22);
+  font-size: clamp(5.6rem, 7.2vw, 9.9rem);
+  font-weight: 400;
+  line-height: 0.82;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.whiskasMetaGrid span {
+  display: block;
+  max-width: 54rem;
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.whiskasMoments {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem;
+  align-items: start;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+  background: #fff;
+}
+
+.whiskasMoments figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.whiskasMoments img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 58rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: #eee;
+}
+
+.whiskasMoments figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding-top: 2.4rem;
+}
+
+.whiskasMoments strong {
+  margin: 0;
+  color: #050505;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.whiskasMoments span {
+  max-width: 54.6rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.55;
+}
+
+.whiskasStory {
+  display: grid;
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.whiskasStoryCard {
+  position: relative;
+  min-height: 37.6rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(24rem, 30rem);
+  align-items: end;
+  gap: 6rem;
+  padding: 6.8rem 4.9rem 7.1rem;
+  overflow: hidden;
+  color: #fff;
+}
+
+.whiskasStoryCard + .whiskasStoryCard {
+  margin-top: 0;
+}
+
+.whiskasStoryCard.is-navy {
+  background: #071b3b;
+}
+
+.whiskasStoryCard.is-yellow {
+  background: var(--whiskas-yellow);
+  color: #000;
+}
+
+.whiskasStoryCard.is-black {
+  background: #000;
+}
+
+.whiskasStoryCard.is-grey {
+  background: #eee;
+  color: #000;
+}
+
+.whiskasStoryCard > div:first-child {
+  align-self: start;
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.whiskasStoryCard > div:first-child img {
+  width: 1.8rem;
+  height: 1.8rem;
+  flex: none;
+}
+
+.whiskasStoryCard h2 {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 5rem;
+  letter-spacing: 0;
+  text-transform: capitalize;
+}
+
+.whiskasStoryCard p {
+  grid-column: 1;
+  margin: 10.1rem 0 0;
+  max-width: 77rem;
+  font-size: var(--p2);
+  line-height: 1.55;
+}
+
+.whiskasStoryImage {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  width: min(30.1rem, 100%);
+  max-height: 24.9rem;
+  margin-left: auto;
+  object-fit: contain;
+}
+
+.whiskasBuilt {
+  width: 100%;
+  margin: 16.7rem 0 0;
+  background: #000;
+  color: #fff;
+}
+
+.whiskasBuiltInner {
+  min-height: 119.2rem;
+  display: grid;
+  gap: 5.7rem;
+  padding-top: 13.8rem;
+  padding-bottom: 13rem;
+}
+
+.whiskasSectionIntro {
+  max-width: 58.2rem;
+}
+
+.whiskasSectionIntro h2,
+.whiskasJourneyCopy h2,
+.whiskasRelated h2,
+.whiskasCta h2 {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 5rem;
+  letter-spacing: 0;
+  text-transform: capitalize;
+}
+
+.whiskasSectionIntro p {
+  margin: 2.5rem 0 0;
+  font-size: var(--p2);
+  line-height: 1.55;
+}
+
+.whiskasBuiltGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.whiskasBuiltGrid article {
+  min-height: 38.6rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2.6rem 3.2rem 3.6rem;
+  background: #fff;
+  color: #000;
+}
+
+.whiskasBuiltGrid span {
+  width: 5.3rem;
+  height: 5.3rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: auto;
+  background: var(--whiskas-yellow);
+}
+
+.whiskasBuiltGrid span img {
+  width: 5rem;
+  height: 5rem;
+}
+
+.whiskasBuiltGrid h3 {
+  margin: 12.9rem 0 2.5rem;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.whiskasBuiltGrid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.55;
+}
+
+.whiskasJourney {
+  position: relative;
+  min-height: 100rem;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  color: #fff;
+  background: #050505;
+}
+
+.whiskasFlow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-top: 11.7rem;
+  padding-bottom: 11.6rem;
+  background: #fff;
+  color: #000;
+}
+
+.whiskasFlowCopy {
+  max-width: 58.2rem;
+}
+
+.whiskasFlowCopy h2 {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 5rem;
+  letter-spacing: 0;
+}
+
+.whiskasFlowCopy > p:not(.whiskasPill) {
+  margin: 4rem 0 0;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.55;
+}
+
+.whiskasFlowBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(34rem, 38.5%);
+  align-items: stretch;
+  gap: 0;
+  margin-top: 8.8rem;
+  min-height: 52rem;
+}
+
+.whiskasFlowSteps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.whiskasFlowSteps article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  min-height: 26rem;
+  padding: 3.2rem 2.4rem 3.6rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.whiskasFlowSteps h3 {
+  margin: 0;
+  color: #000;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.whiskasFlowSteps p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.5rem;
+  line-height: 1.55;
+}
+
+.whiskasFlowBody > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 52rem;
+  object-fit: cover;
+}
+
+.whiskasJourneyMedia {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.whiskasJourney::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.whiskasJourneyInner {
+  position: relative;
+  z-index: 1;
+  min-height: 100rem;
+  display: grid;
+  grid-template-columns: minmax(0, 58.2rem) minmax(0, 58.2rem);
+  gap: 15.9rem;
+  align-items: center;
+}
+
+.whiskasPill {
+  width: max-content;
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.7rem;
+  margin: 0 0 4rem;
+  padding: 1.3rem 2rem;
+  background: #f6f6f6;
+  color: var(--muted);
+  font-size: var(--p2);
+  line-height: 1.9;
+}
+
+.whiskasPill span {
+  width: 1.7rem;
+  height: 1.7rem;
+  flex: none;
+  background: var(--whiskas-yellow);
+}
+
+.whiskasPill.is-light {
+  background: #fff;
+}
+
+.whiskasJourneyCopy > p:not(.whiskasPill),
+.whiskasCta p:not(.whiskasPill) {
+  margin: 4rem 0;
+  font-size: var(--p2);
+  line-height: 1.55;
+}
+
+.whiskasJourneyCopy > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.whiskasJourneyCopy > div span {
+  padding: 1.3rem 2rem;
+  background: var(--whiskas-yellow);
+  color: #000;
+  font-size: var(--p2);
+  line-height: 1.9;
+}
+
+.whiskasJourneyCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 28rem));
+  gap: 0.8rem 2.1rem;
+  padding-top: 0.4rem;
+}
+
+.whiskasJourneyCards article {
+  min-height: 30.8rem;
+  padding: 3.3rem 2.2rem;
+  border: 1.2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+}
+
+.whiskasJourneyCards span {
+  opacity: 0.22;
+  font-size: 2.2rem;
+}
+
+.whiskasJourneyCards h3 {
+  margin: 7rem 0 3.6rem;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.25;
+  text-transform: capitalize;
+}
+
+.whiskasJourneyCards p {
+  margin: 0;
+  font-size: var(--p2);
+  line-height: 1.55;
+}
+
+.whiskasRelated {
+  padding-top: 19.5rem;
+  padding-bottom: 0;
+}
+
+.whiskasRelated h2 {
+  margin-bottom: 6.8rem;
+}
+
+.whiskasRelated > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+}
+
+.whiskasRelated a {
+  position: relative;
+  min-height: 54.6rem;
+  display: grid;
+  align-content: space-between;
+  padding: 3rem 3.7rem;
+  overflow: hidden;
+  color: #fff;
+  background: #111;
+}
+
+.whiskasRelated a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(102, 102, 102, 0) 42%),
+    linear-gradient(180deg, rgba(102, 102, 102, 0) 35%, rgba(0, 0, 0, 0.82));
+}
+
+.whiskasRelated a > img {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.45s var(--ease-out);
+}
+
+.whiskasRelated a:hover > img {
+  transform: scale(1.04);
+}
+
+.whiskasRelated strong,
+.whiskasRelated span,
+.whiskasRelated em {
+  position: relative;
+  z-index: 1;
+}
+
+.whiskasRelated strong {
+  max-width: 27rem;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.whiskasRelated span {
+  align-self: end;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: var(--p2);
+}
+
+.whiskasRelated em {
+  width: 4rem;
+  height: 4rem;
+  align-self: end;
+  margin-top: 21rem;
+  font-style: normal;
+}
+
+.whiskasCta {
+  position: relative;
+  min-height: 61.1rem;
+  width: 100%;
+  margin: 19.8rem 0 0;
+  overflow: hidden;
+  background: #0c0c0c;
+  color: #fff;
+}
+
+.whiskasCta > div {
+  position: relative;
+  z-index: 1;
+  width: min(65rem, 100%);
+  padding: 12.8rem var(--page-x) 9rem;
+}
+
+.whiskasCta h2 {
+  max-width: 52.4rem;
+}
+
+.whiskasCta a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 4.5rem;
+  margin-top: 1rem;
+  padding: 0.8rem 1.8rem;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 1.84rem;
+  line-height: 1.2;
+}
+
+.whiskasCta a::after {
+  content: "->";
+  margin-left: 1rem;
+}
+
+.whiskasCta > img {
+  position: absolute;
+  right: 9.6%;
+  bottom: -3.6rem;
+  width: min(43.5rem, 34vw);
+  height: 72.5rem;
+  object-fit: cover;
+}
+
+@media (max-width: 1180px) {
+  .whiskasStoryCard {
+    position: relative;
+    top: auto;
+  }
+
+  .whiskasStoryCard + .whiskasStoryCard {
+    margin-top: 1rem;
+  }
+
+  .whiskasBuiltGrid,
+  .whiskasRelated > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .whiskasJourneyInner {
+    grid-template-columns: 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .whiskasFlow {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .whiskasFlowBody {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .whiskasFlowBody > img {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 0;
+    min-height: 42rem;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .whiskasCase {
+    --whiskas-x: var(--page-x);
+  }
+
+  .whiskasHero {
+    min-height: auto;
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+  }
+
+  .whiskasHero h1 {
+    font-size: clamp(4rem, 13vw, 5.6rem);
+  }
+
+  .whiskasHeroImage {
+    min-height: 34rem;
+    height: 72vw;
+  }
+
+  .whiskasMeta {
+    min-height: auto;
+    padding: 7rem var(--page-x) 0;
+  }
+
+  .whiskasMeta::before {
+    display: none;
+  }
+
+  .whiskasMetaHead {
+    max-width: none;
+    padding-bottom: 4.8rem;
+  }
+
+  .whiskasMetaGrid,
+  .whiskasMoments,
+  .whiskasBuiltGrid,
+  .whiskasFlowSteps,
+  .whiskasJourneyCards,
+  .whiskasRelated > div {
+    grid-template-columns: 1fr;
+  }
+
+  .whiskasFlowSteps {
+    grid-template-rows: none;
+  }
+
+  .whiskasFlowSteps article {
+    min-height: 0;
+  }
+
+  .whiskasMoments img {
+    min-height: 42rem;
+  }
+
+  .whiskasMetaGrid article,
+  .whiskasMetaGrid article:nth-child(2n) {
+    min-height: 24rem;
+    padding: 3.2rem 0 4rem;
+  }
+
+  .whiskasMetaGrid article:nth-last-child(2) {
+    border-bottom: 1px solid rgba(208, 212, 200, 0.22);
+  }
+
+  .whiskasMetaGrid article:nth-last-child(-n + 2) {
+    padding-bottom: 4rem;
+  }
+
+  .whiskasMetaGrid article:last-child {
+    padding-bottom: 6rem;
+  }
+
+  .whiskasMetaGrid strong {
+    font-size: clamp(4.2rem, 14vw, 5.4rem);
+    line-height: 0.9;
+  }
+
+  .whiskasStory {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .whiskasStoryCard {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 4.8rem 2.4rem;
+  }
+
+  .whiskasStoryCard p {
+    margin-top: 2rem;
+  }
+
+  .whiskasStoryImage {
+    grid-column: 1;
+    grid-row: auto;
+    width: min(22rem, 70%);
+    margin: 0;
+  }
+
+  .whiskasBuilt {
+    margin-top: 7rem;
+  }
+
+  .whiskasBuiltInner,
+  .whiskasFlow,
+  .whiskasJourneyInner {
+    min-height: auto;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .whiskasJourneyCards article,
+  .whiskasBuiltGrid article {
+    min-height: 26rem;
+  }
+
+  .whiskasBuiltGrid h3 {
+    margin-top: 7rem;
+  }
+
+  .whiskasRelated {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+
+  .whiskasRelated a {
+    min-height: 42rem;
+  }
+
+  .whiskasCta > div {
+    padding-bottom: 30rem;
+  }
+
+  .whiskasCta > img {
+    right: 0;
+    width: 28rem;
+    height: 42rem;
+  }
 }
 
 .figmaServiceHero {
@@ -6629,7 +7757,8 @@ main > section.figmaWork {
   color: #fff;
 }
 
-.figmaExecution > img {
+.figmaExecution > img,
+.figmaExecutionMedia {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -6637,6 +7766,7 @@ main > section.figmaWork {
   object-fit: cover;
   object-position: center;
   filter: none;
+  pointer-events: none;
 }
 
 .figmaExecution::before {
@@ -6788,37 +7918,29 @@ main > section.figmaWork {
 .figmaCapabilityLead {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.62fr) minmax(34rem, 0.38fr);
-  gap: 6rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2.4rem;
+  align-items: start;
   margin-top: 0;
-  padding: 8rem 0 5.6rem;
+  padding: 4.8rem 0 4rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .figmaCapabilityNumber {
-  display: block;
-  margin-bottom: 2.6rem;
-  color: rgba(0, 0, 0, 0.33);
-  font-size: 2rem;
-  font-style: normal;
-  line-height: 1;
+  display: none;
 }
 
 .figmaCapabilityLead p {
-  max-width: 54.2rem;
+  max-width: 72rem;
   color: #000;
 }
 
+.figmaCapabilityLead > .figmaCapabilityIcon {
+  margin-top: 0.4rem;
+}
+
 .figmaCapabilityImages {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: 1.4rem;
-  align-items: end;
-  min-height: 0;
-  padding-top: 5.6rem;
-  margin-bottom: 0;
+  display: none;
 }
 
 .figmaCapabilityImages > img {

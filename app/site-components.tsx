@@ -518,7 +518,6 @@ export function CapabilityAccordion({
   items: {
     title: string;
     body: string;
-    images: [string, string];
   }[];
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -541,23 +540,18 @@ export function CapabilityAccordion({
             {open ? (
               <article className="figmaCapabilityLead">
                 <div>
-                  <em className="figmaCapabilityNumber">{String(index + 1).padStart(2, "0")}</em>
                   <h3>{item.title}</h3>
                   <p>{item.body}</p>
                 </div>
-                <div className="figmaCapabilityImages">
-                  <button
-                    type="button"
-                    className="figmaCapabilityIcon isOpen"
-                    aria-label={`Collapse ${item.title}`}
-                    aria-expanded={true}
-                    onClick={() => toggle(index)}
-                  >
-                    <img src={arrowIcon} alt="" />
-                  </button>
-                  <img src={item.images[0]} alt="" />
-                  <img src={item.images[1]} alt="" />
-                </div>
+                <button
+                  type="button"
+                  className="figmaCapabilityIcon isOpen"
+                  aria-label={`Collapse ${item.title}`}
+                  aria-expanded={true}
+                  onClick={() => toggle(index)}
+                >
+                  <img src={arrowIcon} alt="" />
+                </button>
               </article>
             ) : (
               <button
