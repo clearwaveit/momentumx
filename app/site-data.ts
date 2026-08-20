@@ -172,7 +172,7 @@ export const servicePageDetails: Record<
     execution: { title: string; body: string; steps: string[]; note: string };
     capabilities: { title: string; body: string; items: string[] };
     valueAreas: { title: string; items: { title: string; body: string }[] };
-    engagements: { title: string; body: string }[];
+    engagements: { title: string; body: string; tag?: string }[];
     lab?: { title: string; body: string; items: { title: string; body: string }[] };
     serviceModels?: { title: string; items: { title: string; body: string }[] };
     insights: string[];
@@ -320,21 +320,24 @@ export const servicePageDetails: Record<
     engagements: [
       {
         title: "Retail Intelligence",
-        body: "AI / Computer Vision"
+        body: "Turning store visits, imagery and video into structured market intelligence.",
+        tag: "AI / Computer Vision"
       },
       {
         title: "Enterprise CRM",
-        body: "Digital Transformation"
+        body: "Connecting customer data, workflow and operations into a single managed platform.",
+        tag: "Digital Transformation"
       },
       {
         title: "Consumer Engagement Platform",
-        body: "Digital Experience"
+        body: "Campaign, personalisation and engagement journeys built on connected data.",
+        tag: "Digital Experience"
       }
     ],
     lab: {
       title: "From opportunities to prototypes.",
       body:
-        "Explore how our Innovation Lab turns emerging technologies and business challenges into working concepts.",
+        "Explore how our AI Innovation Lab turns emerging technologies and business challenges into working concepts.",
       items: [
         {
           title: "ShelfVision AI",
@@ -1696,7 +1699,7 @@ export const casePageDetails: Record<
       { title: "du Retail Intelligence Platform", body: "Enterprise Transformation · Computer Vision · BI", href: "/cases/du-retail-intelligence-platform" },
       { title: "Dentazon - AI Healthcare Product", body: "AI Product · Healthcare", href: "/cases/dentazon-ai-dental-care-platform" },
       { title: "Nolte - Digital Experience & Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" },
-      { title: "ShelfVision AI", body: "Innovation Lab · Computer Vision", href: "/innovation-lab" }
+      { title: "ShelfVision AI", body: "AI Innovation Lab · Computer Vision", href: "/innovation-lab" }
     ],
     cta: {
       eyebrow: "have a campaign journey worth making smarter?",
@@ -1891,7 +1894,7 @@ export const casePageDetails: Record<
       { title: "du Retail Intelligence Platform", body: "Enterprise Transformation · Computer Vision · BI", href: "/cases/du-retail-intelligence-platform" },
       { title: "Nolte - Digital Experience & Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" },
       { title: "M&M's - Moments of Magic", body: "Consumer Experience", href: "/cases/moments-of-magic" },
-      { title: "ShelfVision AI", body: "Innovation Lab · Computer Vision", href: "/innovation-lab" }
+      { title: "ShelfVision AI", body: "AI Innovation Lab · Computer Vision", href: "/innovation-lab" }
     ],
     cta: {
       eyebrow: "have a customer journey AI could make easier?",
@@ -2268,7 +2271,7 @@ export const casePageDetails: Record<
     relatedWork: [
       { title: "Nolte - Digital Experience & Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" },
       { title: "M&M's - Moments of Magic", body: "Consumer Experience", href: "/cases/moments-of-magic" },
-      { title: "ShelfVision AI", body: "AI / Innovation Lab", href: "/innovation-lab" },
+      { title: "ShelfVision AI", body: "AI Innovation Lab", href: "/innovation-lab" },
       { title: "Meta Studio", body: "Digital Product", href: "/cases" }
     ],
     cta: {
@@ -2465,10 +2468,10 @@ export const contactPage = {
 
 export const innovationLabPage = {
   hero: {
-    eyebrow: "momentumX innovation lab",
+    eyebrow: "momentumX AI innovation lab",
     title: ["Ideas are easy.", "We build them far enough", "to prove them."],
     summary:
-      "The MomentumX Innovation Lab explores emerging technologies against real business and industry challenges - turning promising ideas into prototypes, proof-of-concepts and potential products.",
+      "The MomentumX AI Innovation Lab explores emerging technologies against real business and industry challenges - turning promising ideas into prototypes, proof-of-concepts and potential products.",
     fragments: [
       "PRODUCT DETECTED",
       "SKU 94%",
@@ -2483,7 +2486,7 @@ export const innovationLabPage = {
     eyebrow: "01 / THE LAB",
     title: "Where business problems meet emerging technology.",
     body:
-      "Not every opportunity starts with a client brief. The Innovation Lab gives our teams space to identify recurring challenges across industries, explore new technologies and rapidly build working concepts to understand what is possible - and what is worth taking further.",
+      "Not every opportunity starts with a client brief. The AI Innovation Lab gives our teams space to identify recurring challenges across industries, explore new technologies and rapidly build working concepts to understand what is possible - and what is worth taking further.",
     steps: ["IDENTIFY", "EXPLORE", "PROTOTYPE", "VALIDATE", "PRODUCTISE"]
   },
   projects: [
@@ -2568,22 +2571,41 @@ export const innovationLabPage = {
     ["HOSPITALITY & REAL ESTATE", "Space intelligence · Customer experience · Operations"]
   ],
   reality: {
-    title: "Some experiments stay experiments. The right ones become something bigger.",
+    title: "Some Experiments Stay Experiments. The Right Ones Become Something Bigger.",
     body:
       "The Lab allows us to explore quickly without pretending every idea should become a product. The strongest opportunities move forward based on technical feasibility, business value and real-world validation.",
-    path: ["LAB CONCEPT", "PROTOTYPE", "PILOT"],
-    branches: ["CLIENT SOLUTION", "MOMENTUMX PRODUCT"]
+    path: ["Lab Concept", "Prototype", "Pilot"],
+    branches: ["Client Solution", "MomentumX Product"],
+    // Card copy for "how ideas evolve". Bodies reuse the status system
+    // definitions; the two meta lines marked below are new wording.
+    outcomes: [
+      {
+        title: "Lab Concept",
+        body: "Defined solution idea, explored quickly to understand what is possible.",
+        meta: "Prototype · Pilot"
+      },
+      {
+        title: "Client Solution",
+        body: "Being validated in a real environment.",
+        meta: "Shaped with a client" // new wording
+      },
+      {
+        title: "MomentumX Product",
+        body: "Reusable MomentumX solution.",
+        meta: "Productised" // new wording
+      }
+    ]
   },
   statuses: [
-    ["EXPLORATION", "Early-stage investigation."],
-    ["CONCEPT", "Defined solution idea."],
-    ["PROTOTYPE", "Working demonstration."],
-    ["PILOT", "Being validated in a real environment."],
-    ["PRODUCT", "Reusable MomentumX solution."]
+    ["Exploration", "Early-stage investigation."],
+    ["Concept", "Defined solution idea."],
+    ["Prototype", "Working demonstration."],
+    ["Pilot", "Being validated in a real environment."],
+    ["Product", "Reusable MomentumX solution."]
   ],
   cta: {
-    eyebrow: "build with us",
-    title: "Bring us a problem.",
+    eyebrow: "Build with us",
+    title: "Bring Us A Problem.",
     body:
       "You don't need to arrive with an AI use case. Bring us an operational challenge, customer problem or business opportunity. We'll explore whether technology can create a better way of solving it."
   }
@@ -2694,10 +2716,10 @@ export const industriesPage = {
       "Our industry experience gives us context. Our technology capabilities allow us to connect ideas across sectors - applying what works in one environment to solve problems differently in another."
   },
   lab: {
-    eyebrow: "MOMENTUMX INNOVATION LAB",
+    eyebrow: "MOMENTUMX AI INNOVATION LAB",
     title: "Exploring what's next across industries.",
     body:
-      "From computer vision in retail and spatial intelligence in airports to AI-assisted AML and procurement, the MomentumX Innovation Lab explores how emerging technology can address real industry problems.",
+      "From computer vision in retail and spatial intelligence in airports to AI-assisted AML and procurement, the MomentumX AI Innovation Lab explores how emerging technology can address real industry problems.",
     projects: [
       ["SHELFVISION AI", "Retail"],
       ["AML COPILOT", "Banking"],
@@ -2758,13 +2780,13 @@ export const utilityPages: Record<string, { title: string; summary: string; body
       "MomentumX develops intelligent systems, enterprise platforms, data-led experiences, automation workflows, and connected technology shaped around practical business challenges."
   },
   "innovation-lab": {
-    title: "innovation lab",
+    title: "AI innovation lab",
     summary: "A space for prototypes, proof-of-concepts, and new product ideas.",
     body:
       "The lab explores emerging technologies and recurring business challenges, turning them into concepts such as ShelfVision AI, SmartSpace, and AML Copilot."
   },
   "ai-lab": {
-    title: "innovation lab",
+    title: "AI innovation lab",
     summary: "A space for prototypes, proof-of-concepts, and new product ideas.",
     body:
       "The lab explores emerging technologies and recurring business challenges, turning them into concepts such as ShelfVision AI, SmartSpace, and AML Copilot."
@@ -2803,7 +2825,7 @@ export const utilityPages: Record<string, { title: string; summary: string; body
 
 export const navItems = [
   { label: "services", href: "/services" },
-  { label: "innovation lab", href: "/innovation-lab" },
+  { label: "AI innovation lab", href: "/innovation-lab" },
   { label: "work", href: "/cases" },
   { label: "about", href: "/about-us" },
   { label: "insights", href: "/blog" },
