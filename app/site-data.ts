@@ -2285,6 +2285,876 @@ export const casePageDetails: Record<
       href: "/enquiry",
       label: "start a conversation"
     }
+  },
+  "moments-of-magic": {
+    eyebrow: "M&M'S · CONSUMER EXPERIENCE",
+    metadata: [
+      { label: "Engagement", value: "Moments of Magic Brand Experience" },
+      { label: "Client", value: "M&M's" },
+      {
+        label: "Experience",
+        value: "Digital brand storytelling shaped around memorable moments and audience attention"
+      },
+      {
+        label: "Capabilities",
+        value: "Digital Strategy · Content Experience · Customer Engagement"
+      }
+    ],
+    story: [
+      {
+        title: "THE INSIGHT",
+        body:
+          "Memorable brand moments are not only about product visibility. They are about creating emotional recall that people want to revisit, share and remember."
+      },
+      {
+        title: "THE DIRECTION",
+        body:
+          "The experience was shaped around playful brand energy, clear storytelling and digital content designed to hold attention across key consumer touchpoints."
+      },
+      {
+        title: "THE EXPERIENCE",
+        body:
+          "Content, interaction and brand expression work together so the audience can move from curiosity into a richer brand moment without losing the lightness of the M&M's world."
+      },
+      {
+        title: "THE IMPACT",
+        body:
+          "The result is a digital-ready brand story that supports engagement, content visibility and stronger recall for a global consumer brand."
+      }
+    ],
+    builtIntro:
+      "A consumer experience shaped around brand energy, content clarity and memorable digital moments.",
+    built: [
+      {
+        title: "Brand Story Framing",
+        body: "A clear narrative direction that turns product personality into a memorable digital experience."
+      },
+      {
+        title: "Content Experience",
+        body: "Visual and editorial content designed to hold attention and support shareable brand moments."
+      },
+      {
+        title: "Customer Engagement",
+        body: "Touchpoints designed to invite interaction, exploration and emotional connection with the brand."
+      },
+      {
+        title: "Digital Strategy",
+        body: "A structured approach to where the brand meets the audience and what each moment should achieve."
+      },
+      {
+        title: "Campaign-Ready Assets",
+        body: "Experience assets prepared for rollout across relevant digital and content channels."
+      },
+      {
+        title: "Audience Journey Design",
+        body: "A flow that moves people from first attention into deeper brand immersion."
+      },
+      {
+        title: "Experience Consistency",
+        body: "Tone, visuals and interaction stay aligned with the brand while remaining useful for consumers."
+      },
+      {
+        title: "Regional Delivery Fit",
+        body: "Execution shaped for practical rollout across market-facing digital environments."
+      }
+    ],
+    journeyEyebrow: "the brand journey",
+    leadJourney: {
+      title: "Discover. Feel. Share. Remember.",
+      body:
+        "The experience turns brand personality into a simple journey: catch attention, create an emotional moment, invite participation and leave a lasting impression.",
+      steps: [
+        { title: "Discover", body: "The audience encounters the brand moment through digital or campaign channels." },
+        { title: "Explore", body: "Content and interaction invite people into the playful world of the brand." },
+        { title: "Engage", body: "The experience encourages attention, curiosity and emotional response." },
+        { title: "Participate", body: "Consumers interact with the content or campaign touchpoints." },
+        { title: "Share", body: "Memorable moments become easy to talk about and pass on." },
+        { title: "Recall", body: "The brand stays present through distinctive storytelling and visual energy." },
+        { title: "Return", body: "Future campaigns can reconnect with the same emotional territory." },
+        { title: "Grow", body: "Each moment strengthens long-term brand affinity and digital presence." }
+      ],
+      note:
+        "The public case study focuses on experience direction and does not expose confidential campaign mechanics, media plans or performance data."
+    },
+    visualStory: [
+      {
+        title: "THE MOMENT",
+        body: "A brand moment designed to feel spontaneous, playful and memorable.",
+        image: "https://storage.tentwenty.com/98/G42_1cd52cacb0.webp"
+      },
+      {
+        title: "THE STORY",
+        body: "Narrative and visuals work together to hold attention beyond a single impression.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+      },
+      {
+        title: "THE CONTENT",
+        body: "Digital content supports emotional recall and shareable brand expression.",
+        image: "https://storage.tentwenty.com/G42_Project_Brief_f04fb77727.jpg"
+      },
+      {
+        title: "THE ENGAGEMENT",
+        body: "Audience touchpoints convert attention into interaction and brand connection.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+      },
+      {
+        title: "THE PRESENCE",
+        body: "The experience strengthens digital visibility for a globally recognised consumer brand.",
+        image: "https://storage.tentwenty.com/98/G42_1_e21d5eb296.webp"
+      }
+    ],
+    ecosystemEyebrow: "the experience architecture",
+    ecosystem: {
+      title: "A light brand world. A clear digital journey.",
+      body:
+        "The strength of the engagement is simplicity: distinctive brand energy at the front, supported by a clear content and interaction structure behind it.",
+      steps: [
+        "BRAND MOMENT",
+        "CONTENT EXPERIENCE",
+        "AUDIENCE ATTENTION",
+        "INTERACTION",
+        "SHAREABLE MEMORY",
+        "BRAND RECALL"
+      ],
+      markets: ["THE BRAND", "THE AUDIENCE", "THE CONTENT"]
+    },
+    capabilities: [
+      "Digital Strategy",
+      "Content Experience",
+      "Customer Engagement",
+      "Brand Storytelling",
+      "Campaign Experience",
+      "Audience Journey",
+      "Experience Design",
+      "Digital Rollout"
+    ],
+    impact: [
+      {
+        title: "MEMORABLE BRAND MOMENTS",
+        body: "The experience is built around emotional recall, not only product messaging."
+      },
+      {
+        title: "CONTENT THAT HOLDS ATTENTION",
+        body: "Story and visuals are designed to keep people engaged beyond the first glance."
+      },
+      {
+        title: "CLEAR DIGITAL DIRECTION",
+        body: "Brand personality is translated into a practical digital experience structure."
+      },
+      {
+        title: "READY FOR ROLLOUT",
+        body: "Assets and journeys are shaped for useful delivery across digital touchpoints."
+      }
+    ],
+    relatedWork: [
+      { title: "Pawtopia", body: "Digital Engagement", href: "/cases/pawtopia" },
+      { title: "Whiskas - Interactive Cat Game", body: "Gamified Experience", href: "/cases/whiskas-interactive-cat-game" },
+      { title: "Ferrero - Back to School", body: "Campaign Platform", href: "/cases/ferrero-back-to-school-campaign" }
+    ],
+    cta: {
+      eyebrow: "have a brand moment worth making digital?",
+      title: "Turn attention into experience.",
+      body:
+        "MomentumX helps brands shape memorable digital moments around story, content and real audience behaviour.",
+      href: "/enquiry",
+      label: "start a conversation"
+    }
+  },
+  "pawtopia": {
+    eyebrow: "PEDIGREE & IAMS · DIGITAL ENGAGEMENT",
+    metadata: [
+      { label: "Engagement", value: "Pawtopia Pet Community Experience" },
+      { label: "Client", value: "Pedigree & IAMS" },
+      {
+        label: "Experience",
+        value: "Pet-focused digital engagement connecting community and product storytelling"
+      },
+      {
+        label: "Capabilities",
+        value: "Digital Engagement · Community Experience · Content Planning"
+      }
+    ],
+    story: [
+      {
+        title: "THE NEED",
+        body:
+          "Pet owners look for more than product information. They look for guidance, belonging and stories that feel close to the way they care for their animals."
+      },
+      {
+        title: "THE IDEA",
+        body:
+          "Pawtopia was shaped as a digital engagement concept where community, content and product storytelling can live in one pet-focused experience."
+      },
+      {
+        title: "THE CONNECTION",
+        body:
+          "Instead of separating brand content from owner community, the experience brings useful storytelling and shared interest into the same digital space."
+      },
+      {
+        title: "THE EXPERIENCE",
+        body:
+          "Owners can explore stories, discover brand value and feel part of a wider pet-care world without losing practical clarity."
+      }
+    ],
+    builtIntro:
+      "A pet-focused digital engagement concept designed to connect community energy with clear product storytelling.",
+    built: [
+      {
+        title: "Community Experience",
+        body: "A digital space designed around shared pet-owner interest and brand connection."
+      },
+      {
+        title: "Product Storytelling",
+        body: "Brand narratives presented in a way that feels useful, warm and relevant to owners."
+      },
+      {
+        title: "Content Planning",
+        body: "Editorial structure that supports ongoing stories, tips and engagement moments."
+      },
+      {
+        title: "Digital Engagement Flow",
+        body: "Touchpoints that invite owners to explore, return and stay connected."
+      },
+      {
+        title: "Brand Presence",
+        body: "Pedigree and IAMS storytelling brought into a coherent digital experience."
+      },
+      {
+        title: "Audience Pathways",
+        body: "Clear routes from curiosity into deeper brand and community content."
+      },
+      {
+        title: "Experience Tone",
+        body: "A friendly, trustworthy voice aligned with pet-care decision making."
+      },
+      {
+        title: "Rollout Structure",
+        body: "A practical framework for launching and extending the engagement over time."
+      }
+    ],
+    journeyEyebrow: "the owner journey",
+    leadJourney: {
+      title: "Meet. Explore. Connect. Care.",
+      body:
+        "The experience helps pet owners move from first discovery into useful content, community connection and stronger brand affinity.",
+      steps: [
+        { title: "Arrive", body: "The owner discovers Pawtopia through brand or digital channels." },
+        { title: "Explore", body: "Stories, tips and product narratives invite browsing and curiosity." },
+        { title: "Connect", body: "Community-led content creates a sense of shared pet-care interest." },
+        { title: "Learn", body: "Useful information helps owners make more confident day-to-day decisions." },
+        { title: "Engage", body: "Interactive moments encourage return visits and ongoing participation." },
+        { title: "Relate", body: "Brand storytelling becomes part of the owner's care journey." },
+        { title: "Return", body: "Fresh content and community presence support habit and loyalty." },
+        { title: "Belong", body: "The experience grows into a familiar digital home for pet owners." }
+      ],
+      note:
+        "The public case study remains conceptual and does not expose confidential community moderation, CRM or campaign performance details."
+    },
+    visualStory: [
+      {
+        title: "THE COMMUNITY",
+        body: "A digital space built around pet owners, shared care and everyday brand relevance.",
+        image: "https://storage.tentwenty.com/98/G42_1_e21d5eb296.webp"
+      },
+      {
+        title: "THE STORY",
+        body: "Product storytelling sits naturally inside content that feels useful and warm.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+      },
+      {
+        title: "THE CONTENT",
+        body: "Editorial planning supports ongoing engagement rather than one-off campaign spikes.",
+        image: "https://storage.tentwenty.com/G42_Project_Brief_f04fb77727.jpg"
+      },
+      {
+        title: "THE JOURNEY",
+        body: "Owners move from discovery into deeper brand and community connection.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+      },
+      {
+        title: "THE BOND",
+        body: "The experience strengthens affinity by respecting how people care for their pets.",
+        image: "https://storage.tentwenty.com/98/G42_1cd52cacb0.webp"
+      }
+    ],
+    ecosystemEyebrow: "the engagement architecture",
+    ecosystem: {
+      title: "Community first. Brand storytelling close behind.",
+      body:
+        "Pawtopia works when owners feel welcome first. Product storytelling then sits inside that relationship instead of interrupting it.",
+      steps: [
+        "OWNER ARRIVAL",
+        "CONTENT DISCOVERY",
+        "COMMUNITY CONNECTION",
+        "PRODUCT STORY",
+        "ONGOING ENGAGEMENT",
+        "BRAND AFFINITY"
+      ],
+      markets: ["THE OWNER", "THE PET", "THE BRAND"]
+    },
+    capabilities: [
+      "Digital Engagement",
+      "Community Experience",
+      "Content Planning",
+      "Brand Storytelling",
+      "Audience Journey",
+      "Experience Design",
+      "Campaign Support",
+      "Digital Rollout"
+    ],
+    impact: [
+      {
+        title: "OWNER-CENTRED ENGAGEMENT",
+        body: "The experience starts with care, community and usefulness rather than hard sell."
+      },
+      {
+        title: "STORY AND PRODUCT TOGETHER",
+        body: "Brand messaging sits inside content that feels relevant to everyday pet ownership."
+      },
+      {
+        title: "REASONS TO RETURN",
+        body: "Content and community structure support ongoing digital presence."
+      },
+      {
+        title: "CLEAR BRAND HOME",
+        body: "Pedigree and IAMS gain a coherent digital engagement concept around pet care."
+      }
+    ],
+    relatedWork: [
+      { title: "Whiskas - Interactive Cat Game", body: "Gamified Experience", href: "/cases/whiskas-interactive-cat-game" },
+      { title: "M&M's - Moments of Magic", body: "Consumer Experience", href: "/cases/moments-of-magic" },
+      { title: "Ride Back in Style", body: "Lifestyle Engagement", href: "/cases/ride-back-in-style" }
+    ],
+    cta: {
+      eyebrow: "have a community worth building around?",
+      title: "Bring people closer to the brand.",
+      body:
+        "MomentumX designs digital engagements that connect community, content and product storytelling in one clear experience.",
+      href: "/enquiry",
+      label: "start a conversation"
+    }
+  },
+  "a-michelin-affair": {
+    eyebrow: "TAZAL · PREMIUM HOSPITALITY EXPERIENCE",
+    metadata: [
+      { label: "Engagement", value: "A Michelin Affair Digital Storytelling" },
+      { label: "Client", value: "Tazal" },
+      {
+        label: "Experience",
+        value: "Premium digital storytelling around hospitality, attention and crafted experience"
+      },
+      {
+        label: "Capabilities",
+        value: "Digital Storytelling · Experience Design · Content Direction"
+      }
+    ],
+    story: [
+      {
+        title: "THE AMBITION",
+        body:
+          "Premium hospitality is experienced through detail. The digital expression needed the same sense of craft, restraint and attention that guests expect in person."
+      },
+      {
+        title: "THE DIRECTION",
+        body:
+          "A Michelin Affair was shaped as a storytelling experience where atmosphere, culinary prestige and carefully paced content create desire before a single booking moment."
+      },
+      {
+        title: "THE CRAFT",
+        body:
+          "Visual language, narrative rhythm and experience design work together to feel elevated without becoming cold or inaccessible."
+      },
+      {
+        title: "THE RESULT",
+        body:
+          "The brand gains a digital presence that protects premium perception while still guiding people towards meaningful engagement."
+      }
+    ],
+    builtIntro:
+      "A premium digital storytelling direction built around hospitality, attention and crafted experience.",
+    built: [
+      {
+        title: "Premium Story Framing",
+        body: "A narrative structure that communicates hospitality prestige with clarity and restraint."
+      },
+      {
+        title: "Experience Design",
+        body: "Interaction and pacing designed to feel considered, calm and high-end."
+      },
+      {
+        title: "Content Direction",
+        body: "Editorial and visual guidance that keeps every asset aligned with premium hospitality tone."
+      },
+      {
+        title: "Atmosphere-Led Visuals",
+        body: "Imagery and layout choices that evoke dining, detail and occasion."
+      },
+      {
+        title: "Guest Journey Thinking",
+        body: "Digital flow shaped around curiosity, desire and confident next steps."
+      },
+      {
+        title: "Brand Elevation",
+        body: "Digital expression that protects and extends the prestige of the hospitality offer."
+      },
+      {
+        title: "Touchpoint Consistency",
+        body: "Story, tone and presentation stay coherent across key digital moments."
+      },
+      {
+        title: "Launch-Ready Direction",
+        body: "A practical creative system ready for campaign and experience rollout."
+      }
+    ],
+    journeyEyebrow: "the hospitality journey",
+    leadJourney: {
+      title: "Notice. Desire. Explore. Arrive.",
+      body:
+        "The experience guides people from first impression into a premium sense of occasion, then towards deeper exploration of the hospitality story.",
+      steps: [
+        { title: "Notice", body: "A refined first impression signals prestige and culinary occasion." },
+        { title: "Feel", body: "Atmosphere and storytelling create desire before practical detail." },
+        { title: "Explore", body: "Guests move through curated content about dining and experience." },
+        { title: "Understand", body: "The offer becomes clear without breaking the premium tone." },
+        { title: "Imagine", body: "The digital journey helps people picture the occasion itself." },
+        { title: "Decide", body: "Confidence builds around whether this is the right experience." },
+        { title: "Engage", body: "Clear next steps invite enquiry or deeper brand interaction." },
+        { title: "Remember", body: "The story leaves a lasting sense of craft and hospitality." }
+      ],
+      note:
+        "The public case study focuses on experience direction and does not expose confidential commercial, booking or partner details."
+    },
+    visualStory: [
+      {
+        title: "THE OCCASION",
+        body: "A digital first impression shaped around prestige dining and hospitality atmosphere.",
+        image: "https://storage.tentwenty.com/medium_UAE_Pavilion_Expo_2025_63f64b6389.webp"
+      },
+      {
+        title: "THE DETAIL",
+        body: "Crafted storytelling that treats every visual and editorial choice as part of the experience.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+      },
+      {
+        title: "THE PACE",
+        body: "A calm journey that lets desire build before practical information takes over.",
+        image: "https://storage.tentwenty.com/G42_Project_Brief_f04fb77727.jpg"
+      },
+      {
+        title: "THE PRESENCE",
+        body: "Premium brand expression that feels elevated without becoming distant.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+      },
+      {
+        title: "THE INVITATION",
+        body: "Clear pathways from story into meaningful guest engagement.",
+        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
+      }
+    ],
+    ecosystemEyebrow: "the experience architecture",
+    ecosystem: {
+      title: "Atmosphere first. Clarity when it matters.",
+      body:
+        "The journey protects premium perception at the front, then introduces practical clarity once desire and understanding are already established.",
+      steps: [
+        "FIRST IMPRESSION",
+        "ATMOSPHERE",
+        "STORYTELLING",
+        "OFFER CLARITY",
+        "GUEST CONFIDENCE",
+        "ENGAGEMENT"
+      ],
+      markets: ["THE GUEST", "THE OCCASION", "THE BRAND"]
+    },
+    capabilities: [
+      "Digital Storytelling",
+      "Experience Design",
+      "Content Direction",
+      "Brand Elevation",
+      "Hospitality Journey",
+      "Visual Direction",
+      "Campaign Experience",
+      "Digital Rollout"
+    ],
+    impact: [
+      {
+        title: "PREMIUM DIGITAL PRESENCE",
+        body: "The experience protects hospitality prestige across digital touchpoints."
+      },
+      {
+        title: "STORY BEFORE HARD SELL",
+        body: "Desire and atmosphere lead, with practical clarity arriving at the right moment."
+      },
+      {
+        title: "CRAFTED CONSISTENCY",
+        body: "Tone, visuals and pacing stay aligned with a high-end hospitality brand."
+      },
+      {
+        title: "CLEAR NEXT STEPS",
+        body: "Guests can move from inspiration into engagement without friction."
+      }
+    ],
+    relatedWork: [
+      { title: "Taste of Abu Dhabi", body: "Consumer Experience", href: "/cases/taste-of-abu-dhabi" },
+      { title: "Nolte - Digital Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" },
+      { title: "M&M's - Moments of Magic", body: "Consumer Experience", href: "/cases/moments-of-magic" }
+    ],
+    cta: {
+      eyebrow: "have a premium experience worth elevating?",
+      title: "Make the digital story feel crafted.",
+      body:
+        "MomentumX shapes hospitality and lifestyle brands with digital storytelling that protects prestige and guides people with clarity.",
+      href: "/enquiry",
+      label: "start a conversation"
+    }
+  },
+  "taste-of-abu-dhabi": {
+    eyebrow: "BRF · REGIONAL CONSUMER EXPERIENCE",
+    metadata: [
+      { label: "Engagement", value: "Taste of Abu Dhabi Consumer Experience" },
+      { label: "Client", value: "BRF" },
+      {
+        label: "Experience",
+        value: "Consumer-facing digital experience for regional engagement and content visibility"
+      },
+      {
+        label: "Capabilities",
+        value: "Customer Experience · Regional Content · Digital Engagement"
+      }
+    ],
+    story: [
+      {
+        title: "THE MARKET",
+        body:
+          "Regional consumer brands need digital experiences that feel local enough to matter, while still remaining clear, useful and easy to engage with."
+      },
+      {
+        title: "THE OPPORTUNITY",
+        body:
+          "Taste of Abu Dhabi was shaped as a consumer-facing experience that connects brand presence, content visibility and audience engagement in one regional moment."
+      },
+      {
+        title: "THE EXPERIENCE",
+        body:
+          "Content, discovery and interaction are designed to help people explore the brand world quickly without losing cultural relevance or campaign energy."
+      },
+      {
+        title: "THE OUTCOME",
+        body:
+          "The brand gains a digital experience built for attention, participation and stronger regional visibility."
+      }
+    ],
+    builtIntro:
+      "A consumer-facing digital experience shaped for regional audience engagement and content visibility.",
+    built: [
+      {
+        title: "Customer Experience Design",
+        body: "A journey built around how regional audiences discover, browse and engage."
+      },
+      {
+        title: "Regional Content Direction",
+        body: "Content shaped for local relevance while staying clear and brand-consistent."
+      },
+      {
+        title: "Digital Engagement",
+        body: "Touchpoints designed to turn attention into interaction and campaign participation."
+      },
+      {
+        title: "Brand Visibility",
+        body: "Experience structure that helps the brand stay present across key digital moments."
+      },
+      {
+        title: "Discovery Flow",
+        body: "Simple pathways that help people find stories, offers or content quickly."
+      },
+      {
+        title: "Campaign Support",
+        body: "A flexible experience layer ready to support consumer activations and content bursts."
+      },
+      {
+        title: "Audience Clarity",
+        body: "Messaging and interaction remain easy to understand across devices and contexts."
+      },
+      {
+        title: "Practical Delivery",
+        body: "Execution shaped for regional rollout without overcomplicating the consumer journey."
+      }
+    ],
+    journeyEyebrow: "the consumer journey",
+    leadJourney: {
+      title: "See. Explore. Taste. Engage.",
+      body:
+        "The experience helps consumers move from first brand contact into content discovery, deeper interest and meaningful engagement.",
+      steps: [
+        { title: "See", body: "The audience encounters the brand through regional digital or campaign channels." },
+        { title: "Explore", body: "Content invites browsing across stories, products or experience themes." },
+        { title: "Discover", body: "People find relevant information quickly without friction." },
+        { title: "Connect", body: "Brand storytelling becomes more personal and locally resonant." },
+        { title: "Engage", body: "Interactive moments encourage participation and continued attention." },
+        { title: "Share", body: "Visible content moments support conversation and social presence." },
+        { title: "Return", body: "Fresh content and clear structure create reasons to come back." },
+        { title: "Prefer", body: "Repeated useful engagement strengthens brand preference over time." }
+      ],
+      note:
+        "The public case study remains conceptual and does not expose confidential media plans, retailer mechanics or performance metrics."
+    },
+    visualStory: [
+      {
+        title: "THE MARKET",
+        body: "A consumer experience designed for regional attention and cultural relevance.",
+        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
+      },
+      {
+        title: "THE CONTENT",
+        body: "Visible storytelling that helps the brand stay present across digital channels.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+      },
+      {
+        title: "THE FLOW",
+        body: "Simple discovery paths that keep engagement light and useful.",
+        image: "https://storage.tentwenty.com/G42_Project_Brief_f04fb77727.jpg"
+      },
+      {
+        title: "THE INTERACTION",
+        body: "Touchpoints designed to convert attention into participation.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+      },
+      {
+        title: "THE PRESENCE",
+        body: "A digital experience that supports ongoing regional brand visibility.",
+        image: "https://storage.tentwenty.com/98/Pinza_Thumbnail_3e5ae1a237.webp"
+      }
+    ],
+    ecosystemEyebrow: "the engagement architecture",
+    ecosystem: {
+      title: "Regional relevance. Simple digital movement.",
+      body:
+        "The experience works when local relevance catches attention and a clear journey keeps people moving into content and engagement.",
+      steps: [
+        "BRAND ARRIVAL",
+        "CONTENT VISIBILITY",
+        "DISCOVERY",
+        "INTERACTION",
+        "PARTICIPATION",
+        "PREFERENCE"
+      ],
+      markets: ["THE CONSUMER", "THE CONTENT", "THE BRAND"]
+    },
+    capabilities: [
+      "Customer Experience",
+      "Regional Content",
+      "Digital Engagement",
+      "Brand Visibility",
+      "Discovery Design",
+      "Campaign Support",
+      "Audience Journey",
+      "Digital Rollout"
+    ],
+    impact: [
+      {
+        title: "REGIONAL RELEVANCE",
+        body: "The experience is shaped around local audience attention and cultural context."
+      },
+      {
+        title: "CONTENT VISIBILITY",
+        body: "Brand storytelling stays present across useful digital touchpoints."
+      },
+      {
+        title: "SIMPLE ENGAGEMENT",
+        body: "Consumers can move from interest into interaction without friction."
+      },
+      {
+        title: "CAMPAIGN FLEXIBILITY",
+        body: "The structure can support ongoing content and activation needs."
+      }
+    ],
+    relatedWork: [
+      { title: "A Michelin Affair", body: "Hospitality Experience", href: "/cases/a-michelin-affair" },
+      { title: "Ferrero - Back to School", body: "Campaign Platform", href: "/cases/ferrero-back-to-school-campaign" },
+      { title: "Ride Back in Style", body: "Lifestyle Engagement", href: "/cases/ride-back-in-style" }
+    ],
+    cta: {
+      eyebrow: "have a regional audience worth engaging better?",
+      title: "Make the consumer journey feel local.",
+      body:
+        "MomentumX builds consumer experiences that combine regional relevance, clear content and practical digital engagement.",
+      href: "/enquiry",
+      label: "start a conversation"
+    }
+  },
+  "ride-back-in-style": {
+    eyebrow: "UNILEVER · LIFESTYLE DIGITAL ENGAGEMENT",
+    metadata: [
+      { label: "Engagement", value: "Ride Back in Style Lifestyle Experience" },
+      { label: "Client", value: "Unilever" },
+      {
+        label: "Experience",
+        value: "Lifestyle-led digital engagement connecting brand recall, content and customer touchpoints"
+      },
+      {
+        label: "Capabilities",
+        value: "Digital Experience · Content Systems · Customer Touchpoints"
+      }
+    ],
+    story: [
+      {
+        title: "THE INSIGHT",
+        body:
+          "Lifestyle brands win when people feel the category as part of everyday identity. Digital engagement needs to feel useful and aspirational at the same time."
+      },
+      {
+        title: "THE IDEA",
+        body:
+          "Ride Back in Style was shaped as a lifestyle-led digital engagement that reconnects brand recall with useful content and clear customer touchpoints."
+      },
+      {
+        title: "THE SYSTEM",
+        body:
+          "Instead of one isolated campaign burst, the experience supports a content system that can carry brand energy across multiple moments and channels."
+      },
+      {
+        title: "THE EXPERIENCE",
+        body:
+          "People can discover, browse and engage through a journey that feels contemporary, practical and connected to real lifestyle behaviour."
+      }
+    ],
+    builtIntro:
+      "A lifestyle-led digital engagement connecting brand recall, useful content and customer touchpoints.",
+    built: [
+      {
+        title: "Digital Experience Design",
+        body: "A lifestyle-led journey that feels contemporary while remaining easy to use."
+      },
+      {
+        title: "Content Systems",
+        body: "A structure for brand stories, useful content and campaign messages to live together."
+      },
+      {
+        title: "Customer Touchpoints",
+        body: "Clear routes from attention into deeper engagement across digital channels."
+      },
+      {
+        title: "Brand Recall Support",
+        body: "Experience moments designed to reconnect people with familiar brand energy."
+      },
+      {
+        title: "Lifestyle Storytelling",
+        body: "Narrative and visuals shaped around everyday aspiration and practical value."
+      },
+      {
+        title: "Engagement Pathways",
+        body: "Simple flows that help people move from browsing into meaningful interaction."
+      },
+      {
+        title: "Multi-Moment Flexibility",
+        body: "A system ready to support more than a single campaign spike."
+      },
+      {
+        title: "Practical Rollout",
+        body: "Delivery designed for real market execution across relevant touchpoints."
+      }
+    ],
+    journeyEyebrow: "the lifestyle journey",
+    leadJourney: {
+      title: "Recall. Browse. Use. Return.",
+      body:
+        "The experience reconnects brand memory with useful content, then guides people through clear digital touchpoints that encourage return engagement.",
+      steps: [
+        { title: "Recall", body: "Brand energy reappears in a lifestyle context people already recognise." },
+        { title: "Browse", body: "Content invites exploration across stories, tips or product moments." },
+        { title: "Find", body: "Useful information is easy to locate without breaking the experience." },
+        { title: "Engage", body: "Touchpoints encourage interaction beyond passive viewing." },
+        { title: "Use", body: "Content becomes part of a practical lifestyle decision or habit." },
+        { title: "Connect", body: "The brand relationship deepens through repeated useful contact." },
+        { title: "Share", body: "Lifestyle moments become easy to talk about and pass on." },
+        { title: "Return", body: "The system supports ongoing presence rather than one-off attention." }
+      ],
+      note:
+        "The public case study remains conceptual and does not expose confidential media, retail or performance details."
+    },
+    visualStory: [
+      {
+        title: "THE LIFESTYLE",
+        body: "A digital engagement shaped around everyday aspiration and brand familiarity.",
+        image: "https://storage.tentwenty.com/98/Pinza_Thumbnail_3e5ae1a237.webp"
+      },
+      {
+        title: "THE CONTENT",
+        body: "Useful stories and brand moments live inside one coherent content system.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+      },
+      {
+        title: "THE TOUCHPOINTS",
+        body: "Clear digital routes help people move from interest into engagement.",
+        image: "https://storage.tentwenty.com/G42_Project_Brief_f04fb77727.jpg"
+      },
+      {
+        title: "THE FLOW",
+        body: "Browsing stays light while still supporting meaningful brand connection.",
+        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+      },
+      {
+        title: "THE RETURN",
+        body: "The experience is designed for repeated contact, not only a single campaign burst.",
+        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
+      }
+    ],
+    ecosystemEyebrow: "the engagement architecture",
+    ecosystem: {
+      title: "Brand memory up front. Useful content underneath.",
+      body:
+        "The journey reconnects lifestyle brand recall with practical content systems and clear customer touchpoints.",
+      steps: [
+        "BRAND RECALL",
+        "LIFESTYLE CONTENT",
+        "DISCOVERY",
+        "ENGAGEMENT",
+        "USEFUL ACTION",
+        "RETURN HABIT"
+      ],
+      markets: ["THE CONSUMER", "THE LIFESTYLE", "THE BRAND"]
+    },
+    capabilities: [
+      "Digital Experience",
+      "Content Systems",
+      "Customer Touchpoints",
+      "Lifestyle Storytelling",
+      "Brand Recall",
+      "Audience Journey",
+      "Campaign Support",
+      "Digital Rollout"
+    ],
+    impact: [
+      {
+        title: "LIFESTYLE BRAND RECALL",
+        body: "The experience reconnects people with familiar brand energy in a contemporary way."
+      },
+      {
+        title: "USEFUL CONTENT SYSTEMS",
+        body: "Stories and practical content sit together instead of competing for attention."
+      },
+      {
+        title: "CLEAR TOUCHPOINTS",
+        body: "Customers can move from interest into engagement through simple digital routes."
+      },
+      {
+        title: "ONGOING PRESENCE",
+        body: "The structure supports more than a single campaign moment."
+      }
+    ],
+    relatedWork: [
+      { title: "Taste of Abu Dhabi", body: "Consumer Experience", href: "/cases/taste-of-abu-dhabi" },
+      { title: "M&M's - Moments of Magic", body: "Consumer Experience", href: "/cases/moments-of-magic" },
+      { title: "Pawtopia", body: "Digital Engagement", href: "/cases/pawtopia" }
+    ],
+    cta: {
+      eyebrow: "have a lifestyle brand worth engaging better?",
+      title: "Connect recall with useful experience.",
+      body:
+        "MomentumX builds digital engagements that bring brand energy, content systems and customer touchpoints into one clear journey.",
+      href: "/enquiry",
+      label: "start a conversation"
+    }
   }
 };
 
