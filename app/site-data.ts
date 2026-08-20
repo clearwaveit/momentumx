@@ -1168,14 +1168,17 @@ export const casePageDetails: Record<
   "whiskas-interactive-cat-game": {
     eyebrow: "WHISKAS · GAMIFIED CONSUMER EXPERIENCE",
     metadata: [
-      { label: "Client", value: "Whiskas" },
       { label: "Engagement", value: "Interactive Cat Game / Gamified Campaign" },
+      { label: "Client", value: "Whiskas" },
+      {
+        label: "Experience",
+        value: "Tablet-based interactive game + video-led campaign participation"
+      },
       {
         label: "Capabilities",
         value:
           "Gamification · Interactive Experience · UGC · Campaign Technology · Digital Engagement"
-      },
-      { label: "Experience", value: "Tablet-based interactive game + video-led campaign participation" }
+      }
     ],
     story: [
       {
@@ -1241,14 +1244,14 @@ export const casePageDetails: Record<
       body:
         "The campaign turns a tablet game into a fluid participation journey, with the pet as the player and the owner as the content creator.",
       steps: [
-        { title: "DISCOVER", body: "The owner discovers the Whiskas campaign and interactive cat game." },
-        { title: "OPEN", body: "The game is opened on a tablet or iPad." },
-        { title: "PLACE", body: "The device is placed on the floor within reach of the cat." },
-        { title: "PLAY", body: "Moving interactive elements encourage the cat to chase and tap the screen." },
-        { title: "RECORD", body: "The owner captures the cat's reaction and gameplay on video." },
-        { title: "UPLOAD", body: "The video is submitted through the campaign participation flow." },
-        { title: "ENTER", body: "The content becomes a valid campaign entry according to campaign rules." },
-        { title: "WIN", body: "Selected participants have the opportunity to receive campaign rewards." }
+        { title: "Discover", body: "The owner discovers the Whiskas campaign and interactive cat game." },
+        { title: "Open", body: "The game is opened on a tablet or iPad." },
+        { title: "Place", body: "The device is placed on the floor within reach of the cat." },
+        { title: "Play", body: "Moving interactive elements encourage the cat to chase and tap the screen." },
+        { title: "Record", body: "The owner captures the cat's reaction and gameplay on video." },
+        { title: "Upload", body: "The video is submitted through the campaign participation flow." },
+        { title: "Enter", body: "The content becomes a valid campaign entry according to campaign rules." },
+        { title: "Win", body: "Selected participants have the opportunity to receive campaign rewards." }
       ],
       note:
         "The public case study avoids inventing scores, leaderboards, voting, moderation or reward mechanics beyond the confirmed campaign journey."
@@ -2469,9 +2472,9 @@ export const contactPage = {
 export const innovationLabPage = {
   hero: {
     eyebrow: "momentumX AI innovation lab",
-    title: ["Ideas are easy.", "We build them far enough", "to prove them."],
+    title: ["Ideas are easy. We build them far enough to prove them."],
     summary:
-      "The MomentumX AI Innovation Lab explores emerging technologies against real business and industry challenges - turning promising ideas into prototypes, proof-of-concepts and potential products.",
+      "Helping organisations identify where AI can create real value - and build a practical roadmap from opportunity to implementation.",
     fragments: [
       "PRODUCT DETECTED",
       "SKU 94%",
@@ -2596,12 +2599,34 @@ export const innovationLabPage = {
       }
     ]
   },
+  statusesIntro:
+    "Every experiment in the Lab has a clear status, so teams know what is being explored, what is working, and what is ready to take further.",
   statuses: [
-    ["Exploration", "Early-stage investigation."],
-    ["Concept", "Defined solution idea."],
-    ["Prototype", "Working demonstration."],
-    ["Pilot", "Being validated in a real environment."],
-    ["Product", "Reusable MomentumX solution."]
+    [
+      "Exploration",
+      "Early-stage investigation.",
+      "We look into whether the problem is real and whether technology can meaningfully help."
+    ],
+    [
+      "Concept",
+      "Defined solution idea.",
+      "The opportunity is framed into a clear concept that can be designed, built and tested."
+    ],
+    [
+      "Prototype",
+      "Working demonstration.",
+      "A tangible build proves the idea in motion and shows what the experience could feel like."
+    ],
+    [
+      "Pilot",
+      "Being validated in a real environment.",
+      "The concept is tested with real users, data or operations to understand practical value."
+    ],
+    [
+      "Product",
+      "Reusable MomentumX solution.",
+      "The strongest experiments become productised capabilities that can scale across clients."
+    ]
   ],
   cta: {
     eyebrow: "Build with us",

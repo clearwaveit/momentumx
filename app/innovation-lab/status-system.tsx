@@ -3,11 +3,11 @@
 import { useState } from "react";
 
 export function StatusSystem({ statuses }: { statuses: string[][] }) {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(2);
 
   return (
     <ul className="labStatusList">
-      {statuses.map(([status, body], index) => {
+      {statuses.map(([status, summary, detail], index) => {
         const isActive = index === active;
 
         return (
@@ -19,7 +19,12 @@ export function StatusSystem({ statuses }: { statuses: string[][] }) {
               </span>
               <span className="labStatusName">{status}</span>
             </button>
-            {isActive ? <p>{body}</p> : null}
+            {isActive ? (
+              <div className="labStatusDetail">
+                <strong>{summary}</strong>
+                {detail ? <p>{detail}</p> : null}
+              </div>
+            ) : null}
           </li>
         );
       })}

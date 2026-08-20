@@ -28,7 +28,8 @@ const INDUSTRY_IMAGES = [
 ];
 
 export default function InnovationLabPage() {
-  const { hero, purpose, projects, industries, reality, statuses, cta } = innovationLabPage;
+  const { hero, purpose, projects, industries, reality, statusesIntro, statuses, cta } =
+    innovationLabPage;
 
   return (
     <main className="labPage">
@@ -37,17 +38,23 @@ export default function InnovationLabPage() {
       <section className="labHeroX">
         <div className="labHeroCopy">
           <p className="labHeroEyebrow">{hero.eyebrow}</p>
-          <h1>
-            {hero.title.map((line) => (
-              <span key={line}>{line}</span>
-            ))}
-          </h1>
+          <h1>{hero.title.join(" ")}</h1>
           <p className="labHeroSummary">{hero.summary}</p>
           <a className="svcPill" href="#lab-explore">
             Explore the lab
           </a>
         </div>
-        <div className="labHeroOrb" aria-hidden="true" />
+        <div className="labHeroMedia" aria-hidden="true">
+          <video
+            className="labHeroOrb"
+            src="/assets/videos/innovation-banner-video.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+        </div>
       </section>
 
       <section className="labSignals" aria-hidden="true">
@@ -83,7 +90,7 @@ export default function InnovationLabPage() {
         <LabExplore projects={projects} images={PROJECT_IMAGES} />
       </section>
 
-      <section className="labIndustries">
+      <section className="labIndustries sectionPad">
         <div className="labIndustriesHead">
           <p className="svcEyebrow isMuted">
             <i aria-hidden="true" />
@@ -91,16 +98,23 @@ export default function InnovationLabPage() {
           </p>
           <h2>Different industries. Similar problems worth solving.</h2>
         </div>
-        <div className="labIndustriesRail">
-          {industries.map(([industry, body], index) => (
-            <article key={industry}>
-              <img src={INDUSTRY_IMAGES[index % INDUSTRY_IMAGES.length]} alt="" />
-              <div>
-                <h3>{industry}</h3>
-                <p>{body}</p>
-              </div>
-            </article>
-          ))}
+        <div className="labIndustriesMarquee">
+          <div className="labIndustriesTrack">
+            {[0, 1].flatMap((copy) =>
+              industries.map(([industry, body], index) => (
+                <article
+                  key={`${industry}-${copy}`}
+                  className={index % 2 === 1 ? "isTextTop" : undefined}
+                >
+                  <img src={INDUSTRY_IMAGES[index % INDUSTRY_IMAGES.length]} alt="" />
+                  <div>
+                    <h3>{industry}</h3>
+                    <p>{body}</p>
+                  </div>
+                </article>
+              ))
+            )}
+          </div>
         </div>
       </section>
 
@@ -122,6 +136,7 @@ export default function InnovationLabPage() {
       <section className="labStatuses">
         <div className="labStatusesCopy">
           <h2>Experiment Status System</h2>
+          <p className="labStatusesIntro">{statusesIntro}</p>
           <StatusSystem statuses={statuses} />
         </div>
         <div className="labStatusesMedia" aria-hidden="true">
@@ -130,15 +145,24 @@ export default function InnovationLabPage() {
       </section>
 
       <section className="labCta">
-        <p className="svcEyebrow">
-          <i aria-hidden="true" />
-          {cta.eyebrow}
-        </p>
-        <h2>{cta.title}</h2>
-        <p className="labCtaBody">{cta.body}</p>
-        <a className="svcPill" href="/book-meeting">
-          Book a consultation
-        </a>
+        <div className="labCtaCopy">
+          <p className="svcEyebrow">
+            <i aria-hidden="true" />
+            {cta.eyebrow}
+          </p>
+          <h2>{cta.title}</h2>
+          <p className="labCtaBody">{cta.body}</p>
+          <a className="svcPill" href="/book-meeting">
+            Book a consultation
+          </a>
+        </div>
+        <img
+          className="labCtaMedia"
+          src="/assets/design/cta-new-1.png"
+          alt=""
+          width={438}
+          height={658}
+        />
       </section>
 
       <SiteFooter />
