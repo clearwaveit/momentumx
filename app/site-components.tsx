@@ -425,3 +425,156 @@ export function CaseGallery({
     </section>
   );
 }
+
+export function CollaborationSlider({
+  slides
+}: {
+  slides: {
+    title: string;
+    body: string;
+    tags: string[];
+    image: string;
+  }[];
+}) {
+  const [index, setIndex] = useState(0);
+  const [fading, setFading] = useState(false);
+  const slide = slides[index] ?? slides[0];
+
+  const goTo = (next: number) => {
+    if (fading || slides.length < 2) {
+      return;
+    }
+
+    setFading(true);
+    window.setTimeout(() => {
+      setIndex((next + slides.length) % slides.length);
+      setFading(false);
+    }, 220);
+  };
+
+  if (!slide) {
+    return null;
+  }
+
+  return (
+    <section className="figmaCollaboration">
+      <div className="figmaCollaborationBg">
+        {slides.map((item, slideIndex) => (
+          <img
+            key={item.image + item.title}
+            src={item.image}
+            alt=""
+            className={slideIndex === index ? "isActive" : undefined}
+          />
+        ))}
+      </div>
+      <div className="figmaCollaborationInner sectionPad">
+        <div className="figmaCollaborationHead">
+          <div>
+            <h2>delivered work and transformation concepts</h2>
+            <p>featured engagements</p>
+          </div>
+          <p>
+            Relevant delivered work is combined with clearly labelled MomentumX Lab and transformation concepts.
+          </p>
+        </div>
+        <article>
+          <div className={fading ? "figmaCollaborationCopy isFading" : "figmaCollaborationCopy"}>
+            <h3>{slide.title}</h3>
+            <p>{slide.body}</p>
+            <div className="figmaCollaborationTags">
+              {slide.tags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+          </div>
+          <div className="figmaCollaborationArrows">
+            <button
+              type="button"
+              aria-label="Previous engagement"
+              disabled={fading}
+              onClick={() => goTo(index - 1)}
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              aria-label="Next engagement"
+              disabled={fading}
+              onClick={() => goTo(index + 1)}
+            >
+              →
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+  );
+}
+
+export function CapabilityAccordion({
+  items
+}: {
+  items: {
+    title: string;
+    body: string;
+    images: [string, string];
+  }[];
+}) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const arrowIcon = "/assets/figma/service-detail/arrow-icon.svg";
+
+  const toggle = (index: number) => {
+    setOpenIndex((current) => (current === index ? null : index));
+  };
+
+  return (
+    <div className="figmaCapabilityList">
+      {items.map((item, index) => {
+        const open = openIndex === index;
+
+        return (
+          <div
+            key={item.title}
+            className={open ? "figmaCapabilityItem isOpen" : "figmaCapabilityItem"}
+          >
+            {open ? (
+              <article className="figmaCapabilityLead">
+                <div>
+                  <em className="figmaCapabilityNumber">{String(index + 1).padStart(2, "0")}</em>
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+                <div className="figmaCapabilityImages">
+                  <button
+                    type="button"
+                    className="figmaCapabilityIcon isOpen"
+                    aria-label={`Collapse ${item.title}`}
+                    aria-expanded={true}
+                    onClick={() => toggle(index)}
+                  >
+                    <img src={arrowIcon} alt="" />
+                  </button>
+                  <img src={item.images[0]} alt="" />
+                  <img src={item.images[1]} alt="" />
+                </div>
+              </article>
+            ) : (
+              <button
+                type="button"
+                className="figmaCapabilityTrigger"
+                aria-expanded={false}
+                onClick={() => toggle(index)}
+              >
+                {item.title}
+                <span className="figmaCapabilityIcon" aria-hidden="true">
+                  <img src={arrowIcon} alt="" />
+                </span>
+              </button>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
