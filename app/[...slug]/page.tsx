@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import { ContactForm } from "../contact-form";
 import { PageHero, SiteFooter, SiteHeader } from "../site-components";
-import { aboutPage, contactPage, industriesPage, innovationLabPage, utilityPages } from "../site-data";
+import { aboutPage, contactPage, industriesPage, utilityPages } from "../site-data";
 
 const careerTitles: Record<string, string> = {
   "android-app-developer": "android app developer",
@@ -46,136 +46,6 @@ export default async function UtilityPage({
           body:
             "MomentumX uses this space for company information, digital resources, credentials, and regional brand-led content."
         });
-
-  if (path === "innovation-lab" || path === "ai-lab") {
-    return (
-      <main>
-        <SiteHeader />
-        <section className="labHero sectionPad">
-          <div>
-            <p>{innovationLabPage.hero.eyebrow}</p>
-            <h1>
-              {innovationLabPage.hero.title.map((line) => (
-                <span key={line}>{line}</span>
-              ))}
-            </h1>
-            <p>{innovationLabPage.hero.summary}</p>
-            <a className="roundLink" href="#lab-projects">
-              explore the lab
-            </a>
-          </div>
-          <div className="labCanvas" aria-hidden="true">
-            {innovationLabPage.hero.fragments.map((fragment, index) => (
-              <span key={fragment} style={{ "--i": index, "--col": index % 3 } as CSSProperties}>
-                {fragment}
-              </span>
-            ))}
-          </div>
-        </section>
-        <section className="labPurpose sectionPad">
-          <div className="sectionHead">
-            <p>{innovationLabPage.purpose.eyebrow}</p>
-            <h2>{innovationLabPage.purpose.title}</h2>
-            <p>{innovationLabPage.purpose.body}</p>
-          </div>
-          <div className="labProgression">
-            {innovationLabPage.purpose.steps.map((step, index) => (
-              <span key={step}>{String(index + 1).padStart(2, "0")} / {step}</span>
-            ))}
-          </div>
-        </section>
-        <section className="labProjects sectionPad" id="lab-projects">
-          <div className="sectionHead">
-            <p>02 / CURRENTLY IN THE LAB</p>
-            <h2>Things we&apos;re exploring.</h2>
-          </div>
-          <div className="labProjectStack">
-            {innovationLabPage.projects.map((project, index) => (
-              <article className={`labProject ${project.visual}`} key={project.title}>
-                <div className="labProjectVisual" aria-hidden="true">
-                  <div />
-                  <div />
-                  <div />
-                  <div />
-                </div>
-                <div className="labProjectCopy">
-                  <span>{String(index + 1).padStart(2, "0")} — {project.category}</span>
-                  <h3>{project.title}</h3>
-                  <h4>{project.headline}</h4>
-                  <p>{project.body}</p>
-                  <p>{project.exploring}</p>
-                </div>
-                <div className="labProjectMetrics">
-                  <span>{project.status}</span>
-                  {project.metrics.map((metric) => (
-                    <strong key={metric}>{metric}</strong>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section className="industryIndex sectionPad">
-          <div className="sectionHead">
-            <p>03 / ACROSS INDUSTRIES</p>
-            <h2>Different industries. Similar problems worth solving.</h2>
-          </div>
-          <div>
-            {innovationLabPage.industries.map(([industry, body]) => (
-              <article key={industry}>
-                <h3>{industry}</h3>
-                <p>{body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section className="labReality sectionPad">
-          <div className="sectionHead dark">
-            <p>04 / HOW IDEAS EVOLVE</p>
-            <h2>{innovationLabPage.reality.title}</h2>
-            <p>{innovationLabPage.reality.body}</p>
-          </div>
-          <div className="realityPath">
-            <div>
-              {innovationLabPage.reality.path.map((step) => (
-                <span key={step}>{step}</span>
-              ))}
-            </div>
-            <div>
-              {innovationLabPage.reality.branches.map((branch) => (
-                <span key={branch}>{branch}</span>
-              ))}
-            </div>
-          </div>
-        </section>
-        <section className="statusSystem sectionPad">
-          <h2>experiment status system</h2>
-          <div>
-            {innovationLabPage.statuses.map(([status, body]) => (
-              <article key={status}>
-                <h3>{status}</h3>
-                <p>{body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section className="labBuild sectionPad">
-          <p>{innovationLabPage.cta.eyebrow}</p>
-          <h2>{innovationLabPage.cta.title}</h2>
-          <p>{innovationLabPage.cta.body}</p>
-          <div>
-            <a className="buttonLink" href="/enquiry">
-              bring us a challenge
-            </a>
-            <a className="textLink light" href="/services">
-              explore our services
-            </a>
-          </div>
-        </section>
-        <SiteFooter />
-      </main>
-    );
-  }
 
   if (path === "industries") {
     return (
@@ -227,7 +97,7 @@ export default async function UtilityPage({
                       )}
                     </div>
                     <div>
-                      <strong>Innovation Lab</strong>
+                      <strong>AI Innovation Lab</strong>
                       {industry.lab.length ? (
                         industry.lab.map((lab) => (
                           <a href={lab.href} key={lab.label}>{lab.label}</a>

@@ -345,7 +345,7 @@ export default function Home() {
 
       <section className="lab sectionPad reveal" id="innovation-lab">
         <div className="sectionHead">
-          <p>innovation lab</p>
+          <p>AI innovation lab</p>
           <h2>exploring what comes next</h2>
           <p>
             We turn emerging technologies and real business challenges into prototypes,

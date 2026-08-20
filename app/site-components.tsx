@@ -58,12 +58,49 @@ export function RevealObserver() {
   return null;
 }
 
-export function SiteHeader() {
+export function SiteHeader({ variant = "overlay" }: { variant?: "overlay" | "solid" }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [stuck, setStuck] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  // Past the first viewport-ish scroll the bar sticks, then hides on the way
+  // down and reveals on the way up.
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let frame = 0;
+
+    const read = () => {
+      frame = 0;
+      const y = Math.max(window.scrollY, 0);
+      const delta = y - lastY;
+
+      setStuck(y > 120);
+      if (Math.abs(delta) > 6) {
+        setHidden(delta > 0 && y > 240);
+        lastY = y;
+      }
+    };
+
+    const onScroll = () => {
+      if (!frame) {
+        frame = window.requestAnimationFrame(read);
+      }
+    };
+
+    read();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+    };
   }, []);
 
   const closeMenu = () => setMenuOpen(false);
@@ -98,7 +135,16 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="siteHeader">
+      <header
+        className={[
+          "siteHeader",
+          variant === "solid" ? "isSolid" : "",
+          stuck ? "isStuck" : "",
+          stuck && hidden && !menuOpen ? "isHidden" : ""
+        ]
+          .filter(Boolean)
+          .join(" ")}
+      >
         <a className="logo" href="/" aria-label="MomentumX home">
           MomentumX
         </a>

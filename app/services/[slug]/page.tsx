@@ -1,101 +1,20 @@
 import { notFound } from "next/navigation";
-import { AutoRail, CoverScroll, CtaBand, MediaBlock, PageHero, SiteFooter, SiteHeader } from "../../site-components";
-import { cases, posts, serviceDetailBlocks, servicePageDetails, services } from "../../site-data";
-
-const figmaAssets = {
-  hero: "/assets/figma/service-detail/hero.png",
-  principles: [
-    "/assets/figma/service-detail/principle-1.png",
-    "/assets/figma/service-detail/principle-2.png",
-    "/assets/figma/service-detail/principle-3.png"
-  ],
-  execution: "/assets/figma/service-detail/execution.png",
-  capabilityLarge: "/assets/figma/service-detail/capability-large.png",
-  capabilitySmall: "/assets/figma/service-detail/capability-small.png",
-  cta: "/assets/figma/service-detail/cta.png",
-  otherServices: [
-    "/assets/figma/service-detail/service-ai.png",
-    "/assets/figma/service-detail/service-auto.png",
-    "/assets/figma/service-detail/service-data.png"
-  ]
-};
-
-const coverIcons = [
-  "/assets/figma/service-detail/Simplification (1).png",
-  "/assets/figma/service-detail/Simplification.png",
-  "/assets/figma/service-detail/Simplification (2).png",
-  "/assets/figma/service-detail/Simplification (3).png"
-];
-
-const coverCards = [
-  {
-    title: "AI Readiness Assessment",
-    body: "Assess your data, technology, processes, capabilities and organisational readiness for AI adoption."
-  },
-  {
-    title: "AI Strategy & Roadmaps",
-    body: "Define where AI fits within your organisation and establish a prioritised implementation roadmap."
-  },
-  {
-    title: "AI Opportunity Discovery",
-    body: "Turn promising opportunities into prototypes and PoCs to validate feasibility and business potential."
-  },
-  {
-    title: "Digital Transformation Consulting",
-    body: "Identify where technology can improve processes, customer experiences and business models beyond AI alone."
-  },
-  {
-    title: "AI Governance & Responsible AI",
-    body: "Establish practical frameworks for security, privacy, governance, human oversight and responsible adoption."
-  },
-  {
-    title: "Proof of Concept Development",
-    body: "Turn promising opportunities into prototypes and PoCs to validate feasibility and business potential."
-  },
-  {
-    title: "AI Adoption & Change Management",
-    body: "Help teams integrate new technologies into day-to-day operations through adoption planning and enablement."
-  },
-  {
-    title: "Executive & Team AI Training",
-    body: "Practical workshops designed around how leadership and teams can use AI within their organisation."
-  }
-];
-
-const coverMarks = [
-  "/assets/figma/service-detail/water-mark-x-1.png",
-  "/assets/figma/service-detail/water-mark-x-2.png"
-];
-
-const valueCards = [
-  {
-    title: "Customer Experience",
-    body: "AI assistants, personalisation and customer intelligence designed around moments that matter."
-  },
-  {
-    title: "Sales & Marketing",
-    body: "Lead intelligence, content workflows, recommendations and automation across growth teams."
-  },
-  {
-    title: "Operations",
-    body: "Process automation, knowledge AI and document intelligence for everyday work."
-  },
-  {
-    title: "Finance & Compliance",
-    body: "Document processing, risk intelligence and practical compliance assistance."
-  }
-];
-
-function toFigmaTitle(value: string) {
-  return value
-    .toLowerCase()
-    .replace(/\b\w/g, (letter) => letter.toUpperCase())
-    .replace(/\s*-\s*/g, " - ");
-}
+import { MediaBlock, SiteFooter, SiteHeader } from "../../site-components";
+import { serviceDetailBlocks, servicePageDetails, services } from "../../site-data";
+import { EngagementCarousel } from "./engagement-carousel";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
+
+const DESIGN = "/assets/design";
+
+// Icon sets exported from the Figma file; both grids cycle through them.
+const SERVICE_ICONS = [1, 2, 3, 4].map((n) => `${DESIGN}/icon-service-${n}.svg`);
+const EXECUTION_ICONS = [1, 2, 3, 4].map((n) => `${DESIGN}/icon-execution-${n}.svg`);
+const PRINCIPLE_IMAGES = [1, 2, 3].map((n) => `${DESIGN}/principle-${n}.jpg`);
+const VALUE_IMAGES = [1, 2, 3, 4, 5, 6].map((n) => `${DESIGN}/value-${n}.jpg`);
+const LAB_IMAGES = [1, 2, 3].map((n) => `${DESIGN}/lab-${n}.jpg`);
 
 export default async function ServiceDetailPage({
   params
@@ -110,488 +29,305 @@ export default async function ServiceDetailPage({
   }
 
   const detail = servicePageDetails[service.slug as keyof typeof servicePageDetails];
-
-  if (detail) {
-    const relatedServices = detail.otherServices
-      .map((relatedSlug) => services.find((item) => item.slug === relatedSlug))
-      .filter((item): item is (typeof services)[number] => Boolean(item));
-
-    if (service.slug === "ai-consulting-and-transformation") {
-      return (
-        <main className="figmaServiceDetail">
-          <SiteHeader />
-          <section className="figmaServiceHero sectionPad">
-            <div className="figmaServiceHeroCopy">
-              <h1 aria-label="AI consulting & transformation">
-                <span>AI consulting</span>
-                <span>&amp; transformation</span>
-              </h1>
-              <p>{detail.hero.summary}</p>
-            </div>
-            <a className="buttonLink" href="/enquiry">
-              Start a conversation
-            </a>
-          </section>
-          <section className="figmaHeroMedia">
-            <img src={figmaAssets.hero} alt="" />
-          </section>
-          <section className="figmaIntro sectionPad">
-            <h2>{detail.intro.title}</h2>
-            <div>
-              <p>{detail.intro.lead}</p>
-              {detail.intro.body.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </section>
-          <section className="figmaPrinciples sectionPad">
-            {detail.intro.principles.map((principle, index) => (
-              <article key={principle.title}>
-                <img src={figmaAssets.principles[index]} alt="" />
-                <h3>{toFigmaTitle(principle.title)}</h3>
-                <p>{principle.body}</p>
-              </article>
-            ))}
-          </section>
-          <section className="figmaCover sectionPad">
-            <CoverScroll
-              heading={
-                <>
-                  <div className="figmaLabel">
-                    <span />
-                    <p>{detail.subServices.title}</p>
-                  </div>
-                  <h2>AI Consulting &amp; Transformation</h2>
-                </>
-              }
-            >
-              {coverCards.map((item, index) => (
-                <article key={item.title}>
-                  {coverMarks.map((mark) => (
-                    <img key={mark} className="figmaSubServiceMark" src={mark} alt="" />
-                  ))}
-                  <span>
-                    <img src={coverIcons[index % coverIcons.length]} alt="" />
-                  </span>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </article>
-              ))}
-            </CoverScroll>
-          </section>
-          <section className="figmaWork">
-            <div className="figmaWorkHeading sectionPad">
-              <span>How we work</span>
-              <h2>{detail.process.title}</h2>
-            </div>
-            <div className="figmaProcess">
-              {detail.process.items.map((step, index) => (
-                <article key={step.title}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{step.title}</h3>
-                  <p>{step.body}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-          <section className="figmaExecution">
-            <img src={figmaAssets.execution} alt="" />
-            <div className="sectionPad">
-              <div className="figmaLabel">
-                <span />
-                <p>From Strategy To Execution</p>
-              </div>
-              <h2>{detail.execution.title}</h2>
-              <p>{detail.execution.body}</p>
-              <div className="figmaExecutionSteps">
-                {detail.execution.steps.map((step) => (
-                  <span key={step}>{step}</span>
-                ))}
-              </div>
-              <strong>{detail.execution.note}</strong>
-            </div>
-          </section>
-          <section className="figmaCapabilities sectionPad">
-            <h2>Technology &amp; Capabilities</h2>
-            <article className="figmaCapabilityLead">
-              <div>
-                <span>01</span>
-                <h3>{detail.capabilities.title}</h3>
-                <p>{detail.capabilities.body}</p>
-              </div>
-              <div className="figmaCapabilityImages">
-                <img src={figmaAssets.capabilitySmall} alt="" />
-                <img src={figmaAssets.capabilityLarge} alt="" />
-              </div>
-            </article>
-            <div className="figmaCapabilityList">
-              {detail.capabilities.items.slice(0, 5).map((item) => (
-                <a key={item} href="/enquiry">
-                  {item}
-                  <span>+</span>
-                </a>
-              ))}
-            </div>
-          </section>
-          <section className="figmaValue sectionPad">
-            <h2>Where This Service Creates Value</h2>
-            <div>
-              {valueCards.map((item, index) => (
-                <article key={item.title}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-          <section className="figmaLab sectionPad">
-            <div>
-              <h2>{detail.lab?.title}</h2>
-              <p>{detail.lab?.body}</p>
-            </div>
-            <div className="figmaLabItems">
-              {detail.lab?.items.map((item) => (
-                <article key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-          <section className="figmaInsights sectionPad">
-            <h2>related insights</h2>
-            <div>
-              {detail.insights.slice(0, 3).map((insight) => (
-                <a key={insight} href="/blog">
-                  <strong>{insight}</strong>
-                  <span>April 7, 2025 - News &amp; Insights</span>
-                  <em>Explore more</em>
-                </a>
-              ))}
-            </div>
-          </section>
-          <section className="figmaOtherServices sectionPad">
-            <h2>other services</h2>
-            <div>
-              {relatedServices.slice(0, 3).map((item, index) => (
-                <a key={item.slug} href={`/services/${item.slug}`}>
-                  <img src={figmaAssets.otherServices[index]} alt="" />
-                  <strong>{item.title}</strong>
-                  <span>+</span>
-                </a>
-              ))}
-            </div>
-          </section>
-          <section className="figmaCta sectionPad">
-            <div>
-              <div className="figmaLabel">
-                <span />
-                <p>{detail.cta.eyebrow}</p>
-              </div>
-              <h2>{detail.cta.title}</h2>
-              <p>{detail.cta.body}</p>
-              <a className="buttonLink" href={detail.cta.href}>
-                {detail.cta.label}
-              </a>
-            </div>
-            <img src={figmaAssets.cta} alt="" />
-          </section>
-          <SiteFooter />
-        </main>
-      );
-    }
-
-    return (
-      <main>
-        <SiteHeader />
-        <PageHero eyebrow={service.title} title={service.title} summary={detail.hero.summary} />
-        <section className="capabilityLine sectionPad">
-          <p>{detail.hero.capabilityLine}</p>
-          <a className="buttonLink" href="/enquiry">
-            start a conversation
-          </a>
-        </section>
-        <section className="detailLayout sectionPad">
-          <MediaBlock image={service.image} video={service.video} />
-          <div className="detailCopy">
-            <span className="sectionNumber">01.</span>
-            <h2>{detail.intro.title}</h2>
-            <p>{detail.intro.lead}</p>
-            {detail.intro.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            <div className="principleGrid">
-              {detail.intro.principles.map((principle) => (
-                <article key={principle.title}>
-                  <strong>{principle.title}</strong>
-                  <p>{principle.body}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-        <section className="numberedSection sectionPad">
-          <span className="sectionNumber">02.</span>
-          <h2>{service.title}</h2>
-          <p className="sectionIntro">{detail.subServices.title}</p>
-          <div className="subServiceGrid">
-            {detail.subServices.items.map((item, index) => (
-              <article key={item.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section className="numberedSection sectionPad" id="how-we-work">
-          <span className="sectionNumber">03.</span>
-          <h2>how we work</h2>
-          <p className="sectionIntro">{detail.process.title}</p>
-          <div className="processGrid serviceProcessGrid">
-            {detail.process.items.map((step, index) => (
-              <article key={step.title}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section className="journeySection sectionPad">
-          <div>
-            <span className="sectionNumber">04.</span>
-            <h2>from strategy to execution</h2>
-            <h3>{detail.execution.title}</h3>
-            <p>{detail.execution.body}</p>
-          </div>
-          <div className="journeyFlow">
-            {detail.execution.steps.map((step, index) => (
-              <article key={step} className="journeyStep">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{step}</strong>
-              </article>
-            ))}
-          </div>
-          <p className="journeyNote">{detail.execution.note}</p>
-        </section>
-        <section className="numberedSection sectionPad">
-          <span className="sectionNumber">05.</span>
-          <h2>technology & capabilities</h2>
-          <div className="capabilityGrid">
-            <article>
-              <h3>{detail.capabilities.title}</h3>
-              <p>{detail.capabilities.body}</p>
-            </article>
-            {detail.capabilities.items.map((item) => (
-              <article key={item}>
-                <h3>{item}</h3>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section className="numberedSection sectionPad">
-          <span className="sectionNumber">06.</span>
-          <h2>where this service creates value</h2>
-          <p className="sectionIntro">{detail.valueAreas.title}</p>
-          <div className="valueGrid">
-            {detail.valueAreas.items.map((item) => (
-              <article key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section className="featured sectionPad">
-          <div className="sectionHead dark">
-            <p>featured engagements</p>
-            <h2>delivered work and transformation concepts</h2>
-            <p>Relevant delivered work is combined with clearly labelled MomentumX Lab and transformation concepts.</p>
-          </div>
-          <AutoRail>
-            {detail.engagements.map((item) => (
-              <article className="caseCard" key={item.title}>
-                <div className="caseBrand">MomentumX</div>
-                <div className="rule" />
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-                <div className="tagList">concept / capability</div>
-              </article>
-            ))}
-          </AutoRail>
-          <p className="contentNote">Conceptual AI extensions are not presented as historical delivered work.</p>
-        </section>
-        {detail.lab ? (
-          <section className="lab sectionPad">
-            <div className="sectionHead">
-              <p>innovation lab</p>
-              <h2>{detail.lab.title}</h2>
-              <p>{detail.lab.body}</p>
-            </div>
-            <div className="labGrid">
-              {detail.lab.items.map((item) => (
-                <article key={item.title}>
-                  <span>LAB</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </article>
-              ))}
-            </div>
-            <a className="textLink largeLink" href="/innovation-lab">
-              explore the lab
-            </a>
-          </section>
-        ) : null}
-        {detail.serviceModels ? (
-          <section className="numberedSection sectionPad">
-            <span className="sectionNumber">08.</span>
-            <h2>{detail.serviceModels.title}</h2>
-            <div className="valueGrid">
-              {detail.serviceModels.items.map((item) => (
-                <article key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-        ) : null}
-        <section className="relatedRail sectionPad">
-          <h2>related insights</h2>
-          <div className="miniCardGrid">
-            {detail.insights.map((insight, index) => (
-              <a className="miniMediaCard insightOnlyCard" key={insight} href="/blog">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{insight}</strong>
-              </a>
-            ))}
-          </div>
-        </section>
-        <section className="relatedRail sectionPad">
-          <h2>other services</h2>
-          <div className="miniCardGrid">
-            {relatedServices.map((item) => (
-              <a className="miniMediaCard" key={item.slug} href={`/services/${item.slug}`}>
-                <img src={item.image} alt="" />
-                <span>service</span>
-                <strong>{item.title}</strong>
-              </a>
-            ))}
-          </div>
-        </section>
-        <section className="ctaBand sectionPad">
-          <p>{detail.cta.eyebrow}</p>
-          <h2>{detail.cta.title}</h2>
-          <p className="ctaCopy">{detail.cta.body}</p>
-          <a className="buttonLink" href={detail.cta.href}>
-            {detail.cta.label}
-          </a>
-        </section>
-        <SiteFooter />
-      </main>
-    );
-  }
+  const heroSummary = detail?.hero.summary ?? service.summary;
+  const process = detail?.process.items ?? serviceDetailBlocks.process;
+  const relatedServices = (detail?.otherServices ?? services.map((item) => item.slug))
+    .filter((relatedSlug) => relatedSlug !== service.slug)
+    .map((relatedSlug) => services.find((item) => item.slug === relatedSlug))
+    .filter((item): item is (typeof services)[number] => Boolean(item));
 
   return (
-    <main>
-      <SiteHeader />
-      <PageHero eyebrow="service" title={service.title} summary={service.summary} />
-      <section className="detailLayout sectionPad">
-        <MediaBlock image={service.image} video={service.video} />
-        <div className="detailCopy">
-          <span className="sectionNumber">01.</span>
-          <h2>{serviceDetailBlocks.introTitle}</h2>
-          <p>{service.body}</p>
-          <p>{serviceDetailBlocks.introBody}</p>
-          <ul>
-            <li>discovery and digital strategy</li>
-            <li>ux, interface design, and prototyping</li>
-            <li>implementation, testing, and launch support</li>
-          </ul>
-          <a className="textLink" href="/enquiry">
-            enquire about this service
-          </a>
+    <main className="servicePage">
+      <SiteHeader variant="solid" />
+
+      <section className="svcHero">
+        <div className="svcHeroCopy">
+          <h1>{service.title}</h1>
+          <p>{heroSummary}</p>
+        </div>
+        <a className="svcPill" href="/enquiry">
+          Start a conversation
+        </a>
+      </section>
+      <div className="svcHeroMedia">
+        <img src={`${DESIGN}/hero.jpg`} alt="" width={2400} height={1056} />
+      </div>
+
+      <section className="svcIntro">
+        <h2>{detail?.intro.title ?? serviceDetailBlocks.introTitle}</h2>
+        <div className="svcIntroCopy">
+          <p>{detail?.intro.lead ?? service.body}</p>
+          {(detail?.intro.body ?? [serviceDetailBlocks.introBody]).map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
       </section>
-      <section className="numberedSection sectionPad" id="how-we-work">
-        <span className="sectionNumber">02.</span>
-        <h2>how we work</h2>
-        <div className="processGrid">
-          {serviceDetailBlocks.process.map((step) => (
+
+      {detail ? (
+        <section className="svcPrinciples">
+          {detail.intro.principles.map((principle, index) => (
+            <article key={principle.title}>
+              <img
+                src={PRINCIPLE_IMAGES[index % PRINCIPLE_IMAGES.length]}
+                alt=""
+                width={900}
+                height={675}
+              />
+              <h3>{principle.title}</h3>
+              <p>{principle.body}</p>
+            </article>
+          ))}
+        </section>
+      ) : null}
+
+      {detail ? (
+        <section className="svcCover">
+          <p className="svcEyebrow">
+            <i aria-hidden="true" />
+            {detail.subServices.title}
+          </p>
+          <h2>{service.title}</h2>
+          <div className="svcCoverGrid">
+            {detail.subServices.items.map((item, index) => (
+              <article key={item.title}>
+                <span className="svcCoverIcon">
+                  <img
+                    src={SERVICE_ICONS[index % SERVICE_ICONS.length]}
+                    alt=""
+                    width={38}
+                    height={38}
+                  />
+                </span>
+                <img
+                  className="svcCoverChevron svcCoverChevronTop"
+                  src={`${DESIGN}/card-chevron-b.svg`}
+                  alt=""
+                  aria-hidden="true"
+                />
+                <img
+                  className="svcCoverChevron svcCoverChevronBottom"
+                  src={`${DESIGN}/card-chevron-a.svg`}
+                  alt=""
+                  aria-hidden="true"
+                />
+                <div className="svcCoverCopy">
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <section className="svcProcess">
+        <img
+          className="svcProcessMedia"
+          src={`${DESIGN}/process-bg.jpg`}
+          alt=""
+          width={1689}
+          height={931}
+        />
+        <h2 className="svcSrOnly">how we work</h2>
+        <p className="svcWatermark" aria-hidden="true">
+          how we work
+        </p>
+        <p className="svcProcessLead">
+          {detail?.process.title ?? serviceDetailBlocks.introTitle}
+        </p>
+        <div className="svcProcessGrid">
+          {process.map((step, index) => (
             <article key={step.title}>
+              <span className="svcProcessNumber">{String(index + 1).padStart(2, "0")}</span>
               <h3>{step.title}</h3>
               <p>{step.body}</p>
             </article>
           ))}
         </div>
       </section>
-      <section className="numberedSection sectionPad">
-        <span className="sectionNumber">03.</span>
-        <h2>Technologies</h2>
-        <div className="techGrid">
-          {serviceDetailBlocks.technologies.map((tech) => (
-            <article key={tech.title}>
-              <img src={tech.image} alt={tech.title} />
-              <h3>{tech.title}</h3>
-            </article>
-          ))}
-        </div>
-      </section>
-      <section className="featured sectionPad">
-        <div className="sectionHead dark">
-          <p>A selection of our</p>
-          <h2>featured engagements</h2>
-        </div>
-        <AutoRail>
-          {cases.slice(0, 5).map((item) => (
-            <article className="caseCard" key={item.slug}>
-              <div className="caseBrand">{item.client}</div>
-              <div className="rule" />
+
+      {detail ? (
+        <section className="svcExecution">
+          <div className="svcExecutionHead">
+            <div>
+              <h2>from strategy to execution</h2>
+              <p className="svcExecutionLead">{detail.execution.title}</p>
+            </div>
+            <div>
+              <p>{detail.execution.body}</p>
+              <p className="svcExecutionNote">{detail.execution.note}</p>
+            </div>
+          </div>
+          <div className="svcExecutionRail">
+            {detail.execution.steps.map((step, index) => (
+              <article key={step}>
+                <span className="svcExecutionIcon">
+                  <img
+                    src={EXECUTION_ICONS[index % EXECUTION_ICONS.length]}
+                    alt=""
+                    width={38}
+                    height={38}
+                  />
+                </span>
+                <h3>{step}</h3>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {detail ? (
+        <section className="svcTech">
+          <h2>technology &amp; capabilities</h2>
+          <div className="svcTechHead">
+            <div className="svcTechCopy">
+              <span className="svcTechNumber">01</span>
+              <h3>{detail.capabilities.title}</h3>
+              <p>{detail.capabilities.body}</p>
+              <p className="svcTechLine">{detail.hero.capabilityLine}</p>
+            </div>
+            <div className="svcTechMedia" aria-hidden="true">
+              <img src={service.image} alt="" width={640} height={295} />
+              <img src={`${DESIGN}/capability-2.jpg`} alt="" width={720} height={405} />
+            </div>
+          </div>
+          <ul className="svcTechList">
+            {detail.capabilities.items.map((item) => (
+              <li key={item}>
+                <span>{item}</span>
+                <img src={`${DESIGN}/arrow-tile.svg`} alt="" width={40} height={40} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      {detail ? (
+        <section className="svcValue">
+          <div className="svcValueHead">
+            <p className="svcEyebrow isMuted">
+              <i aria-hidden="true" />
+              {detail.valueAreas.title}
+            </p>
+            <h2>where this service creates value</h2>
+          </div>
+          <div className="svcValueRail">
+            {detail.valueAreas.items.map((item, index) => (
+              <article key={item.title}>
+                <img
+                  src={VALUE_IMAGES[index % VALUE_IMAGES.length]}
+                  alt=""
+                  width={800}
+                  height={533}
+                />
+                <div className="svcValueCopy">
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {detail ? (
+        <section className="svcEngagements">
+          <EngagementCarousel items={detail.engagements} />
+        </section>
+      ) : null}
+
+      {detail?.lab ? (
+        <section className="svcLab">
+          <p className="svcEyebrow isMuted">
+            <i aria-hidden="true" />
+            AI Innovation Lab
+          </p>
+          <div className="svcLabHead">
+            <div>
+              <h2>{detail.lab.title}</h2>
+              <p>{detail.lab.body}</p>
+            </div>
+            <a className="svcPill" href="/innovation-lab">
+              Explore the lab
+            </a>
+          </div>
+          <div className="svcLabGrid">
+            {detail.lab.items.map((item, index) => (
+              <article key={item.title}>
+                <img
+                  src={LAB_IMAGES[index % LAB_IMAGES.length]}
+                  alt=""
+                  width={960}
+                  height={1440}
+                />
+                <div className="svcLabCopy">
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {detail?.serviceModels ? (
+        <section className="svcModels">
+          <h2>{detail.serviceModels.title}</h2>
+          <div className="svcModelsGrid">
+            {detail.serviceModels.items.map((item, index) => (
+              <article key={item.title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {detail ? (
+        <section className="svcInsights">
+          <h2>related insights</h2>
+          <ul>
+            {detail.insights.map((insight) => (
+              <li key={insight}>
+                <h3>{insight}</h3>
+                <a href="/blog">
+                  Explore more<span aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      <section className="svcOther">
+        <h2>other services</h2>
+        <div className="listingGrid">
+          {relatedServices.map((item, index) => (
+            <a className="listingCard" href={`/services/${item.slug}`} key={item.slug}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <MediaBlock image={item.image} video={item.video} />
               <h3>{item.title}</h3>
               <p>{item.summary}</p>
-              <a className="textLink light" href={`/cases/${item.slug}`}>
-                Case study
-              </a>
-            </article>
-          ))}
-        </AutoRail>
-      </section>
-      <section className="testimonialBlock sectionPad">
-        <h2>Client testimonials</h2>
-        {serviceDetailBlocks.testimonials.map((quote) => (
-          <blockquote key={quote}>{quote}</blockquote>
-        ))}
-      </section>
-      <section className="relatedRail sectionPad">
-        <h2>related insights</h2>
-        <div className="miniCardGrid">
-          {posts.slice(0, 4).map((post) => (
-            <a className="miniMediaCard" key={post.slug} href={`/blog/${post.slug}`}>
-              <img src={post.image} alt="" />
-              <span>{post.date}</span>
-              <strong>{post.title}</strong>
             </a>
           ))}
         </div>
       </section>
-      <section className="relatedRail sectionPad">
-        <h2>other services</h2>
-        <div className="miniCardGrid">
-          {services
-            .filter((item) => item.slug !== service.slug)
-            .slice(0, 4)
-            .map((item) => (
-              <a className="miniMediaCard" key={item.slug} href={`/services/${item.slug}`}>
-                <img src={item.image} alt="" />
-                <span>service</span>
-                <strong>{item.title}</strong>
-              </a>
-            ))}
+
+      <section className="svcCta">
+        <div className="svcCtaCopy">
+          <h2>{detail?.cta.title ?? "Let's build what's next."}</h2>
+          <p className="svcCtaBody">
+            {detail?.cta.body ??
+              "Talk to us about your next transformation initiative and we will shape the practical next steps."}
+          </p>
+          <a className="svcPill isLight" href={detail?.cta.href ?? "/enquiry"}>
+            {detail?.cta.label ?? "start a conversation"}
+          </a>
         </div>
       </section>
-      <CtaBand />
+
       <SiteFooter />
     </main>
   );

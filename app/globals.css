@@ -1351,7 +1351,6 @@ mark::before,
 }
 
 .capabilityGrid article {
-  min-width: 0;
   min-height: 12rem;
   display: flex;
   align-items: flex-end;
@@ -1625,14 +1624,6 @@ mark::before,
   padding: 2rem;
 }
 
-.relatedRail .insightOnlyCard span {
-  transition: padding-top 0.3s ease;
-}
-
-.relatedRail .insightOnlyCard:hover span {
-  padding-top: 2rem;
-}
-
 .techGrid img {
   width: 100%;
   aspect-ratio: 1.2;
@@ -1692,698 +1683,6 @@ mark::before,
   color: var(--muted);
   font-size: var(--p2);
   line-height: 1.45;
-}
-
-.figmaServiceDetail {
-  background: #fff;
-}
-
-.figmaServiceDetail .sectionPad {
-  padding-right: var(--page-x);
-  padding-left: var(--page-x);
-}
-
-.figmaServiceHero {
-  min-height: 51.4rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) max-content;
-  align-items: end;
-  gap: 4rem;
-  padding-top: 15.5rem;
-  padding-bottom: 5.8rem;
-}
-
-.figmaServiceHeroCopy {
-  max-width: 73.6rem;
-}
-
-.figmaServiceHero h1 {
-  margin: 0;
-  font-size: clamp(5.2rem, 5vw, 8rem);
-  font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: 0;
-}
-
-.figmaServiceHero h1 span {
-  display: block;
-}
-
-.figmaServiceHero p,
-.figmaIntro p,
-.figmaPrinciples p,
-.figmaSubServices p,
-.figmaProcess p,
-.figmaExecution p,
-.figmaCapabilities p,
-.figmaValue p,
-.figmaLab p {
-  margin: 0;
-  color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.55;
-}
-
-.figmaServiceHero p {
-  max-width: 72rem;
-  margin-top: 3.8rem;
-}
-
-.figmaHeroMedia {
-  height: 90rem;
-  overflow: hidden;
-  background: #ddd;
-}
-
-.figmaHeroMedia img,
-.figmaPrinciples img,
-.figmaExecution > img,
-.figmaOtherServices img,
-.figmaCta > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.figmaIntro {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.18fr);
-  gap: 14rem;
-  align-items: start;
-  padding-top: 10rem;
-  padding-bottom: 6rem;
-}
-
-.figmaIntro h2,
-.figmaCover h2,
-.figmaWork h2,
-.figmaExecution h2,
-.figmaCapabilities h2,
-.figmaValue h2,
-.figmaLab h2,
-.figmaInsights h2,
-.figmaOtherServices h2,
-.figmaCta h2 {
-  margin: 0;
-  color: var(--ink);
-  font-size: clamp(3.2rem, 2.5vw, 4rem);
-  font-weight: 300;
-  line-height: 1.25;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.figmaIntro div {
-  display: grid;
-  gap: 2.8rem;
-}
-
-.figmaPrinciples {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.8rem;
-  padding-top: 7rem;
-  padding-bottom: 12rem;
-}
-
-.figmaPrinciples article {
-  min-height: 52.6rem;
-  padding: 1.8rem;
-  background: #f5f5f5;
-}
-
-.figmaPrinciples img {
-  aspect-ratio: 1.218;
-  height: auto;
-  margin-bottom: 2.4rem;
-}
-
-.figmaPrinciples h3,
-.figmaSubServices h3,
-.figmaProcess h3,
-.figmaCapabilities h3,
-.figmaValue h3,
-.figmaLab h3 {
-  margin: 0 0 2rem;
-  color: #000;
-  font-size: 2.2rem;
-  font-weight: 300;
-  line-height: 1.25;
-  letter-spacing: 0;
-}
-
-.figmaCover {
-  background: #f4f4f4;
-  padding-top: 12rem;
-  padding-bottom: 12rem;
-}
-
-.figmaCoverScroll {
-  position: relative;
-  margin-top: 6.4rem;
-}
-
-.figmaCoverSticky {
-  position: sticky;
-  top: 0;
-  overflow: visible;
-  background: #f4f4f4;
-}
-
-.figmaSubServicesViewport {
-  container-type: inline-size;
-  overflow: visible;
-}
-
-.figmaSubServices {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc((100cqi - 15px) / 4);
-  align-items: end;
-  column-gap: 5px;
-  width: max-content;
-  padding-top: calc(43rem + 5px);
-  will-change: transform;
-}
-
-.figmaSubServices article {
-  position: relative;
-  min-height: 43rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 2.8rem;
-  background: #fff;
-  overflow: hidden;
-  transition: background 0.3s ease;
-}
-
-.figmaSubServices article h3,
-.figmaSubServices article p {
-  transition: color 0.3s ease;
-}
-
-.figmaSubServices article:hover {
-  background: #000;
-}
-
-.figmaSubServices article:hover h3,
-.figmaSubServices article:hover p {
-  color: #fff;
-}
-
-.figmaLabel {
-  width: max-content;
-  max-width: 100%;
-  display: inline-flex;
-  align-items: center;
-  gap: 1.7rem;
-  margin-bottom: 4.6rem;
-  padding: 1.3rem 2rem;
-  background: #fff;
-}
-
-.figmaLabel span {
-  width: 1.7rem;
-  height: 1.7rem;
-  flex: 0 0 auto;
-  background: var(--primary);
-}
-
-.figmaLabel p {
-  margin: 0;
-  color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.9;
-}
-
-.figmaCover > h2,
-.figmaCoverSticky > h2 {
-  margin-bottom: 0;
-  color: #000;
-  font-size: clamp(3.6rem, 3vw, 5.2rem);
-  font-weight: 400;
-}
-
-.figmaSubServices article:nth-child(2n) {
-  transform: translateY(calc(-100% - 5px));
-}
-
-.figmaSubServiceMark {
-  position: absolute;
-  right: 0;
-  pointer-events: none;
-  z-index: 0;
-  width: 17.4rem;
-  height: auto;
-}
-
-.figmaSubServiceMark:first-of-type {
-  bottom: 5.6rem;
-}
-
-.figmaSubServiceMark:nth-of-type(2) {
-  bottom: 0;
-}
-
-.figmaSubServices article > span {
-  position: relative;
-  z-index: 1;
-  width: 4.8rem;
-  height: 4.8rem;
-  display: grid;
-  place-items: center;
-  margin-bottom: auto;
-  background: var(--primary);
-}
-
-.figmaSubServices article > span img {
-  width: 2.8rem;
-  height: 2.8rem;
-  object-fit: contain;
-}
-
-.figmaSubServices article h3 {
-  position: relative;
-  z-index: 1;
-  margin: 0 0 1.2rem;
-  font-weight: 500;
-}
-
-.figmaSubServices article p {
-  position: relative;
-  z-index: 1;
-  max-width: 32rem;
-}
-
-.figmaWork {
-  background: #fff;
-}
-
-.figmaWorkHeading {
-  padding-top: 12rem;
-  padding-bottom: 5.8rem;
-}
-
-.figmaWorkHeading > span {
-  display: block;
-  margin-bottom: 9rem;
-  color: rgba(0, 0, 0, 0.2);
-  font-size: clamp(5rem, 8vw, 14rem);
-  line-height: 0.8;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-.figmaProcess {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  background: var(--primary);
-}
-
-.figmaProcess article {
-  min-height: 92rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 4rem;
-  border-right: 1px solid rgba(0, 0, 0, 0.18);
-}
-
-.figmaProcess article:last-child {
-  border-right: 0;
-}
-
-.figmaProcess article > span {
-  margin-bottom: auto;
-  color: rgba(0, 0, 0, 0.4);
-  font-size: var(--p2);
-}
-
-.figmaProcess p {
-  color: rgba(0, 0, 0, 0.64);
-}
-
-.figmaExecution {
-  position: relative;
-  min-height: 74rem;
-  display: grid;
-  align-items: end;
-  overflow: hidden;
-  color: #fff;
-}
-
-.figmaExecution > img {
-  position: absolute;
-  inset: 0;
-  filter: brightness(0.58);
-}
-
-.figmaExecution > div {
-  position: relative;
-  z-index: 1;
-  max-width: none;
-  padding-top: 17rem;
-  padding-bottom: 8rem;
-}
-
-.figmaExecution h2,
-.figmaExecution p,
-.figmaExecution strong {
-  max-width: 78rem;
-  color: #fff;
-}
-
-.figmaExecution h2 {
-  margin-bottom: 2.4rem;
-}
-
-.figmaExecutionSteps {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 1px;
-  margin-top: 8rem;
-  background: rgba(255, 255, 255, 0.34);
-}
-
-.figmaExecutionSteps span {
-  min-height: 9.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.6rem;
-  background: rgba(12, 12, 12, 0.72);
-  color: #fff;
-  font-size: 1.4rem;
-  line-height: 1.2;
-  text-align: center;
-}
-
-.figmaExecution strong {
-  display: block;
-  margin-top: 3rem;
-  font-size: var(--p2);
-  font-weight: 300;
-}
-
-.figmaCapabilities,
-.figmaValue {
-  background: var(--primary);
-}
-
-.figmaCapabilities {
-  padding-top: 13rem;
-  padding-bottom: 10rem;
-}
-
-.figmaCapabilityLead {
-  display: grid;
-  grid-template-columns: minmax(0, 0.62fr) minmax(34rem, 0.38fr);
-  gap: 6rem;
-  align-items: center;
-  margin-top: 7rem;
-  padding: 0 0 5.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.figmaCapabilityLead span {
-  display: block;
-  margin-bottom: 2.6rem;
-  color: rgba(0, 0, 0, 0.33);
-  font-size: 2rem;
-}
-
-.figmaCapabilityLead p {
-  max-width: 54.2rem;
-  color: #000;
-}
-
-.figmaCapabilityImages {
-  position: relative;
-  min-height: 31rem;
-}
-
-.figmaCapabilityImages img {
-  position: absolute;
-  object-fit: cover;
-}
-
-.figmaCapabilityImages img:first-child {
-  left: 0;
-  bottom: 0;
-  width: 22rem;
-  height: 22.2rem;
-  z-index: 2;
-}
-
-.figmaCapabilityImages img:last-child {
-  right: 0;
-  top: 0;
-  width: 30.6rem;
-  height: 30.9rem;
-}
-
-.figmaCapabilityList {
-  display: grid;
-}
-
-.figmaCapabilityList a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 10.7rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  color: #000;
-  font-size: 3rem;
-  line-height: 1.25;
-  letter-spacing: 0;
-}
-
-.figmaCapabilityList span,
-.figmaOtherServices span {
-  width: 4rem;
-  height: 4rem;
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  font-size: 2.4rem;
-  line-height: 1;
-}
-
-.figmaValue {
-  padding-top: 12rem;
-  padding-bottom: 12rem;
-}
-
-.figmaValue h2 {
-  text-align: center;
-  margin-bottom: 7rem;
-}
-
-.figmaValue > div {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.6rem;
-}
-
-.figmaValue article {
-  min-height: 33rem;
-  display: flex;
-  flex-direction: column;
-  padding: 2.8rem;
-  background: #fff;
-}
-
-.figmaValue article > span {
-  color: rgba(0, 0, 0, 0.38);
-  font-size: var(--small);
-}
-
-.figmaValue h3 {
-  margin-top: auto;
-}
-
-.figmaLab {
-  display: grid;
-  grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
-  gap: 8rem;
-  align-items: start;
-  background: var(--primary);
-  padding-top: 12rem;
-  padding-bottom: 12rem;
-}
-
-.figmaLab h2 {
-  margin-bottom: 2rem;
-}
-
-.figmaLabItems {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.4rem;
-}
-
-.figmaLabItems article {
-  min-height: 13.6rem;
-  padding: 2.6rem;
-  border-top: 1px solid var(--primary);
-  background: #f3f3f3;
-}
-
-.figmaInsights {
-  background: #f4f4f4;
-  padding-top: 12rem;
-  padding-bottom: 12rem;
-}
-
-.figmaInsights h2,
-.figmaOtherServices h2 {
-  margin-bottom: 6rem;
-  text-transform: capitalize;
-}
-
-.figmaInsights > div {
-  display: grid;
-}
-
-.figmaInsights a {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(26rem, 0.34fr) max-content;
-  gap: 4rem;
-  align-items: start;
-  min-height: 15.1rem;
-  padding: 0 0 3.6rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
-}
-
-.figmaInsights a + a {
-  padding-top: 3.6rem;
-}
-
-.figmaInsights strong {
-  max-width: 45rem;
-  font-size: 2.2rem;
-  font-weight: 300;
-  line-height: 1.25;
-  text-transform: capitalize;
-}
-
-.figmaInsights span {
-  color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.45;
-}
-
-.figmaInsights em {
-  color: #000;
-  font-size: var(--p2);
-  font-style: normal;
-  line-height: 1.45;
-}
-
-.figmaInsights em::after {
-  content: " ->";
-}
-
-.figmaOtherServices {
-  padding-top: 12rem;
-  padding-bottom: 12rem;
-}
-
-.figmaOtherServices > div {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-}
-
-.figmaOtherServices a {
-  position: relative;
-  min-height: 61.7rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 4rem 3rem;
-  overflow: hidden;
-  color: #fff;
-  background: #000;
-}
-
-.figmaOtherServices img {
-  position: absolute;
-  inset: 0;
-  opacity: 0.78;
-  transition: transform 0.45s ease;
-}
-
-.figmaOtherServices a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 42%),
-    linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.82));
-}
-
-.figmaOtherServices strong,
-.figmaOtherServices span {
-  position: relative;
-  z-index: 1;
-}
-
-.figmaOtherServices strong {
-  max-width: 34rem;
-  font-size: 2.2rem;
-  font-weight: 300;
-  line-height: 1.25;
-  text-transform: capitalize;
-}
-
-.figmaOtherServices a:hover img {
-  transform: scale(1.04);
-}
-
-.figmaCta {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(32rem, 0.36fr);
-  gap: 8rem;
-  align-items: center;
-  min-height: 61.1rem;
-  padding-top: 8rem;
-  padding-bottom: 0;
-  background: #0c0c0c;
-  color: #fff;
-  overflow: hidden;
-}
-
-.figmaCta .figmaLabel {
-  margin-bottom: 5.4rem;
-}
-
-.figmaCta h2,
-.figmaCta p {
-  color: #fff;
-}
-
-.figmaCta > div > p {
-  max-width: 52.4rem;
-  margin: 2.2rem 0 3rem;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: var(--p2);
-  line-height: 1.55;
-}
-
-.figmaCta .buttonLink {
-  color: #fff;
-}
-
-.figmaCta > img {
-  align-self: end;
-  max-width: 51.5rem;
-  height: 65rem;
-  object-position: top center;
 }
 
 .aboutHeroMedia {
@@ -3649,25 +2948,6 @@ main > section.caseGallery {
   }
 }
 
-@media (max-width: 1500px) {
-  .capabilityGrid article:first-child {
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 1.2rem;
-  }
-
-  .capabilityGrid article:first-child h3,
-  .capabilityGrid article:first-child p {
-    max-width: 100%;
-    overflow-wrap: break-word;
-  }
-
-  .capabilityGrid article:first-child h3 {
-    margin-bottom: 0;
-  }
-}
-
 @media (max-width: 1180px) {
   :root {
     --page-x: 5rem;
@@ -3692,8 +2972,6 @@ main > section.caseGallery {
 
   .capabilityGrid article:first-child {
     grid-column: span 3;
-    min-height: 0;
-    padding: 2.8rem;
   }
 
   .subServiceGrid article,
@@ -3917,12 +3195,6 @@ main > section.caseGallery {
   .caseJourneyGrid,
   .capabilityGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .capabilityGrid article:first-child {
-    grid-column: 1 / -1;
-    min-height: 0;
-    padding: 2.4rem;
   }
 
   .capabilityGrid article:first-child,
@@ -4472,221 +3744,2198 @@ main > section.caseGallery {
   }
 }
 
+/* ============================================================
+   SERVICE DETAIL TEMPLATE
+   Implemented from Figma "Service Detail Page" (node 1:4).
+   Reference canvas 1600px wide, 65px gutter (= --page-x at
+   >=1180px), Arial. Fixed sizes are rem at the 10px root, so
+   1600px viewport reproduces the artboard 1:1; proportional
+   columns are expressed as fr/% so they scale below that.
+   ============================================================ */
+
+.servicePage {
+  background: #fff;
+}
+
+.servicePage h1,
+.servicePage h2,
+.servicePage h3 {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.servicePage :where(p) {
+  margin: 0;
+}
+
+.svcSrOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --- solid header variant (design shows the bar in flow) --- */
+
+/* sticky (not fixed) so the bar keeps its 83px slot in the flow
+   and the page never jumps when it detaches on scroll */
+.siteHeader.isSolid {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  mix-blend-mode: normal;
+  min-height: 8.3rem;
+  padding: 0 var(--page-x);
+  background: #f4f4f4;
+  color: var(--ink);
+}
+
+.siteHeader.isSolid .menuButton {
+  color: var(--ink);
+}
+
+/* --- shared pill button (44.97px tall, 2px border, 18.4px) --- */
+
+.svcPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  flex: none;
+  height: 4.5rem;
+  padding: 0 2.2rem 0 1.8rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 1.84rem;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background 0.3s var(--ease-out),
+    color 0.3s var(--ease-out);
+}
+
+.svcPill::after {
+  content: "→";
+  font-size: 1.84rem;
+  line-height: 1;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.svcPill:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+.svcPill:hover::after {
+  transform: translateX(0.4rem);
+}
+
+.svcPill.isLight {
+  border-color: #fff;
+  color: #fff;
+}
+
+.svcPill.isLight:hover {
+  background: #fff;
+  color: var(--ink);
+}
+
+/* --- eyebrow chip: 17px yellow square + 18px/34px label --- */
+
+.svcEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.7rem;
+  padding: 1.3rem 2rem;
+  background: #fff;
+  color: var(--muted);
+  font-size: var(--svc-body, 1.8rem);
+  line-height: 3.4rem;
+}
+
+.svcEyebrow.isMuted {
+  background: #f6f6f6;
+}
+
+.svcEyebrow i {
+  width: 1.7rem;
+  height: 1.7rem;
+  background: var(--primary);
+}
+
+/* --- 01 hero --------------------------------------------- */
+
+.svcHero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 4rem;
+  padding: 14.5rem var(--page-x) 1.4rem;
+}
+
+.svcHeroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 73.6rem;
+}
+
+.svcHeroCopy h1 {
+  font-size: clamp(3.6rem, 5vw, 8rem);
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.svcHeroCopy p {
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+.svcHero .svcPill {
+  margin-bottom: 2.35rem;
+}
+
+.svcHeroMedia {
+  width: 100%;
+  aspect-ratio: 1600 / 900;
+}
+
+.svcHeroMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- 02 intro + principle cards --------------------------- */
+
+.svcIntro {
+  display: grid;
+  grid-template-columns: 747fr 723fr;
+  padding: 7.4rem var(--page-x) 0;
+}
+
+.svcIntro h2 {
+  max-width: 52rem;
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.svcIntroCopy {
+  max-width: 72.3rem;
+}
+
+.svcIntroCopy p {
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+.svcIntroCopy p + p {
+  margin-top: 2.8rem;
+}
+
+.svcPrinciples {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+  padding: 3.1rem var(--page-x) 0;
+}
+
+.svcPrinciples article {
+  display: flex;
+  flex-direction: column;
+  min-height: 52.6rem;
+  padding: 1.9rem 1.8rem 2.95rem;
+  background: #f5f5f5;
+}
+
+.svcPrinciples img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 442 / 363;
+  object-fit: cover;
+}
+
+.svcPrinciples h3 {
+  margin-top: 2.5rem;
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+  color: #000;
+}
+
+.svcPrinciples p {
+  max-width: 37.1rem;
+  margin-top: 0.85rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+/* --- 03 what we cover (staggered full-bleed grid) --------- */
+
+.svcCover {
+  margin-top: 12rem;
+  padding: 12rem 0;
+  background: #f4f4f4;
+}
+
+.svcCover > .svcEyebrow,
+.svcCover > h2 {
+  margin-left: var(--page-x);
+}
+
+.svcCover > h2 {
+  display: block;
+  margin-top: 1.25rem;
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+/* Column tracks reproduce the artboard's hand-placed x
+   positions (0 / 370 / 856 / 1230 within 1600). */
+.svcCoverGrid {
+  display: grid;
+  grid-template-columns: 370fr 486fr 374fr 370fr;
+  align-items: start;
+  margin-top: 4.95rem;
+}
+
+.svcCoverGrid article {
+  position: relative;
+  display: flex;
+  min-height: 43rem;
+  padding: 26.8rem 0.8rem 2.5rem 2.8rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+.svcCoverGrid article:nth-child(4n + 1) {
+  grid-column: 1;
+}
+
+.svcCoverGrid article:nth-child(4n + 2) {
+  grid-column: 2;
+  width: 76.13%;
+}
+
+.svcCoverGrid article:nth-child(4n + 3) {
+  grid-column: 3;
+  width: 98.93%;
+}
+
+.svcCoverGrid article:nth-child(4n + 4) {
+  grid-column: 4;
+}
+
+/* the second card of each group of four sits one row higher */
+.svcCoverGrid article:nth-child(1) { grid-row: 2; }
+.svcCoverGrid article:nth-child(2) { grid-row: 1; }
+.svcCoverGrid article:nth-child(3),
+.svcCoverGrid article:nth-child(4) { grid-row: 2; }
+.svcCoverGrid article:nth-child(5) { grid-row: 4; }
+.svcCoverGrid article:nth-child(6) { grid-row: 3; }
+.svcCoverGrid article:nth-child(7),
+.svcCoverGrid article:nth-child(8) { grid-row: 4; }
+.svcCoverGrid article:nth-child(9) { grid-row: 6; }
+.svcCoverGrid article:nth-child(10) { grid-row: 5; }
+.svcCoverGrid article:nth-child(11),
+.svcCoverGrid article:nth-child(12) { grid-row: 6; }
+
+.svcCoverIcon {
+  position: absolute;
+  left: 2.8rem;
+  top: 2.6rem;
+  display: grid;
+  place-items: center;
+  width: 7rem;
+  height: 7rem;
+  background: var(--primary);
+}
+
+.svcCoverIcon img {
+  width: 3.8rem;
+  height: 3.8rem;
+}
+
+.svcCoverChevron {
+  position: absolute;
+  left: 19.6rem;
+  width: 21.8rem;
+  opacity: 0.66;
+}
+
+.svcCoverChevronTop {
+  top: 16rem;
+  height: 22.1rem;
+}
+
+.svcCoverChevronBottom {
+  top: 28.8rem;
+  height: 14.2rem;
+}
+
+.svcCoverCopy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.svcCoverCopy h3 {
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+  color: #000;
+}
+
+.svcCoverCopy p {
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+/* --- 04 how we work --------------------------------------- */
+
+.svcProcess {
+  position: relative;
+  margin-top: 12rem;
+  min-height: 95rem;
+  overflow: hidden;
+}
+
+.svcProcessMedia {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 18.2rem;
+  width: 100%;
+  height: 76.8rem;
+  object-fit: cover;
+}
+
+.svcWatermark {
+  position: relative;
+  padding-left: 7rem;
+  font-size: clamp(4.4rem, 11.8125vw, 18.9rem);
+  line-height: 0.74;
+  color: #000;
+  opacity: 0.04;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.svcProcessLead {
+  position: relative;
+  padding-left: 7rem;
+  margin-top: 1.2rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+.svcProcessGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 38.3rem 38.3rem;
+  justify-content: space-between;
+  row-gap: 15.9rem;
+  margin-top: 4.4rem;
+  padding: 0 11.6rem 0 9.4rem;
+}
+
+.svcProcessGrid article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 3.7rem 3rem 3.7rem 3.1rem;
+  background: #f8f8f8;
+  border: 1px solid #e5e5e5;
+}
+
+.svcProcessGrid article:nth-child(even) {
+  margin-top: 7.8rem;
+}
+
+.svcProcessGrid article::after {
+  content: "";
+  position: absolute;
+  bottom: 3.1rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  background: var(--primary);
+}
+
+.svcProcessGrid article:nth-child(odd)::after {
+  right: -1.5rem;
+}
+
+.svcProcessGrid article:nth-child(even)::after {
+  left: -1.3rem;
+}
+
+.svcProcessNumber {
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+  color: #000;
+  opacity: 0.22;
+}
+
+.svcProcessGrid h3 {
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+  color: #000;
+}
+
+.svcProcessGrid p {
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+/* --- 05 from strategy to execution ------------------------ */
+
+.svcExecution {
+  position: relative;
+  min-height: 94rem;
+  padding: 10.95rem var(--page-x) 13.2rem;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(112% 82% at 82% 6%, rgba(243, 237, 72, 0.17) 0%, rgba(243, 237, 72, 0) 54%),
+    radial-gradient(96% 76% at 4% 100%, rgba(243, 237, 72, 0.07) 0%, rgba(243, 237, 72, 0) 58%),
+    linear-gradient(158deg, #0c0c09 0%, #16150f 46%, #050504 100%);
+}
+
+.svcExecutionHead {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 934fr 536fr;
+}
+
+.svcExecutionHead h2 {
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+}
+
+.svcExecutionLead {
+  margin-top: 2.95rem;
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+}
+
+.svcExecutionHead > div:last-child {
+  margin-top: 4.7rem;
+}
+
+.svcExecutionHead > div:last-child p {
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+.svcExecutionNote {
+  margin-top: 2.8rem;
+  opacity: 0.7;
+}
+
+.svcExecutionRail {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 2.8rem) / 3);
+  gap: 1.4rem;
+  margin-top: 22.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.svcExecutionRail::-webkit-scrollbar {
+  display: none;
+}
+
+.svcExecutionRail article {
+  display: flex;
+  backdrop-filter: blur(2px);
+  flex-direction: column;
+  gap: 2.5rem;
+  min-height: 26.4rem;
+  padding: 4.1rem 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.2px solid rgba(255, 255, 255, 0.2);
+  scroll-snap-align: start;
+}
+
+.svcExecutionIcon {
+  display: grid;
+  place-items: center;
+  width: 7.56rem;
+  height: 7.56rem;
+  background: #fff;
+  border-radius: 999px;
+}
+
+.svcExecutionIcon img {
+  width: 3.8rem;
+  height: 3.8rem;
+}
+
+.svcExecutionRail h3 {
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+}
+
+/* --- 06 technology & capabilities ------------------------- */
+
+.svcTech {
+  padding: 10.95rem var(--page-x) 8.6rem;
+  background: var(--primary);
+  color: #000;
+}
+
+.svcTech > h2 {
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.svcTechHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4rem;
+  align-items: start;
+}
+
+.svcTechCopy {
+  padding-top: 5.85rem;
+}
+
+.svcTechNumber {
+  display: block;
+  font-size: 2rem;
+  line-height: 1.15;
+  opacity: 0.33;
+}
+
+.svcTechCopy h3 {
+  margin-top: 2.05rem;
+  font-size: clamp(2.2rem, 1.875vw, 3rem);
+  line-height: 1.15;
+}
+
+.svcTechCopy p {
+  max-width: 54.2rem;
+  margin-top: 2.85rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+.svcTechLine {
+  margin-top: 2.4rem;
+  opacity: 0.62;
+}
+
+.svcTechMedia {
+  display: flex;
+  align-items: flex-start;
+  gap: 3.2rem;
+  padding-top: 1.5rem;
+}
+
+.svcTechMedia img {
+  object-fit: cover;
+}
+
+.svcTechMedia img:first-child {
+  width: 22rem;
+  height: 22.2rem;
+  margin-top: 8.7rem;
+}
+
+.svcTechMedia img:last-child {
+  width: 30.6rem;
+  height: 30.9rem;
+}
+
+.svcTechList {
+  margin: 9.65rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.svcTechList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 3.4rem 0 2.95rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.svcTechList span {
+  font-size: clamp(2.2rem, 1.875vw, 3rem);
+  line-height: 1.15;
+}
+
+.svcTechList img {
+  flex: none;
+  width: 4rem;
+  height: 4rem;
+}
+
+/* --- 07 where this service creates value ------------------ */
+
+.svcValue {
+  padding: 12rem 0 0;
+}
+
+.svcValueHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  padding: 0 var(--page-x);
+}
+
+.svcValueHead h2 {
+  grid-column: 2;
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+  color: var(--ink);
+  text-align: center;
+}
+
+.svcValueRail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 23.125%;
+  gap: 3rem;
+  margin-top: 5.5rem;
+  padding-bottom: 13.6rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.svcValueRail::-webkit-scrollbar {
+  display: none;
+}
+
+.svcValueRail article {
+  position: relative;
+  display: flex;
+  height: 55rem;
+  padding: 4.5rem 3rem;
+  overflow: hidden;
+  color: #fff;
+  scroll-snap-align: start;
+}
+
+.svcValueRail img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svcValueRail article::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0) 55%);
+}
+
+.svcValueRail article:nth-child(4n + 2)::after {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0) 55%);
+}
+
+.svcValueCopy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-self: flex-end;
+  max-width: 33.4rem;
+}
+
+.svcValueRail article:nth-child(4n + 2) .svcValueCopy {
+  align-self: flex-start;
+}
+
+.svcValueCopy h3 {
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+}
+
+.svcValueCopy p {
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+/* --- 08 delivered work & transformation concepts ---------- */
+
+.svcEngagements {
+  position: relative;
+  min-height: 94rem;
+  padding: 10.65rem var(--page-x) 12rem;
+  overflow: hidden;
+  color: #fff;
+}
+
+.svcEngagementsMedia {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.7s var(--ease-out);
+}
+
+.svcEngagementsMedia.isActive {
+  opacity: 1;
+}
+
+.svcEngagements::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(90deg, rgba(4, 8, 6, 0.82) 0%, rgba(4, 8, 6, 0.45) 52%, rgba(4, 8, 6, 0.2) 100%);
+}
+
+.svcEngagementsHead {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 934fr 536fr;
+}
+
+.svcEngagementsHead h2 {
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+}
+
+.svcEngagementsLead {
+  margin-top: 2.95rem;
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+}
+
+.svcEngagementsHead > p {
+  margin-top: 5rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+.engagementCard {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 39.7rem;
+  max-width: 100%;
+  min-height: 42.3rem;
+  margin-top: 17.35rem;
+  padding: 5.5rem 3rem 2.9rem 3.4rem;
+  background: #fff;
+  border-top: 3px solid var(--primary);
+  color: var(--ink);
+}
+
+.engagementCard h3 {
+  font-size: clamp(2.2rem, 1.625vw, 2.6rem);
+  line-height: 1.15;
+}
+
+.engagementCard > p {
+  margin-top: 1.8rem;
+  max-width: 33.7rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+.engagementTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 3rem;
+}
+
+.engagementCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 2.6rem;
+  font-size: 1.84rem;
+  line-height: 1;
+  color: var(--ink);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.4rem;
+}
+
+.engagementCta span {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.engagementCta:hover span {
+  transform: translateX(0.4rem);
+}
+
+.engagementTags span {
+  padding: 1.3rem 2rem;
+  background: var(--primary);
+  font-size: 1.8rem;
+  line-height: 1;
+  color: #000;
+}
+
+.engagementNav {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 3rem;
+}
+
+.engagementNav button {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  border: 0;
+  background: #f2f2f2;
+  cursor: pointer;
+  transition: background 0.25s var(--ease-out);
+}
+
+.engagementNav button:hover {
+  background: var(--primary);
+}
+
+.engagementNav img {
+  width: 4rem;
+  height: 4rem;
+}
+
+/* --- 09 innovation lab ------------------------------------ */
+
+.svcLab {
+  padding: 12rem var(--page-x);
+  background: var(--primary);
+}
+
+.svcLabHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 4rem;
+  margin-top: 6.25rem;
+}
+
+.svcLabHead h2 {
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.svcLabHead p {
+  max-width: 73.6rem;
+  margin-top: 2.2rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+.svcLabGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+  margin-top: 3.25rem;
+}
+
+.svcLabGrid article {
+  display: flex;
+  flex-direction: column;
+}
+
+.svcLabGrid img {
+  width: 100%;
+  height: 36.2rem;
+  object-fit: cover;
+}
+
+.svcLabCopy {
+  flex: 1;
+  min-height: 13.6rem;
+  padding: 2.6rem 2.9rem;
+  background: #f3f3f3;
+  border-top: 1px solid var(--primary);
+}
+
+.svcLabCopy h3 {
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+  color: #000;
+}
+
+.svcLabCopy p {
+  max-width: 33.7rem;
+  margin-top: 1.05rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+/* --- service models (managed services only) --------------- */
+
+.svcModels {
+  padding: 12rem var(--page-x) 0;
+}
+
+.svcModels h2 {
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.svcModelsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.8rem;
+  margin-top: 4.95rem;
+}
+
+.svcModelsGrid article {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 3.7rem 3rem;
+  background: #f5f5f5;
+}
+
+.svcModelsGrid span {
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+  opacity: 0.22;
+}
+
+.svcModelsGrid h3 {
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+}
+
+.svcModelsGrid p {
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+/* --- 10 related insights ---------------------------------- */
+
+.svcInsights {
+  margin-top: 12rem;
+  padding: 10.95rem var(--page-x) 12rem;
+  background: #f4f4f4;
+}
+
+.svcInsights h2 {
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.svcInsights ul {
+  margin: 6.05rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.svcInsights li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 3.2rem 0;
+}
+
+.svcInsights li + li {
+  border-top: 1px solid var(--line);
+}
+
+.svcInsights h3 {
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.15;
+  color: #000;
+}
+
+.svcInsights a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex: none;
+  font-size: 1.84rem;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.svcInsights a span {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.svcInsights a:hover span {
+  transform: translateX(0.4rem);
+}
+
+/* --- 11 other services ------------------------------------ */
+
+.svcOther {
+  padding: 10.95rem var(--page-x) 0;
+}
+
+.svcOther h2 {
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.svcOther .listingGrid {
+  margin-top: 4.95rem;
+}
+
+.svcOther .listingCard h3 {
+  margin: 0;
+  font-size: var(--h3);
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+/* --- 12 closing CTA --------------------------------------- */
+
+.svcCta {
+  position: relative;
+  display: grid;
+  min-height: 61.1rem;
+  margin-top: 12rem;
+  padding: 16.1rem var(--page-x) 0;
+  background: #0c0c0c;
+  color: #fff;
+}
+
+.svcCtaCopy {
+  padding-bottom: 16rem;
+}
+
+.svcCta h2 {
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+}
+
+.svcCtaBody {
+  max-width: 52.4rem;
+  margin-top: 2.15rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+.svcCta .svcPill {
+  margin-top: 3.3rem;
+}
+
+
+/* --- sticky bar: reveals on scroll up, white when stuck ---- */
+
+.siteHeader {
+  transition:
+    transform 0.4s var(--ease-out),
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.siteHeader.isStuck {
+  z-index: 50;
+  mix-blend-mode: normal;
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.siteHeader.isStuck .menuButton {
+  color: var(--ink);
+}
+
+.siteHeader.isHidden {
+  transform: translateY(-100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .siteHeader {
+    transition: none;
+  }
+}
+
+/* --- service detail: responsive ---------------------------- */
+
 @media (max-width: 1180px) {
-  .figmaServiceHero,
-  .figmaIntro,
-  .figmaCapabilityLead,
-  .figmaLab,
-  .figmaCta {
-    grid-template-columns: 1fr;
+  .svcProcessGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 4rem;
+    padding: 0 var(--page-x);
   }
 
-  .figmaHeroMedia {
-    height: 62rem;
+  .svcExecutionRail {
+    grid-auto-columns: calc((100% - 1.4rem) / 2);
   }
 
-  .figmaPrinciples,
-  .figmaSubServices,
-  .figmaProcess,
-  .figmaValue > div,
-  .figmaLabItems,
-  .figmaOtherServices > div {
+  .svcValueRail {
+    grid-auto-columns: 30%;
+  }
+
+  .svcTechMedia img:first-child {
+    width: 17rem;
+    height: 17.2rem;
+  }
+
+  .svcTechMedia img:last-child {
+    width: 23rem;
+    height: 23.2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .svcCoverGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .figmaSubServices {
-    display: grid;
+  /* drop the hand-placed scatter once there are only two tracks */
+  .svcCoverGrid article,
+  .svcCoverGrid article:nth-child(n) {
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+  }
+
+  .svcHero {
+    padding-top: 9rem;
+  }
+}
+
+@media (max-width: 990px) {
+  .svcHero {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 3.2rem;
+    padding-bottom: 4rem;
+  }
+
+  .svcHero .svcPill {
+    margin-bottom: 0;
+  }
+
+  .svcHeroCopy {
+    gap: 2.4rem;
+  }
+
+  .svcIntro,
+  .svcExecutionHead,
+  .svcEngagementsHead,
+  .svcTechHead,
+  .svcLabHead {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3.2rem;
+  }
+
+  .svcIntro h2 {
+    max-width: none;
+  }
+
+  .svcExecutionHead > div:last-child,
+  .svcTechCopy {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .svcPrinciples,
+  .svcLabGrid,
+  .svcModelsGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-flow: row;
-    grid-auto-columns: unset;
-    width: auto;
-    gap: 1.4rem;
-    padding-top: 0;
-    transform: none !important;
   }
 
-  .figmaCoverScroll {
-    height: auto !important;
-    margin-top: 3.2rem;
+  .svcPrinciples article {
+    min-height: 0;
   }
 
-  .figmaCoverSticky {
-    position: static;
-    top: auto !important;
-    height: auto !important;
-    overflow: visible;
-    padding-top: 0;
-    padding-bottom: 0;
+  .svcProcess {
+    min-height: 0;
+    padding-bottom: 8rem;
   }
 
-  .figmaSubServicesViewport {
-    overflow: visible;
-    display: block;
-    flex: none;
+  /* the pinned backdrop only works at the artboard's proportions */
+  .svcProcessMedia {
+    position: relative;
+    top: auto;
+    height: 34rem;
+    margin-bottom: 4rem;
   }
 
-  .figmaSubServices article {
-    height: auto;
-    min-height: 30rem;
+  .svcProcessGrid {
+    row-gap: 2.4rem;
   }
 
-  .figmaSubServices article:nth-child(2n) {
-    transform: none;
+  .svcProcessGrid article:nth-child(even) {
+    margin-top: 0;
   }
 
-  .figmaProcess article {
-    min-height: 48rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  .svcProcessGrid article::after {
+    display: none;
   }
 
-  .figmaExecutionSteps {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  .svcExecution,
+  .svcEngagements {
+    min-height: 0;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 
-  .figmaCta {
-    padding-bottom: 0;
+  .svcExecutionRail {
+    margin-top: 6rem;
   }
 
-  .figmaCta > img {
-    justify-self: end;
-    width: min(48rem, 100%);
+  .svcValueHead {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.4rem;
+  }
+
+  .svcValueHead h2 {
+    grid-column: 1;
+    text-align: left;
+  }
+
+  .svcValueRail {
+    grid-auto-columns: 42%;
+    padding-bottom: 8rem;
+  }
+
+  .engagementCard {
+    margin-top: 6rem;
+  }
+
+  .svcCta {
+    min-height: 0;
+    padding-top: 8rem;
+  }
+
+  .svcCtaCopy {
+    padding-bottom: 8rem;
+  }
+
+  .svcTechList {
+    margin-top: 5rem;
+  }
+
+  .svcCover,
+  .svcInsights,
+  .svcModels,
+  .svcOther,
+  .svcLab {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .svcCover,
+  .svcProcess,
+  .svcInsights,
+  .svcCta {
+    margin-top: 8rem;
   }
 }
 
 @media (max-width: 768px) {
-  .figmaServiceHero {
+  .svcCoverGrid,
+  .svcPrinciples,
+  .svcProcessGrid,
+  .svcLabGrid,
+  .svcModelsGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .svcCoverGrid article {
+    padding: 12rem 2rem 2.8rem;
+  }
+
+  .svcCoverChevron {
+    display: none;
+  }
+
+  .svcExecutionRail,
+  .svcValueRail {
+    grid-auto-columns: 78%;
+  }
+
+  .svcValueRail article {
+    height: 44rem;
+  }
+
+  .svcHeroMedia {
+    aspect-ratio: 4 / 3;
+  }
+
+  .svcInsights li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .engagementCard {
+    width: 100%;
     min-height: 0;
-    padding-top: 12rem;
-    padding-bottom: 5rem;
   }
 
-  .figmaServiceHero h1 {
-    font-size: clamp(4rem, 13vw, 5.2rem);
+  .svcTechMedia {
+    gap: 1.6rem;
   }
 
-  .figmaHeroMedia {
+  .svcTechMedia img:first-child,
+  .svcTechMedia img:last-child {
+    width: 50%;
     height: auto;
-    aspect-ratio: 0.92;
-  }
-
-  .figmaIntro,
-  .figmaPrinciples,
-  .figmaCover,
-  .figmaWorkHeading,
-  .figmaExecution > div,
-  .figmaCapabilities,
-  .figmaValue,
-  .figmaLab,
-  .figmaInsights,
-  .figmaOtherServices,
-  .figmaCta {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-
-  .figmaIntro {
-    gap: 3rem;
-  }
-
-  .figmaPrinciples,
-  .figmaSubServices,
-  .figmaProcess,
-  .figmaExecutionSteps,
-  .figmaValue > div,
-  .figmaLabItems,
-  .figmaOtherServices > div {
-    grid-template-columns: 1fr;
-  }
-
-  .figmaPrinciples article,
-  .figmaSubServices article,
-  .figmaProcess article,
-  .figmaValue article,
-  .figmaOtherServices a {
-    min-height: 0;
-  }
-
-  .figmaPrinciples article,
-  .figmaSubServices article,
-  .figmaProcess article,
-  .figmaValue article {
-    padding: 2rem;
-  }
-
-  .figmaCover > h2,
-  .figmaCoverSticky > h2 {
-    margin-bottom: 3.2rem;
-  }
-
-  .figmaSubServices {
+    aspect-ratio: 1;
     margin-top: 0;
   }
+}
 
-  .figmaSubServices article {
-    min-height: 30rem;
+@media (max-width: 640px) {
+  .svcEyebrow {
+    font-size: 1.6rem;
   }
 
-  .figmaWorkHeading > span {
-    margin-bottom: 4rem;
-    font-size: clamp(4.2rem, 18vw, 7rem);
+  .svcHeroCopy p,
+  .svcIntroCopy p,
+  .svcCoverCopy p,
+  .svcProcessGrid p,
+  .svcPrinciples p {
+    font-size: 1.6rem;
+    line-height: 2.5rem;
   }
 
-  .figmaProcess article {
-    min-height: 31rem;
+  .svcExecutionRail,
+  .svcValueRail {
+    grid-auto-columns: 88%;
+  }
+}
+
+/* ============================================================
+   AI INNOVATION LAB
+   Implemented from Figma node 1:427. The artboard is unfinished
+   below "How ideas evolve"; the status system and CTA below keep
+   their existing treatment so no content is lost.
+   ============================================================ */
+
+.labPage {
+  background: #fff;
+}
+
+.labPage h1,
+.labPage h2,
+.labPage h3 {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.labPage :where(p) {
+  margin: 0;
+}
+
+/* --- hero -------------------------------------------------- */
+
+.labHeroX {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  align-items: center;
+  gap: 4rem;
+  min-height: 79.7rem;
+  padding: 8rem var(--page-x);
+  overflow: hidden;
+  background:
+    radial-gradient(60% 50% at 12% 8%, rgba(214, 205, 240, 0.45) 0%, rgba(214, 205, 240, 0) 100%),
+    radial-gradient(55% 45% at 92% 14%, rgba(198, 226, 205, 0.4) 0%, rgba(198, 226, 205, 0) 100%),
+    linear-gradient(180deg, #f7f5fb 0%, #f5f9fc 55%, #f4f8fc 100%);
+}
+
+.labHeroCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 78rem;
+}
+
+.labHeroEyebrow {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--muted);
+  text-transform: lowercase;
+}
+
+.labHeroX h1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.4rem;
+  font-size: clamp(3.4rem, 3.875vw, 6.2rem);
+  line-height: 1.18;
+  color: var(--ink);
+}
+
+.labHeroSummary {
+  max-width: 59rem;
+  margin-top: 3rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+.labHeroX .svcPill {
+  margin-top: 4.4rem;
+}
+
+/* the artboard's blurred gradient sphere, rebuilt in CSS so it
+   stays sharp at any size */
+.labHeroOrb {
+  position: relative;
+  justify-self: center;
+  width: min(66rem, 100%);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(42% 38% at 32% 34%, rgba(214, 92, 214, 0.85) 0%, rgba(214, 92, 214, 0) 72%),
+    radial-gradient(46% 40% at 62% 56%, rgba(38, 52, 235, 0.92) 0%, rgba(38, 52, 235, 0) 74%),
+    radial-gradient(40% 34% at 74% 34%, rgba(150, 160, 232, 0.7) 0%, rgba(150, 160, 232, 0) 76%),
+    radial-gradient(50% 46% at 40% 78%, rgba(233, 231, 246, 0.95) 0%, rgba(233, 231, 246, 0) 78%),
+    linear-gradient(150deg, #dfe3f4 0%, #eceaf6 45%, #f2f0fa 100%);
+  filter: blur(26px);
+  opacity: 0.95;
+}
+
+/* --- signal strip ------------------------------------------ */
+
+.labSignals {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid rgba(10, 30, 60, 0.07);
+  background: linear-gradient(180deg, #f5f9fc 0%, #f8fbfd 100%);
+}
+
+.labSignals span {
+  display: grid;
+  place-items: center;
+  min-height: 15rem;
+  padding: 2rem;
+  border-right: 1px solid rgba(10, 30, 60, 0.07);
+  border-bottom: 1px solid rgba(10, 30, 60, 0.07);
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: rgba(0, 0, 0, 0.42);
+  text-align: center;
+}
+
+.labSignals span:nth-child(5n) {
+  border-right: 0;
+}
+
+/* --- purpose ----------------------------------------------- */
+
+.labPurposeX {
+  padding: 9rem var(--page-x) 10rem;
+  background: linear-gradient(180deg, #f8fbfd 0%, #f3f7fb 100%);
+  text-align: center;
+}
+
+.labPurposeX h2 {
+  font-size: clamp(2.6rem, 2.25vw, 3.6rem);
+  line-height: 1.28;
+  color: var(--ink);
+}
+
+.labPurposeBody {
+  position: relative;
+  max-width: 108rem;
+  margin: 4rem auto 0;
+  font-size: 2rem;
+  line-height: 3.2rem;
+  color: var(--ink);
+}
+
+.labPurposeBody i {
+  margin-right: 1.2rem;
+  color: #d8d312;
+  font-style: normal;
+}
+
+.labSteps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2.5rem;
+  max-width: 140rem;
+  margin: 7rem auto 0;
+}
+
+.labSteps article {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  min-height: 20.5rem;
+  padding: 2.4rem 2.6rem 3rem;
+  background: #fff;
+  text-align: left;
+}
+
+.labSteps span {
+  font-size: 1.8rem;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.22);
+}
+
+.labSteps strong {
+  align-self: center;
+  font-size: clamp(1.8rem, 1.375vw, 2.2rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #000;
+  text-transform: lowercase;
+}
+
+.labSteps strong::first-letter {
+  text-transform: uppercase;
+}
+
+/* --- currently in the lab (scroll-pinned rail) ------------- */
+
+.labExplore {
+  padding: 10rem 0 0;
+  background: linear-gradient(180deg, #f3f7fb 0%, #eef4fa 60%, #ffffff 100%);
+}
+
+.labExploreHead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.4rem;
+  padding: 0 var(--page-x);
+}
+
+.labExploreHead h2 {
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+/* tall spacer: the viewport pins while the track slides sideways */
+.labExploreWrap.isPinned {
+  height: calc(100vh + (var(--slides) - 1) * 82vh);
+  margin-top: 4.4rem;
+}
+
+.labExploreWrap.isPinned .labExploreViewport {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.labExploreWrap.isPinned .labExploreTrack {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  will-change: transform;
+  transition: transform 0.12s linear;
+}
+
+.labExploreWrap.isPinned .labSlide {
+  flex: 0 0 calc(100% - var(--page-x) * 2);
+  height: min(80vh, 84rem);
+}
+
+/* fallback: touch + reduced motion get a normal snap rail */
+.labExploreWrap:not(.isPinned) {
+  margin-top: 4.4rem;
+}
+
+.labExploreWrap:not(.isPinned) .labExploreTrack {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(92%, 120rem);
+  gap: 2rem;
+  padding: 0 var(--page-x) 6rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.labExploreWrap:not(.isPinned) .labExploreTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.labExploreWrap:not(.isPinned) .labSlide {
+  scroll-snap-align: center;
+}
+
+.labSlide {
+  display: grid;
+  grid-template-columns: 699fr 706fr;
+  gap: 6.5rem;
+  align-items: stretch;
+  margin: 0 var(--page-x);
+  padding: 3rem 3rem 2.9rem 3.4rem;
+  background: #fff;
+  box-shadow: 0 2rem 6rem rgba(15, 35, 60, 0.06);
+}
+
+.labSlideMedia {
+  height: 100%;
+  min-height: 42rem;
+  overflow: hidden;
+}
+
+.labSlideMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.labSlideCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 1rem;
+  overflow: hidden;
+}
+
+.labSlideNumber {
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.24);
+}
+
+.labSlideCopy h3 {
+  margin-top: 5.4rem;
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.labSlideHeadline {
+  margin-top: 2.8rem;
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.labSlideBody {
+  max-width: 55rem;
+  margin-top: 2.4rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+.labSlideExploring {
+  max-width: 55rem;
+  margin-top: 2.6rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: rgba(0, 0, 0, 0.44);
+}
+
+.labSlideMetrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 3rem;
+}
+
+.labSlideMetrics span {
+  padding: 0.9rem 1.6rem;
+  background: var(--primary);
+  font-size: 1.7rem;
+  line-height: 1.2;
+  color: #000;
+}
+
+.labSlideStatus {
+  margin-top: 2.6rem;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.labExploreProgress {
+  align-self: center;
+  width: min(40rem, 60vw);
+  height: 2px;
+  margin-top: 4rem;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.labExploreProgress span {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+
+/* --- across industries ------------------------------------- */
+
+.labIndustries {
+  padding: 11rem 0 10rem;
+  background: #fff;
+}
+
+.labIndustriesHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 2.4rem;
+  padding: 0 var(--page-x);
+}
+
+.labIndustriesHead h2 {
+  grid-column: 2;
+  max-width: 52rem;
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+  color: var(--ink);
+  text-align: center;
+}
+
+.labIndustriesRail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 24%;
+  gap: 2.3rem;
+  margin-top: 6rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.labIndustriesRail::-webkit-scrollbar {
+  display: none;
+}
+
+.labIndustriesRail article {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: 55rem;
+  padding: 3rem;
+  overflow: hidden;
+  color: #fff;
+  scroll-snap-align: start;
+}
+
+.labIndustriesRail article:nth-child(even) {
+  align-items: flex-start;
+}
+
+.labIndustriesRail img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.labIndustriesRail article::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0) 58%);
+}
+
+.labIndustriesRail article:nth-child(even)::after {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0) 58%);
+}
+
+.labIndustriesRail article > div {
+  position: relative;
+  z-index: 1;
+}
+
+.labIndustriesRail h3 {
+  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.labIndustriesRail p {
+  margin-top: 1.4rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+/* --- how ideas evolve -------------------------------------- */
+
+.labEvolve {
+  padding: 10rem var(--page-x) 12rem;
+  background: linear-gradient(160deg, #f7fafd 0%, #eaf1fa 55%, #f6f9fc 100%);
+  text-align: center;
+}
+
+.labEvolveEyebrow {
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--ink);
+}
+
+.labEvolve h2 {
+  max-width: 78rem;
+  margin: 2.4rem auto 0;
+  font-size: clamp(2.8rem, 2.5vw, 4rem);
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.labEvolveBody {
+  max-width: 76rem;
+  margin: 3rem auto 0;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+.labEvolveGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.8rem;
+  max-width: 139.8rem;
+  margin: 7rem auto 0;
+}
+
+.labEvolveGrid article {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  min-height: 48.7rem;
+  padding: 5rem 3rem 4rem;
+  background: #f2f1f4;
+  border-top: 3px solid var(--primary);
+  text-align: center;
+}
+
+/* the artboard raises the middle card */
+.labEvolveGrid article:nth-child(2) {
+  margin-top: -9rem;
+}
+
+.labEvolveGrid h3 {
+  font-size: clamp(2.4rem, 2vw, 3.2rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+/* title sits high, body + rule + meta group at the foot of the card */
+.labEvolveGrid p {
+  margin-top: auto;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+.labEvolveGrid span {
+  padding-top: 2.4rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--muted);
+}
+
+/* --- experiment status system ------------------------------ */
+
+.labStatuses {
+  position: relative;
+  display: grid;
+  grid-template-columns: 721fr 879fr;
+  align-items: start;
+  min-height: 56rem;
+  overflow: hidden;
+  background: var(--primary);
+}
+
+.labStatusesCopy {
+  padding: 10rem 6rem 10rem var(--page-x);
+  border-right: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.labStatuses h2 {
+  font-size: clamp(2.4rem, 2vw, 3.2rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.labStatusList {
+  margin: 5.2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.labStatusList li + li {
+  margin-top: 1.2rem;
+}
+
+.labStatusList button {
+  display: grid;
+  grid-template-columns: 5.6rem 3rem minmax(0, 1fr);
+  align-items: baseline;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.labStatusNumber {
+  font-size: 1.7rem;
+  line-height: 2.6rem;
+  color: rgba(0, 0, 0, 0.32);
+  transition: color 0.25s var(--ease-out);
+}
+
+.labStatusArrow {
+  font-size: 1.7rem;
+  line-height: 2.6rem;
+  color: var(--ink);
+  opacity: 0;
+  transition: opacity 0.25s var(--ease-out);
+}
+
+.labStatusName {
+  font-size: 1.9rem;
+  line-height: 2.6rem;
+  color: rgba(0, 0, 0, 0.32);
+  transition: color 0.25s var(--ease-out);
+}
+
+.labStatusList li.isActive .labStatusNumber,
+.labStatusList li.isActive .labStatusName {
+  color: var(--ink);
+}
+
+.labStatusList li.isActive .labStatusArrow {
+  opacity: 1;
+}
+
+.labStatusList button:hover .labStatusName {
+  color: rgba(0, 0, 0, 0.62);
+}
+
+.labStatusList p {
+  margin: 0.6rem 0 0;
+  max-width: 34rem;
+  padding-left: 8.6rem;
+  font-size: 1.7rem;
+  line-height: 2.6rem;
+  color: rgba(0, 0, 0, 0.62);
+}
+
+/* the device bleeds off the right edge and is cropped by the band */
+.labStatusesMedia {
+  position: relative;
+  align-self: end;
+  min-height: 56rem;
+}
+
+.labStatusesMedia img {
+  position: absolute;
+  right: -8%;
+  bottom: -6rem;
+  width: 104%;
+  height: auto;
+  max-width: none;
+}
+
+/* --- closing CTA ------------------------------------------- */
+
+.labCta {
+  padding: 11rem var(--page-x) 12rem;
+  background: #eaeaea;
+  color: var(--ink);
+}
+
+.labCta h2 {
+  margin-top: 4.2rem;
+  font-size: clamp(2.4rem, 2vw, 3.2rem);
+  line-height: 1.2;
+}
+
+.labCtaBody {
+  max-width: 56rem;
+  margin-top: 2.4rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: var(--ink);
+}
+
+.labCta .svcPill {
+  margin-top: 4rem;
+}
+
+/* --- lab page: responsive ---------------------------------- */
+
+@media (max-width: 1180px) {
+  .labIndustriesRail {
+    grid-auto-columns: 32%;
+  }
+
+  .labSteps,
+  .labStatuses > div {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 990px) {
+  .labHeroX {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .labHeroOrb {
+    order: -1;
+    width: min(38rem, 80%);
+  }
+
+  .labSignals {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .labSignals span:nth-child(5n) {
+    border-right: 1px solid rgba(10, 30, 60, 0.07);
+  }
+
+  .labSignals span:nth-child(3n) {
     border-right: 0;
   }
 
-  .figmaExecution {
-    min-height: 64rem;
-  }
-
-  .figmaExecutionSteps span {
-    min-height: 7.4rem;
-  }
-
-  .figmaCapabilityLead {
+  .labSlide {
+    grid-template-columns: minmax(0, 1fr);
     gap: 3rem;
-    margin-top: 4rem;
+    padding: 2.4rem;
   }
 
-  .figmaCapabilityImages {
-    min-height: 24rem;
+  .labSlideMedia img {
+    min-height: 26rem;
+    max-height: 32rem;
   }
 
-  .figmaCapabilityImages img:first-child {
-    width: 16rem;
-    height: 16rem;
+  .labSlideCopy h3 {
+    margin-top: 2.4rem;
   }
 
-  .figmaCapabilityImages img:last-child {
-    width: 22rem;
-    height: 22rem;
+  .labIndustriesHead {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .figmaCapabilityList a {
-    min-height: 8.4rem;
-    font-size: 2.2rem;
+  .labIndustriesHead h2 {
+    grid-column: 1;
+    max-width: none;
+    text-align: left;
   }
 
-  .figmaInsights a {
-    grid-template-columns: 1fr;
-    gap: 1.4rem;
+  .labIndustriesRail {
+    grid-auto-columns: 46%;
+  }
+
+  .labEvolveGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .labEvolveGrid article {
     min-height: 0;
   }
 
-  .figmaOtherServices a {
-    aspect-ratio: 0.9;
+  .labEvolveGrid article:nth-child(2) {
+    margin-top: 0;
   }
 
-  .figmaCta {
-    gap: 3rem;
-    padding-bottom: 0;
+  .labPurposeX,
+  .labExplore,
+  .labIndustries,
+  .labEvolve,
+  .labStatuses,
+  .labCta {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .labSignals,
+  .labSteps,
+  .labStatuses > div,
+  .labEvolveGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .figmaCta > img {
-    width: min(30rem, 100%);
-    height: auto;
-    aspect-ratio: 0.79;
-    justify-self: start;
+  .labSignals span:nth-child(3n) {
+    border-right: 1px solid rgba(10, 30, 60, 0.07);
+  }
+
+  .labSignals span:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .labSignals span {
+    min-height: 11rem;
+    font-size: 1.6rem;
+  }
+
+  .labIndustriesRail {
+    grid-auto-columns: 78%;
+  }
+
+  .labIndustriesRail article {
+    height: 44rem;
+  }
+
+  .labPurposeBody {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
+
+  .labSteps article {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .labSteps,
+  .labStatuses > div,
+  .labEvolveGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .labIndustriesRail {
+    grid-auto-columns: 88%;
   }
 }
