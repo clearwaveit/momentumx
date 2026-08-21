@@ -172,6 +172,13 @@ function WorkCaseDetail({
 
   const journeyEyebrow = detail.journeyEyebrow ?? "The campaign journey";
   const ecosystemEyebrow = detail.ecosystemEyebrow ?? "The experience architecture";
+  const metadataByLabel = new Map(detail.metadata.map((meta) => [meta.label.toLowerCase(), meta]));
+  const metadataBlocks = [
+    metadataByLabel.get("engagement"),
+    metadataByLabel.get("client"),
+    metadataByLabel.get("experience"),
+    metadataByLabel.get("capabilities")
+  ].filter(Boolean) as { label: string; value: string }[];
 
   return (
     <main className="whiskasCase">
@@ -194,8 +201,8 @@ function WorkCaseDetail({
           <h2>{item.client}</h2>
         </div>
         <div className="whiskasMetaGrid">
-          {detail.metadata.map((meta) => (
-            <article key={meta.label}>
+          {metadataBlocks.map((meta) => (
+            <article className={`is-${meta.label.toLowerCase()}`} key={meta.label}>
               <strong>{meta.label}</strong>
               <span>{meta.value}</span>
             </article>

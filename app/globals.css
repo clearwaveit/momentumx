@@ -2848,6 +2848,16 @@ main > section.caseGallery {
   transform: none;
 }
 
+main > section.labPurposeX {
+  opacity: 1;
+  transform: none;
+}
+
+main > section.labStatuses {
+  opacity: 1;
+  transform: none;
+}
+
 @keyframes loaderText {
   from {
     clip-path: inset(0 100% 0 0);
@@ -5165,9 +5175,7 @@ main > section.caseGallery {
 .labHeroX {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 65.3rem) minmax(42rem, 1fr);
   align-items: center;
-  gap: clamp(4rem, 9vw, 14rem);
   min-height: 74.5rem;
   padding: 0 var(--page-x);
   overflow: hidden;
@@ -5227,24 +5235,36 @@ main > section.caseGallery {
   margin-top: 4rem;
 }
 
-/* right-column video — soft orb lives in the asset, feathered like Figma */
+/* Figma video: 1667×1097, right -439, vertically centered.
+   Mask the white rectangle so only the moving orb reads. */
 .labHeroMedia {
-  position: relative;
-  justify-self: center;
-  align-self: center;
-  width: min(52rem, 100%);
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  margin-top: -1.8rem;
+  position: absolute;
+  top: 50%;
+  right: -43.9rem;
+  left: auto;
+  z-index: 1;
+  width: 166.7rem;
+  height: 109.7rem;
+  transform: translateY(-50%);
   pointer-events: none;
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 38%, rgba(0, 0, 0, 0.55) 52%, transparent 72%);
-  mask-image: radial-gradient(circle at 50% 50%, #000 38%, rgba(0, 0, 0, 0.55) 52%, transparent 72%);
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(
+    circle closest-side at 50% 50%,
+    #000 58%,
+    rgba(0, 0, 0, 0.55) 76%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle closest-side at 50% 50%,
+    #000 58%,
+    rgba(0, 0, 0, 0.55) 76%,
+    transparent 100%
+  );
 }
 
 .labHeroOrb {
-  width: 135%;
-  height: 135%;
+  width: 100%;
+  height: 100%;
   max-width: none;
   display: block;
   object-fit: cover;
@@ -5255,87 +5275,213 @@ main > section.caseGallery {
 /* --- signal strip ------------------------------------------ */
 
 .labSignals {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  border-top: 1px solid rgba(10, 30, 60, 0.07);
+  position: relative;
+  height: 31.3rem;
+  overflow: hidden;
   background: #f5f9fd;
 }
 
-.labSignals span {
-  display: grid;
-  place-items: center;
-  min-height: 18.6rem;
-  padding: 2rem;
-  border-right: 1px solid rgba(10, 30, 60, 0.07);
-  border-bottom: 1px solid rgba(10, 30, 60, 0.07);
-  font-size: 2rem;
-  line-height: 2.8rem;
-  color: rgba(0, 0, 0, 0.42);
-  text-align: center;
+.labSignals::before,
+.labSignals::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(10, 30, 60, 0.07);
+  pointer-events: none;
 }
 
-.labSignals span:nth-child(5n) {
-  border-right: 0;
+.labSignals::before {
+  top: 7.3rem;
+}
+
+.labSignals::after {
+  top: 22.3rem;
+}
+
+.labSignalsTrack {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  margin: 0;
+  animation: marquee 34s linear infinite;
+  will-change: transform;
+}
+
+.labSignals span {
+  flex: 0 0 32.2rem;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 0;
+  border-left: 1px solid rgba(10, 30, 60, 0.07);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #6d6d6d;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.labSignals span:nth-child(7n) {
+  border-right: 1px solid rgba(10, 30, 60, 0.07);
 }
 
 /* --- purpose ----------------------------------------------- */
 
 .labPurposeX {
-  padding: 9rem var(--page-x) 10rem;
-  background: linear-gradient(180deg, #f8fbfd 0%, #f3f7fb 100%);
+  --purpose-progress: 0;
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 7rem var(--page-x) 10.4rem;
+  overflow: hidden;
+  background: #f5f9fd;
   text-align: center;
 }
 
+.labPurposeX > h2,
+.labPurposeX > .labPurposeBody,
+.labPurposeX > .labSteps {
+  position: relative;
+  z-index: 1;
+}
+
 .labPurposeX h2 {
-  font-size: clamp(2.6rem, 2.25vw, 3.6rem);
-  line-height: 1.28;
+  margin: 0;
+  font-size: 3.4rem;
+  font-weight: 400;
+  line-height: 5rem;
+  letter-spacing: 0;
+  text-transform: capitalize;
   color: var(--ink);
 }
 
 .labPurposeBody {
   position: relative;
-  max-width: 108rem;
-  margin: 4rem auto 0;
-  font-size: 2rem;
-  line-height: 3.2rem;
+  overflow: visible;
+  max-width: 111.7rem;
+  margin: 7.4rem auto 0;
+  padding-left: 2.4rem;
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 3.8rem;
+  letter-spacing: 0;
   color: var(--ink);
+  text-align: left;
 }
 
 .labPurposeBody i {
-  margin-right: 1.2rem;
-  color: #d8d312;
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  color: #f3ed48;
   font-style: normal;
+  line-height: 3.8rem;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+}
+
+.labPurposeX.isInFocus .labPurposeBody i {
+  animation: labArrowHeartbeat 1.15s ease-in-out infinite;
+}
+
+.labPurposeBody span {
+  display: inline-block;
+  margin-right: 0.72rem;
+  color: rgba(0, 0, 0, 0.36);
+  opacity: 1;
+  visibility: visible;
+  transition: color 360ms ease;
+}
+
+.labPurposeBody span.isActive {
+  color: #000;
+}
+
+.labPurposeX.isComplete .labPurposeBody,
+.labPurposeX.isComplete .labPurposeBody span,
+.labPurposeX.isComplete .labSteps,
+.labPurposeX.isComplete .labSteps article {
+  opacity: 1;
+  visibility: visible;
+}
+
+.labPurposeX.isComplete .labPurposeBody span {
+  color: #000;
+}
+
+@keyframes labArrowHeartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  18% {
+    transform: scale(1.18);
+  }
+
+  34% {
+    transform: scale(0.96);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  68% {
+    transform: scale(1);
+  }
 }
 
 .labSteps {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 2.5rem;
+  gap: 2.441rem;
   max-width: 140rem;
-  margin: 7rem auto 0;
+  margin: 13.7rem auto 0;
 }
 
 .labSteps article {
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
-  min-height: 20.5rem;
-  padding: 2.4rem 2.6rem 3rem;
+  gap: 0;
+  min-height: 20.347rem;
+  padding: 1.6rem;
   background: #fff;
+  opacity: 0;
+  transform: translateY(2.8rem);
+  transition:
+    opacity 520ms ease,
+    transform 620ms var(--ease-out);
   text-align: left;
 }
 
+.labSteps article.isVisible,
+.labPurposeX.isComplete .labSteps article {
+  opacity: 1;
+  transform: none;
+}
+
 .labSteps span {
+  display: block;
   font-size: 1.8rem;
-  line-height: 1;
+  line-height: normal;
   color: rgba(0, 0, 0, 0.22);
 }
 
 .labSteps strong {
+  display: block;
   align-self: center;
-  font-size: clamp(1.8rem, 1.375vw, 2.2rem);
+  margin-top: 6rem;
+  font-size: 1.8rem;
   font-weight: 400;
-  line-height: 1.15;
+  line-height: normal;
+  letter-spacing: 0;
   color: #000;
   text-transform: lowercase;
 }
@@ -5347,8 +5493,16 @@ main > section.caseGallery {
 /* --- currently in the lab (scroll-pinned rail) ------------- */
 
 .labExplore {
+  position: relative;
   padding: 10rem 0 0;
-  background: linear-gradient(180deg, #f3f7fb 0%, #eef4fa 60%, #ffffff 100%);
+  overflow-x: clip;
+  overflow-y: visible;
+  background: #f5f9fd;
+}
+
+.labExplore > * {
+  position: relative;
+  z-index: 1;
 }
 
 .labExploreHead {
@@ -5365,7 +5519,7 @@ main > section.caseGallery {
   color: var(--ink);
 }
 
-/* tall spacer: the viewport pins while the track slides sideways */
+/* tall spacer: the viewport pins while the card content changes vertically */
 .labExploreWrap.isPinned {
   height: calc(100vh + (var(--slides) - 1) * 82vh);
   margin-top: 4.4rem;
@@ -5382,40 +5536,46 @@ main > section.caseGallery {
 }
 
 .labExploreWrap.isPinned .labExploreTrack {
-  display: flex;
-  flex-wrap: nowrap;
+  position: relative;
   width: 100%;
-  will-change: transform;
-  transition: transform 0.12s linear;
-}
-
-.labExploreWrap.isPinned .labSlide {
-  flex: 0 0 calc(100% - var(--page-x) * 2);
   height: min(80vh, 84rem);
 }
 
-/* fallback: touch + reduced motion get a normal snap rail */
+.labExploreWrap.isPinned .labSlide {
+  position: absolute;
+  inset: 0 var(--page-x);
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 8rem, 0);
+  transition:
+    opacity 520ms ease,
+    transform 720ms var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.labExploreWrap.isPinned .labSlide.isActive {
+  z-index: 2;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0);
+}
+
+.labExploreWrap.isPinned .labSlide.isBefore {
+  transform: translate3d(0, -6rem, 0);
+}
+
+/* fallback: touch + reduced motion get a plain vertical stack */
 .labExploreWrap:not(.isPinned) {
   margin-top: 4.4rem;
 }
 
 .labExploreWrap:not(.isPinned) .labExploreTrack {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: min(92%, 120rem);
   gap: 2rem;
   padding: 0 var(--page-x) 6rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-
-.labExploreWrap:not(.isPinned) .labExploreTrack::-webkit-scrollbar {
-  display: none;
-}
-
-.labExploreWrap:not(.isPinned) .labSlide {
-  scroll-snap-align: center;
+  overflow: visible;
 }
 
 .labSlide {
@@ -5654,11 +5814,32 @@ main > section.caseGallery {
 /* --- how ideas evolve -------------------------------------- */
 
 .labEvolve {
+  position: relative;
   padding: 12rem var(--page-x) 14rem;
+  overflow: hidden;
   background:
     radial-gradient(ellipse 120% 80% at 50% 35%, #e7f0f8 0%, rgba(231, 240, 248, 0) 58%),
     linear-gradient(180deg, #f7fafd 0%, #eef4fa 48%, #f8fafc 100%);
   text-align: center;
+}
+
+.labEvolve::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.labEvolve::before {
+  top: -70.5rem;
+  width: 156.3rem;
+  height: 156.5rem;
+  background: url("/assets/design/lab-evolve-ellipse-right.svg") center / 100% 100% no-repeat;
+}
+
+.labEvolve > * {
+  position: relative;
+  z-index: 1;
 }
 
 .labEvolveEyebrow {
@@ -5741,52 +5922,60 @@ main > section.caseGallery {
 
 .labStatuses {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 82.2rem;
-  align-items: stretch;
-  min-height: 47.3rem;
+  min-height: 56.1rem;
   overflow: hidden;
   background: var(--primary);
 }
 
+.labStatuses::before {
+  content: "";
+  position: absolute;
+  top: 8.1rem;
+  bottom: 8rem;
+  left: 45vw;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.16);
+  pointer-events: none;
+}
+
 .labStatusesCopy {
+  position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 4.8rem 5.6rem 4.8rem var(--page-x);
-  border-right: 1px solid rgba(0, 0, 0, 0.18);
+  width: 56.2rem;
+  padding: 8.4rem 0 7.2rem 6.5rem;
 }
 
 .labStatuses h2 {
   margin: 0;
-  font-size: clamp(2.8rem, 2.4vw, 3.6rem);
+  font-size: 2.6rem;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: normal;
   color: var(--ink);
 }
 
 .labStatusesIntro {
-  max-width: 42rem;
+  max-width: 56.2rem;
   margin: 2rem 0 0;
-  font-size: 1.7rem;
-  line-height: 2.6rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
   color: rgba(0, 0, 0, 0.62);
 }
 
 .labStatusList {
-  margin: 3.6rem 0 0;
+  margin: 3.2rem 0 0;
   padding: 0;
   list-style: none;
 }
 
 .labStatusList li + li {
-  margin-top: 1.2rem;
+  margin-top: 1.4rem;
 }
 
 .labStatusList button {
   display: grid;
-  grid-template-columns: 4.8rem 2.8rem minmax(0, 1fr);
+  grid-template-columns: 5.4rem 5.8rem minmax(0, 1fr);
   align-items: baseline;
   width: 100%;
   padding: 0;
@@ -5799,13 +5988,13 @@ main > section.caseGallery {
 
 .labStatusNumber {
   font-size: 1.8rem;
-  line-height: 2.6rem;
+  line-height: 2.52rem;
   color: rgba(0, 0, 0, 0.28);
   transition: color 0.25s var(--ease-out);
 }
 
 .labStatusArrow {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   line-height: 2.6rem;
   color: var(--ink);
   opacity: 0;
@@ -5813,14 +6002,18 @@ main > section.caseGallery {
 }
 
 .labStatusName {
-  font-size: 2rem;
-  line-height: 2.6rem;
+  font-size: 1.8rem;
+  line-height: 2.52rem;
+  letter-spacing: 0.108rem;
   color: rgba(0, 0, 0, 0.28);
   transition: color 0.25s var(--ease-out);
 }
 
 .labStatusList li.isActive .labStatusNumber,
 .labStatusList li.isActive .labStatusName {
+  font-size: 2.6rem;
+  line-height: normal;
+  letter-spacing: 0;
   color: var(--ink);
 }
 
@@ -5833,38 +6026,40 @@ main > section.caseGallery {
 }
 
 .labStatusDetail {
-  max-width: 36rem;
-  margin: 0.8rem 0 0.8rem;
-  padding-left: 7.6rem;
+  max-width: 32.8rem;
+  margin: 1rem 0 0.4rem;
+  padding-left: 11.2rem;
 }
 
 .labStatusDetail strong {
   display: block;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 400;
-  line-height: 2.6rem;
-  color: var(--ink);
-}
-
-.labStatusDetail p {
-  margin: 0.4rem 0 0;
-  font-size: 1.6rem;
-  line-height: 2.4rem;
+  line-height: 2.8rem;
   color: rgba(0, 0, 0, 0.56);
 }
 
-/* Figma: 822×462 device, 11px from top, flush bottom + right */
-.labStatusesMedia {
-  position: relative;
-  min-height: 47.3rem;
+.labStatusDetail p {
+  margin: 1.8rem 0 0;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  color: rgba(0, 0, 0, 0.56);
+  display: -webkit-box;
   overflow: hidden;
-  background: var(--primary);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.labStatusesMedia {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
 .labStatusesMedia img {
   position: absolute;
-  right: 0;
   bottom: 0;
+  left: calc(45vw + 2.7rem);
   width: 82.2rem;
   height: 46.2rem;
   max-width: none;
@@ -5916,17 +6111,16 @@ main > section.caseGallery {
   margin-top: 4rem;
 }
 
-/* no top overflow — feet hang below the gray band */
 .labCtaMedia {
   position: absolute;
-  right: 0;
-  bottom: -5.2rem;
+  top: -0.1rem;
+  left: 64.0625vw;
   z-index: 0;
-  width: auto;
-  height: 56rem;
-  max-width: min(43.5rem, 40vw);
+  width: 43.8rem;
+  height: 65.8rem;
+  max-width: none;
   object-fit: contain;
-  object-position: bottom right;
+  object-position: top left;
   pointer-events: none;
   user-select: none;
 }
@@ -5938,19 +6132,6 @@ main > section.caseGallery {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .labStatuses {
-    grid-template-columns: minmax(0, 1fr) minmax(36rem, 52%);
-    min-height: 42rem;
-  }
-
-  .labStatusesMedia {
-    min-height: 42rem;
-  }
-
-  .labStatusesMedia img {
-    width: 100%;
-    height: calc(100% - 1.1rem);
-  }
 }
 
 @media (max-width: 990px) {
@@ -5973,26 +6154,22 @@ main > section.caseGallery {
   }
 
   .labHeroMedia {
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
     order: -1;
+    width: min(52rem, 118%);
+    height: auto;
+    aspect-ratio: 1667 / 1097;
+    margin: -2rem auto 0;
     justify-self: center;
-    width: min(42rem, 88%);
+    transform: none;
   }
 
   .labHeroOrb {
-    width: 135%;
-    height: 135%;
-  }
-
-  .labSignals {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .labSignals span:nth-child(5n) {
-    border-right: 1px solid rgba(10, 30, 60, 0.07);
-  }
-
-  .labSignals span:nth-child(3n) {
-    border-right: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .labSlide {
@@ -6074,6 +6251,8 @@ main > section.caseGallery {
   }
 
   .labCtaMedia {
+    top: auto;
+    left: auto;
     right: 0;
     bottom: -2.4rem;
     width: auto;
@@ -6082,44 +6261,63 @@ main > section.caseGallery {
   }
 
   .labStatuses {
-    grid-template-columns: 1fr;
+    height: auto;
     min-height: 0;
+    padding-bottom: 36rem;
+  }
+
+  .labStatuses::before {
+    display: none;
   }
 
   .labStatusesCopy {
+    width: auto;
     padding: 6rem var(--page-x);
-    border-right: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
   }
 
   .labStatusesMedia {
-    min-height: 36rem;
+    top: auto;
+    height: 36rem;
   }
 
   .labStatusesMedia img {
-    width: 100%;
-    height: calc(100% - 1.1rem);
+    top: 0;
+    left: 50%;
+    width: 64rem;
+    height: auto;
+    transform: translateX(-38%);
+  }
+  .labStatusesCopy {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18);
   }
 }
 
 @media (max-width: 768px) {
-  .labSignals,
   .labSteps,
   .labEvolveGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .labSignals span:nth-child(3n) {
-    border-right: 1px solid rgba(10, 30, 60, 0.07);
+  .labSignals {
+    height: 18rem;
+    overflow: hidden;
   }
 
-  .labSignals span:nth-child(2n) {
-    border-right: 0;
+  .labSignals::before {
+    top: 5rem;
+  }
+
+  .labSignals::after {
+    top: 13rem;
+  }
+
+  .labSignalsTrack {
+    width: max-content;
   }
 
   .labSignals span {
-    min-height: 11rem;
-    font-size: 1.6rem;
+    flex-basis: 32.2rem;
+    font-size: 2rem;
   }
 
   .labIndustriesTrack article {
@@ -6266,8 +6464,9 @@ main > section.caseGallery {
 .whiskasMeta {
   position: relative;
   width: 100%;
+  height: 106.5rem;
   margin: 0;
-  padding: 9.1rem var(--page-x) 0;
+  padding: 0;
   background: #000;
   color: #fff;
 }
@@ -6276,20 +6475,23 @@ main > section.caseGallery {
   content: "";
   position: absolute;
   top: 9.1rem;
-  bottom: 0;
-  left: calc(50% - 0.5px);
+  bottom: 7.4rem;
+  left: 50%;
   width: 1px;
   background: rgba(208, 212, 200, 0.22);
   pointer-events: none;
+  transform: translateX(-50%);
 }
 
 .whiskasMetaHead {
-  position: relative;
+  position: absolute;
+  left: var(--whiskas-x);
+  top: 8.1rem;
   z-index: 1;
   display: grid;
-  gap: 2.4rem;
-  max-width: calc(50% - 4.8rem);
-  padding-bottom: 8.4rem;
+  gap: 1rem;
+  max-width: 40rem;
+  padding: 0;
 }
 
 .whiskasMetaHead p,
@@ -6301,63 +6503,96 @@ main > section.caseGallery {
 
 .whiskasMetaHead p {
   font-size: 2rem;
-  line-height: 1.2;
+  line-height: 5rem;
   color: #fff;
 }
 
 .whiskasMetaHead h2 {
   font-size: 4rem;
-  line-height: 1.15;
+  line-height: 5rem;
   color: #fff;
 }
 
 .whiskasMetaGrid {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 0;
 }
 
 .whiskasMetaGrid article {
-  position: relative;
-  min-height: 38.6rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 4.8rem;
-  padding: 5.2rem 4.8rem 5.6rem 0;
-  border-bottom: 1px solid rgba(208, 212, 200, 0.22);
+  position: absolute;
+  height: 35rem;
+  display: block;
+  padding: 0;
+  border-bottom: 1px solid rgba(208, 212, 200, 0.2);
 }
 
-.whiskasMetaGrid article:nth-child(2n) {
-  padding-left: 4.8rem;
-  padding-right: 0;
+.whiskasMetaGrid article.is-engagement {
+  left: var(--whiskas-x);
+  right: calc(50% + 1.5rem);
+  top: 29.1rem;
 }
 
-.whiskasMetaGrid article:nth-last-child(-n + 2) {
+.whiskasMetaGrid article.is-client {
+  left: calc(50% + 1.5rem);
+  right: var(--whiskas-x);
+  top: 9.1rem;
+  border-bottom-color: rgba(208, 212, 200, 0.1);
+}
+
+.whiskasMetaGrid article.is-experience {
+  left: var(--whiskas-x);
+  right: calc(50% + 1.5rem);
+  top: 64.1rem;
   border-bottom: 0;
-  padding-bottom: 7.4rem;
+}
+
+.whiskasMetaGrid article.is-capabilities {
+  left: calc(50% + 1.5rem);
+  right: var(--whiskas-x);
+  top: 44.1rem;
+  border-bottom-color: rgba(208, 212, 200, 0.3);
 }
 
 .whiskasMetaGrid strong {
+  position: absolute;
+  left: 0;
+  top: 11.1rem;
   display: block;
   color: rgba(255, 255, 255, 0.22);
-  font-size: clamp(5.6rem, 7.2vw, 9.9rem);
+  font-size: 9.9rem;
   font-weight: 400;
-  line-height: 0.82;
-  letter-spacing: 0;
+  line-height: 5.5rem;
+  letter-spacing: -1.1rem;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.whiskasMetaGrid article.is-client strong {
+  top: 11.95rem;
+}
+
+.whiskasMetaGrid article.is-capabilities strong {
+  left: 0.4rem;
 }
 
 .whiskasMetaGrid span {
+  position: absolute;
+  left: 0;
+  top: 26.1rem;
   display: block;
-  max-width: 54rem;
+  width: 61.8rem;
+  max-width: 100%;
   color: #fff;
   font-size: 2.2rem;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: normal;
   letter-spacing: 0;
+}
+
+.whiskasMetaGrid article.is-experience span {
+  top: 26.2rem;
 }
 
 .whiskasMoments {
@@ -6897,6 +7132,63 @@ main > section.caseGallery {
 }
 
 @media (max-width: 1180px) {
+  .whiskasMeta {
+    height: auto;
+    padding: 7rem var(--page-x) 0;
+  }
+
+  .whiskasMeta::before {
+    display: none;
+  }
+
+  .whiskasMetaHead {
+    position: relative;
+    left: auto;
+    top: auto;
+    max-width: none;
+    padding-bottom: 4.8rem;
+  }
+
+  .whiskasMetaGrid {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .whiskasMetaGrid article,
+  .whiskasMetaGrid article.is-engagement,
+  .whiskasMetaGrid article.is-client,
+  .whiskasMetaGrid article.is-experience,
+  .whiskasMetaGrid article.is-capabilities {
+    position: relative;
+    inset: auto;
+    height: auto;
+    min-height: 30rem;
+    padding: 4rem 4.8rem 5rem 0;
+    border-bottom: 1px solid rgba(208, 212, 200, 0.22);
+  }
+
+  .whiskasMetaGrid article:nth-child(2n) {
+    padding-left: 4.8rem;
+    padding-right: 0;
+  }
+
+  .whiskasMetaGrid strong,
+  .whiskasMetaGrid article.is-client strong,
+  .whiskasMetaGrid article.is-capabilities strong,
+  .whiskasMetaGrid span,
+  .whiskasMetaGrid article.is-experience span {
+    position: static;
+  }
+
+  .whiskasMetaGrid strong {
+    margin-bottom: 8rem;
+    font-size: clamp(5.6rem, 7.2vw, 9.9rem);
+    line-height: 0.82;
+    letter-spacing: 0;
+  }
+
   .whiskasStoryCard {
     position: relative;
     top: auto;
@@ -6959,6 +7251,7 @@ main > section.caseGallery {
 
   .whiskasMeta {
     min-height: auto;
+    height: auto;
     padding: 7rem var(--page-x) 0;
   }
 
@@ -6993,7 +7286,11 @@ main > section.caseGallery {
   }
 
   .whiskasMetaGrid article,
-  .whiskasMetaGrid article:nth-child(2n) {
+  .whiskasMetaGrid article:nth-child(2n),
+  .whiskasMetaGrid article.is-engagement,
+  .whiskasMetaGrid article.is-client,
+  .whiskasMetaGrid article.is-experience,
+  .whiskasMetaGrid article.is-capabilities {
     min-height: 24rem;
     padding: 3.2rem 0 4rem;
   }

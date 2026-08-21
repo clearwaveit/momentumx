@@ -75,8 +75,7 @@ export function LabExplore({
   }, [pinned]);
 
   const lastIndex = Math.max(projects.length - 1, 1);
-  const shift = pinned ? progress * (projects.length - 1) * 100 : 0;
-  const activeIndex = Math.round(progress * (projects.length - 1));
+  const activeIndex = Math.min(Math.round(progress * (projects.length - 1)), projects.length - 1);
 
   return (
     <div
@@ -85,12 +84,15 @@ export function LabExplore({
       style={{ "--slides": projects.length } as CSSProperties}
     >
       <div className="labExploreViewport">
-        <div
-          className="labExploreTrack"
-          style={pinned ? { transform: `translate3d(-${shift}%, 0, 0)` } : undefined}
-        >
+        <div className="labExploreTrack">
           {projects.map((project, index) => (
-            <article className="labSlide" key={project.title}>
+            <article
+              className={`labSlide${index === activeIndex ? " isActive" : ""}${
+                index < activeIndex ? " isBefore" : ""
+              }`}
+              key={project.title}
+              aria-hidden={pinned && index !== activeIndex}
+            >
               <div className="labSlideMedia">
                 <img src={images[index % images.length]} alt="" />
               </div>

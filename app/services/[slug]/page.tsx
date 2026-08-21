@@ -19,10 +19,12 @@ const figmaAssets = {
   capabilityLarge: "/assets/figma/service-detail/capability-large.png",
   capabilitySmall: "/assets/figma/service-detail/capability-small.png",
   valueImages: [
-    "/assets/figma/service-detail/value-1.png",
-    "/assets/figma/service-detail/value-2.jpeg",
-    "/assets/figma/service-detail/value-3.png",
-    "/assets/figma/service-detail/value-4.png"
+    "/assets/design/services-detail-1.png",
+    "/assets/design/services-detail-2.png",
+    "/assets/design/services-detail-3.png",
+    "/assets/design/services-detail-4.png",
+    "/assets/design/services-detail-5.png",
+    "/assets/design/services-detail-6.png"
   ],
   labImages: [
     "/assets/figma/service-detail/prototype-bg.png",
