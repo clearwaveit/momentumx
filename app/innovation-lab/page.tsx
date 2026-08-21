@@ -1,6 +1,7 @@
 import { SiteFooter, SiteHeader } from "../site-components";
 import { innovationLabPage } from "../site-data";
 import { LabExplore } from "./lab-explore";
+import { LabPurposeReveal } from "./lab-purpose-reveal";
 import { StatusSystem } from "./status-system";
 
 const DESIGN = "/assets/design";
@@ -8,23 +9,33 @@ const DESIGN = "/assets/design";
 // paired to each project's subject: retail analytics, physical space,
 // banking, documents, workplace, aviation
 const PROJECT_IMAGES = [
-  `${DESIGN}/lab-project-1.jpg`,
-  `${DESIGN}/lab-industry-4.jpg`,
-  `${DESIGN}/lab-industry-2.jpg`,
-  `${DESIGN}/value-3.jpg`,
-  `${DESIGN}/value-2.jpg`,
-  `${DESIGN}/lab-industry-3.jpg`
+  `${DESIGN}/lab-current-1.png`,
+  `${DESIGN}/lab-current-2.png`,
+  `${DESIGN}/lab-current-3.png`,
+  `${DESIGN}/lab-current-4.png`,
+  `${DESIGN}/lab-current-5.png`,
+  `${DESIGN}/lab-current-6.png`
 ];
 
 const INDUSTRY_IMAGES = [
-  `${DESIGN}/lab-industry-1.jpg`,
-  `${DESIGN}/lab-industry-2.jpg`,
-  `${DESIGN}/lab-industry-3.jpg`,
-  `${DESIGN}/lab-industry-4.jpg`,
-  `${DESIGN}/value-1.jpg`,
-  `${DESIGN}/value-6.jpg`,
-  `${DESIGN}/value-2.jpg`,
-  `${DESIGN}/lab-1.jpg`
+  `${DESIGN}/lab-industry-1.png`,
+  `${DESIGN}/lab-industry-2.png`,
+  `${DESIGN}/lab-industry-3.png`,
+  `${DESIGN}/lab-industry-4.png`,
+  `${DESIGN}/lab-industry-5.png`,
+  `${DESIGN}/lab-industry-6.png`,
+  `${DESIGN}/lab-industry-7.png`,
+  `${DESIGN}/lab-industry-8.png`
+];
+
+const SIGNAL_LABELS = [
+  "Product Detected",
+  "SKU 94%",
+  "Zone Occupancy",
+  "Risk Signal",
+  "Document Analysed",
+  "Vendoor Match",
+  "Dwell 04:32"
 ];
 
 export default function InnovationLabPage() {
@@ -48,6 +59,8 @@ export default function InnovationLabPage() {
           <video
             className="labHeroOrb"
             src="/assets/videos/innovation-banner-video.mp4"
+            width={1667}
+            height={1097}
             autoPlay
             muted
             loop
@@ -58,26 +71,16 @@ export default function InnovationLabPage() {
       </section>
 
       <section className="labSignals" aria-hidden="true">
-        {hero.fragments.map((fragment) => (
-          <span key={fragment}>{fragment}</span>
-        ))}
-      </section>
-
-      <section className="labPurposeX">
-        <h2>{purpose.title}</h2>
-        <p className="labPurposeBody">
-          <i aria-hidden="true">→</i>
-          {purpose.body}
-        </p>
-        <div className="labSteps">
-          {purpose.steps.map((step, index) => (
-            <article key={step}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{step}</strong>
-            </article>
-          ))}
+        <div className="labSignalsTrack">
+          {[0, 1].flatMap((copy) =>
+            SIGNAL_LABELS.map((fragment) => (
+              <span key={`${fragment}-${copy}`}>{fragment}</span>
+            ))
+          )}
         </div>
       </section>
+
+      <LabPurposeReveal title={purpose.title} />
 
       <section className="labExplore" id="lab-explore">
         <div className="labExploreHead">
