@@ -9134,7 +9134,23 @@ main > section.figmaWork {
 .figmaOtherServices > div {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 1vw, 1.5rem);
+  align-items: stretch;
+  justify-items: stretch;
+  gap: clamp(1.2rem, 0.94vw, 1.5rem);
+}
+
+@media (min-width: 1600px) {
+  .figmaOtherServices > div {
+    gap: 1.5rem;
+  }
+
+  .figmaOtherServices a {
+    width: 100%;
+    height: 61.7rem;
+    min-height: 61.7rem;
+    max-height: none;
+    aspect-ratio: auto;
+  }
 }
 
 .figmaOtherServices a {
