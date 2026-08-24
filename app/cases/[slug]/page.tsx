@@ -252,8 +252,10 @@ function WorkCaseDetail({
                 <span>
                   <img src={assets.builtIcon} alt="" />
                 </span>
-                <h3>{built.title}</h3>
-                <p>{built.body}</p>
+                <div className="whiskasBuiltCopy">
+                  <h3>{built.title}</h3>
+                  <p>{built.body}</p>
+                </div>
               </article>
             ))}
           </div>

@@ -6399,11 +6399,11 @@ main > section.labStatuses {
 }
 
 .whiskasHero {
-  min-height: 48.697rem;
+  min-height: 0;
   display: flex;
   align-items: end;
-  padding-top: 14.4rem;
-  padding-bottom: 6.997rem;
+  padding-top: clamp(10rem, 10vw, 14.4rem);
+  padding-bottom: clamp(4rem, 5vw, 7rem);
 }
 
 .whiskasHero > div {
@@ -6411,10 +6411,10 @@ main > section.labStatuses {
 }
 
 .whiskasHero h1 {
-  margin: 0 0 4rem;
-  font-size: 8rem;
+  margin: 0 0 clamp(2.4rem, 2.8vw, 4rem);
+  font-size: clamp(4.4rem, 5.2vw, 8rem);
   font-weight: 400;
-  line-height: 8.8rem;
+  line-height: 1.1;
   letter-spacing: 0;
 }
 
@@ -6428,8 +6428,8 @@ main > section.labStatuses {
 .whiskasHeroMeta {
   margin-bottom: 3.4rem;
   color: #000;
-  font-size: 2.2rem;
-  line-height: normal;
+  font-size: clamp(1.6rem, 1.5vw, 2.2rem);
+  line-height: 1.35;
 }
 
 .whiskasHeroSummary {
@@ -6440,8 +6440,8 @@ main > section.labStatuses {
 .whiskasHeroImage {
   position: relative;
   width: 100%;
-  height: 90rem;
-  min-height: 42rem;
+  height: clamp(36rem, 56vw, 90rem);
+  min-height: 32rem;
   margin: 0;
   overflow: hidden;
   background: #e5e0d2;
@@ -6561,10 +6561,10 @@ main > section.labStatuses {
   top: 11.1rem;
   display: block;
   color: rgba(255, 255, 255, 0.22);
-  font-size: 9.9rem;
+  font-size: clamp(5.6rem, 6.4vw, 9.9rem);
   font-weight: 400;
-  line-height: 5.5rem;
-  letter-spacing: -1.1rem;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -6582,12 +6582,12 @@ main > section.labStatuses {
   left: 0;
   top: 26.1rem;
   display: block;
-  width: 61.8rem;
+  width: min(61.8rem, 100%);
   max-width: 100%;
   color: #fff;
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 1.5vw, 2.2rem);
   font-weight: 400;
-  line-height: normal;
+  line-height: 1.35;
   letter-spacing: 0;
 }
 
@@ -6598,10 +6598,10 @@ main > section.labStatuses {
 .whiskasMoments {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.4rem;
+  gap: clamp(1rem, 1vw, 1.4rem);
   align-items: start;
-  padding-top: 12rem;
-  padding-bottom: 12rem;
+  padding-top: clamp(6rem, 8vw, 12rem);
+  padding-bottom: clamp(6rem, 8vw, 12rem);
   background: #fff;
 }
 
@@ -6617,7 +6617,7 @@ main > section.labStatuses {
   display: block;
   width: 100%;
   height: auto;
-  min-height: 58rem;
+  min-height: 0;
   aspect-ratio: 1;
   object-fit: cover;
   background: #eee;
@@ -6633,7 +6633,7 @@ main > section.labStatuses {
 .whiskasMoments strong {
   margin: 0;
   color: #050505;
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 1.5vw, 2.2rem);
   font-weight: 400;
   line-height: 1.3;
   letter-spacing: 0;
@@ -6658,12 +6658,12 @@ main > section.labStatuses {
 
 .whiskasStoryCard {
   position: relative;
-  min-height: 37.6rem;
+  min-height: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(24rem, 30rem);
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 30rem);
   align-items: end;
-  gap: 6rem;
-  padding: 6.8rem 4.9rem 7.1rem;
+  gap: clamp(2.4rem, 4vw, 6rem);
+  padding: clamp(4rem, 4.4vw, 6.8rem) clamp(2.4rem, 3.2vw, 4.9rem) clamp(4rem, 4.6vw, 7.1rem);
   overflow: hidden;
   color: #fff;
 }
@@ -6705,16 +6705,16 @@ main > section.labStatuses {
 
 .whiskasStoryCard h2 {
   margin: 0;
-  font-size: 4rem;
+  font-size: clamp(2.8rem, 2.8vw, 4rem);
   font-weight: 400;
-  line-height: 5rem;
+  line-height: 1.25;
   letter-spacing: 0;
   text-transform: capitalize;
 }
 
 .whiskasStoryCard p {
   grid-column: 1;
-  margin: 10.1rem 0 0;
+  margin: clamp(2.4rem, 6vw, 10.1rem) 0 0;
   max-width: 77rem;
   font-size: var(--p2);
   line-height: 1.55;
@@ -6732,17 +6732,17 @@ main > section.labStatuses {
 
 .whiskasBuilt {
   width: 100%;
-  margin: 16.7rem 0 0;
+  margin: clamp(7rem, 10vw, 16.7rem) 0 0;
   background: #000;
   color: #fff;
 }
 
 .whiskasBuiltInner {
-  min-height: 119.2rem;
+  min-height: 0;
   display: grid;
-  gap: 5.7rem;
-  padding-top: 13.8rem;
-  padding-bottom: 13rem;
+  gap: clamp(3.2rem, 4vw, 5.7rem);
+  padding-top: clamp(7rem, 9vw, 13.8rem);
+  padding-bottom: clamp(6rem, 8vw, 13rem);
 }
 
 .whiskasSectionIntro {
@@ -6752,11 +6752,12 @@ main > section.labStatuses {
 .whiskasSectionIntro h2,
 .whiskasJourneyCopy h2,
 .whiskasRelated h2,
-.whiskasCta h2 {
+.whiskasCta h2,
+.whiskasFlowCopy h2 {
   margin: 0;
-  font-size: 4rem;
+  font-size: clamp(2.8rem, 2.8vw, 4rem);
   font-weight: 400;
-  line-height: 5rem;
+  line-height: 1.25;
   letter-spacing: 0;
   text-transform: capitalize;
 }
@@ -6771,11 +6772,13 @@ main > section.labStatuses {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.9rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .whiskasBuiltGrid article {
+  min-width: 0;
   min-height: 38.6rem;
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding: 2.6rem 3.2rem 3.6rem;
@@ -6788,17 +6791,23 @@ main > section.labStatuses {
   height: 5.3rem;
   display: grid;
   place-items: center;
-  margin-bottom: auto;
+  flex: 0 0 auto;
   background: var(--whiskas-yellow);
 }
 
 .whiskasBuiltGrid span img {
   width: 5rem;
   height: 5rem;
+  object-fit: contain;
+}
+
+.whiskasBuiltCopy {
+  margin-top: auto;
+  padding-top: 2.4rem;
 }
 
 .whiskasBuiltGrid h3 {
-  margin: 12.9rem 0 2.5rem;
+  margin: 0 0 2.5rem;
   font-size: 2.2rem;
   font-weight: 400;
   line-height: 1.25;
@@ -6814,7 +6823,7 @@ main > section.labStatuses {
 
 .whiskasJourney {
   position: relative;
-  min-height: 100rem;
+  min-height: 0;
   width: 100%;
   margin: 0;
   overflow: hidden;
@@ -6827,8 +6836,8 @@ main > section.labStatuses {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding-top: 11.7rem;
-  padding-bottom: 11.6rem;
+  padding-top: clamp(6rem, 8vw, 11.7rem);
+  padding-bottom: clamp(6rem, 8vw, 11.6rem);
   background: #fff;
   color: #000;
 }
@@ -6839,10 +6848,6 @@ main > section.labStatuses {
 
 .whiskasFlowCopy h2 {
   margin: 0;
-  font-size: 4rem;
-  font-weight: 400;
-  line-height: 5rem;
-  letter-spacing: 0;
 }
 
 .whiskasFlowCopy > p:not(.whiskasPill) {
@@ -6854,11 +6859,11 @@ main > section.labStatuses {
 
 .whiskasFlowBody {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(34rem, 38.5%);
+  grid-template-columns: minmax(0, 1fr) minmax(26rem, 38.5%);
   align-items: stretch;
   gap: 0;
-  margin-top: 8.8rem;
-  min-height: 52rem;
+  margin-top: clamp(4rem, 6vw, 8.8rem);
+  min-height: 0;
 }
 
 .whiskasFlowSteps {
@@ -6873,8 +6878,9 @@ main > section.labStatuses {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-  min-height: 26rem;
-  padding: 3.2rem 2.4rem 3.6rem;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(2rem, 2vw, 3.2rem) clamp(1.6rem, 1.6vw, 2.4rem) clamp(2.2rem, 2.2vw, 3.6rem);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -6882,7 +6888,7 @@ main > section.labStatuses {
 .whiskasFlowSteps h3 {
   margin: 0;
   color: #000;
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 1.2vw, 1.8rem);
   font-weight: 600;
   line-height: 1.35;
   letter-spacing: 0;
@@ -6899,7 +6905,7 @@ main > section.labStatuses {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 52rem;
+  min-height: 32rem;
   object-fit: cover;
 }
 
@@ -6923,11 +6929,13 @@ main > section.labStatuses {
 .whiskasJourneyInner {
   position: relative;
   z-index: 1;
-  min-height: 100rem;
+  min-height: 0;
   display: grid;
-  grid-template-columns: minmax(0, 58.2rem) minmax(0, 58.2rem);
-  gap: 15.9rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(4rem, 8vw, 15.9rem);
   align-items: center;
+  padding-top: clamp(6rem, 8vw, 12rem);
+  padding-bottom: clamp(6rem, 8vw, 12rem);
 }
 
 .whiskasPill {
@@ -6978,14 +6986,16 @@ main > section.labStatuses {
 
 .whiskasJourneyCards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 28rem));
-  gap: 0.8rem 2.1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem 1.4rem;
   padding-top: 0.4rem;
+  width: 100%;
 }
 
 .whiskasJourneyCards article {
-  min-height: 30.8rem;
-  padding: 3.3rem 2.2rem;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(2rem, 2vw, 3.3rem) clamp(1.6rem, 1.6vw, 2.2rem);
   border: 1.2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
@@ -6993,12 +7003,12 @@ main > section.labStatuses {
 
 .whiskasJourneyCards span {
   opacity: 0.22;
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 1.5vw, 2.2rem);
 }
 
 .whiskasJourneyCards h3 {
-  margin: 7rem 0 3.6rem;
-  font-size: 2.2rem;
+  margin: clamp(2.4rem, 4vw, 5rem) 0 1.6rem;
+  font-size: clamp(1.6rem, 1.4vw, 2.2rem);
   font-weight: 400;
   line-height: 1.25;
   text-transform: capitalize;
@@ -7132,6 +7142,21 @@ main > section.labStatuses {
 }
 
 @media (max-width: 1180px) {
+  .whiskasHero {
+    min-height: 0;
+    padding-top: 12rem;
+    padding-bottom: 5rem;
+  }
+
+  .whiskasHero h1 {
+    font-size: clamp(4.4rem, 6vw, 6.4rem);
+  }
+
+  .whiskasHeroImage {
+    height: clamp(36rem, 52vw, 64rem);
+    min-height: 32rem;
+  }
+
   .whiskasMeta {
     height: auto;
     padding: 7rem var(--page-x) 0;
@@ -7149,6 +7174,16 @@ main > section.labStatuses {
     padding-bottom: 4.8rem;
   }
 
+  .whiskasMetaHead h2 {
+    font-size: clamp(3.2rem, 4vw, 4rem);
+    line-height: 1.2;
+  }
+
+  .whiskasMetaHead p {
+    font-size: 1.8rem;
+    line-height: 1.4;
+  }
+
   .whiskasMetaGrid {
     position: relative;
     inset: auto;
@@ -7164,13 +7199,13 @@ main > section.labStatuses {
     position: relative;
     inset: auto;
     height: auto;
-    min-height: 30rem;
-    padding: 4rem 4.8rem 5rem 0;
+    min-height: 0;
+    padding: 3.2rem 3.2rem 4rem 0;
     border-bottom: 1px solid rgba(208, 212, 200, 0.22);
   }
 
   .whiskasMetaGrid article:nth-child(2n) {
-    padding-left: 4.8rem;
+    padding-left: 3.2rem;
     padding-right: 0;
   }
 
@@ -7183,15 +7218,24 @@ main > section.labStatuses {
   }
 
   .whiskasMetaGrid strong {
-    margin-bottom: 8rem;
-    font-size: clamp(5.6rem, 7.2vw, 9.9rem);
-    line-height: 0.82;
-    letter-spacing: 0;
+    width: 100%;
+    margin-bottom: 3.2rem;
+    font-size: clamp(3.6rem, 5.4vw, 6.4rem);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .whiskasMetaGrid span {
+    width: auto;
+    max-width: 100%;
   }
 
   .whiskasStoryCard {
     position: relative;
     top: auto;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 24rem);
   }
 
   .whiskasStoryCard + .whiskasStoryCard {
@@ -7201,12 +7245,22 @@ main > section.labStatuses {
   .whiskasBuiltGrid,
   .whiskasRelated > div {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .whiskasBuiltGrid article {
+    min-height: 38.6rem;
+    padding: 2.4rem 2.4rem 3.2rem;
   }
 
   .whiskasJourneyInner {
     grid-template-columns: 1fr;
-    gap: 6rem;
+    gap: 4.8rem;
     align-items: start;
+  }
+
+  .whiskasJourneyCards {
+    max-width: none;
   }
 
   .whiskasFlow {
@@ -7219,13 +7273,77 @@ main > section.labStatuses {
     min-height: 0;
   }
 
+  .whiskasFlowSteps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .whiskasFlowBody > img {
     grid-column: 1;
     grid-row: auto;
     margin-top: 0;
-    min-height: 42rem;
+    min-height: 0;
     height: auto;
-    aspect-ratio: 1;
+    max-height: 48rem;
+    aspect-ratio: 16 / 10;
+  }
+
+  .whiskasPill {
+    margin-bottom: 2.8rem;
+    padding: 1.1rem 1.6rem;
+  }
+}
+
+@media (max-width: 990px) {
+  .whiskasHero h1 {
+    font-size: clamp(3.8rem, 8vw, 5.6rem);
+  }
+
+  .whiskasHeroMeta {
+    margin-bottom: 2.4rem;
+    font-size: 1.6rem;
+  }
+
+  .whiskasMoments {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .whiskasStoryCard {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+    padding: 4rem 2.4rem;
+  }
+
+  .whiskasStoryCard p {
+    margin-top: 1.6rem;
+  }
+
+  .whiskasStoryImage {
+    grid-column: 1;
+    grid-row: auto;
+    width: min(22rem, 64%);
+    max-height: 18rem;
+    margin: 0;
+  }
+
+  .whiskasMetaGrid strong {
+    margin-bottom: 2.4rem;
+    font-size: clamp(3.2rem, 6vw, 4.8rem);
+  }
+
+  .whiskasBuiltGrid article {
+    min-height: 38.6rem;
+    height: 100%;
+  }
+
+  .whiskasJourneyCopy > div span,
+  .whiskasPill {
+    font-size: 1.6rem;
+  }
+
+  .whiskasFlowBody > img {
+    max-height: 36rem;
+    aspect-ratio: 16 / 10;
   }
 }
 
@@ -7237,22 +7355,25 @@ main > section.labStatuses {
   .whiskasHero {
     min-height: auto;
     padding-top: 10rem;
-    padding-bottom: 5rem;
+    padding-bottom: 4rem;
   }
 
   .whiskasHero h1 {
-    font-size: clamp(4rem, 13vw, 5.6rem);
+    font-size: clamp(3.4rem, 12vw, 4.8rem);
+    margin-bottom: 2.4rem;
   }
 
   .whiskasHeroImage {
-    min-height: 34rem;
-    height: 72vw;
+    min-height: 28rem;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    max-height: 52rem;
   }
 
   .whiskasMeta {
     min-height: auto;
     height: auto;
-    padding: 7rem var(--page-x) 0;
+    padding: 5rem var(--page-x) 0;
   }
 
   .whiskasMeta::before {
@@ -7261,7 +7382,12 @@ main > section.labStatuses {
 
   .whiskasMetaHead {
     max-width: none;
-    padding-bottom: 4.8rem;
+    padding-bottom: 3.2rem;
+  }
+
+  .whiskasMetaHead p {
+    font-size: 1.6rem;
+    line-height: 1.4;
   }
 
   .whiskasMetaGrid,
@@ -7279,10 +7405,17 @@ main > section.labStatuses {
 
   .whiskasFlowSteps article {
     min-height: 0;
+    padding: 2rem 1.8rem 2.4rem;
   }
 
   .whiskasMoments img {
-    min-height: 42rem;
+    min-height: 0;
+    aspect-ratio: 1;
+  }
+
+  .whiskasMoments figcaption {
+    padding-top: 1.8rem;
+    gap: 1.2rem;
   }
 
   .whiskasMetaGrid article,
@@ -7291,8 +7424,8 @@ main > section.labStatuses {
   .whiskasMetaGrid article.is-client,
   .whiskasMetaGrid article.is-experience,
   .whiskasMetaGrid article.is-capabilities {
-    min-height: 24rem;
-    padding: 3.2rem 0 4rem;
+    min-height: 0;
+    padding: 2.8rem 0 3.2rem;
   }
 
   .whiskasMetaGrid article:nth-last-child(2) {
@@ -7300,16 +7433,17 @@ main > section.labStatuses {
   }
 
   .whiskasMetaGrid article:nth-last-child(-n + 2) {
-    padding-bottom: 4rem;
+    padding-bottom: 3.2rem;
   }
 
   .whiskasMetaGrid article:last-child {
-    padding-bottom: 6rem;
+    padding-bottom: 4.8rem;
   }
 
   .whiskasMetaGrid strong {
-    font-size: clamp(4.2rem, 14vw, 5.4rem);
-    line-height: 0.9;
+    margin-bottom: 1.8rem;
+    font-size: clamp(2.8rem, 10vw, 4rem);
+    line-height: 0.95;
   }
 
   .whiskasStory {
@@ -7319,59 +7453,169 @@ main > section.labStatuses {
 
   .whiskasStoryCard {
     grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 4.8rem 2.4rem;
+    gap: 2.4rem;
+    padding: 3.6rem var(--page-x);
+  }
+
+  .whiskasStoryCard h2 {
+    font-size: clamp(2.4rem, 7vw, 3.2rem);
   }
 
   .whiskasStoryCard p {
-    margin-top: 2rem;
+    margin-top: 1.6rem;
   }
 
   .whiskasStoryImage {
     grid-column: 1;
     grid-row: auto;
-    width: min(22rem, 70%);
+    width: min(18rem, 58%);
+    max-height: 16rem;
     margin: 0;
   }
 
   .whiskasBuilt {
-    margin-top: 7rem;
+    margin-top: 5rem;
   }
 
   .whiskasBuiltInner,
   .whiskasFlow,
   .whiskasJourneyInner {
     min-height: auto;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
-  .whiskasJourneyCards article,
+  .whiskasJourneyCards article {
+    min-height: 0;
+    height: 100%;
+  }
+
   .whiskasBuiltGrid article {
-    min-height: 26rem;
+    min-height: 32rem;
+    height: 100%;
+    padding: 2.2rem 2rem 2.8rem;
   }
 
-  .whiskasBuiltGrid h3 {
-    margin-top: 7rem;
+  .whiskasBuiltGrid span {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  .whiskasJourneyCards article {
+    padding: 2rem 1.8rem 2.2rem;
+  }
+
+  .whiskasJourneyCards h3 {
+    margin: 2.4rem 0 1.2rem;
   }
 
   .whiskasRelated {
-    padding-top: 9rem;
-    padding-bottom: 9rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 
   .whiskasRelated a {
-    min-height: 42rem;
+    min-height: 0;
+    aspect-ratio: 0.78;
+    max-height: 42rem;
   }
 
   .whiskasCta > div {
-    padding-bottom: 30rem;
+    padding: 6rem var(--page-x) 4rem;
   }
 
   .whiskasCta > img {
-    right: 0;
-    width: 28rem;
-    height: 42rem;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: min(28rem, 100%);
+    height: auto;
+    aspect-ratio: 435 / 725;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .whiskasFlowBody > img {
+    max-height: 28rem;
+  }
+
+  .whiskasJourneyCopy > p:not(.whiskasPill) {
+    margin: 2.4rem 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .whiskasHero {
+    padding-top: 9rem;
+    padding-bottom: 3.2rem;
+  }
+
+  .whiskasHero h1 {
+    font-size: clamp(3rem, 11vw, 4rem);
+  }
+
+  .whiskasHeroImage {
+    aspect-ratio: 3 / 4;
+    max-height: 42rem;
+  }
+
+  .whiskasMeta {
+    padding-top: 4rem;
+  }
+
+  .whiskasMetaHead h2 {
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+  }
+
+  .whiskasMetaGrid strong {
+    font-size: clamp(2.4rem, 9vw, 3.2rem);
+  }
+
+  .whiskasMoments {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .whiskasStoryCard {
+    padding: 3.2rem var(--page-x);
+  }
+
+  .whiskasStoryCard > div:first-child {
+    gap: 1.4rem;
+  }
+
+  .whiskasBuiltInner,
+  .whiskasFlow,
+  .whiskasJourneyInner {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .whiskasBuiltGrid article,
+  .whiskasJourneyCards article,
+  .whiskasFlowSteps article {
+    padding: 1.8rem 1.6rem 2rem;
+  }
+
+  .whiskasSectionIntro h2,
+  .whiskasJourneyCopy h2,
+  .whiskasFlowCopy h2 {
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+  }
+
+  .whiskasPill {
+    margin-bottom: 2rem;
+    padding: 0.9rem 1.4rem;
+    gap: 1.2rem;
+  }
+
+  .whiskasJourneyCopy > div span {
+    padding: 1rem 1.4rem;
+    font-size: 1.5rem;
+  }
+
+  .whiskasFlowBody > img {
+    max-height: 22rem;
   }
 }
 
@@ -7671,6 +7915,7 @@ main > section.labStatuses {
   color: var(--muted);
   font-size: var(--p2);
   line-height: 1.9;
+  white-space: normal;
 }
 
 .figmaCover > h2 {
@@ -8111,9 +8356,9 @@ main > section.figmaWork {
 .figmaExecutionHead h2 {
   margin: 0 0 1.9rem;
   color: #fff;
-  font-size: 4rem;
+  font-size: clamp(2.8rem, 2.8vw, 4rem);
   font-weight: 300;
-  line-height: 5rem;
+  line-height: 1.25;
   letter-spacing: 0;
   text-transform: none;
   max-width: none;
@@ -8124,8 +8369,8 @@ main > section.figmaWork {
 .figmaExecutionHead > p {
   margin: 0;
   color: #fff;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: clamp(1.5rem, 1.3vw, 1.8rem);
+  line-height: 1.55;
   max-width: none;
 }
 
@@ -8140,7 +8385,7 @@ main > section.figmaWork {
 .figmaExecutionCards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.4rem;
+  gap: clamp(1rem, 1vw, 1.4rem);
   position: static;
   width: 100%;
   margin-top: 0;
@@ -8150,9 +8395,10 @@ main > section.figmaWork {
 .figmaExecutionCards article {
   position: relative;
   width: 100%;
-  min-height: 26.4rem;
+  min-width: 0;
+  min-height: 0;
   height: auto;
-  padding: 4rem 2.9rem;
+  padding: clamp(2.2rem, 2.4vw, 4rem) clamp(1.6rem, 1.8vw, 2.9rem);
   overflow: hidden;
   border: 1.2px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.1);
@@ -8162,19 +8408,20 @@ main > section.figmaWork {
 
 .figmaExecutionCards span {
   position: static;
-  width: 7.56rem;
-  height: 7.56rem;
+  width: clamp(4.8rem, 5.2vw, 7.56rem);
+  height: clamp(4.8rem, 5.2vw, 7.56rem);
   display: grid;
   place-items: center;
-  margin-bottom: 2.8rem;
+  flex: 0 0 auto;
+  margin-bottom: clamp(1.4rem, 1.8vw, 2.8rem);
   border-radius: 50%;
   background: #fff;
   box-shadow: none;
 }
 
 .figmaExecutionCards span img {
-  width: 3.8rem;
-  height: 3.8rem;
+  width: 50%;
+  height: 50%;
   object-fit: contain;
 }
 
@@ -8183,7 +8430,7 @@ main > section.figmaWork {
   width: auto;
   margin: 0 0 1.4rem;
   color: #fff;
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 1.4vw, 2.2rem);
   font-weight: 300;
   line-height: 1.25;
   letter-spacing: 0;
@@ -8195,8 +8442,8 @@ main > section.figmaWork {
   max-width: 39.3rem;
   margin: 0;
   color: #fff;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: clamp(1.4rem, 1.2vw, 1.8rem);
+  line-height: 1.55;
 }
 
 .figmaCapabilities {
@@ -8403,15 +8650,15 @@ main > section.figmaWork {
 
 .figmaValueTrack article {
   position: relative;
-  flex: 0 0 38.4rem;
-  width: 38.4rem;
+  flex: 0 0 clamp(26rem, 24vw, 38.4rem);
+  width: clamp(26rem, 24vw, 38.4rem);
   max-width: 38.4rem;
-  min-width: 28rem;
-  height: 55rem;
+  min-width: 22rem;
+  height: clamp(38rem, 36vw, 55rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 3.2rem 3.2rem 4.6rem 2.8rem;
+  padding: clamp(2rem, 2vw, 3.2rem) clamp(2rem, 2vw, 3.2rem) clamp(2.8rem, 2.8vw, 4.6rem) clamp(1.8rem, 1.8vw, 2.8rem);
   overflow: hidden;
   background: #111;
   color: #fff;
@@ -8419,8 +8666,8 @@ main > section.figmaWork {
 
 .figmaValueTrack article.isTextTop {
   justify-content: flex-start;
-  padding-top: 4.6rem;
-  padding-left: 3.46rem;
+  padding-top: clamp(2.4rem, 2.8vw, 4.6rem);
+  padding-left: clamp(1.8rem, 2vw, 3.46rem);
 }
 
 .figmaValueTrack article > img {
@@ -8429,6 +8676,7 @@ main > section.figmaWork {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .figmaValueTrack article:nth-child(4n + 1) > img {
@@ -8458,19 +8706,19 @@ main > section.figmaWork {
 }
 
 .figmaValueTrack h3 {
-  margin: 0 0 2.5rem;
+  margin: 0 0 clamp(1.4rem, 1.6vw, 2.5rem);
   color: #fff;
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 1.5vw, 2.2rem);
   font-weight: 300;
-  line-height: 1;
+  line-height: 1.15;
   text-transform: none;
 }
 
 .figmaValueTrack p {
   margin: 0;
   color: #fff;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: clamp(1.4rem, 1.2vw, 1.8rem);
+  line-height: 1.55;
 }
 
 .figmaCollaboration {
@@ -8886,17 +9134,20 @@ main > section.figmaWork {
 .figmaOtherServices > div {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
+  gap: clamp(1rem, 1vw, 1.5rem);
 }
 
 .figmaOtherServices a {
   position: relative;
-  height: 61.7rem;
-  min-height: 61.7rem;
+  min-width: 0;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 0.78;
+  max-height: 61.7rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 4rem 3rem 3.7rem;
+  padding: clamp(2rem, 2.4vw, 4rem) clamp(1.8rem, 2vw, 3rem) clamp(2rem, 2.2vw, 3.7rem);
   overflow: hidden;
   color: #fff;
   background: #000;
@@ -8927,25 +9178,25 @@ main > section.figmaWork {
 }
 
 .figmaOtherServices span {
-  width: 4rem;
-  height: 4rem;
+  width: clamp(3.2rem, 2.6vw, 4rem);
+  height: clamp(3.2rem, 2.6vw, 4rem);
   border: 0;
   border-radius: 0;
   background: #fff;
 }
 
 .figmaOtherServices span img {
-  width: 4rem;
-  height: 4rem;
+  width: 100%;
+  height: 100%;
   display: block;
   object-fit: contain;
 }
 
 .figmaOtherServices strong {
   max-width: 34rem;
-  font-size: 2.2rem;
+  font-size: clamp(1.6rem, 1.4vw, 2.2rem);
   font-weight: 300;
-  line-height: 1;
+  line-height: 1.15;
   text-transform: capitalize;
 }
 
@@ -9069,13 +9320,6 @@ main > section.figmaWork {
     padding-bottom: 4rem;
   }
 
-  .figmaPrinciples,
-  .figmaSubServices,
-  .figmaLabItems,
-  .figmaOtherServices > div {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .figmaPrinciples {
     padding-top: 4rem;
     padding-bottom: 8rem;
@@ -9092,7 +9336,7 @@ main > section.figmaWork {
   .figmaLabItems h3,
   .figmaExecutionCards h3,
   .figmaOtherServices strong {
-    font-size: clamp(1.8rem, 2vw, 2.2rem);
+    font-size: clamp(1.6rem, 1.8vw, 2.2rem);
   }
 
   .figmaCapabilityLead {
@@ -9151,7 +9395,7 @@ main > section.figmaWork {
   }
 
   .figmaLabItems article {
-    grid-template-rows: minmax(22rem, 28rem) auto;
+    grid-template-rows: minmax(18rem, 24rem) auto;
     min-height: 0;
   }
 
@@ -9163,7 +9407,8 @@ main > section.figmaWork {
     height: auto;
     min-height: 0;
     aspect-ratio: 0.72;
-    padding: 3rem 2.4rem 3rem;
+    max-height: 48rem;
+    padding: 2.4rem 2rem 2.4rem;
   }
 
   .figmaCollaboration article {
@@ -9183,16 +9428,17 @@ main > section.figmaWork {
   }
 
   .figmaValueTrack {
-    gap: 1.4rem;
+    gap: 1.2rem;
     animation-duration: 40s;
   }
 
   .figmaValueTrack article {
-    flex: 0 0 calc((100vw - (var(--page-x) * 2) - 1.4rem) / 2);
-    width: calc((100vw - (var(--page-x) * 2) - 1.4rem) / 2);
-    min-width: 28rem;
-    max-width: 38rem;
-    height: 48rem;
+    flex: 0 0 min(32rem, 78vw);
+    width: min(32rem, 78vw);
+    min-width: 0;
+    max-width: 32rem;
+    height: min(46rem, 68vw);
+    padding: 2.4rem 2.2rem 3.2rem 2.2rem;
   }
 
   .figmaValueHead {
@@ -9378,8 +9624,29 @@ main > section.figmaWork {
   }
 
   .figmaExecutionCards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
     align-self: stretch;
+  }
+
+  .figmaExecutionCards article {
+    min-height: 0;
+    padding: 2.4rem 1.8rem 2.6rem;
+  }
+
+  .figmaExecutionCards span {
+    width: clamp(4.4rem, 4.8vw, 6rem);
+    height: clamp(4.4rem, 4.8vw, 6rem);
+    margin-bottom: 1.6rem;
+  }
+
+  .figmaExecutionCards h3 {
+    margin-bottom: 1rem;
+  }
+
+  .figmaExecutionCards p {
+    font-size: clamp(1.4rem, 1.3vw, 1.6rem);
+    line-height: 1.5;
   }
 
   .figmaCollaboration {
@@ -9459,15 +9726,135 @@ main > section.figmaWork {
     margin: 4rem 0 0 auto;
     aspect-ratio: 435 / 725;
   }
+}
+
+@media (max-width: 990px) {
+  .figmaServiceHero h1 {
+    font-size: clamp(4rem, 7vw, 5.6rem);
+  }
+
+  .figmaPrinciples {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .figmaPrinciples img {
+    aspect-ratio: 16 / 10;
+    max-height: 32rem;
+    object-fit: cover;
+    margin-bottom: 1.6rem;
+  }
+
+  .figmaLabItems {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .figmaLabItems article {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-rows: auto;
+    min-height: 0;
+  }
+
+  .figmaLabItems article > img {
+    min-height: 18rem;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .figmaExecutionInner {
+    gap: 4.8rem;
+    padding-top: 7rem;
+    padding-bottom: 6rem;
+  }
+
+  .figmaExecutionCards {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
 
   .figmaExecutionCards article {
-    min-height: 0;
-    padding: 3rem 2.4rem;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 1.8rem;
+    row-gap: 0.4rem;
+    align-items: center;
+    padding: 2.2rem 2rem;
+  }
+
+  .figmaExecutionCards span {
+    grid-row: 1 / span 2;
+    width: 5.6rem;
+    height: 5.6rem;
+    margin-bottom: 0;
+  }
+
+  .figmaExecutionCards h3 {
+    margin: 0;
+    font-size: 2rem;
   }
 
   .figmaExecutionCards p {
-    font-size: 1.6rem;
-    line-height: 1.55;
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .figmaValueTrack article {
+    flex: 0 0 min(30rem, 70vw);
+    width: min(30rem, 70vw);
+    max-width: 30rem;
+    height: 42rem;
+    padding: 2.2rem 2rem 2.8rem;
+  }
+
+  .figmaValueTrack h3 {
+    margin-bottom: 1.4rem;
+    font-size: 1.8rem;
+  }
+
+  .figmaValueTrack p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .figmaOtherServices > div {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .figmaOtherServices a {
+    aspect-ratio: auto;
+    height: clamp(28rem, 52vw, 40rem);
+    max-height: 40rem;
+    padding: 2.4rem 2.2rem;
+  }
+
+  .figmaCollaborationInner {
+    gap: 4.8rem;
+    padding-top: 7rem;
+    padding-bottom: 6rem;
+  }
+
+  .figmaCta > img {
+    width: min(32rem, 100%);
+    margin: 3.2rem 0 0;
+  }
+
+  .figmaLabel {
+    margin-bottom: 3.2rem;
+    padding: 1rem 1.6rem;
+    gap: 1.2rem;
+  }
+
+  .figmaCover,
+  .figmaCapabilities,
+  .figmaValue,
+  .figmaLab,
+  .figmaInsights,
+  .figmaOtherServices {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
   }
 }
 
@@ -9624,10 +10011,10 @@ main > section.figmaWork {
   }
 
   .figmaOtherServices a {
-    height: auto;
-    min-height: 0;
-    aspect-ratio: 0.85;
-    padding: 2.4rem 2rem 2.4rem;
+    height: clamp(26rem, 62vw, 36rem);
+    max-height: 36rem;
+    aspect-ratio: auto;
+    padding: 2.2rem 2rem;
   }
 
   .figmaCollaboration article {
@@ -9663,6 +10050,11 @@ main > section.figmaWork {
   .figmaLabItems,
   .figmaOtherServices > div {
     grid-template-columns: 1fr;
+  }
+
+  .figmaLabItems article {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(20rem, 42vw) auto;
   }
 
   .figmaSubServices {
@@ -9709,11 +10101,12 @@ main > section.figmaWork {
   }
 
   .figmaValueTrack article {
-    flex: 0 0 min(85vw, 34rem);
-    width: min(85vw, 34rem);
+    flex: 0 0 min(78vw, 30rem);
+    width: min(78vw, 30rem);
     min-width: 0;
     max-width: none;
-    height: 42rem;
+    height: 38rem;
+    padding: 2rem 1.8rem 2.4rem;
   }
 
   .figmaValueTrack article > div {
@@ -9858,11 +10251,36 @@ main > section.figmaWork {
 
   .figmaExecutionCards {
     grid-template-columns: 1fr;
+    gap: 1.2rem;
     align-self: stretch;
   }
 
   .figmaExecutionCards article {
     min-height: 0;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 1.6rem;
+    row-gap: 0.4rem;
+    align-items: center;
+    padding: 2rem 1.8rem;
+  }
+
+  .figmaExecutionCards span {
+    grid-row: 1 / span 2;
+    width: 4.8rem;
+    height: 4.8rem;
+    margin-bottom: 0;
+  }
+
+  .figmaExecutionCards h3 {
+    margin: 0;
+    font-size: clamp(1.8rem, 5vw, 2rem);
+  }
+
+  .figmaExecutionCards p {
+    font-size: 1.5rem;
+    line-height: 1.5;
   }
 
   .figmaCollaboration {
@@ -9920,5 +10338,187 @@ main > section.figmaWork {
     height: auto;
     aspect-ratio: 0.79;
     margin: 3rem 0 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .figmaServiceHero {
+    gap: 2rem;
+    padding-top: 10rem;
+    padding-bottom: 3.2rem;
+  }
+
+  .figmaServiceHero h1 {
+    font-size: clamp(3.2rem, 10.5vw, 4.2rem);
+  }
+
+  .figmaServiceHero p {
+    margin-top: 2.2rem;
+    font-size: 1.5rem;
+  }
+
+  .figmaHeroMedia {
+    aspect-ratio: 4 / 5;
+  }
+
+  .figmaIntro,
+  .figmaPrinciples,
+  .figmaCover,
+  .figmaExecutionInner,
+  .figmaCapabilities,
+  .figmaValue,
+  .figmaLab,
+  .figmaCollaborationInner,
+  .figmaInsights,
+  .figmaOtherServices,
+  .figmaCta {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .figmaIntro h2,
+  .figmaCover > h2,
+  .figmaCapabilities h2,
+  .figmaValue h2,
+  .figmaLab h2,
+  .figmaInsights h2,
+  .figmaOtherServices h2,
+  .figmaCta h2,
+  .figmaExecutionHead h2,
+  .figmaCollaborationHead h2 {
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+  }
+
+  .figmaLabel {
+    margin-bottom: 2.4rem;
+    padding: 0.9rem 1.4rem;
+  }
+
+  .figmaLabel p {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  .figmaPrinciples article,
+  .figmaSubServices article {
+    padding: 1.6rem;
+  }
+
+  .figmaSubServices article > span {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+
+  .figmaSubServices article > span img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .figmaSubServiceMark {
+    width: 12rem;
+  }
+
+  .figmaExecutionCards article {
+    padding: 1.8rem 1.6rem;
+    column-gap: 1.4rem;
+  }
+
+  .figmaExecutionCards span {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  .figmaExecutionCards h3 {
+    font-size: 1.8rem;
+  }
+
+  .figmaExecutionCards p {
+    font-size: 1.4rem;
+  }
+
+  .figmaValueHead {
+    margin-bottom: 2.8rem;
+    gap: 1.6rem;
+  }
+
+  .figmaValueTrack article {
+    flex: 0 0 min(82vw, 26rem);
+    width: min(82vw, 26rem);
+    height: 34rem;
+    padding: 1.8rem 1.6rem 2.2rem;
+  }
+
+  .figmaValueTrack h3 {
+    margin-bottom: 1.2rem;
+    font-size: 1.6rem;
+  }
+
+  .figmaValueTrack p {
+    font-size: 1.4rem;
+    line-height: 1.45;
+  }
+
+  .figmaOtherServices h2 {
+    margin-bottom: 2.4rem;
+  }
+
+  .figmaOtherServices a {
+    height: clamp(24rem, 72vw, 32rem);
+    max-height: 32rem;
+    padding: 2rem 1.8rem;
+  }
+
+  .figmaOtherServices strong {
+    font-size: 1.8rem;
+  }
+
+  .figmaOtherServices span {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .figmaCapabilityTrigger {
+    min-height: 6.4rem;
+    font-size: 1.8rem;
+  }
+
+  .figmaCapabilityIcon {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .figmaCollaboration article {
+    padding: 2.4rem 1.8rem 6.4rem;
+  }
+
+  .figmaCollaboration article h3 {
+    font-size: 2rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .figmaCta > div {
+    width: 100%;
+  }
+
+  .figmaCta .figmaLabel {
+    margin-bottom: 3.2rem;
+  }
+
+  .figmaCta > img {
+    width: min(22rem, 80%);
+    margin: 2.4rem 0 0;
+  }
+
+  .figmaWork {
+    margin-top: 3.2rem;
+    padding: 2rem var(--page-x) 3.2rem;
+  }
+
+  .figmaWorkCard {
+    padding: 1.8rem 1.6rem 2rem;
+  }
+
+  .figmaWorkCard h3 {
+    font-size: 1.8rem;
   }
 }
