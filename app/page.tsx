@@ -40,7 +40,7 @@ const featuredWorks: SelectedWork[] = [
     href: "/cases/dentazon-ai-dental-care-platform",
     expertise: ["Conversational AI", "Digital Health", "Triage Assist"],
     description: "A bilingual AI assistant that guides patients from a dental concern to the right next step.",
-    media: { type: "image", src: "/assets/case-studies/Dentazon.png" }
+    media: { type: "image", src: "/assets/case-studies/Dentazon-2.png" }
   },
   {
     title: "Ferrero Group Back to School Campaign",
