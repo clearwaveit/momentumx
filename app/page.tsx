@@ -1,163 +1,54 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AutoRail, SiteFooter, SiteHeader } from "./site-components";
-
-const services = [
-  {
-    number: "01",
-    slug: "ai-consulting-and-transformation",
-    title: "AI consulting & transformation",
-    image: "/assets/imgs/services-1.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1180785751/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=2234eb566b5ec5bbd384eb07afd23de891bf90694be298ac9e618a4d194bf0ce"
-  },
-  {
-    number: "02",
-    slug: "ai-solutions-and-intelligent-systems",
-    title: "AI solutions & intelligent systems",
-    image: "/assets/imgs/services-2.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1096949701/rendition/720p/file.mp4?loc=external&log_user=0&signature=39f7576c7b26eabaee6ae6cacafd39551d5716c492e712e88f824151f03ddb19"
-  },
-  {
-    number: "03",
-    slug: "automation-and-enterprise-solutions",
-    title: "automation & enterprise solutions",
-    image: "/assets/imgs/services-3.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1180785751/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=2234eb566b5ec5bbd384eb07afd23de891bf90694be298ac9e618a4d194bf0ce"
-  },
-  {
-    number: "04",
-    slug: "digital-experience-and-platforms",
-    title: "digital experience & platforms",
-    image: "/assets/imgs/services-4.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/787553887/rendition/720p/file.mp4?loc=external&signature=75c1c8aeb372612ddaced02827f766136f000d54fbd337c1b57d39d17773eff7"
-  },
-  {
-    number: "05",
-    slug: "data-and-intelligence",
-    title: "data & intelligence",
-    image: "/assets/imgs/services-6.png"
-  },
-  {
-    number: "06",
-    slug: "smart-and-connected-technology",
-    title: "smart & connected technology",
-    image: "/assets/imgs/services-7.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1096861274/rendition/720p/file.mp4?loc=external&log_user=0&signature=a682a6ebf6953100276ad90c0de14ce7bbe4798482fd9aaac9bba2e6b455ead2"
-  },
-  {
-    number: "07",
-    slug: "managed-services",
-    title: "managed services",
-    image: "/assets/imgs/services-9.png"
-  }
-];
+import { SelectedWorks, type SelectedWork } from "./selected-works";
+import { ServicesGrid } from "./services-grid";
+import { services } from "./site-data";
+import { SiteFooter, SiteHeader } from "./site-components";
 
 const proof = [
   {
-    title: "REGIONAL EXPERIENCE",
-    body:
-      "Built on Momentum's established presence and experience across the Middle East.",
-    image: "https://storage.tentwenty.com/small_S_DSC_0638_40569566bb_16f9862aea.webp"
+    title: "BUSINESS FIRST",
+    body: "Every engagement starts with the operational, customer or market problem, not the technology."
   },
   {
-    title: "DIGITAL & AI DELIVERY",
-    body:
-      "Strategy, engineering and implementation across AI and digital technology.",
-    image: "https://storage.tentwenty.com/small_Mask_group_3_1_96df741620_47c47e2b74.webp"
+    title: "AI WHERE IT COUNTS",
+    body: "Practical AI, automation and data, applied where they change decisions, costs or experiences."
   },
   {
-    title: "BUSINESS UNDERSTANDING",
-    body:
-      "Solutions shaped around real operational, customer and market challenges.",
-    image:
-      "https://storage.tentwenty.com/60_digital_experts_building_excellence_6538127864.webp"
+    title: "END-TO-END DELIVERY",
+    body: "Strategy, design, engineering and ongoing management from one accountable team."
   },
   {
-    title: "BUILT TO INNOVATE",
-    body:
-      "Turning emerging technologies and recurring challenges into new solutions and IP.",
-    image: "https://storage.tentwenty.com/small_Showreel_vertical_09d7c91a59.webp"
+    title: "REGIONAL UNDERSTANDING",
+    body: "Built for Middle East markets, from bilingual users to local regulation and ways of working."
   }
 ];
 
-const cases = [
+// Adapted from aquest.it's "Selected works". Expertise comes from each case's
+// capabilities; there is no year data yet, so that row stays hidden.
+const featuredWorks: SelectedWork[] = [
   {
-    brand: "Whiskas",
-    title: "Interactive Cat Game",
-    body:
-      "A tablet-based game turning pet play into user-generated campaign participation.",
-    tags: "GAMIFICATION · UGC · CAMPAIGN",
-    href: "/cases/whiskas-interactive-cat-game"
+    title: "Whiskas Interactive Cat Game",
+    href: "/cases/whiskas-interactive-cat-game",
+    expertise: ["Gamification", "Interactive Experience", "UGC"],
+    description: "A tablet-based game turning pet play into user-generated campaign participation.",
+    media: { type: "image", src: "/assets/cases/whiskas/hero.jpg" }
   },
   {
-    brand: "Bank Muscat",
-    title: "IBM API Connect Implementation",
-    body:
-      "Building a managed API layer for secure B2B and corporate banking connectivity.",
-    tags: "BANKING · API MANAGEMENT · B2B",
-    href: "/cases/bank-muscat-ibm-api-connect"
+    title: "Dentazon Care Concierge",
+    href: "/cases/dentazon-ai-dental-care-platform",
+    expertise: ["Conversational AI", "Digital Health", "Triage Assist"],
+    description: "A bilingual AI assistant that guides patients from a dental concern to the right next step.",
+    media: { type: "image", src: "/assets/cases/dentazon/hero.jpg" }
   },
   {
-    brand: "Ferrero Group",
-    title: "Back to School Campaign",
-    body:
+    title: "Ferrero Group Back to School Campaign",
+    href: "/cases/ferrero-back-to-school-campaign",
+    expertise: ["WhatsApp", "OCR", "Receipt Processing"],
+    description:
       "A WhatsApp-first promotional platform connecting receipt submission, OCR and instant-win outcomes.",
-    tags: "WHATSAPP · OCR · MARTECH",
-    href: "/cases/ferrero-back-to-school-campaign"
-  },
-  {
-    brand: "Dentazon",
-    title: "AI Dental Care Platform",
-    body:
-      "Connecting AI-assisted guidance, patient history, dentist discovery and appointment management.",
-    tags: "AI PRODUCT · HEALTHCARE · CARE",
-    href: "/cases/dentazon-ai-dental-care-platform"
-  },
-  {
-    brand: "du",
-    title: "Retail Intelligence Platform",
-    body:
-      "Transforming retail observations, images and video into structured market intelligence.",
-    tags: "COMPUTER VISION · DATA · BI",
-    href: "/cases/du-retail-intelligence-platform"
-  },
-  {
-    brand: "M&M's",
-    title: "Intelligent Consumer Experiences",
-    body:
-      "Evolving brand engagement through personalisation, interactive technology and real-time audience intelligence.",
-    tags: "AI · EXPERIENCE · DATA",
-    href: "/cases/moments-of-magic"
-  },
-  {
-    brand: "Unilever",
-    title: "Retail Intelligence",
-    body:
-      "Extending shopper and retail experience with computer vision, merchandising intelligence and real-time performance insights.",
-    tags: "VISION AI · RETAIL · ANALYTICS",
-    href: "/cases/ride-back-in-style"
-  },
-  {
-    brand: "BRF",
-    title: "Connected Customer Experiences",
-    body:
-      "Bringing data and intelligence into physical and digital consumer engagement.",
-    tags: "DATA · DIGITAL · EXPERIENCE",
-    href: "/cases/taste-of-abu-dhabi"
-  },
-  {
-    brand: "Nolte",
-    title: "Digital Growth Platform",
-    body:
-      "Creating a premium product-discovery and lead-generation platform, extended with an AI knowledge assistant for multi-market expansion.",
-    tags: "AI · PLATFORM · CMS",
-    href: "/cases/nolte-digital-transformation"
+    media: { type: "image", src: "/assets/cases/ferrero/hero.jpg" }
   }
 ];
 
@@ -203,7 +94,6 @@ function useRotatingWords(words: string[], delay = 1800) {
 
 export default function Home() {
   const showreelLabel = useRotatingWords(showreelWords, 1500);
-  const [activeService, setActiveService] = useState(0);
 
   useEffect(() => {
     document.querySelectorAll("video").forEach((video) => {
@@ -234,7 +124,6 @@ export default function Home() {
         <div className="showreelMedia">
           <video
             src="https://customer-d1g9djed8qknar4r.cloudflarestream.com/d750f8048b43ed107e82597ce328be4f/downloads/default.mp4"
-            poster="https://storage.tentwenty.com/small_play_showreel_dca84a2c40.webp"
             autoPlay
             muted
             loop
@@ -244,104 +133,43 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="services sectionPad reveal" id="services">
-        <div className="sectionHead">
-          <p>what we do</p>
-          <h2>helping businesses transform through technology, intelligence & innovation</h2>
-        </div>
+      <ServicesGrid label="what we do" services={services} />
 
-        <div className="servicesLayout">
-          <div className="serviceMedia" aria-hidden="true">
-            {services.map((service, index) => (
-              <figure
-                key={service.title}
-                className={index === activeService ? "isActive" : ""}
-              >
-                <img src={service.image} alt="" />
-              </figure>
-            ))}
-          </div>
-          <div className="serviceList">
-            {services.map((service, index) => (
-              <a
-                href={`/services/${service.slug}`}
-                key={service.title}
-                className={index === activeService ? "serviceRow isActive" : "serviceRow"}
-                onMouseEnter={() => setActiveService(index)}
-                onFocus={() => setActiveService(index)}
-              >
-                <strong>{service.title}</strong>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="identity sectionPad reveal" id="about">
-        <h2>who we are</h2>
-        <div className="identityPanel">
-          <div className="identityMedia">
-            <img src="https://storage.tentwenty.com/small_S_DSC_0638_40569566bb_16f9862aea.webp" alt="" />
-          </div>
-          <div className="identityCopy">
-            <p className="eyebrow">built on experience. evolved for what&apos;s next.</p>
-            <h3>regional experience backed by digital & AI capability.</h3>
-            <p>
-              MomentumX is the Digital & AI Transformation arm of Momentum, extending established
-              regional experience into AI, enterprise technology and intelligent digital solutions.
-            </p>
-            <p>
-              Built on Momentum&apos;s understanding of brands, businesses and consumers across the
-              Middle East, we combine that experience with capabilities in AI, software engineering,
-              automation, data and connected technology.
-            </p>
-            <p>
-              The result is technology grounded in real business challenges, real customer behaviour
-              and real market understanding.
-            </p>
-            <div className="proofStack">
-              {proof.map((item) => (
-                <article key={item.title}>
-                  <span>{item.title}</span>
-                  <p>{item.body}</p>
-                </article>
-              ))}
-            </div>
-            <a className="textLink" href="/about-us">
-              more about us
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="featured sectionPad reveal" id="featured">
-        <div className="sectionHead dark">
-          <p>experience, evolved</p>
-          <h2>from experience to intelligence</h2>
-          <p>
-            Building on Momentum&apos;s real-world engagements to explore how AI, data and technology
-            can create the next generation of customer and business experiences.
+      {/* Who we are: a dark typographic band about what MomentumX does, with no photography. */}
+      <section className="homeAbout" id="about">
+        <div className="homeAboutHead">
+          <p className="homeAboutEyebrow">who we are</p>
+          <h2>technology built around how your business actually works.</h2>
+          <p className="homeAboutBody">
+            MomentumX is a digital & AI transformation company working with organisations across the
+            Middle East. We find where technology creates real value, then design, build and run the
+            solutions that deliver it, from AI and automation to data platforms and digital experiences.
           </p>
         </div>
-        <AutoRail>
-          {cases.map((item) => (
-            <article className="caseCard" key={item.title}>
-              <div className="caseBrand">{item.brand}</div>
-              <div className="rule" />
-              <h3>{item.title}</h3>
+
+        <ol className="homeAboutProof">
+          {proof.map((item, index) => (
+            <li key={item.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{item.title.toLowerCase().replace(/\bai\b/g, "AI")}</h3>
               <p>{item.body}</p>
-              <div className="tagList">{item.tags}</div>
-              <a className="textLink light" href={item.href}>
-                Case study
-              </a>
-            </article>
+            </li>
           ))}
-        </AutoRail>
-        <p className="contentNote">
-          Detailed case-study pages distinguish Momentum&apos;s original delivered engagement from
-          MomentumX AI and digital extensions or concepts.
-        </p>
+        </ol>
+
+        <a className="homeAboutLink" href="/about-us">
+          more about us
+          <svg viewBox="0 0 40 12" aria-hidden="true" focusable="false">
+            <path d="M0 6h36m0 0L30 1m6 5-6 5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
       </section>
+
+      <SelectedWorks
+        label="experience, evolved"
+        heading="from experience to intelligence"
+        works={featuredWorks}
+      />
 
       <section className="lab sectionPad reveal" id="innovation-lab">
         <div className="sectionHead">
@@ -378,14 +206,13 @@ export default function Home() {
             start a conversation
           </a>
         </div>
-        <video
-          className="bookingVideo"
-          src="https://player.vimeo.com/progressive_redirect/playback/1181081928/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&log_user=0&signature=5ec89cd81d84eb45f3d0a875fe2b8d6c2fad8bd62b5059a4136afe4dfd697360"
-          poster="https://storage.tentwenty.com/small_Showreel_vertical_09d7c91a59.webp"
-          autoPlay
-          muted
-          loop
-          playsInline
+        <img
+          className="bookingPerson"
+          src="/assets/design/cta-person-momentumx.png"
+          alt=""
+          width={630}
+          height={1478}
+          loading="lazy"
         />
       </section>
 

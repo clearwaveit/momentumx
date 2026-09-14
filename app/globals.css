@@ -19,6 +19,65 @@
   --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
+/* ------------------------------------------------------------
+   Type scale mirrored from aquest.it.
+   Their rem is min(max/size*10, 100vw/size*10), with size/max
+   375 / 480px below 1024px and 1920 / 2560px from 1024px. Layout
+   keeps our own 10px rem; only type follows the reference, via --aq.
+   ------------------------------------------------------------ */
+:root {
+  --aq-size: 375;
+  --aq-max: 480px;
+  --aq: min(calc(var(--aq-max) / var(--aq-size) * 10), calc(100vw / var(--aq-size) * 10));
+
+  /* Free stand-ins for Neue Haas Grotesk Display and Schnyder Light, loaded
+     by next/font in layout.tsx. To switch to the licensed faces, load them
+     and put their family names first in these two stacks. */
+  --font-sans: var(--font-inter-tight), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+
+  --t-xs: var(--aq);
+  --t-sm: calc(var(--aq) * 1.2);
+  --t-2sm: calc(var(--aq) * 1.4);
+  --t-md: calc(var(--aq) * 1.6);
+  --t-2md: calc(var(--aq) * 1.6);
+  --t-3md: calc(var(--aq) * 3.6);
+  --t-lg: calc(var(--aq) * 2.2);
+  --t-xl: calc(var(--aq) * 3);
+  --t-3xl: calc(var(--aq) * 5.2); /* 20% under AQuest's 6.5 */
+  --t-3xl-weight: var(--fw-normal);
+
+  --lh-xs: 1.1;
+  --lh-sm: 1.1;
+  --lh-2sm: 1.1;
+  --lh-md: 1.2;
+  --lh-2md: 1.3;
+  --lh-3md: 1.1;
+  --lh-lg: 1;
+  --lh-xl: 1;
+  --lh-3xl: 1.1;
+  --ls-3xl: -0.01em;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --aq-size: 1920;
+    --aq-max: 2560px;
+    --t-xs: max(calc(var(--aq) * 1.4), 10px);
+    --t-sm: max(calc(var(--aq) * 1.6), 12px);
+    --t-2sm: max(calc(var(--aq) * 1.8), 14px);
+    --t-md: max(calc(var(--aq) * 2), 16px);
+    --t-2md: calc(var(--aq) * 2.6);
+    --t-lg: calc(var(--aq) * 5);
+    --t-xl: calc(var(--aq) * 8);
+    --t-3xl: calc(var(--aq) * 14.4); /* 20% under AQuest's 18 */
+    --t-3xl-weight: var(--fw-light);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -33,15 +92,19 @@ body {
   max-width: 100%;
   background: var(--paper);
   color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: var(--p1);
-  font-weight: 300;
-  line-height: 1.4;
-  letter-spacing: -0.048rem;
+  font-family: var(--font-sans);
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-md);
+  letter-spacing: normal;
 }
 
 h1, h2, h3, p {
   overflow-wrap: anywhere;
+}
+
+h1, h2, h3 {
+  hyphens: auto;
 }
 
 a {
@@ -150,15 +213,27 @@ mark::before,
 }
 
 .nav a,
-.navOverlayLinks a,
 .menuButton,
 .roundLink,
 .buttonLink,
 .textLink {
   position: relative;
-  font-size: var(--p3, 1.84rem);
-  font-weight: 400;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
   line-height: 1.9;
+}
+
+/* Header nav runs 20% above the t-sm UI size */
+.nav a,
+.menuButton {
+  font-size: calc(var(--t-sm) * 1.2);
+}
+
+.navOverlayLinks a {
+  position: relative;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .nav a::after,
@@ -202,12 +277,12 @@ mark::before,
 }
 
 .hero h1 {
-  max-width: min(122rem, 100%);
+  max-width: 100%;
   margin: 0;
-  font-size: clamp(3.2rem, 6.2vw, var(--h1));
-  font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: 0;
+  font-size: var(--t-3xl);
+  font-weight: var(--t-3xl-weight);
+  line-height: var(--lh-3xl);
+  letter-spacing: var(--ls-3xl);
   text-wrap: balance;
 }
 
@@ -264,17 +339,18 @@ mark::before,
 .eyebrow {
   margin: 0 0 1rem;
   color: var(--muted);
-  font-size: var(--p1);
+  font-size: var(--t-sm);
   line-height: 1.4;
+  font-weight: var(--fw-medium);
 }
 
 .sectionHead h2,
 .identity > h2,
 .featured h2 {
   margin: 0;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1.1;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-wrap: balance;
 }
@@ -388,16 +464,19 @@ mark::before,
   align-self: start;
   padding-top: 2.6rem;
   color: currentColor;
-  font-size: var(--p2);
+  font-size: var(--t-md);
   opacity: 0.45;
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-md);
 }
 
 .serviceRow strong {
-  font-size: var(--h3);
-  font-weight: 300;
-  line-height: 1.3;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-wrap: pretty;
+  font-family: var(--font-serif);
 }
 
 .identity {
@@ -438,22 +517,31 @@ mark::before,
 
 .identityCopy h3 {
   margin: 0;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1.1;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-wrap: balance;
 }
 
 .identityCopy > p:not(.eyebrow),
 .bookingCopy,
-.caseCard p,
+.caseCard p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  letter-spacing: -0.048rem;
+  font-weight: var(--fw-medium);
+}
+
 .footer p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
+  font-size: var(--t-2sm);
   line-height: 1.4;
   letter-spacing: -0.048rem;
+  font-weight: var(--fw-medium);
 }
 
 .identityCopy > p:not(.eyebrow) {
@@ -478,16 +566,17 @@ mark::before,
 .proofStack span {
   display: block;
   margin-bottom: 2rem;
-  font-size: var(--h3);
-  font-weight: 300;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
   line-height: 1.2;
 }
 
 .proofStack p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .textLink {
@@ -523,11 +612,12 @@ mark::before,
 .booking h2 {
   max-width: min(83rem, 100%);
   margin: 0;
-  font-size: clamp(3.2rem, 5.2vw, var(--h1-booking));
-  font-weight: 300;
-  line-height: 1.1;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-wrap: balance;
+  font-family: var(--font-serif);
 }
 
 .bookingCopy {
@@ -536,13 +626,14 @@ mark::before,
   color: rgba(255, 255, 255, 0.68);
 }
 
+/* The MomentumX brand loop is 16:9 on black, so it shows whole at full strength. */
 .bookingVideo {
   width: 100%;
-  max-width: 68rem;
-  aspect-ratio: 0.82;
-  object-fit: cover;
-  opacity: 0.72;
-  transform: translateX(clamp(0rem, 4vw, 8rem));
+  max-width: 80rem;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #000;
+  justify-self: end;
 }
 
 .showreel {
@@ -578,9 +669,10 @@ mark::before,
 
 .showreelMarquee span {
   white-space: nowrap;
-  font-size: clamp(2.2rem, 3.4vw, 5.2rem);
-  line-height: 1;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
+  font-weight: var(--fw-normal);
 }
 
 .showreelMarquee span::before {
@@ -595,12 +687,13 @@ mark::before,
   z-index: 2;
   max-width: min(44rem, calc(100% - var(--page-x) * 2));
   color: #fff;
-  font-size: var(--h3);
-  line-height: 1.15;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-align: right;
   text-transform: none;
   animation: wordIn 0.55s var(--ease-out) both;
+  font-weight: var(--fw-normal);
 }
 
 .featured {
@@ -620,7 +713,9 @@ mark::before,
   max-width: 78rem;
   margin-top: 3rem;
   color: rgba(255, 255, 255, 0.62);
-  font-size: var(--p2);
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-md);
 }
 
 .caseRail {
@@ -669,8 +764,8 @@ mark::before,
   align-items: center;
   margin-bottom: 2.75rem;
   color: #fff;
-  font-size: 4.2rem;
-  font-weight: 300;
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
   line-height: 1;
   letter-spacing: 0;
   text-transform: none;
@@ -685,11 +780,12 @@ mark::before,
 
 .caseCard h3 {
   margin: 0 0 1.25rem;
-  font-size: var(--h3);
-  font-weight: 300;
-  line-height: 1.3;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-wrap: pretty;
+  font-family: var(--font-serif);
 }
 
 .caseCard .textLink {
@@ -707,12 +803,20 @@ mark::before,
 }
 
 .tagList,
-.contentNote,
-.labGrid span {
-  font-size: var(--small);
+.contentNote {
+  font-size: var(--t-2sm);
   line-height: 1.4;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  font-weight: var(--fw-medium);
+}
+
+.labGrid span {
+  font-size: var(--t-sm);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
 }
 
 .tagList {
@@ -735,7 +839,10 @@ mark::before,
 }
 
 .largeLink {
-  font-size: var(--h3);
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  font-family: var(--font-serif);
+  line-height: var(--lh-lg);
 }
 
 .footer {
@@ -760,8 +867,8 @@ mark::before,
   display: inline-block;
   padding: 0 0.4rem;
   max-width: 100%;
-  font-size: clamp(2.6rem, 2.2vw + 1.8rem, 6.7rem);
-  font-weight: 300;
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
   line-height: 1.08;
   letter-spacing: 0;
   overflow-wrap: break-word;
@@ -770,8 +877,8 @@ mark::before,
 
 .footer h3 {
   margin: 0 0 1rem;
-  font-size: var(--p1);
-  font-weight: 300;
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
   line-height: 1.4;
 }
 
@@ -804,24 +911,27 @@ mark::before,
 .subHero p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--p1);
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-2md);
 }
 
 .subHero h1 {
-  max-width: min(105rem, 100%);
+  max-width: 100%;
   margin: 0;
-  font-size: clamp(3.2rem, 6.2vw, var(--h1));
-  font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: 0;
+  font-size: var(--t-3xl);
+  font-weight: var(--t-3xl-weight);
+  line-height: var(--lh-3xl);
+  letter-spacing: var(--ls-3xl);
   text-wrap: balance;
 }
 
 .subHeroSummary {
   max-width: 72rem;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.4;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .listingGrid,
@@ -857,20 +967,29 @@ mark::before,
 .listingCard > span,
 .newsCard > span {
   color: currentColor;
-  font-size: var(--p2);
+  font-size: var(--t-2sm);
   opacity: 0.55;
+  font-weight: var(--fw-medium);
 }
 
 .listingCard h2,
 .workCard h2,
 .newsCard h2,
-.relatedRail h2,
-.detailCopy h2,
 .ctaBand h2 {
   margin: 0;
-  font-size: var(--h3);
-  font-weight: 300;
-  line-height: 1.3;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+  letter-spacing: 0;
+  font-family: var(--font-serif);
+}
+
+.relatedRail h2,
+.detailCopy h2 {
+  margin: 0;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
 }
 
@@ -881,9 +1000,10 @@ mark::before,
 .articleBody p {
   margin: 0;
   color: currentColor;
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   opacity: 0.65;
+  font-weight: var(--fw-medium);
 }
 
 .detailMedia {
@@ -927,8 +1047,9 @@ mark::before,
 .capabilityLine p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .detailCopy {
@@ -949,7 +1070,9 @@ mark::before,
 .detailCopy li {
   padding-top: 1.4rem;
   border-top: 1px solid var(--line);
-  font-size: var(--p2);
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-md);
 }
 
 .detailCopy li strong {
@@ -979,8 +1102,8 @@ mark::before,
 .principleGrid strong {
   display: block;
   margin-bottom: 2rem;
-  font-size: var(--small);
-  font-weight: 400;
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
   letter-spacing: 0.08em;
   line-height: 1.4;
 }
@@ -988,8 +1111,9 @@ mark::before,
 .principleGrid p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   line-height: 1.45;
+  font-weight: var(--fw-medium);
 }
 
 .relatedRail {
@@ -1012,11 +1136,13 @@ mark::before,
   min-height: 16rem;
   padding: 2rem;
   background: #fff;
-  font-size: var(--h3);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   transition:
     background 0.3s ease,
     color 0.3s ease;
+  font-weight: var(--fw-normal);
+  font-family: var(--font-serif);
 }
 
 .relatedRail a:hover {
@@ -1050,15 +1176,17 @@ mark::before,
 
 .miniMediaCard span {
   color: currentColor;
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   opacity: 0.55;
+  font-weight: var(--fw-medium);
 }
 
 .miniMediaCard strong {
   padding-bottom: 2rem;
-  font-size: var(--h3);
-  font-weight: 300;
-  line-height: 1.22;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+  font-family: var(--font-serif);
 }
 
 .newsGrid .newsCard:first-child {
@@ -1105,8 +1233,8 @@ mark::before,
   display: flex;
   align-items: center;
   color: currentColor;
-  font-size: var(--h3);
-  font-weight: 300;
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
   line-height: 1.05;
   letter-spacing: 0;
   text-transform: none;
@@ -1116,7 +1244,10 @@ mark::before,
   width: auto;
   max-width: 42rem;
   min-height: 8rem;
-  font-size: var(--h2);
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  font-family: var(--font-serif);
+  line-height: var(--lh-lg);
 }
 
 .newsCard img,
@@ -1191,10 +1322,11 @@ mark::before,
 .labGrid h3 {
   max-width: 26rem;
   margin: auto 0 2rem;
-  font-size: var(--h3);
-  font-weight: 300;
-  line-height: 1.2;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
+  font-family: var(--font-serif);
 }
 
 .labGrid p {
@@ -1203,8 +1335,9 @@ mark::before,
   max-width: 35rem;
   margin: 0;
   color: rgba(255, 255, 255, 0.62);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .lab .largeLink {
@@ -1214,28 +1347,33 @@ mark::before,
 .ctaBand p {
   margin: 0 0 3rem;
   color: rgba(255, 255, 255, 0.62);
-  font-size: var(--p1);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
 }
 
 .ctaBand .ctaCopy {
   max-width: 72rem;
   margin-bottom: 5rem;
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .ctaBand h2 {
   max-width: 82rem;
   margin-bottom: 3rem;
-  font-size: var(--h2);
-  line-height: 1.1;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
+  font-weight: var(--fw-normal);
+  font-family: var(--font-serif);
 }
 
 .sectionNumber {
   display: block;
   color: var(--muted);
-  font-size: var(--h3);
+  font-size: var(--t-sm);
   line-height: 1.3;
+  font-weight: var(--fw-medium);
 }
 
 .numberedSection {
@@ -1248,17 +1386,18 @@ mark::before,
 .numberedSection > h2 {
   grid-column: 2;
   margin: 0 0 5rem;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1.1;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .sectionIntro {
   grid-column: 2;
   margin: -3rem 0 4rem;
   color: var(--muted);
-  font-size: var(--p1);
-  line-height: 1.4;
+  font-size: var(--t-2md);
+  line-height: var(--lh-2md);
+  font-weight: var(--fw-medium);
 }
 
 .processGrid,
@@ -1331,7 +1470,8 @@ mark::before,
 
 .subServiceGrid span {
   color: var(--muted);
-  font-size: var(--p2);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
 }
 
 .subServiceGrid article::after {
@@ -1390,8 +1530,9 @@ mark::before,
 }
 
 .valueGrid h3 {
-  font-size: var(--p1);
+  font-size: var(--t-2md);
   letter-spacing: 0.06em;
+  font-weight: var(--fw-medium);
 }
 
 .processGrid h3,
@@ -1404,8 +1545,8 @@ mark::before,
 .articleBody h2,
 .articleBody h3 {
   margin: 0 0 2rem;
-  font-size: var(--h3);
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.3;
 }
 
@@ -1418,8 +1559,9 @@ mark::before,
 .jobDetail li {
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .serviceProcessGrid {
@@ -1480,9 +1622,10 @@ mark::before,
   position: relative;
   max-width: 36rem;
   margin: 7rem 0 2rem;
-  font-size: var(--h3);
+  font-size: var(--t-2md);
   line-height: 1.15;
   letter-spacing: 0;
+  font-weight: var(--fw-medium);
 }
 
 .serviceProcessGrid p {
@@ -1525,22 +1668,25 @@ mark::before,
 
 .journeySection h2 {
   margin-top: 3rem;
-  font-size: var(--h2);
-  line-height: 1.1;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
+  font-weight: var(--fw-normal);
 }
 
 .journeySection h3 {
   margin-top: 3rem;
-  font-size: var(--h3);
+  font-size: var(--t-2md);
   line-height: 1.25;
+  font-weight: var(--fw-medium);
 }
 
 .journeySection p {
   max-width: 78rem;
   margin: 2rem 0 0;
   color: rgba(255, 255, 255, 0.62);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .journeyFlow {
@@ -1598,14 +1744,15 @@ mark::before,
 
 .journeyStep span {
   color: rgba(255, 255, 255, 0.46);
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   line-height: 1;
+  font-weight: var(--fw-medium);
 }
 
 .journeyStep strong {
   max-width: 18rem;
-  font-size: clamp(1.6rem, 1.15vw, 2.2rem);
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.18;
   letter-spacing: 0;
 }
@@ -1615,8 +1762,9 @@ mark::before,
   z-index: 1;
   margin-top: 0 !important;
   color: #fff !important;
-  font-size: var(--h3) !important;
-  line-height: 1.3 !important;
+  font-size: var(--t-md) !important;
+  line-height: var(--lh-md) !important;
+  font-weight: var(--fw-medium);
 }
 
 .insightOnlyCard {
@@ -1639,9 +1787,9 @@ mark::before,
 .statsBand h2 {
   max-width: 86rem;
   margin: 0 0 5rem;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1.1;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .testimonialBlock blockquote {
@@ -1649,9 +1797,10 @@ mark::before,
   margin: 0;
   padding: 4rem 0;
   border-top: 1px solid var(--line);
-  font-size: var(--h3);
-  line-height: 1.3;
+  font-size: var(--t-2md);
+  line-height: var(--lh-2md);
   text-wrap: balance;
+  font-weight: var(--fw-medium);
 }
 
 .storyStack {
@@ -1671,9 +1820,9 @@ mark::before,
 .storyStack h2 {
   grid-column: 2;
   margin: 0 0 2rem;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1.1;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .storyStack p {
@@ -1681,8 +1830,9 @@ mark::before,
   max-width: 104rem;
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .aboutHeroMedia {
@@ -1701,17 +1851,18 @@ mark::before,
 
 .aboutHeroMedia h2 {
   margin: 2rem 0 3rem;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1.1;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .aboutHeroMedia p {
   max-width: 62rem;
   margin: 0 0 2rem;
   color: var(--muted);
-  font-size: var(--p1);
-  line-height: 1.4;
+  font-size: var(--t-2md);
+  line-height: var(--lh-2md);
+  font-weight: var(--fw-medium);
 }
 
 .aboutHeroMedia p:last-child {
@@ -1733,14 +1884,16 @@ mark::before,
 
 .statsBand strong {
   display: block;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .statsBand span {
   color: var(--muted);
-  font-size: var(--p2);
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-md);
 }
 
 .imageMarquee {
@@ -1800,12 +1953,13 @@ mark::before,
 
 .evolutionFlow span {
   color: rgba(255, 255, 255, 0.38);
-  font-size: var(--small);
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
 }
 
 .evolutionFlow strong {
-  font-size: clamp(1.6rem, 1.2vw, 2.2rem);
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.18;
   letter-spacing: 0;
 }
@@ -1824,8 +1978,8 @@ mark::before,
 
 .aboutStrengths h3 {
   margin: 0;
-  font-size: var(--h3);
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.2;
 }
 
@@ -1833,8 +1987,9 @@ mark::before,
   max-width: 78rem;
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .clientWall > div:last-child {
@@ -1850,10 +2005,11 @@ mark::before,
   place-items: center;
   padding: 2rem;
   background: #fff;
-  font-size: var(--h3);
+  font-size: var(--t-2sm);
   line-height: 1;
   text-align: center;
   text-transform: none;
+  font-weight: var(--fw-medium);
 }
 
 .labHero {
@@ -1874,21 +2030,23 @@ mark::before,
   max-width: 76rem;
   margin: 0 0 3rem;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .labHero > div:first-child > p:first-child {
-  font-size: var(--p1);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
 }
 
 .labHero h1 {
   max-width: min(100rem, 100%);
   margin: 0 0 4rem;
-  font-size: clamp(3.2rem, 6.2vw, var(--h1));
-  font-weight: 300;
-  line-height: 1.03;
-  letter-spacing: 0;
+  font-size: var(--t-3xl);
+  font-weight: var(--t-3xl-weight);
+  line-height: var(--lh-3xl);
+  letter-spacing: var(--ls-3xl);
 }
 
 .labHero h1 span {
@@ -1936,11 +2094,12 @@ mark::before,
   padding: 0.75rem 1rem;
   border: 1px solid rgba(0, 0, 0, 0.16);
   background: rgba(255, 255, 255, 0.82);
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   line-height: 1.2;
   letter-spacing: 0.06em;
   animation: labSignal 4.8s ease-in-out infinite;
   animation-delay: calc(var(--i) * -0.42s);
+  font-weight: var(--fw-medium);
 }
 
 .labPurpose {
@@ -1951,7 +2110,9 @@ mark::before,
 .industryIndex .sectionHead p:last-child {
   max-width: 86rem;
   color: var(--muted);
-  font-size: var(--p2);
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-md);
 }
 
 .labProgression {
@@ -1968,9 +2129,10 @@ mark::before,
   align-items: flex-end;
   padding: 2rem;
   background: #fff;
-  font-size: var(--p2);
-  line-height: 1.2;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   letter-spacing: 0.05em;
+  font-weight: var(--fw-medium);
 }
 
 .labProjects {
@@ -2102,23 +2264,25 @@ mark::before,
 .labProjectCopy > span,
 .labProjectMetrics > span {
   color: var(--muted);
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   line-height: 1.4;
   letter-spacing: 0.06em;
+  font-weight: var(--fw-medium);
 }
 
 .labProjectCopy h3 {
   margin: auto 0 2rem;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1.05;
+  font-size: var(--t-xl);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-xl);
+  font-family: var(--font-serif);
 }
 
 .labProjectCopy h4 {
   max-width: 48rem;
   margin: 0 0 2rem;
-  font-size: var(--h3);
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.2;
 }
 
@@ -2126,8 +2290,9 @@ mark::before,
   max-width: 62rem;
   margin: 0 0 1.5rem;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .labProjectMetrics {
@@ -2142,8 +2307,8 @@ mark::before,
   display: block;
   padding: 1.2rem 0;
   border-top: 1px solid var(--line);
-  font-size: var(--small);
-  font-weight: 400;
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
   line-height: 1.35;
 }
 
@@ -2161,16 +2326,17 @@ mark::before,
 
 .industryIndex h3 {
   margin: 0;
-  font-size: var(--h3);
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.1;
 }
 
 .industryIndex p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .labReality {
@@ -2196,8 +2362,9 @@ mark::before,
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 2rem;
   color: #fff;
-  font-size: var(--p2);
-  line-height: 1.2;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .realityPath > div:first-child span {
@@ -2215,8 +2382,9 @@ mark::before,
 
 .statusSystem h2 {
   margin: 0 0 5rem;
-  font-size: var(--h2);
-  font-weight: 300;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .statusSystem > div {
@@ -2234,16 +2402,18 @@ mark::before,
 
 .statusSystem h3 {
   margin: 0 0 4rem;
-  font-size: var(--p2);
-  font-weight: 400;
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
   letter-spacing: 0.06em;
+  line-height: var(--lh-md);
 }
 
 .statusSystem p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .labBuild {
@@ -2254,23 +2424,26 @@ mark::before,
 .labBuild > p:first-child {
   margin: 0 0 3rem;
   color: rgba(255, 255, 255, 0.62);
-  font-size: var(--p1);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
 }
 
 .labBuild h2 {
   max-width: 86rem;
   margin: 0 0 3rem;
-  font-size: var(--h1-booking);
-  font-weight: 300;
-  line-height: 1.05;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+  font-family: var(--font-serif);
 }
 
 .labBuild > p:not(:first-child) {
   max-width: 78rem;
   margin: 0 0 5rem;
   color: rgba(255, 255, 255, 0.68);
-  font-size: var(--p2);
-  line-height: 1.45;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .labBuild > div {
@@ -2298,17 +2471,19 @@ mark::before,
 .industryLab > div:first-child > p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   line-height: 1.3;
   letter-spacing: 0.06em;
+  font-weight: var(--fw-medium);
 }
 
 .industriesHero h1 {
-  max-width: 110rem;
+  max-width: 100%;
   margin: 0;
-  font-size: var(--h1);
-  font-weight: 300;
-  line-height: 0.95;
+  font-size: var(--t-3xl);
+  font-weight: var(--t-3xl-weight);
+  line-height: var(--lh-3xl);
+  letter-spacing: var(--ls-3xl);
 }
 
 .industriesHero p:last-child,
@@ -2318,8 +2493,9 @@ mark::before,
   max-width: 76rem;
   margin: 0;
   color: var(--muted);
-  font-size: var(--p1);
-  line-height: 1.45;
+  font-size: var(--t-2md);
+  line-height: var(--lh-2md);
+  font-weight: var(--fw-medium);
 }
 
 .industriesIntro {
@@ -2332,9 +2508,9 @@ mark::before,
 .industriesIntro h2 {
   max-width: 70rem;
   margin: 0;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1.05;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .industriesIntro p {
@@ -2363,9 +2539,10 @@ mark::before,
   padding: 1.5rem 0;
   border-bottom: 1px solid var(--line);
   color: #111;
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   line-height: 1.3;
   text-decoration: none;
+  font-weight: var(--fw-medium);
 }
 
 .industriesEditorial aside span,
@@ -2390,17 +2567,17 @@ mark::before,
 .industryMeta span {
   display: block;
   margin-bottom: 1.8rem;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .industryCopy h2 {
   max-width: 76rem;
   margin: 0 0 2.4rem;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1.08;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .industryTags {
@@ -2415,8 +2592,9 @@ mark::before,
   border: 1px solid var(--line);
   border-radius: 999px;
   color: #111;
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   line-height: 1.2;
+  font-weight: var(--fw-medium);
 }
 
 .industryProof {
@@ -2435,12 +2613,20 @@ mark::before,
   background: #f7f7f7;
 }
 
-.industryProof a,
-.industryProof span {
+.industryProof a {
   color: #111;
-  font-size: var(--p2);
+  font-size: var(--t-sm);
   line-height: 1.35;
   text-decoration: none;
+  font-weight: var(--fw-medium);
+}
+
+.industryProof span {
+  color: #111;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  text-decoration: none;
+  font-weight: var(--fw-medium);
 }
 
 .industryProof a {
@@ -2463,8 +2649,9 @@ mark::before,
   padding: 2rem;
   background: #fff;
   color: #111;
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   line-height: 1.35;
+  font-weight: var(--fw-medium);
 }
 
 .industryFlow > div:last-child span:nth-child(even) {
@@ -2492,9 +2679,9 @@ mark::before,
 .industryLab h2 {
   max-width: 82rem;
   margin: 0;
-  font-size: var(--h2);
-  font-weight: 300;
-  line-height: 1.05;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .industryLab p {
@@ -2518,13 +2705,15 @@ mark::before,
 }
 
 .industryLab strong {
-  font-size: var(--p2);
-  font-weight: 400;
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-md);
 }
 
 .industryLab span {
   color: rgba(255, 255, 255, 0.56);
-  font-size: var(--small);
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
 }
 
 .contactForm {
@@ -2535,8 +2724,9 @@ mark::before,
 .contactForm h2,
 .portfolioLinks h2 {
   margin: 0 0 5rem;
-  font-size: var(--h2);
-  font-weight: 300;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .contactForm form {
@@ -2592,7 +2782,8 @@ mark::before,
   margin: 0;
   padding: 0 2rem 1.4rem;
   color: var(--primary);
-  font-size: var(--small);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-medium);
 }
 
 .contactHoneypot {
@@ -2613,8 +2804,10 @@ mark::before,
   max-width: 100%;
   margin-bottom: 3rem;
   color: rgba(255, 255, 255, 0.68);
-  font-size: var(--p2);
+  font-size: var(--t-md);
   cursor: pointer;
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-md);
 }
 
 .contactConsent input {
@@ -2642,7 +2835,9 @@ mark::before,
 
 .contactStatus {
   margin: 2rem 0 0;
-  font-size: var(--p2);
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-md);
 }
 
 .contactStatus.isSuccess {
@@ -2667,7 +2862,8 @@ mark::before,
   min-height: 16rem;
   padding: 3rem;
   background: #fff;
-  font-size: var(--h3);
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
 }
 
 .portfolioLinks img {
@@ -2717,12 +2913,14 @@ mark::before,
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
   color: var(--muted);
-  font-size: var(--p2);
+  font-size: var(--t-md);
   opacity: 0;
   transform: translateY(2.4rem);
   transition:
     opacity 0.8s var(--ease-out) 0.12s,
     transform 0.8s var(--ease-out) 0.12s;
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-md);
 }
 
 .caseGallery figure.isInView img,
@@ -2753,21 +2951,23 @@ mark::before,
 
 .caseJourneyGrid span {
   color: var(--muted);
-  font-size: var(--small);
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
 }
 
 .caseJourneyGrid h3 {
   margin: auto 0 2rem;
-  font-size: var(--h3);
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.15;
 }
 
 .caseJourneyGrid p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   line-height: 1.45;
+  font-weight: var(--fw-medium);
 }
 
 .caseJourney .contentNote {
@@ -2792,10 +2992,11 @@ mark::before,
   align-items: flex-end;
   padding: 2rem;
   background: #111;
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   line-height: 1.25;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  font-weight: var(--fw-medium);
 }
 
 .caseMarketList {
@@ -2810,8 +3011,9 @@ mark::before,
   border-radius: 999px;
   padding: 0.65rem 1.4rem;
   color: rgba(255, 255, 255, 0.76);
-  font-size: var(--small);
+  font-size: var(--t-2sm);
   line-height: 1.2;
+  font-weight: var(--fw-medium);
 }
 
 .articleMediaGrid {
@@ -3089,7 +3291,7 @@ main > section.labStatuses {
   }
 
   .navOverlayLinks a {
-    font-size: 2.4rem;
+    font-size: var(--t-lg);
     line-height: 1.2;
     letter-spacing: 0;
   }
@@ -3137,7 +3339,7 @@ main > section.labStatuses {
   }
 
   .showreelMarquee span {
-    font-size: 4rem;
+    font-size: var(--t-lg);
   }
 
   .footer {
@@ -3146,7 +3348,7 @@ main > section.labStatuses {
   }
 
   .footer nav a {
-    font-size: clamp(2.6rem, 3.6vw, 4.7rem);
+    font-size: var(--t-2sm);
   }
 }
 
@@ -3285,18 +3487,18 @@ main > section.labStatuses {
   }
 
   .booking h2 {
-    font-size: clamp(3.2rem, 7vw, 5.2rem);
+    font-size: var(--t-lg);
   }
 
   .bookingVideo {
     position: relative;
     inset: auto;
     z-index: 0;
-    width: min(42rem, 100%);
+    width: min(56rem, 100%);
     max-width: 100%;
     justify-self: end;
     transform: none;
-    opacity: 0.72;
+    opacity: 1;
   }
 
   .caseRail {
@@ -3325,7 +3527,7 @@ main > section.labStatuses {
   }
 
   .footer nav a {
-    font-size: clamp(2.4rem, 5.4vw, 3.7rem);
+    font-size: var(--t-2sm);
   }
 }
 
@@ -3353,7 +3555,7 @@ main > section.labStatuses {
   }
 
   .navOverlayLinks a {
-    font-size: 2.2rem;
+    font-size: var(--t-lg);
     line-height: 1.2;
     letter-spacing: 0;
   }
@@ -3415,7 +3617,7 @@ main > section.labStatuses {
   .roundLink,
   .buttonLink {
     padding: 0.55rem 1.6rem;
-    font-size: 1.6rem;
+    font-size: var(--t-sm);
     line-height: 1.4;
   }
 
@@ -3484,7 +3686,7 @@ main > section.labStatuses {
   }
 
   .bookingVideo {
-    width: min(28rem, 100%);
+    width: 100%;
     justify-self: start;
   }
 
@@ -3493,7 +3695,7 @@ main > section.labStatuses {
   }
 
   .showreelMarquee span {
-    font-size: 2.4rem;
+    font-size: var(--t-lg);
   }
 
   .showreelMarquee {
@@ -3504,7 +3706,7 @@ main > section.labStatuses {
     right: var(--page-x);
     bottom: 2rem;
     max-width: 24rem;
-    font-size: var(--p2);
+    font-size: var(--t-lg);
   }
 
   .showreelMarquee span::before {
@@ -3543,7 +3745,7 @@ main > section.labStatuses {
   }
 
   .footer nav a {
-    font-size: clamp(2.4rem, 8vw, 3.2rem);
+    font-size: var(--t-2sm);
   }
 
   .footer .tagline {
@@ -3701,7 +3903,7 @@ main > section.labStatuses {
   }
 
   .industryMeta span {
-    font-size: 5.4rem;
+    font-size: var(--t-lg);
   }
 
   .industryTags {
@@ -3722,7 +3924,7 @@ main > section.labStatuses {
 
   .labCanvas span {
     max-width: 14rem;
-    font-size: 1.1rem;
+    font-size: var(--t-2sm);
   }
 
   .labProgression span,
@@ -3821,19 +4023,21 @@ main > section.labStatuses {
   border: 2px solid var(--ink);
   border-radius: 999px;
   color: var(--ink);
-  font-size: 1.84rem;
+  font-size: var(--t-sm);
   line-height: 1;
   white-space: nowrap;
   transition:
     background 0.3s var(--ease-out),
     color 0.3s var(--ease-out);
+  font-weight: var(--fw-medium);
 }
 
 .svcPill::after {
   content: "→";
-  font-size: 1.84rem;
+  font-size: var(--t-sm);
   line-height: 1;
   transition: transform 0.3s var(--ease-out);
+  font-weight: var(--fw-medium);
 }
 
 .svcPill:hover {
@@ -3864,8 +4068,9 @@ main > section.labStatuses {
   padding: 1.3rem 2rem;
   background: #fff;
   color: var(--muted);
-  font-size: var(--svc-body, 1.8rem);
+  font-size: var(--t-sm);
   line-height: 3.4rem;
+  font-weight: var(--fw-medium);
 }
 
 .svcEyebrow.isMuted {
@@ -3896,15 +4101,18 @@ main > section.labStatuses {
 }
 
 .svcHeroCopy h1 {
-  font-size: clamp(3.6rem, 5vw, 8rem);
-  line-height: 1.1;
+  font-size: var(--t-3xl);
+  line-height: var(--lh-3xl);
   color: var(--ink);
+  font-weight: var(--t-3xl-weight);
+  letter-spacing: var(--ls-3xl);
 }
 
 .svcHeroCopy p {
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 .svcHero .svcPill {
@@ -3932,9 +4140,10 @@ main > section.labStatuses {
 
 .svcIntro h2 {
   max-width: 52rem;
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: var(--ink);
+  font-weight: var(--fw-normal);
 }
 
 .svcIntroCopy {
@@ -3942,9 +4151,10 @@ main > section.labStatuses {
 }
 
 .svcIntroCopy p {
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 .svcIntroCopy p + p {
@@ -3975,17 +4185,19 @@ main > section.labStatuses {
 
 .svcPrinciples h3 {
   margin-top: 2.5rem;
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  font-size: var(--t-2md);
   line-height: 1.15;
   color: #000;
+  font-weight: var(--fw-medium);
 }
 
 .svcPrinciples p {
   max-width: 37.1rem;
   margin-top: 0.85rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 /* --- 03 what we cover (staggered full-bleed grid) --------- */
@@ -4004,9 +4216,10 @@ main > section.labStatuses {
 .svcCover > h2 {
   display: block;
   margin-top: 1.25rem;
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: var(--ink);
+  font-weight: var(--fw-normal);
 }
 
 /* Column tracks reproduce the artboard's hand-placed x
@@ -4100,15 +4313,17 @@ main > section.labStatuses {
 }
 
 .svcCoverCopy h3 {
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  font-size: var(--t-2md);
   line-height: 1.15;
   color: #000;
+  font-weight: var(--fw-medium);
 }
 
 .svcCoverCopy p {
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 /* --- 04 how we work --------------------------------------- */
@@ -4145,9 +4360,10 @@ main > section.labStatuses {
   position: relative;
   padding-left: 7rem;
   margin-top: 1.2rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 .svcProcessGrid {
@@ -4192,22 +4408,25 @@ main > section.labStatuses {
 }
 
 .svcProcessNumber {
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  font-size: var(--t-sm);
   line-height: 1.15;
   color: #000;
   opacity: 0.22;
+  font-weight: var(--fw-medium);
 }
 
 .svcProcessGrid h3 {
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  font-size: var(--t-2md);
   line-height: 1.15;
   color: #000;
+  font-weight: var(--fw-medium);
 }
 
 .svcProcessGrid p {
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 /* --- 05 from strategy to execution ------------------------ */
@@ -4232,14 +4451,16 @@ main > section.labStatuses {
 }
 
 .svcExecutionHead h2 {
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
+  font-weight: var(--fw-normal);
 }
 
 .svcExecutionLead {
   margin-top: 2.95rem;
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
-  line-height: 1.15;
+  font-size: var(--t-2md);
+  line-height: var(--lh-2md);
+  font-weight: var(--fw-medium);
 }
 
 .svcExecutionHead > div:last-child {
@@ -4247,8 +4468,9 @@ main > section.labStatuses {
 }
 
 .svcExecutionHead > div:last-child p {
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .svcExecutionNote {
@@ -4300,8 +4522,9 @@ main > section.labStatuses {
 }
 
 .svcExecutionRail h3 {
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  font-size: var(--t-2md);
   line-height: 1.15;
+  font-weight: var(--fw-medium);
 }
 
 /* --- 06 technology & capabilities ------------------------- */
@@ -4313,9 +4536,10 @@ main > section.labStatuses {
 }
 
 .svcTech > h2 {
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: var(--ink);
+  font-weight: var(--fw-normal);
 }
 
 .svcTechHead {
@@ -4331,22 +4555,25 @@ main > section.labStatuses {
 
 .svcTechNumber {
   display: block;
-  font-size: 2rem;
+  font-size: var(--t-sm);
   line-height: 1.15;
   opacity: 0.33;
+  font-weight: var(--fw-medium);
 }
 
 .svcTechCopy h3 {
   margin-top: 2.05rem;
-  font-size: clamp(2.2rem, 1.875vw, 3rem);
-  line-height: 1.15;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
+  font-weight: var(--fw-normal);
 }
 
 .svcTechCopy p {
   max-width: 54.2rem;
   margin-top: 2.85rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .svcTechLine {
@@ -4392,8 +4619,10 @@ main > section.labStatuses {
 }
 
 .svcTechList span {
-  font-size: clamp(2.2rem, 1.875vw, 3rem);
-  line-height: 1.15;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
+  font-weight: var(--fw-normal);
+  font-family: var(--font-serif);
 }
 
 .svcTechList img {
@@ -4417,10 +4646,11 @@ main > section.labStatuses {
 
 .svcValueHead h2 {
   grid-column: 2;
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: var(--ink);
   text-align: center;
+  font-weight: var(--fw-normal);
 }
 
 .svcValueRail {
@@ -4483,13 +4713,15 @@ main > section.labStatuses {
 }
 
 .svcValueCopy h3 {
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  font-size: var(--t-2md);
   line-height: 1.15;
+  font-weight: var(--fw-medium);
 }
 
 .svcValueCopy p {
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 /* --- 08 delivered work & transformation concepts ---------- */
@@ -4533,20 +4765,23 @@ main > section.labStatuses {
 }
 
 .svcEngagementsHead h2 {
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
+  font-weight: var(--fw-normal);
 }
 
 .svcEngagementsLead {
   margin-top: 2.95rem;
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
-  line-height: 1.15;
+  font-size: var(--t-2md);
+  line-height: var(--lh-2md);
+  font-weight: var(--fw-medium);
 }
 
 .svcEngagementsHead > p {
   margin-top: 5rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .engagementCard {
@@ -4566,16 +4801,19 @@ main > section.labStatuses {
 }
 
 .engagementCard h3 {
-  font-size: clamp(2.2rem, 1.625vw, 2.6rem);
-  line-height: 1.15;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
+  font-weight: var(--fw-normal);
+  font-family: var(--font-serif);
 }
 
 .engagementCard > p {
   margin-top: 1.8rem;
   max-width: 33.7rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 .engagementTags {
@@ -4590,11 +4828,12 @@ main > section.labStatuses {
   align-items: center;
   gap: 0.9rem;
   margin-top: 2.6rem;
-  font-size: 1.84rem;
+  font-size: var(--t-sm);
   line-height: 1;
   color: var(--ink);
   border-bottom: 1px solid currentColor;
   padding-bottom: 0.4rem;
+  font-weight: var(--fw-medium);
 }
 
 .engagementCta span {
@@ -4608,9 +4847,10 @@ main > section.labStatuses {
 .engagementTags span {
   padding: 1.3rem 2rem;
   background: var(--primary);
-  font-size: 1.8rem;
+  font-size: var(--t-2sm);
   line-height: 1;
   color: #000;
+  font-weight: var(--fw-medium);
 }
 
 .engagementNav {
@@ -4657,17 +4897,19 @@ main > section.labStatuses {
 }
 
 .svcLabHead h2 {
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: var(--ink);
+  font-weight: var(--fw-normal);
 }
 
 .svcLabHead p {
   max-width: 73.6rem;
   margin-top: 2.2rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 .svcLabGrid {
@@ -4697,17 +4939,19 @@ main > section.labStatuses {
 }
 
 .svcLabCopy h3 {
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  font-size: var(--t-2md);
   line-height: 1.15;
   color: #000;
+  font-weight: var(--fw-medium);
 }
 
 .svcLabCopy p {
   max-width: 33.7rem;
   margin-top: 1.05rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 /* --- service models (managed services only) --------------- */
@@ -4717,9 +4961,10 @@ main > section.labStatuses {
 }
 
 .svcModels h2 {
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: var(--ink);
+  font-weight: var(--fw-normal);
 }
 
 .svcModelsGrid {
@@ -4738,20 +4983,23 @@ main > section.labStatuses {
 }
 
 .svcModelsGrid span {
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  font-size: var(--t-sm);
   line-height: 1.15;
   opacity: 0.22;
+  font-weight: var(--fw-medium);
 }
 
 .svcModelsGrid h3 {
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  font-size: var(--t-2md);
   line-height: 1.15;
+  font-weight: var(--fw-medium);
 }
 
 .svcModelsGrid p {
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 /* --- 10 related insights ---------------------------------- */
@@ -4763,9 +5011,10 @@ main > section.labStatuses {
 }
 
 .svcInsights h2 {
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: var(--ink);
+  font-weight: var(--fw-normal);
 }
 
 .svcInsights ul {
@@ -4787,9 +5036,10 @@ main > section.labStatuses {
 }
 
 .svcInsights h3 {
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
+  font-size: var(--t-2md);
   line-height: 1.15;
   color: #000;
+  font-weight: var(--fw-medium);
 }
 
 .svcInsights a {
@@ -4797,9 +5047,10 @@ main > section.labStatuses {
   align-items: center;
   gap: 0.9rem;
   flex: none;
-  font-size: 1.84rem;
+  font-size: var(--t-sm);
   line-height: 1;
   color: var(--ink);
+  font-weight: var(--fw-medium);
 }
 
 .svcInsights a span {
@@ -4817,9 +5068,10 @@ main > section.labStatuses {
 }
 
 .svcOther h2 {
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: var(--ink);
+  font-weight: var(--fw-normal);
 }
 
 .svcOther .listingGrid {
@@ -4828,9 +5080,10 @@ main > section.labStatuses {
 
 .svcOther .listingCard h3 {
   margin: 0;
-  font-size: var(--h3);
-  font-weight: 300;
-  line-height: 1.3;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+  font-family: var(--font-serif);
 }
 
 /* --- 12 closing CTA --------------------------------------- */
@@ -4850,15 +5103,18 @@ main > section.labStatuses {
 }
 
 .svcCta h2 {
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
+  font-weight: var(--fw-normal);
+  font-family: var(--font-serif);
 }
 
 .svcCtaBody {
   max-width: 52.4rem;
   margin-top: 2.15rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .svcCta .svcPill {
@@ -5129,7 +5385,7 @@ main > section.labStatuses {
 
 @media (max-width: 640px) {
   .svcEyebrow {
-    font-size: 1.6rem;
+    font-size: var(--t-sm);
   }
 
   .svcHeroCopy p,
@@ -5137,7 +5393,7 @@ main > section.labStatuses {
   .svcCoverCopy p,
   .svcProcessGrid p,
   .svcPrinciples p {
-    font-size: 1.6rem;
+    font-size: var(--t-md);
     line-height: 2.5rem;
   }
 
@@ -5196,39 +5452,38 @@ main > section.labStatuses {
 .labHeroCopy {
   position: relative;
   z-index: 2;
-  width: 653px;
-  max-width: 100%;
+  width: 100%;
 }
 
 .labHeroEyebrow {
   display: none;
-  font-size: 1.6rem;
+  font-size: var(--t-sm);
   line-height: 2.4rem;
   color: var(--muted);
   text-transform: lowercase;
+  font-weight: var(--fw-medium);
 }
 
 .labHeroX h1 {
   display: block;
-  width: 653px;
   max-width: 100%;
   margin-top: 0;
   color: #010101;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 60px;
-  font-weight: 400;
-  line-height: 68px;
-  letter-spacing: 0;
-  overflow-wrap: normal;
-  word-break: normal;
+  font-family: var(--font-sans);
+  font-size: var(--t-3xl);
+  font-weight: var(--t-3xl-weight);
+  line-height: var(--lh-3xl);
+  letter-spacing: var(--ls-3xl);
+  text-wrap: balance;
 }
 
 .labHeroSummary {
   max-width: 653px;
   margin-top: 4rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 .labHeroX .svcPill {
@@ -5317,8 +5572,8 @@ main > section.labStatuses {
   height: 100%;
   padding: 0;
   border-left: 1px solid rgba(10, 30, 60, 0.07);
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
   line-height: 1.4;
   letter-spacing: 0;
   color: #6d6d6d;
@@ -5353,9 +5608,9 @@ main > section.labStatuses {
 
 .labPurposeX h2 {
   margin: 0;
-  font-size: 3.4rem;
-  font-weight: 400;
-  line-height: 5rem;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-transform: capitalize;
   color: var(--ink);
@@ -5367,9 +5622,9 @@ main > section.labStatuses {
   max-width: 111.7rem;
   margin: 7.4rem auto 0;
   padding-left: 2.4rem;
-  font-size: 2.8rem;
-  font-weight: 400;
-  line-height: 3.8rem;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-2md);
   letter-spacing: 0;
   color: var(--ink);
   text-align: left;
@@ -5469,17 +5724,18 @@ main > section.labStatuses {
 
 .labSteps span {
   display: block;
-  font-size: 1.8rem;
+  font-size: var(--t-sm);
   line-height: normal;
   color: rgba(0, 0, 0, 0.22);
+  font-weight: var(--fw-medium);
 }
 
 .labSteps strong {
   display: block;
   align-self: center;
   margin-top: 6rem;
-  font-size: 1.8rem;
-  font-weight: 400;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: normal;
   letter-spacing: 0;
   color: #000;
@@ -5514,9 +5770,10 @@ main > section.labStatuses {
 }
 
 .labExploreHead h2 {
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: var(--ink);
+  font-weight: var(--fw-normal);
 }
 
 /* tall spacer: the viewport pins while the card content changes vertically */
@@ -5610,39 +5867,45 @@ main > section.labStatuses {
 }
 
 .labSlideNumber {
-  font-size: 4rem;
-  line-height: 1;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: rgba(0, 0, 0, 0.24);
+  font-weight: var(--fw-normal);
 }
 
 .labSlideCopy h3 {
   margin-top: 5.4rem;
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.2;
+  font-size: var(--t-xl);
+  line-height: var(--lh-xl);
   color: var(--ink);
+  font-weight: var(--fw-normal);
+  font-family: var(--font-serif);
 }
 
 .labSlideHeadline {
   margin-top: 2.8rem;
-  font-size: clamp(1.9rem, 1.375vw, 2.2rem);
-  line-height: 1.35;
+  font-size: var(--t-2md);
+  line-height: var(--lh-2md);
   color: var(--ink);
+  font-weight: var(--fw-medium);
 }
 
 .labSlideBody {
   max-width: 55rem;
   margin-top: 2.4rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 .labSlideExploring {
   max-width: 55rem;
   margin-top: 2.6rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: rgba(0, 0, 0, 0.44);
+  font-weight: var(--fw-medium);
 }
 
 .labSlideMetrics {
@@ -5655,17 +5918,19 @@ main > section.labStatuses {
 .labSlideMetrics span {
   padding: 0.9rem 1.6rem;
   background: var(--primary);
-  font-size: 1.7rem;
+  font-size: var(--t-2sm);
   line-height: 1.2;
   color: #000;
+  font-weight: var(--fw-medium);
 }
 
 .labSlideStatus {
   margin-top: 2.6rem;
-  font-size: 1.5rem;
+  font-size: var(--t-sm);
   line-height: 1.2;
   letter-spacing: 0.08em;
   color: rgba(0, 0, 0, 0.4);
+  font-weight: var(--fw-medium);
 }
 
 .labExploreProgress {
@@ -5715,10 +5980,11 @@ main > section.labStatuses {
 .labIndustriesHead h2 {
   margin: 0;
   max-width: 61.1rem;
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: var(--ink);
   text-align: center;
+  font-weight: var(--fw-normal);
 }
 
 .labIndustriesMarquee {
@@ -5798,8 +6064,8 @@ main > section.labStatuses {
 .labIndustriesTrack h3 {
   margin: 0 0 2.5rem;
   color: #fff;
-  font-size: 2.2rem;
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1;
   text-transform: none;
 }
@@ -5807,8 +6073,9 @@ main > section.labStatuses {
 .labIndustriesTrack p {
   margin: 0;
   color: #fff;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 /* --- how ideas evolve -------------------------------------- */
@@ -5844,26 +6111,28 @@ main > section.labStatuses {
 
 .labEvolveEyebrow {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: var(--t-sm);
   line-height: 2.8rem;
   color: rgba(0, 0, 0, 0.56);
+  font-weight: var(--fw-medium);
 }
 
 .labEvolve h2 {
   max-width: 82rem;
   margin: 2.4rem auto 0;
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  font-weight: 400;
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   color: var(--ink);
 }
 
 .labEvolveBody {
   max-width: 76rem;
   margin: 3.2rem auto 0;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 .labEvolveGrid {
@@ -5893,18 +6162,20 @@ main > section.labStatuses {
 
 .labEvolveGrid h3 {
   margin: 0 0 2.8rem;
-  font-size: clamp(2.6rem, 2.1vw, 3.4rem);
-  font-weight: 400;
-  line-height: 1.15;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   color: var(--ink);
+  font-family: var(--font-serif);
 }
 
 .labEvolveGrid p {
   margin: 0;
   max-width: 30rem;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 .labEvolveGrid span {
@@ -5913,9 +6184,10 @@ main > section.labStatuses {
   margin-top: auto;
   padding-top: 2.8rem;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
-  font-size: 1.8rem;
+  font-size: var(--t-2sm);
   line-height: 2.8rem;
   color: var(--muted);
+  font-weight: var(--fw-medium);
 }
 
 /* --- experiment status system ------------------------------ */
@@ -5949,18 +6221,19 @@ main > section.labStatuses {
 
 .labStatuses h2 {
   margin: 0;
-  font-size: 2.6rem;
-  font-weight: 400;
-  line-height: normal;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   color: var(--ink);
 }
 
 .labStatusesIntro {
   max-width: 56.2rem;
   margin: 2rem 0 0;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: rgba(0, 0, 0, 0.62);
+  font-weight: var(--fw-medium);
 }
 
 .labStatusList {
@@ -5987,34 +6260,38 @@ main > section.labStatuses {
 }
 
 .labStatusNumber {
-  font-size: 1.8rem;
-  line-height: 2.52rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: rgba(0, 0, 0, 0.28);
   transition: color 0.25s var(--ease-out);
+  font-weight: var(--fw-medium);
 }
 
 .labStatusArrow {
-  font-size: 2.4rem;
+  font-size: var(--t-2md);
   line-height: 2.6rem;
   color: var(--ink);
   opacity: 0;
   transition: opacity 0.25s var(--ease-out);
+  font-weight: var(--fw-medium);
 }
 
 .labStatusName {
-  font-size: 1.8rem;
-  line-height: 2.52rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   letter-spacing: 0.108rem;
   color: rgba(0, 0, 0, 0.28);
   transition: color 0.25s var(--ease-out);
+  font-weight: var(--fw-medium);
 }
 
 .labStatusList li.isActive .labStatusNumber,
 .labStatusList li.isActive .labStatusName {
-  font-size: 2.6rem;
+  font-size: var(--t-2md);
   line-height: normal;
   letter-spacing: 0;
   color: var(--ink);
+  font-weight: var(--fw-medium);
 }
 
 .labStatusList li.isActive .labStatusArrow {
@@ -6033,21 +6310,22 @@ main > section.labStatuses {
 
 .labStatusDetail strong {
   display: block;
-  font-size: 1.8rem;
-  font-weight: 400;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-md);
   color: rgba(0, 0, 0, 0.56);
 }
 
 .labStatusDetail p {
   margin: 1.8rem 0 0;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: rgba(0, 0, 0, 0.56);
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  font-weight: var(--fw-medium);
 }
 
 .labStatusesMedia {
@@ -6094,17 +6372,19 @@ main > section.labStatuses {
 
 .labCta h2 {
   margin: 4.2rem 0 0;
-  font-size: clamp(2.8rem, 2.5vw, 4rem);
-  font-weight: 400;
-  line-height: 1.2;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+  font-family: var(--font-serif);
 }
 
 .labCtaBody {
   max-width: 56rem;
   margin: 2.4rem 0 0;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   color: var(--ink);
+  font-weight: var(--fw-medium);
 }
 
 .labCta .svcPill {
@@ -6149,7 +6429,7 @@ main > section.labStatuses {
 
   .labHeroX h1 {
     width: 100%;
-    font-size: clamp(34px, 8vw, 60px);
+    font-size: var(--t-3xl);
     line-height: 1.13;
   }
 
@@ -6317,7 +6597,7 @@ main > section.labStatuses {
 
   .labSignals span {
     flex-basis: 32.2rem;
-    font-size: 2rem;
+    font-size: var(--t-2sm);
   }
 
   .labIndustriesTrack article {
@@ -6329,7 +6609,7 @@ main > section.labStatuses {
   }
 
   .labPurposeBody {
-    font-size: 1.8rem;
+    font-size: var(--t-2md);
     line-height: 2.8rem;
   }
 
@@ -6412,24 +6692,32 @@ main > section.labStatuses {
 
 .whiskasHero h1 {
   margin: 0 0 clamp(2.4rem, 2.8vw, 4rem);
-  font-size: clamp(4.4rem, 5.2vw, 8rem);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: 0;
+  font-size: var(--t-3xl);
+  font-weight: var(--t-3xl-weight);
+  line-height: var(--lh-3xl);
+  letter-spacing: var(--ls-3xl);
 }
 
-.whiskasHeroMeta,
+.whiskasHeroMeta {
+  margin: 0;
+  font-size: var(--t-2sm);
+  line-height: 1.55;
+  font-weight: var(--fw-medium);
+}
+
 .whiskasHeroSummary {
   margin: 0;
-  font-size: var(--p2);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .whiskasHeroMeta {
   margin-bottom: 3.4rem;
   color: #000;
-  font-size: clamp(1.6rem, 1.5vw, 2.2rem);
+  font-size: var(--t-2sm);
   line-height: 1.35;
+  font-weight: var(--fw-medium);
 }
 
 .whiskasHeroSummary {
@@ -6502,15 +6790,17 @@ main > section.labStatuses {
 }
 
 .whiskasMetaHead p {
-  font-size: 2rem;
+  font-size: var(--t-2md);
   line-height: 5rem;
   color: #fff;
+  font-weight: var(--fw-medium);
 }
 
 .whiskasMetaHead h2 {
-  font-size: 4rem;
-  line-height: 5rem;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   color: #fff;
+  font-weight: var(--fw-normal);
 }
 
 .whiskasMetaGrid {
@@ -6561,9 +6851,9 @@ main > section.labStatuses {
   top: 11.1rem;
   display: block;
   color: rgba(255, 255, 255, 0.22);
-  font-size: clamp(5.6rem, 6.4vw, 9.9rem);
-  font-weight: 400;
-  line-height: 0.85;
+  font-size: var(--t-xl);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-xl);
   letter-spacing: -0.06em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -6585,8 +6875,8 @@ main > section.labStatuses {
   width: min(61.8rem, 100%);
   max-width: 100%;
   color: #fff;
-  font-size: clamp(1.6rem, 1.5vw, 2.2rem);
-  font-weight: 400;
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
   line-height: 1.35;
   letter-spacing: 0;
 }
@@ -6633,8 +6923,8 @@ main > section.labStatuses {
 .whiskasMoments strong {
   margin: 0;
   color: #050505;
-  font-size: clamp(1.8rem, 1.5vw, 2.2rem);
-  font-weight: 400;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.3;
   letter-spacing: 0;
 }
@@ -6643,8 +6933,9 @@ main > section.labStatuses {
   max-width: 54.6rem;
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .whiskasStory {
@@ -6705,9 +6996,9 @@ main > section.labStatuses {
 
 .whiskasStoryCard h2 {
   margin: 0;
-  font-size: clamp(2.8rem, 2.8vw, 4rem);
-  font-weight: 400;
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-transform: capitalize;
 }
@@ -6716,8 +7007,9 @@ main > section.labStatuses {
   grid-column: 1;
   margin: clamp(2.4rem, 6vw, 10.1rem) 0 0;
   max-width: 77rem;
-  font-size: var(--p2);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .whiskasStoryImage {
@@ -6752,20 +7044,30 @@ main > section.labStatuses {
 .whiskasSectionIntro h2,
 .whiskasJourneyCopy h2,
 .whiskasRelated h2,
-.whiskasCta h2,
 .whiskasFlowCopy h2 {
   margin: 0;
-  font-size: clamp(2.8rem, 2.8vw, 4rem);
-  font-weight: 400;
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-transform: capitalize;
 }
 
+.whiskasCta h2 {
+  margin: 0;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+  letter-spacing: 0;
+  text-transform: capitalize;
+  font-family: var(--font-serif);
+}
+
 .whiskasSectionIntro p {
   margin: 2.5rem 0 0;
-  font-size: var(--p2);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .whiskasBuiltGrid {
@@ -6808,8 +7110,8 @@ main > section.labStatuses {
 
 .whiskasBuiltGrid h3 {
   margin: 0 0 2.5rem;
-  font-size: 2.2rem;
-  font-weight: 400;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -6817,8 +7119,9 @@ main > section.labStatuses {
 .whiskasBuiltGrid p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .whiskasJourney {
@@ -6853,8 +7156,9 @@ main > section.labStatuses {
 .whiskasFlowCopy > p:not(.whiskasPill) {
   margin: 4rem 0 0;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .whiskasFlowBody {
@@ -6888,8 +7192,8 @@ main > section.labStatuses {
 .whiskasFlowSteps h3 {
   margin: 0;
   color: #000;
-  font-size: clamp(1.5rem, 1.2vw, 1.8rem);
-  font-weight: 600;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.35;
   letter-spacing: 0;
 }
@@ -6897,8 +7201,9 @@ main > section.labStatuses {
 .whiskasFlowSteps p {
   margin: 0;
   color: var(--muted);
-  font-size: 1.5rem;
+  font-size: var(--t-2sm);
   line-height: 1.55;
+  font-weight: var(--fw-medium);
 }
 
 .whiskasFlowBody > img {
@@ -6948,8 +7253,9 @@ main > section.labStatuses {
   padding: 1.3rem 2rem;
   background: #f6f6f6;
   color: var(--muted);
-  font-size: var(--p2);
+  font-size: var(--t-sm);
   line-height: 1.9;
+  font-weight: var(--fw-medium);
 }
 
 .whiskasPill span {
@@ -6966,8 +7272,9 @@ main > section.labStatuses {
 .whiskasJourneyCopy > p:not(.whiskasPill),
 .whiskasCta p:not(.whiskasPill) {
   margin: 4rem 0;
-  font-size: var(--p2);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .whiskasJourneyCopy > div {
@@ -6980,8 +7287,9 @@ main > section.labStatuses {
   padding: 1.3rem 2rem;
   background: var(--whiskas-yellow);
   color: #000;
-  font-size: var(--p2);
-  line-height: 1.9;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .whiskasJourneyCards {
@@ -7003,21 +7311,23 @@ main > section.labStatuses {
 
 .whiskasJourneyCards span {
   opacity: 0.22;
-  font-size: clamp(1.6rem, 1.5vw, 2.2rem);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
 }
 
 .whiskasJourneyCards h3 {
   margin: clamp(2.4rem, 4vw, 5rem) 0 1.6rem;
-  font-size: clamp(1.6rem, 1.4vw, 2.2rem);
-  font-weight: 400;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.25;
   text-transform: capitalize;
 }
 
 .whiskasJourneyCards p {
   margin: 0;
-  font-size: var(--p2);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .whiskasRelated {
@@ -7074,15 +7384,17 @@ main > section.labStatuses {
 
 .whiskasRelated strong {
   max-width: 27rem;
-  font-size: 2.2rem;
-  font-weight: 400;
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+  font-family: var(--font-serif);
 }
 
 .whiskasRelated span {
   align-self: end;
   color: rgba(255, 255, 255, 0.78);
-  font-size: var(--p2);
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
 }
 
 .whiskasRelated em {
@@ -7123,8 +7435,9 @@ main > section.labStatuses {
   border: 2px solid #fff;
   border-radius: 999px;
   color: #fff;
-  font-size: 1.84rem;
+  font-size: var(--t-sm);
   line-height: 1.2;
+  font-weight: var(--fw-medium);
 }
 
 .whiskasCta a::after {
@@ -7149,7 +7462,7 @@ main > section.labStatuses {
   }
 
   .whiskasHero h1 {
-    font-size: clamp(4.4rem, 6vw, 6.4rem);
+    font-size: var(--t-3xl);
   }
 
   .whiskasHeroImage {
@@ -7175,12 +7488,12 @@ main > section.labStatuses {
   }
 
   .whiskasMetaHead h2 {
-    font-size: clamp(3.2rem, 4vw, 4rem);
+    font-size: var(--t-lg);
     line-height: 1.2;
   }
 
   .whiskasMetaHead p {
-    font-size: 1.8rem;
+    font-size: var(--t-2md);
     line-height: 1.4;
   }
 
@@ -7220,7 +7533,7 @@ main > section.labStatuses {
   .whiskasMetaGrid strong {
     width: 100%;
     margin-bottom: 3.2rem;
-    font-size: clamp(3.6rem, 5.4vw, 6.4rem);
+    font-size: var(--t-xl);
     line-height: 0.9;
     letter-spacing: -0.04em;
     white-space: normal;
@@ -7295,12 +7608,12 @@ main > section.labStatuses {
 
 @media (max-width: 990px) {
   .whiskasHero h1 {
-    font-size: clamp(3.8rem, 8vw, 5.6rem);
+    font-size: var(--t-3xl);
   }
 
   .whiskasHeroMeta {
     margin-bottom: 2.4rem;
-    font-size: 1.6rem;
+    font-size: var(--t-2sm);
   }
 
   .whiskasMoments {
@@ -7328,7 +7641,7 @@ main > section.labStatuses {
 
   .whiskasMetaGrid strong {
     margin-bottom: 2.4rem;
-    font-size: clamp(3.2rem, 6vw, 4.8rem);
+    font-size: var(--t-xl);
   }
 
   .whiskasBuiltGrid article {
@@ -7336,9 +7649,12 @@ main > section.labStatuses {
     height: 100%;
   }
 
-  .whiskasJourneyCopy > div span,
+  .whiskasJourneyCopy > div span {
+    font-size: var(--t-md);
+  }
+
   .whiskasPill {
-    font-size: 1.6rem;
+    font-size: var(--t-sm);
   }
 
   .whiskasFlowBody > img {
@@ -7359,7 +7675,7 @@ main > section.labStatuses {
   }
 
   .whiskasHero h1 {
-    font-size: clamp(3.4rem, 12vw, 4.8rem);
+    font-size: var(--t-3xl);
     margin-bottom: 2.4rem;
   }
 
@@ -7386,7 +7702,7 @@ main > section.labStatuses {
   }
 
   .whiskasMetaHead p {
-    font-size: 1.6rem;
+    font-size: var(--t-2md);
     line-height: 1.4;
   }
 
@@ -7442,7 +7758,7 @@ main > section.labStatuses {
 
   .whiskasMetaGrid strong {
     margin-bottom: 1.8rem;
-    font-size: clamp(2.8rem, 10vw, 4rem);
+    font-size: var(--t-xl);
     line-height: 0.95;
   }
 
@@ -7458,7 +7774,7 @@ main > section.labStatuses {
   }
 
   .whiskasStoryCard h2 {
-    font-size: clamp(2.4rem, 7vw, 3.2rem);
+    font-size: var(--t-lg);
   }
 
   .whiskasStoryCard p {
@@ -7551,7 +7867,7 @@ main > section.labStatuses {
   }
 
   .whiskasHero h1 {
-    font-size: clamp(3rem, 11vw, 4rem);
+    font-size: var(--t-3xl);
   }
 
   .whiskasHeroImage {
@@ -7564,11 +7880,11 @@ main > section.labStatuses {
   }
 
   .whiskasMetaHead h2 {
-    font-size: clamp(2.4rem, 8vw, 3.2rem);
+    font-size: var(--t-lg);
   }
 
   .whiskasMetaGrid strong {
-    font-size: clamp(2.4rem, 9vw, 3.2rem);
+    font-size: var(--t-xl);
   }
 
   .whiskasMoments {
@@ -7600,7 +7916,7 @@ main > section.labStatuses {
   .whiskasSectionIntro h2,
   .whiskasJourneyCopy h2,
   .whiskasFlowCopy h2 {
-    font-size: clamp(2.4rem, 8vw, 3.2rem);
+    font-size: var(--t-lg);
   }
 
   .whiskasPill {
@@ -7611,7 +7927,7 @@ main > section.labStatuses {
 
   .whiskasJourneyCopy > div span {
     padding: 1rem 1.4rem;
-    font-size: 1.5rem;
+    font-size: var(--t-md);
   }
 
   .whiskasFlowBody > img {
@@ -7630,15 +7946,15 @@ main > section.labStatuses {
 }
 
 .figmaServiceHeroCopy {
-  max-width: 73.6rem;
+  max-width: none;
 }
 
 .figmaServiceHero h1 {
   margin: 0;
-  font-size: clamp(5.2rem, 5vw, 8rem);
-  font-weight: 300;
-  line-height: 1.1;
-  letter-spacing: 0;
+  font-size: var(--t-3xl);
+  font-weight: var(--t-3xl-weight);
+  line-height: var(--lh-3xl);
+  letter-spacing: var(--ls-3xl);
 }
 
 .figmaServiceHero h1 span {
@@ -7654,8 +7970,9 @@ main > section.labStatuses {
 .figmaLab p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .figmaServiceHero p {
@@ -7693,15 +8010,25 @@ main > section.labStatuses {
 .figmaValue h2,
 .figmaLab h2,
 .figmaInsights h2,
-.figmaOtherServices h2,
+.figmaOtherServices h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .figmaCta h2 {
   margin: 0;
   color: var(--ink);
-  font-size: clamp(3.2rem, 2.5vw, 4rem);
-  font-weight: 300;
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-transform: none;
+  font-family: var(--font-serif);
 }
 
 .figmaIntro div {
@@ -7733,8 +8060,8 @@ main > section.labStatuses {
 .figmaPrinciples h3 {
   margin: 0 0 2rem;
   color: #000;
-  font-size: 2.2rem;
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.25;
   letter-spacing: 0;
   transition: color 0.3s ease;
@@ -7758,8 +8085,8 @@ main > section.labStatuses {
 .figmaLab h3 {
   margin: 0 0 2rem;
   color: #000;
-  font-size: 2.2rem;
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -7913,16 +8240,18 @@ main > section.labStatuses {
 .figmaLabel p {
   margin: 0;
   color: var(--muted);
-  font-size: var(--p2);
+  font-size: var(--t-sm);
   line-height: 1.9;
   white-space: normal;
+  font-weight: var(--fw-medium);
 }
 
 .figmaCover > h2 {
   margin-bottom: 0;
   color: #000;
-  font-size: clamp(3.6rem, 3vw, 5.2rem);
-  font-weight: 400;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
 }
 
 .figmaSubServiceMark {
@@ -8186,15 +8515,16 @@ main > section.labStatuses {
   display: block;
   margin-bottom: 2.5rem;
   color: rgba(0, 0, 0, 0.28);
-  font-size: 2rem;
+  font-size: var(--t-sm);
   line-height: 1.6rem;
+  font-weight: var(--fw-medium);
 }
 
 .figmaWorkCard h3 {
   margin: 0 0 2.5rem;
   color: #000;
-  font-size: clamp(1.6rem, 1.1vw, 1.8rem);
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.3;
   letter-spacing: 0;
 }
@@ -8202,8 +8532,9 @@ main > section.labStatuses {
 .figmaWorkCard p {
   margin: 0;
   color: var(--muted);
-  font-size: clamp(1.4rem, 1.1vw, 1.8rem);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .figmaWorkCard:hover {
@@ -8356,9 +8687,9 @@ main > section.figmaWork {
 .figmaExecutionHead h2 {
   margin: 0 0 1.9rem;
   color: #fff;
-  font-size: clamp(2.8rem, 2.8vw, 4rem);
-  font-weight: 300;
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-transform: none;
   max-width: none;
@@ -8369,9 +8700,10 @@ main > section.figmaWork {
 .figmaExecutionHead > p {
   margin: 0;
   color: #fff;
-  font-size: clamp(1.5rem, 1.3vw, 1.8rem);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   max-width: none;
+  font-weight: var(--fw-medium);
 }
 
 .figmaExecutionHead > p {
@@ -8430,8 +8762,8 @@ main > section.figmaWork {
   width: auto;
   margin: 0 0 1.4rem;
   color: #fff;
-  font-size: clamp(1.6rem, 1.4vw, 2.2rem);
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.25;
   letter-spacing: 0;
 }
@@ -8442,8 +8774,9 @@ main > section.figmaWork {
   max-width: 39.3rem;
   margin: 0;
   color: #fff;
-  font-size: clamp(1.4rem, 1.2vw, 1.8rem);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .figmaCapabilities {
@@ -8538,12 +8871,13 @@ main > section.figmaWork {
   background: transparent;
   color: #000;
   font: inherit;
-  font-size: 3rem;
-  font-weight: 300;
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-align: left;
   cursor: pointer;
+  font-family: var(--font-serif);
 }
 
 .figmaCapabilityIcon {
@@ -8578,9 +8912,11 @@ main > section.figmaWork {
   min-height: 10.7rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   color: #000;
-  font-size: 3rem;
-  line-height: 1.25;
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
+  font-weight: var(--fw-normal);
+  font-family: var(--font-serif);
 }
 
 .figmaCapabilityTrigger > .figmaCapabilityIcon,
@@ -8708,8 +9044,8 @@ main > section.figmaWork {
 .figmaValueTrack h3 {
   margin: 0 0 clamp(1.4rem, 1.6vw, 2.5rem);
   color: #fff;
-  font-size: clamp(1.6rem, 1.5vw, 2.2rem);
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.15;
   text-transform: none;
 }
@@ -8717,8 +9053,9 @@ main > section.figmaWork {
 .figmaValueTrack p {
   margin: 0;
   color: #fff;
-  font-size: clamp(1.4rem, 1.2vw, 1.8rem);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .figmaCollaboration {
@@ -8797,9 +9134,9 @@ main > section.figmaWork {
 .figmaCollaborationHead h2 {
   margin: 0 0 3rem;
   color: #fff;
-  font-size: 4rem;
-  font-weight: 300;
-  line-height: 5rem;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   letter-spacing: 0;
   text-transform: capitalize;
 }
@@ -8807,9 +9144,10 @@ main > section.figmaWork {
 .figmaCollaborationHead > div > p {
   margin: 0;
   color: #fff;
-  font-size: 2.2rem;
-  line-height: 1;
+  font-size: var(--t-2md);
+  line-height: var(--lh-2md);
   text-transform: lowercase;
+  font-weight: var(--fw-medium);
 }
 
 .figmaCollaborationHead > p {
@@ -8818,10 +9156,11 @@ main > section.figmaWork {
   max-width: 54rem;
   margin: 0;
   color: #fff;
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
   text-align: left;
   justify-self: start;
+  font-weight: var(--fw-medium);
 }
 
 .figmaCollaboration article {
@@ -8849,10 +9188,11 @@ main > section.figmaWork {
 .figmaCollaboration article h3 {
   margin: 0 0 2.5rem;
   color: #000;
-  font-size: 2.6rem;
-  font-weight: 300;
-  line-height: 1;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
   text-transform: capitalize;
+  font-family: var(--font-serif);
 }
 
 .figmaCollaboration article p {
@@ -8860,8 +9200,9 @@ main > section.figmaWork {
   max-width: 33.7rem;
   margin: 0 0 2.2rem;
   color: var(--muted);
-  font-size: 1.8rem;
-  line-height: 2.8rem;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .figmaCollaborationTags {
@@ -8877,8 +9218,9 @@ main > section.figmaWork {
   padding: 1.3rem 2rem;
   background: var(--primary);
   color: #000;
-  font-size: 1.8rem;
+  font-size: var(--t-2sm);
   line-height: 1.3rem;
+  font-weight: var(--fw-medium);
 }
 
 .figmaCollaborationArrows {
@@ -9057,8 +9399,8 @@ main > section.figmaWork {
   max-width: min(54rem, 100%);
   min-width: 0;
   color: #000;
-  font-size: clamp(1.8rem, 1.4vw, 2.2rem);
-  font-weight: 400;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.25;
   text-transform: none;
 }
@@ -9077,8 +9419,9 @@ main > section.figmaWork {
   min-width: 0;
   margin-top: 1.6rem;
   color: var(--muted);
-  font-size: clamp(1.5rem, 1.2vw, 1.8rem);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .figmaInsights .figmaInsightMeta {
@@ -9092,8 +9435,9 @@ main > section.figmaWork {
   width: auto;
   max-width: none;
   color: var(--muted);
-  font-size: clamp(1.5rem, 1.2vw, 1.8rem);
+  font-size: var(--t-2sm);
   line-height: 1.55;
+  font-weight: var(--fw-medium);
 }
 
 .figmaInsights .figmaInsightMeta i {
@@ -9111,9 +9455,9 @@ main > section.figmaWork {
   grid-row: 1;
   justify-self: end;
   color: #000;
-  font-size: clamp(1.5rem, 1.2vw, 1.84rem);
+  font-size: var(--t-sm);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--fw-medium);
   line-height: 1.55;
   letter-spacing: 0;
   white-space: nowrap;
@@ -9213,8 +9557,8 @@ main > section.figmaWork {
 
 .figmaOtherServices strong {
   max-width: 34rem;
-  font-size: clamp(1.6rem, 1.4vw, 2.2rem);
-  font-weight: 300;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
   line-height: 1.15;
   text-transform: capitalize;
 }
@@ -9260,8 +9604,9 @@ main > section.figmaWork {
   max-width: 52.4rem;
   margin: 2.5rem 0 2.5rem;
   color: #fff;
-  font-size: var(--p2);
-  line-height: 1.55;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-medium);
 }
 
 .figmaCta .buttonLink {
@@ -9315,7 +9660,7 @@ main > section.figmaWork {
   }
 
   .figmaServiceHero h1 {
-    font-size: clamp(4.4rem, 6vw, 6.4rem);
+    font-size: var(--t-3xl);
   }
 
   .figmaServiceHero p,
@@ -9324,7 +9669,7 @@ main > section.figmaWork {
   .figmaSubServices p,
   .figmaCapabilities p,
   .figmaLab p {
-    font-size: clamp(1.6rem, 1.6vw, 1.8rem);
+    font-size: var(--t-md);
   }
 
   .figmaHeroMedia {
@@ -9355,7 +9700,7 @@ main > section.figmaWork {
   .figmaLabItems h3,
   .figmaExecutionCards h3,
   .figmaOtherServices strong {
-    font-size: clamp(1.6rem, 1.8vw, 2.2rem);
+    font-size: var(--t-2md);
   }
 
   .figmaCapabilityLead {
@@ -9389,7 +9734,7 @@ main > section.figmaWork {
 
   .figmaCapabilityTrigger {
     min-height: 9rem;
-    font-size: clamp(2.2rem, 2.4vw, 2.8rem);
+    font-size: var(--t-lg);
   }
 
   .figmaSubServices article {
@@ -9453,7 +9798,7 @@ main > section.figmaWork {
   }
 
   .figmaInsights strong {
-    font-size: clamp(1.8rem, 2vw, 2.2rem);
+    font-size: var(--t-2md);
     max-width: none;
   }
 
@@ -9470,7 +9815,7 @@ main > section.figmaWork {
   .figmaInsights em {
     grid-column: 2;
     grid-row: 1;
-    font-size: 1.6rem;
+    font-size: var(--t-sm);
   }
 
   .figmaValueTrack {
@@ -9627,12 +9972,12 @@ main > section.figmaWork {
   }
 
   .figmaWorkCard h3 {
-    font-size: 1.8rem;
+    font-size: var(--t-2md);
     margin-bottom: 1.4rem;
   }
 
   .figmaWorkCard p {
-    font-size: 1.5rem;
+    font-size: var(--t-md);
     line-height: 1.5;
   }
 
@@ -9665,7 +10010,7 @@ main > section.figmaWork {
   }
 
   .figmaExecutionHead h2 {
-    font-size: clamp(3.2rem, 2.8vw, 4rem);
+    font-size: var(--t-lg);
     line-height: 1.25;
   }
 
@@ -9691,7 +10036,7 @@ main > section.figmaWork {
   }
 
   .figmaExecutionCards p {
-    font-size: clamp(1.4rem, 1.3vw, 1.6rem);
+    font-size: var(--t-md);
     line-height: 1.5;
   }
 
@@ -9718,7 +10063,7 @@ main > section.figmaWork {
   }
 
   .figmaCollaborationHead h2 {
-    font-size: clamp(3.2rem, 4vw, 4rem);
+    font-size: var(--t-lg);
     line-height: 1.25;
   }
 
@@ -9744,7 +10089,7 @@ main > section.figmaWork {
   }
 
   .figmaCta h2 {
-    font-size: clamp(3.2rem, 4vw, 4rem);
+    font-size: var(--t-lg);
   }
 
   .figmaCta > img {
@@ -9760,7 +10105,7 @@ main > section.figmaWork {
 
 @media (max-width: 990px) {
   .figmaServiceHero h1 {
-    font-size: clamp(4rem, 7vw, 5.6rem);
+    font-size: var(--t-3xl);
   }
 
   .figmaPrinciples {
@@ -9822,11 +10167,11 @@ main > section.figmaWork {
 
   .figmaExecutionCards h3 {
     margin: 0;
-    font-size: 2rem;
+    font-size: var(--t-2md);
   }
 
   .figmaExecutionCards p {
-    font-size: 1.5rem;
+    font-size: var(--t-md);
     line-height: 1.5;
   }
 
@@ -9840,11 +10185,11 @@ main > section.figmaWork {
 
   .figmaValueTrack h3 {
     margin-bottom: 1.4rem;
-    font-size: 1.8rem;
+    font-size: var(--t-2md);
   }
 
   .figmaValueTrack p {
-    font-size: 1.5rem;
+    font-size: var(--t-md);
     line-height: 1.5;
   }
 
@@ -9918,7 +10263,7 @@ main > section.figmaWork {
   }
 
   .figmaServiceHero h1 {
-    font-size: clamp(3.6rem, 11vw, 5.2rem);
+    font-size: var(--t-3xl);
   }
 
   .figmaServiceHero p,
@@ -9929,7 +10274,7 @@ main > section.figmaWork {
   .figmaLab p,
   .figmaExecutionCards p,
   .figmaCollaboration article p {
-    font-size: 1.6rem;
+    font-size: var(--t-md);
     line-height: 1.5;
   }
 
@@ -9961,10 +10306,14 @@ main > section.figmaWork {
   .figmaLab h2,
   .figmaInsights h2,
   .figmaOtherServices h2,
-  .figmaCta h2,
   .figmaExecutionHead h2,
   .figmaCollaborationHead h2 {
-    font-size: clamp(2.8rem, 8vw, 3.6rem);
+    font-size: var(--t-lg);
+    line-height: 1.2;
+  }
+
+  .figmaCta h2 {
+    font-size: var(--t-lg);
     line-height: 1.2;
   }
 
@@ -9983,9 +10332,12 @@ main > section.figmaWork {
   .figmaLabItems h3,
   .figmaExecutionCards h3,
   .figmaOtherServices strong,
-  .figmaInsights strong,
+  .figmaInsights strong {
+    font-size: var(--t-2md);
+  }
+
   .figmaCollaboration article h3 {
-    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    font-size: var(--t-lg);
   }
 
   .figmaCapabilityLead {
@@ -10023,7 +10375,7 @@ main > section.figmaWork {
 
   .figmaCapabilityTrigger {
     min-height: 7.2rem;
-    font-size: clamp(1.8rem, 5.5vw, 2.2rem);
+    font-size: var(--t-lg);
     gap: 1.2rem;
   }
 
@@ -10169,7 +10521,7 @@ main > section.figmaWork {
   }
 
   .figmaValueHead h2 {
-    font-size: clamp(2.8rem, 8vw, 3.6rem);
+    font-size: var(--t-lg);
   }
 
   .figmaLabItems article {
@@ -10279,12 +10631,12 @@ main > section.figmaWork {
   }
 
   .figmaWorkCard h3 {
-    font-size: 2rem;
+    font-size: var(--t-2md);
     margin-bottom: 1.2rem;
   }
 
   .figmaWorkCard p {
-    font-size: 1.5rem;
+    font-size: var(--t-md);
     line-height: 1.5;
   }
 
@@ -10326,11 +10678,11 @@ main > section.figmaWork {
 
   .figmaExecutionCards h3 {
     margin: 0;
-    font-size: clamp(1.8rem, 5vw, 2rem);
+    font-size: var(--t-2md);
   }
 
   .figmaExecutionCards p {
-    font-size: 1.5rem;
+    font-size: var(--t-md);
     line-height: 1.5;
   }
 
@@ -10348,7 +10700,7 @@ main > section.figmaWork {
   }
 
   .figmaCollaborationHead h2 {
-    font-size: clamp(2.8rem, 8vw, 3.6rem);
+    font-size: var(--t-lg);
     line-height: 1.2;
   }
 
@@ -10376,13 +10728,17 @@ main > section.figmaWork {
 
   .figmaInsights .figmaInsightBody {
     margin-top: 0;
-    font-size: 1.5rem;
+    font-size: var(--t-md);
   }
 
-  .figmaInsights .figmaInsightMeta,
+  .figmaInsights .figmaInsightMeta {
+    justify-self: start;
+    font-size: var(--t-2sm);
+  }
+
   .figmaInsights em {
     justify-self: start;
-    font-size: 1.5rem;
+    font-size: var(--t-sm);
   }
 
   .figmaCta {
@@ -10406,12 +10762,12 @@ main > section.figmaWork {
   }
 
   .figmaServiceHero h1 {
-    font-size: clamp(3.2rem, 10.5vw, 4.2rem);
+    font-size: var(--t-3xl);
   }
 
   .figmaServiceHero p {
     margin-top: 2.2rem;
-    font-size: 1.5rem;
+    font-size: var(--t-md);
   }
 
   .figmaHeroMedia {
@@ -10440,10 +10796,13 @@ main > section.figmaWork {
   .figmaLab h2,
   .figmaInsights h2,
   .figmaOtherServices h2,
-  .figmaCta h2,
   .figmaExecutionHead h2,
   .figmaCollaborationHead h2 {
-    font-size: clamp(2.4rem, 8vw, 3.2rem);
+    font-size: var(--t-lg);
+  }
+
+  .figmaCta h2 {
+    font-size: var(--t-lg);
   }
 
   .figmaInsights h2 {
@@ -10456,7 +10815,7 @@ main > section.figmaWork {
   }
 
   .figmaInsights strong {
-    font-size: 1.8rem;
+    font-size: var(--t-2md);
   }
 
   .figmaLabel {
@@ -10465,7 +10824,7 @@ main > section.figmaWork {
   }
 
   .figmaLabel p {
-    font-size: 1.5rem;
+    font-size: var(--t-sm);
     line-height: 1.4;
   }
 
@@ -10499,11 +10858,11 @@ main > section.figmaWork {
   }
 
   .figmaExecutionCards h3 {
-    font-size: 1.8rem;
+    font-size: var(--t-2md);
   }
 
   .figmaExecutionCards p {
-    font-size: 1.4rem;
+    font-size: var(--t-md);
   }
 
   .figmaValueHead {
@@ -10520,11 +10879,11 @@ main > section.figmaWork {
 
   .figmaValueTrack h3 {
     margin-bottom: 1.2rem;
-    font-size: 1.6rem;
+    font-size: var(--t-2md);
   }
 
   .figmaValueTrack p {
-    font-size: 1.4rem;
+    font-size: var(--t-md);
     line-height: 1.45;
   }
 
@@ -10539,7 +10898,7 @@ main > section.figmaWork {
   }
 
   .figmaOtherServices strong {
-    font-size: 1.8rem;
+    font-size: var(--t-2md);
   }
 
   .figmaOtherServices span {
@@ -10549,7 +10908,7 @@ main > section.figmaWork {
 
   .figmaCapabilityTrigger {
     min-height: 6.4rem;
-    font-size: 1.8rem;
+    font-size: var(--t-lg);
   }
 
   .figmaCapabilityIcon {
@@ -10562,7 +10921,7 @@ main > section.figmaWork {
   }
 
   .figmaCollaboration article h3 {
-    font-size: 2rem;
+    font-size: var(--t-lg);
     margin-bottom: 1.6rem;
   }
 
@@ -10589,6 +10948,2352 @@ main > section.figmaWork {
   }
 
   .figmaWorkCard h3 {
-    font-size: 1.8rem;
+    font-size: var(--t-2md);
+  }
+}
+
+/* ============================================================
+   SELECTED WORKS — adapted 1:1 from aquest.it's scroll-list.
+   Spacing tokens mirror theirs: --spacing .4rem, --c-spacing
+   x3 / x5, grid cell 5 / 7.5rem, container inset 1.2 x c-spacing,
+   all in their viewport-scaled rem (--aq).
+   ============================================================ */
+
+:root {
+  --aq-spacing: calc(var(--aq) * 0.4);
+  --aq-c-spacing: calc(var(--aq-spacing) * 3);
+  --aq-grid-cell: calc(var(--aq) * 5);
+  --aq-inset: calc(var(--aq-c-spacing) * 1.2);
+  --aq-accent: var(--primary);
+  --aq-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --aq-ease-snappy: cubic-bezier(0.694, 0.048, 0.335, 1);
+  --works-scroll-cell: calc(var(--aq) * 13.5);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --aq-c-spacing: calc(var(--aq-spacing) * 5);
+    --aq-grid-cell: calc(var(--aq) * 7.5);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --works-scroll-cell: calc(var(--aq) * 5.2);
+  }
+}
+
+/* AQuest has no section-level fade here; the heading reveals itself */
+main > section.worksSection {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.worksSection {
+  position: relative;
+  padding: calc(var(--aq-grid-cell) + var(--aq-c-spacing)) var(--aq-inset) var(--aq-grid-cell);
+  background: #fff;
+  color: var(--ink);
+}
+
+/* --- header: label + statement ---------------------------- */
+
+.worksHeader {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--aq-c-spacing);
+}
+
+.worksLabel {
+  grid-column: span 3 / span 3;
+  height: calc(var(--aq-grid-cell) * 2);
+  margin: 0;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+  text-transform: uppercase;
+}
+
+.worksHeading {
+  overflow: hidden;
+}
+
+/* line pitch = t-3xl line box minus AQuest's line-mask overlap */
+.worksHeadingText {
+  --works-overlap: calc(var(--aq) * 0.96);
+  max-width: calc(var(--aq) * 56);
+  margin: 0;
+  padding-top: var(--works-overlap);
+  font-size: var(--t-3xl);
+  font-weight: var(--t-3xl-weight);
+  line-height: calc(var(--t-3xl) * 1.1 - var(--works-overlap));
+  letter-spacing: var(--ls-3xl);
+  user-select: none;
+}
+
+.worksHeadingText .worksMask {
+  height: 1.1em;
+  margin-top: calc(var(--works-overlap) * -1);
+  margin-bottom: 0;
+  padding-bottom: 0;
+  line-height: var(--lh-3xl);
+}
+
+.worksHeadingWord {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    transform 0.82s var(--aq-ease-snappy),
+    opacity 0.82s var(--aq-ease-snappy);
+}
+
+.worksHeadingChar {
+  color: var(--aq-accent);
+  transition: color 0.9s var(--aq-ease-snappy);
+}
+
+.worksHeadingText.isRevealed .worksHeadingWord {
+  opacity: 1;
+  transform: none;
+}
+
+.worksHeadingText.isRevealed .worksHeadingChar {
+  color: var(--ink);
+}
+
+/* --- split masks: every word rides the panel's --o offset -- */
+
+.worksMask {
+  display: inline-block;
+  overflow: clip;
+  vertical-align: top;
+}
+
+.worksMaskBlock {
+  overflow: clip;
+}
+
+.worksWord,
+.worksWordBlock {
+  --works-hide: 100%;
+  display: inline-block;
+  transform: translateY(calc(max(var(--o, 0), 0) * var(--works-hide) + min(var(--o, 0), 0) * 100%));
+  will-change: transform;
+}
+
+/* serif titles at line-height 1 need room for descenders, so their hidden
+   words sit a little below a full line */
+.worksTitle .worksMask {
+  padding-bottom: 0.15em;
+  margin-bottom: -0.15em;
+}
+
+.worksTitle .worksWord {
+  --works-hide: 115%;
+}
+
+.worksWordBlock {
+  display: block;
+}
+
+/* --- pinned stage ------------------------------------------ */
+
+.worksList {
+  position: relative;
+  height: calc(100svh * var(--works-count));
+  overflow: clip;
+}
+
+.worksGap {
+  flex: none;
+  width: 100%;
+  height: var(--aq-grid-cell);
+}
+
+.worksStage {
+  position: sticky;
+  top: var(--aq-grid-cell);
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: var(--aq-c-spacing);
+  height: calc(100svh - var(--aq-grid-cell));
+}
+
+.worksContents {
+  position: relative;
+  grid-column: span 6 / span 6;
+  order: 2;
+  height: 100%;
+}
+
+.worksContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--aq-c-spacing);
+  padding-bottom: var(--aq-c-spacing);
+}
+
+.worksTitleLink {
+  display: block;
+  width: 100%;
+  min-width: 100%;
+  color: inherit;
+}
+
+.worksTitle {
+  width: 100%;
+  min-width: 100%;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--t-xl);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-xl);
+  transition: color 0.3s var(--aq-ease-in-out);
+}
+
+@media (hover: hover) {
+  .worksTitle:hover {
+    color: inherit;
+  }
+}
+
+.worksContents .worksTitle {
+  display: none;
+}
+
+.worksGap--desktop {
+  display: none;
+}
+
+.worksGap--mobile {
+  display: block;
+  grid-column: span 6 / span 6;
+}
+
+.worksSpecs {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  height: var(--works-scroll-cell);
+}
+
+.worksSpecsLine {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--aq-c-spacing);
+}
+
+.worksSpecsLine > :first-child {
+  grid-column: span 2 / span 2;
+}
+
+/* Year sits at the foot of the specs cell, Description at the foot of the
+   panel; with no year, Expertise stays at the top as in the original */
+.worksSpecsLine:last-child:not(:first-child) {
+  margin-top: auto;
+}
+
+.worksSpecsList {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 4 / span 4;
+  row-gap: var(--aq-spacing);
+}
+
+.worksSpec {
+  margin: 0;
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-2sm);
+}
+
+.worksSmall {
+  margin: 0;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+}
+
+.worksDesc {
+  grid-column: span 4 / span 4;
+  max-width: 300px;
+}
+
+.worksCovers {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--aq-c-spacing);
+  /* span 8 on the 6-column mobile grid, as in the original: the two empty
+     implicit tracks narrow the text column by two gaps */
+  grid-column: span 8 / span 8;
+  order: 1;
+  margin-block: 0;
+  overflow: hidden;
+}
+
+.worksCover {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  padding-block: var(--aq-c-spacing);
+}
+
+.worksCovers .worksTitle {
+  display: block;
+  height: var(--aq-grid-cell);
+  margin-bottom: var(--aq-c-spacing);
+}
+
+.worksMediaWrap,
+.worksMedia {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.worksMedia {
+  transform: translateY(calc(var(--o, 0) * 100%));
+  will-change: transform;
+}
+
+.worksMedia a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.worksMedia img,
+.worksMedia video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  transition: scale 0.5s var(--aq-ease-in-out);
+}
+
+.worksMedia:hover img,
+.worksMedia:hover video {
+  scale: 1.25;
+}
+
+.worksProgress {
+  position: absolute;
+  z-index: 20;
+  right: var(--aq-c-spacing);
+  bottom: var(--aq-c-spacing);
+  left: var(--aq-c-spacing);
+  height: 1px;
+  overflow: hidden;
+}
+
+.worksProgressBar {
+  width: 100%;
+  height: 100%;
+  background: var(--aq-accent);
+  transform: translate3d(-100%, 0, 0);
+}
+
+@media (min-width: 1024px) {
+  .worksHeader {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .worksLabel {
+    height: var(--aq-grid-cell);
+  }
+
+  .worksHeadingText {
+    --works-overlap: calc(var(--aq) * 2.24);
+    max-width: none;
+  }
+
+  .worksStage {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .worksContents {
+    grid-column: span 4 / span 4;
+    order: 0;
+  }
+
+  .worksContents .worksTitle {
+    display: block;
+  }
+
+  .worksGap--desktop {
+    display: block;
+  }
+
+  .worksGap--mobile {
+    display: none;
+  }
+
+  .worksSpecsLine {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .worksSpecsLine > :first-child {
+    grid-column: span 1 / span 1;
+  }
+
+  .worksSpecsList {
+    grid-column: span 3 / span 3;
+  }
+
+  .worksDesc {
+    grid-column: span 2 / span 2;
+    max-width: none;
+  }
+
+  .worksCovers {
+    display: block;
+    grid-column: span 8 / span 8;
+    order: 0;
+  }
+
+  .worksCovers .worksTitle {
+    display: none;
+  }
+
+  .worksProgress {
+    right: 0;
+    bottom: calc(var(--aq-c-spacing) / 2);
+    left: 0;
+  }
+}
+
+/* ============================================================
+   OUR SERVICES — adapted 1:1 from aquest.it's grid-list.
+   Base styles are the touch / small-screen state (cover shown,
+   dark arrow); the hover rest state sits under HOVER_QUERY in
+   services-grid.tsx, which drives the hover timeline inline.
+   ============================================================ */
+
+main > section.svcGrid {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.svcGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: var(--aq-c-spacing);
+  row-gap: var(--aq-c-spacing);
+  padding: calc(var(--aq-grid-cell) + var(--aq-c-spacing)) var(--aq-inset);
+  background: #fff;
+  color: var(--ink);
+}
+
+.svcGridHeading {
+  grid-column: span 6 / span 6;
+  height: var(--aq-grid-cell);
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+.svcGridElems {
+  display: grid;
+  grid-column: span 6 / span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: var(--aq-c-spacing);
+  row-gap: calc(var(--aq-grid-cell) * 2);
+}
+
+.svcGridItem {
+  grid-column: span 6 / span 6;
+}
+
+.svcGrid.isArmed .svcGridItem {
+  opacity: 0;
+  transform: translate3d(0, 100px, 0);
+}
+
+.svcGrid.isArmed.isRevealed .svcGridItem {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
+    opacity 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-delay: calc(var(--i, 0) * 25ms);
+}
+
+.svcGridCard {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--aq-c-spacing);
+  height: fit-content;
+  color: inherit;
+  text-decoration: none;
+}
+
+.svcGridCard:focus-visible {
+  outline: 2px solid var(--ink);
+  box-shadow: 0 0 0 6px var(--aq-accent);
+  outline-offset: 4px;
+}
+
+.svcGridCard p {
+  margin: 0;
+}
+
+.svcGridCover {
+  position: relative;
+  display: flex;
+  grid-column: span 2 / span 2;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.svcGridIndex {
+  position: absolute;
+  top: calc(var(--aq-c-spacing) * -2);
+  right: calc(var(--aq-c-spacing) * -2);
+  z-index: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+}
+
+.svcGridVideoWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.svcGridVideo {
+  width: 100%;
+  height: 100%;
+}
+
+.svcGridMedia {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.svcGridMedia img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate3d(0, -7.5%, 0) scale(1.15);
+}
+
+.svcGridContent {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2 / span 2;
+  row-gap: var(--aq-c-spacing);
+  height: 100%;
+  min-height: calc(var(--aq-grid-cell) * 3);
+  overflow: hidden;
+}
+
+.svcGridTitleWrap {
+  position: relative;
+  max-width: 150px;
+}
+
+.svcGridTitle {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+  letter-spacing: normal;
+  hyphens: manual;
+}
+
+.svcGridTitle--black {
+  position: relative;
+}
+
+.svcGridTitle--accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--ink);
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Each word clips in its own mask; the extra .15em keeps descenders
+   while still hiding a word pushed 120% out. */
+.svcGridMask {
+  display: inline-block;
+  padding-bottom: 0.15em;
+  margin-bottom: -0.15em;
+  overflow: clip;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.svcGridWord {
+  display: inline-block;
+}
+
+.svcGridLink {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.svcGridLinkText {
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.svcGridLinkText p {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.svcGridLinkIcon {
+  width: 40px;
+  overflow: hidden;
+  color: var(--ink);
+}
+
+.svcGridLinkIcon svg {
+  display: block;
+  width: 40px;
+  height: 12px;
+}
+
+@media (min-width: 640px) {
+  .svcGridTitleWrap {
+    max-width: 250px;
+  }
+}
+
+@media (min-width: 768px) {
+  .svcGridVideo {
+    max-width: calc(50% + var(--aq-c-spacing));
+  }
+}
+
+@media (min-width: 1024px) {
+  .svcGrid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .svcGridElems {
+    grid-column: span 12 / span 12;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    row-gap: var(--aq-grid-cell);
+  }
+
+  .svcGridCover {
+    min-height: calc(var(--aq) * 18.5);
+  }
+
+  .svcGridIndex {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+
+  .svcGridVideo {
+    max-width: none;
+  }
+
+  .svcGridContent {
+    min-height: 0;
+  }
+
+  .svcGridTitleWrap {
+    max-width: calc(var(--aq) * 29);
+  }
+}
+
+@media (min-width: 1024px) and (hover: hover) {
+  .svcGridVideo {
+    transform: translate(300%, 0%) scale(3);
+  }
+
+  .svcGridTitle--accent {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .svcGridTitle--accent .svcGridWord {
+    transform: translate3d(0, 120%, 0);
+  }
+
+  .svcGridLinkText p {
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  .svcGridLinkIcon {
+    color: currentColor;
+  }
+
+  .svcGridLinkIcon svg {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@media (min-width: 1536px) {
+  .svcGridHeading {
+    grid-column: span 2 / span 2;
+  }
+
+  .svcGridElems {
+    grid-column: span 10 / span 10;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
+  .svcGridItem {
+    grid-column: span 4 / span 4;
+  }
+}
+
+/* ============================================================
+   WORKS INDEX (/cases) — adapted 1:1 from aquest.it/works.
+   Filter lists and card entrances are driven from
+   cases/works-index.tsx with the Web Animations API.
+   ============================================================ */
+
+main > section.worksIndex {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.worksIndex {
+  position: relative;
+  padding: calc(var(--aq-grid-cell) + var(--aq-c-spacing)) var(--aq-inset);
+  background: #fff;
+  color: var(--ink);
+}
+
+.worksIndexHeader {
+  display: flex;
+  align-items: flex-start;
+}
+
+.worksIndexTitle {
+  margin: 0;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+.worksIndexTitle > * {
+  display: inline-block;
+}
+
+.worksFilters {
+  margin-left: calc(var(--aq) * 3.5);
+}
+
+.worksFiltersMacros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--aq-spacing) * 4);
+  margin-bottom: calc(var(--aq) * 2);
+}
+
+.worksFiltersMacro,
+.worksFiltersItem {
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  color: #8f8f8f;
+  font-family: var(--font-sans);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  text-align: left;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.worksFiltersMacro p {
+  margin: 0;
+  font-size: var(--t-sm);
+  line-height: var(--lh-sm);
+}
+
+.worksFiltersMacro.isActive,
+.worksFiltersItem.isActive {
+  color: var(--ink);
+  box-shadow: inset 0 -0.5em 0 var(--aq-accent);
+}
+
+.worksFiltersMacro:focus-visible,
+.worksFiltersItem:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.worksFiltersList {
+  overflow: hidden;
+}
+
+.worksFiltersItem {
+  display: block;
+  line-height: calc(var(--aq) * 2.2);
+}
+
+.worksFiltersItem:last-child {
+  margin-bottom: calc(var(--aq) * 2);
+}
+
+.worksFiltersItem:disabled {
+  cursor: default;
+}
+
+.worksIndexList {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  column-gap: var(--aq-c-spacing);
+  row-gap: calc(var(--aq-c-spacing) * 3);
+}
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--aq-c-spacing);
+  color: inherit;
+  text-decoration: none;
+}
+
+.projectCard:focus-visible {
+  outline: 2px solid var(--ink);
+  box-shadow: 0 0 0 6px var(--aq-accent);
+  outline-offset: 4px;
+}
+
+/* Matches the 2400 x 1400 case hero art; images in other shapes are fitted
+   whole on the grey ground rather than cropped. */
+.projectCardMedia {
+  width: 100%;
+  aspect-ratio: 12 / 7;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.projectCardMedia img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.projectCardInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  row-gap: calc(var(--aq-c-spacing) * 0.3);
+}
+
+.projectCardTitleWrap {
+  position: relative;
+}
+
+.projectCardTitle {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--t-2md);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-2md);
+  letter-spacing: normal;
+  hyphens: manual;
+}
+
+.projectCardTitle--black {
+  position: relative;
+  z-index: 1;
+}
+
+.projectCardTitle--accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  min-width: 100%;
+  color: var(--ink);
+}
+
+.projectCardTitle--accent .projectCardWord {
+  transform: translate3d(0, 120%, 0);
+}
+
+.projectCardMask {
+  display: inline-block;
+  padding-bottom: 0.15em;
+  margin-bottom: -0.15em;
+  overflow: clip;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.projectCardWord {
+  display: inline-block;
+}
+
+.projectCardAbstract {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: 1.3;
+}
+
+@media (hover: hover) {
+  .worksFiltersMacro:hover,
+  .worksFiltersItem:hover {
+    color: var(--ink);
+    box-shadow: inset 0 -0.5em 0 var(--aq-accent);
+  }
+}
+
+@media (min-width: 1024px) {
+  .worksFilters {
+    margin-left: calc(var(--aq) * 6.5);
+  }
+
+  .worksFiltersItem {
+    line-height: calc(var(--aq) * 2.6);
+  }
+
+  .worksIndexList {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    row-gap: calc(var(--aq-c-spacing) * 2);
+  }
+
+  .projectCard {
+    grid-column: span 6 / span 6;
+  }
+}
+
+/* Portrait flow art (Whiskas) keeps its full frame once the flow stacks,
+   instead of the 16:10 banner crop used for landscape case imagery. */
+@media (max-width: 1180px) {
+  .whiskasFlowBody > img.isPortrait {
+    width: min(100%, 48rem);
+    height: auto;
+    max-height: none;
+    aspect-ratio: 1000 / 1400;
+    margin-inline: auto;
+  }
+}
+
+/* Case study metadata on white: dark copy, faint grey labels, larger values
+   sitting closer under each label. */
+.whiskasCase .whiskasMeta {
+  background: #fff;
+  color: #050505;
+}
+
+.whiskasCase .whiskasMeta::before {
+  background: rgba(5, 5, 5, 0.12);
+}
+
+.whiskasCase .whiskasMetaHead p,
+.whiskasCase .whiskasMetaHead h2 {
+  color: #050505;
+}
+
+.whiskasCase .whiskasMetaGrid article {
+  border-bottom-color: rgba(5, 5, 5, 0.12);
+}
+
+.whiskasCase .whiskasMetaGrid strong {
+  color: rgba(5, 5, 5, 0.2);
+}
+
+.whiskasCase .whiskasMetaGrid span,
+.whiskasCase .whiskasMetaGrid article.is-experience span {
+  top: calc(11.1rem + var(--t-xl) + 2.4rem);
+  color: #050505;
+  font-size: var(--t-2md);
+  line-height: var(--lh-2md);
+}
+
+.whiskasCase .whiskasMetaGrid article.is-client span {
+  top: calc(11.95rem + var(--t-xl) + 2.4rem);
+}
+
+@media (max-width: 1180px) {
+  .whiskasCase .whiskasMetaGrid strong {
+    margin-bottom: 1.6rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .whiskasCase .whiskasMetaGrid article:nth-last-child(2) {
+    border-bottom-color: rgba(5, 5, 5, 0.12);
+  }
+
+  .whiskasCase .whiskasMetaGrid strong {
+    margin-bottom: 1.2rem;
+  }
+}
+
+/* Uploaded case feature art is 4:3; show it whole instead of the square crop. */
+.whiskasMoments img.isLandscape {
+  aspect-ratio: 4 / 3;
+}
+
+/* Client logos: large in the case study metadata head, and centred in place
+   of the work card thumbnail. */
+/* Logos scale by sqrt(aspect ratio) (--logo-r, set from the file) so a square
+   mark and a long wordmark end up with a similar visual weight. */
+.whiskasMetaHead h2 .whiskasMetaLogo {
+  display: block;
+  width: min(40rem, calc(clamp(9rem, 10vw, 13rem) * sqrt(var(--logo-r, 1))));
+  height: auto;
+  max-height: 14rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.projectCardMedia.isLogo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: #f4f4f2;
+}
+
+/* Blurred case artwork under a light veil: gives each card its own colour
+   without competing with the logo on top. */
+.projectCardBackdrop {
+  position: absolute;
+  inset: -12%;
+  background-position: center;
+  background-size: cover;
+  filter: blur(28px) saturate(1.1);
+  transform: scale(1.08);
+}
+
+.projectCardBackdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 250, 248, 0.8);
+  transition: background-color 0.6s var(--aq-ease-in-out);
+}
+
+.projectCardMedia.isLogo img {
+  position: relative;
+  z-index: 1;
+  width: min(56%, calc(21.5% * sqrt(var(--logo-r, 1))));
+  height: auto;
+  max-height: 46%;
+  object-fit: contain;
+  transition: transform 0.6s var(--aq-ease-in-out);
+}
+
+@media (hover: hover) {
+  .projectCard:hover .projectCardBackdrop::after {
+    background-color: rgba(250, 250, 248, 0.7);
+  }
+}
+
+@media (hover: hover) {
+  .projectCard:hover .projectCardMedia.isLogo img {
+    transform: scale(1.05);
+  }
+}
+
+/* ============================================================
+   INSIGHTS (/blog) — article listing and article pages.
+   ============================================================ */
+
+main > section.insightsIndex,
+main > section.insightRelated {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.insightsIndex,
+.insightRelated {
+  display: grid;
+  gap: calc(var(--aq-c-spacing) * 3);
+  padding: calc(var(--aq-grid-cell) + var(--aq-c-spacing)) var(--aq-inset);
+  background: #fff;
+  color: var(--ink);
+}
+
+.insightsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(var(--aq-c-spacing) * 3) var(--aq-c-spacing);
+}
+
+.insightCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--aq-c-spacing);
+  color: inherit;
+  text-decoration: none;
+}
+
+.insightCardMedia {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.insightCardMedia img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--aq-ease-in-out);
+}
+
+.insightCardCopy {
+  display: grid;
+  gap: calc(var(--aq-c-spacing) * 0.6);
+}
+
+.insightMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  margin: 0;
+  color: #6b6b6b;
+  font-family: var(--font-sans);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+  text-transform: uppercase;
+}
+
+.insightMeta a {
+  color: var(--ink);
+  box-shadow: inset 0 -0.45em 0 var(--aq-accent);
+  text-decoration: none;
+}
+
+.insightCard h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--t-2md);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-2md);
+  letter-spacing: 0;
+  transition: color 0.3s var(--aq-ease-in-out);
+}
+
+.insightCardSummary {
+  max-width: 52rem;
+  margin: 0;
+  color: #4a4a4a;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+}
+
+.insightCard.isFeatured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: end;
+  gap: calc(var(--aq-c-spacing) * 2);
+}
+
+.insightCard.isFeatured .insightCardMedia {
+  aspect-ratio: 16 / 10;
+}
+
+.insightCard.isFeatured h2 {
+  font-size: var(--t-lg);
+  line-height: var(--lh-lg);
+}
+
+.insightCard:focus-visible {
+  outline: 2px solid var(--ink);
+  box-shadow: 0 0 0 6px var(--aq-accent);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .insightCard:hover .insightCardMedia img {
+    transform: scale(1.04);
+  }
+
+  .insightCard:hover h2 {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--aq-accent);
+    text-decoration-thickness: 0.18em;
+    text-underline-offset: 0.12em;
+  }
+}
+
+/* --- article page ------------------------------------------ */
+
+.insightHero {
+  display: grid;
+  gap: calc(var(--aq-c-spacing) * 1.2);
+  max-width: 120rem;
+  padding: 16rem var(--aq-inset) calc(var(--aq-c-spacing) * 3);
+}
+
+.insightHero h1 {
+  margin: 0;
+  font-size: var(--t-xl);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-xl);
+  letter-spacing: -0.01em;
+}
+
+.insightLead {
+  max-width: 76rem;
+  margin: 0;
+  color: #4a4a4a;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-2md);
+}
+
+.insightHeroMedia {
+  margin: 0 var(--aq-inset);
+}
+
+.insightHeroMedia img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  background: #f2f2f2;
+}
+
+.insightHeroMedia figcaption {
+  margin-top: 1rem;
+  color: #7a7a7a;
+  font-size: var(--t-xs);
+  line-height: var(--lh-xs);
+}
+
+.insightHeroMedia figcaption a {
+  color: inherit;
+}
+
+.insightBody {
+  display: grid;
+  gap: calc(var(--aq-c-spacing) * 3);
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: calc(var(--aq-grid-cell) + var(--aq-c-spacing)) var(--aq-inset);
+}
+
+.insightBody section {
+  display: grid;
+  gap: calc(var(--aq-c-spacing) * 1.2);
+}
+
+.insightBody h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.insightBody p {
+  margin: 0;
+  color: #262626;
+  font-size: var(--t-md);
+  font-weight: var(--fw-normal);
+  line-height: 1.6;
+}
+
+.insightBody .insightIntro {
+  color: var(--ink);
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-2md);
+}
+
+.insightTakeaways {
+  display: grid;
+  gap: calc(var(--aq-c-spacing) * 1.2);
+  padding: calc(var(--aq-c-spacing) * 2);
+  background: #f4f4f2;
+}
+
+.insightTakeaways ul {
+  display: grid;
+  gap: 1.2rem;
+  margin: 0;
+  padding-left: 2rem;
+}
+
+.insightTakeaways li {
+  font-size: var(--t-md);
+  line-height: 1.5;
+}
+
+.insightTakeaways .textLink {
+  justify-self: start;
+}
+
+.insightRelated > h2 {
+  margin: 0;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+  text-transform: uppercase;
+}
+
+@media (max-width: 1023px) {
+  .insightsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .insightCard.isFeatured {
+    grid-template-columns: 1fr;
+  }
+
+  .insightHero {
+    padding-top: 12rem;
+  }
+
+  .insightHeroMedia img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 640px) {
+  .insightsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   ABOUT (/about-us) — typographic, editorial layout built around
+   the brand equation. Nothing shared with the old gallery layout.
+   ============================================================ */
+
+main > section.aboutIntro,
+main > section.aboutEquation,
+main > section.aboutStatement,
+main > section.aboutStrengths,
+main > section.aboutEvolution,
+main > section.aboutDisciplines,
+main > section.aboutHeritage {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.aboutEyebrow {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+  text-transform: uppercase;
+}
+
+.aboutIntro {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: calc(var(--aq-c-spacing) * 2) var(--aq-c-spacing);
+  padding: 16rem var(--aq-inset) calc(var(--aq-grid-cell) * 2);
+  background: #fff;
+}
+
+.aboutIntro .aboutEyebrow {
+  grid-column: 1 / -1;
+}
+
+.aboutIntro h1 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: var(--t-3xl);
+  font-weight: var(--t-3xl-weight);
+  line-height: var(--lh-3xl);
+  letter-spacing: var(--ls-3xl);
+}
+
+.aboutIntroCopy {
+  display: grid;
+  grid-column: 7 / -1;
+  gap: calc(var(--aq-c-spacing) * 1.2);
+}
+
+.aboutIntroCopy p {
+  margin: 0;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-2md);
+}
+
+.aboutIntroCopy p + p {
+  color: #5b5b5b;
+}
+
+/* --- equation ------------------------------------------------ */
+
+.aboutEquation {
+  display: grid;
+  padding: 0 var(--aq-inset) calc(var(--aq-grid-cell) * 2);
+  background: #fff;
+}
+
+.aboutEquationRow {
+  display: grid;
+  grid-template-columns: calc(var(--aq) * 8) minmax(0, 1fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--aq-c-spacing);
+  padding: calc(var(--aq-c-spacing) * 1.4) 0;
+  border-top: 1px solid rgba(5, 5, 5, 0.14);
+}
+
+.aboutEquationRow:last-child {
+  border-bottom: 1px solid rgba(5, 5, 5, 0.14);
+}
+
+.aboutEquationSign {
+  color: #9a9a9a;
+  font-size: var(--t-xl);
+  font-weight: var(--fw-light);
+  line-height: var(--lh-xl);
+}
+
+.aboutEquationRow strong {
+  font-family: var(--font-serif);
+  font-size: var(--t-xl);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-xl);
+}
+
+.aboutEquationRow p {
+  margin: 0;
+  color: #5b5b5b;
+  font-size: var(--t-2md);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-2md);
+}
+
+.aboutEquationRow.isResult .aboutEquationSign {
+  color: var(--ink);
+}
+
+.aboutEquationRow.isResult p {
+  color: var(--ink);
+  justify-self: start;
+  background: linear-gradient(transparent 58%, var(--aq-accent) 58%);
+  font-family: var(--font-serif);
+  font-size: var(--t-xl);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-xl);
+}
+
+/* --- wide image ---------------------------------------------- */
+
+.aboutWide {
+  margin: 0;
+  background: #fff;
+}
+
+.aboutWide img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  background: #e9e9e9;
+}
+
+.aboutWide figcaption,
+.aboutEvolutionMedia figcaption {
+  padding: 1rem var(--aq-inset) 0;
+  color: #7a7a7a;
+  font-size: var(--t-xs);
+  line-height: var(--lh-xs);
+}
+
+.aboutEvolutionMedia figcaption {
+  padding-left: 0;
+}
+
+.aboutWide figcaption a,
+.aboutEvolutionMedia figcaption a {
+  color: inherit;
+}
+
+/* --- statement + pillars ------------------------------------- */
+
+.aboutStatement {
+  display: grid;
+  gap: calc(var(--aq-grid-cell) * 1.5);
+  padding: calc(var(--aq-grid-cell) * 2) var(--aq-inset);
+  background: #fff;
+}
+
+.aboutStatement h2 {
+  max-width: 130rem;
+  margin: 0;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.aboutPillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--aq-c-spacing);
+}
+
+.aboutPillars article {
+  display: grid;
+  gap: 1rem;
+  padding-top: var(--aq-c-spacing);
+  border-top: 1px solid var(--ink);
+}
+
+.aboutPillars strong {
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+  letter-spacing: 0.04em;
+}
+
+.aboutPillars span {
+  font-family: var(--font-serif);
+  font-size: var(--t-2md);
+  line-height: var(--lh-2md);
+}
+
+/* --- strengths ----------------------------------------------- */
+
+.aboutStrengths {
+  display: grid;
+  gap: calc(var(--aq-c-spacing) * 2);
+  padding: calc(var(--aq-grid-cell) * 2) var(--aq-inset);
+  background: #0b0b0b;
+  color: #fff;
+}
+
+.aboutStrengths ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aboutStrengths li {
+  display: grid;
+  grid-template-columns: calc(var(--aq) * 8) minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--aq-c-spacing);
+  padding: calc(var(--aq-c-spacing) * 1.6) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.aboutStrengths li:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.aboutStrengths li span {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+}
+
+.aboutStrengths h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+  transition: color 0.3s var(--aq-ease-in-out);
+}
+
+.aboutStrengths li p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+}
+
+@media (hover: hover) {
+  .aboutStrengths li:hover h3 {
+    color: var(--aq-accent);
+  }
+}
+
+/* --- evolution ----------------------------------------------- */
+
+.aboutEvolution {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--aq-c-spacing);
+  padding: calc(var(--aq-grid-cell) * 2) var(--aq-inset);
+  background: #fff;
+}
+
+.aboutEvolutionMedia {
+  grid-column: 1 / span 5;
+  margin: 0;
+}
+
+.aboutEvolutionMedia img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: #e9e9e9;
+}
+
+.aboutEvolutionCopy {
+  display: grid;
+  grid-column: 7 / -1;
+  align-content: start;
+  gap: calc(var(--aq-c-spacing) * 1.2);
+}
+
+.aboutEvolutionCopy h2 {
+  margin: 0;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+}
+
+.aboutEvolutionCopy > p:not(.aboutEyebrow) {
+  margin: 0;
+  color: #5b5b5b;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+}
+
+.aboutEvolutionSteps {
+  display: grid;
+  margin: calc(var(--aq-c-spacing) * 1.5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aboutEvolutionSteps li {
+  display: grid;
+  grid-template-columns: calc(var(--aq) * 6) minmax(0, 1fr);
+  align-items: baseline;
+  padding: calc(var(--aq-c-spacing) * 0.9) 0;
+  border-top: 1px solid rgba(5, 5, 5, 0.12);
+}
+
+.aboutEvolutionSteps li:last-child strong {
+  color: var(--ink);
+  justify-self: start;
+  background: linear-gradient(transparent 55%, var(--aq-accent) 55%);
+}
+
+.aboutEvolutionSteps span {
+  color: #9a9a9a;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+}
+
+.aboutEvolutionSteps strong {
+  font-family: var(--font-serif);
+  font-size: var(--t-2md);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-2md);
+}
+
+/* --- disciplines --------------------------------------------- */
+
+.aboutDisciplines {
+  display: grid;
+  gap: calc(var(--aq-c-spacing) * 2);
+  padding: 0 var(--aq-inset) calc(var(--aq-grid-cell) * 2);
+  background: #fff;
+}
+
+.aboutDisciplines > div {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--aq-c-spacing);
+}
+
+.aboutDisciplines article {
+  display: grid;
+  align-content: space-between;
+  gap: calc(var(--aq-c-spacing) * 2);
+  min-height: calc(var(--aq) * 24);
+  padding: calc(var(--aq-c-spacing) * 1.2);
+  background: #f4f4f2;
+}
+
+.aboutDisciplines strong {
+  font-family: var(--font-serif);
+  font-size: var(--t-2md);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-2md);
+}
+
+.aboutDisciplines span {
+  color: #5b5b5b;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: 1.3;
+}
+
+/* --- heritage ------------------------------------------------ */
+
+.aboutHeritage {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: calc(var(--aq-c-spacing) * 2) var(--aq-c-spacing);
+  padding: calc(var(--aq-grid-cell) * 2) var(--aq-inset);
+  border-top: 1px solid rgba(5, 5, 5, 0.12);
+  background: #fff;
+}
+
+.aboutHeritage > div {
+  display: grid;
+  grid-column: 1 / span 5;
+  align-content: start;
+  gap: calc(var(--aq-c-spacing) * 1.2);
+}
+
+.aboutHeritage h2 {
+  margin: 0;
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-lg);
+}
+
+.aboutHeritage > div > p:not(.aboutEyebrow) {
+  margin: 0;
+  color: #5b5b5b;
+  font-size: var(--t-md);
+  line-height: var(--lh-md);
+}
+
+.aboutHeritage ul {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 7 / -1;
+  align-content: start;
+  gap: 0.6rem 2.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aboutHeritage li {
+  font-family: var(--font-serif);
+  font-size: var(--t-xl);
+  line-height: var(--lh-xl);
+}
+
+@media (max-width: 1023px) {
+  .aboutIntro {
+    padding-top: 12rem;
+  }
+
+  .aboutIntroCopy,
+  .aboutEvolutionMedia,
+  .aboutEvolutionCopy,
+  .aboutHeritage > div,
+  .aboutHeritage ul {
+    grid-column: 1 / -1;
+  }
+
+  .aboutEquationRow {
+    grid-template-columns: calc(var(--aq) * 3) minmax(0, 1fr);
+  }
+
+  .aboutEquationRow p {
+    grid-column: 2;
+  }
+
+  .aboutPillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: calc(var(--aq-c-spacing) * 2);
+  }
+
+  .aboutStrengths li {
+    grid-template-columns: calc(var(--aq) * 4) minmax(0, 1fr);
+  }
+
+  .aboutStrengths li p {
+    grid-column: 2;
+  }
+
+  .aboutEvolutionMedia img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .aboutDisciplines > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aboutWide img {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+.aboutStrengths .aboutEyebrow {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.aboutStatement h2,
+.aboutIntro h1,
+.aboutEvolutionCopy h2,
+.aboutHeritage h2 {
+  hyphens: manual;
+}
+
+/* Yellow accent on light backgrounds: yellow text would be unreadable on white,
+   so the rolled-in title words and hovered work titles carry a yellow marker
+   band behind dark text instead. */
+.svcGridTitle--accent .svcGridWord,
+.projectCardTitle--accent .projectCardWord {
+  box-shadow: inset 0 -0.42em 0 var(--aq-accent);
+}
+
+@media (hover: hover) {
+  .worksTitle:hover .worksWord {
+    box-shadow: inset 0 -0.35em 0 var(--aq-accent);
+  }
+}
+
+
+/* ============================================================
+   HOME — WHO WE ARE. Dark typographic band: headline, a short
+   description of what MomentumX does and four proof points.
+   ============================================================ */
+
+main > section.homeAbout {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.homeAbout {
+  display: grid;
+  gap: calc(var(--aq-grid-cell) * 1.6);
+  padding: calc(var(--aq-grid-cell) * 2) var(--aq-inset);
+  background: #0b0b0b;
+  color: #fff;
+  scroll-margin-top: 9rem;
+}
+
+.homeAboutHead {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: calc(var(--aq-c-spacing) * 1.5) var(--aq-c-spacing);
+  align-items: end;
+}
+
+.homeAboutEyebrow {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+  text-transform: uppercase;
+}
+
+.homeAboutHead h2 {
+  grid-column: 1 / span 7;
+  margin: 0;
+  font-size: var(--t-xl);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-xl);
+  letter-spacing: -0.01em;
+  hyphens: manual;
+}
+
+.homeAboutBody {
+  grid-column: 9 / -1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--t-md);
+  font-weight: var(--fw-medium);
+  line-height: 1.5;
+}
+
+.homeAboutProof {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--aq-c-spacing);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.homeAboutProof li {
+  display: grid;
+  align-content: start;
+  gap: 1.2rem;
+  padding-top: var(--aq-c-spacing);
+  border-top: 2px solid var(--aq-accent);
+}
+
+.homeAboutProof li > span {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+}
+
+.homeAboutProof h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--t-2md);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-2md);
+}
+
+.homeAboutProof p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: 1.45;
+}
+
+.homeAboutLink {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 1.2rem;
+  color: var(--aq-accent);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.homeAboutLink svg {
+  width: 40px;
+  height: 12px;
+  transition: transform 0.4s var(--aq-ease-in-out);
+}
+
+.homeAboutLink:focus-visible {
+  outline: 2px solid var(--aq-accent);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .homeAboutLink:hover svg {
+    transform: translateX(0.6rem);
+  }
+}
+
+@media (max-width: 1023px) {
+  .homeAboutHead h2,
+  .homeAboutBody {
+    grid-column: 1 / -1;
+  }
+
+  .homeAboutProof {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: calc(var(--aq-c-spacing) * 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .homeAboutProof {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Homepage contact section: MomentumX character in place of the video. */
+.bookingPerson {
+  justify-self: center;
+  align-self: end;
+  width: auto;
+  max-width: 100%;
+  height: clamp(36rem, 42vw, 60rem);
+  margin-bottom: calc(var(--section-y-large, 8rem) * -1);
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+@media (max-width: 760px) {
+  .bookingPerson {
+    justify-self: start;
+    height: 36rem;
+    margin-bottom: 0;
+  }
+}
+
+/* The MomentumX character is trimmed tight, so size it by height and stand it on
+   the bottom edge of the panel rather than overhanging the next section. */
+@media (min-width: 991px) {
+  .labCtaMedia {
+    top: auto;
+    bottom: 0;
+    width: auto;
+    height: calc(100% - 4rem);
+  }
+}
+
+/* ============================================================
+   404 + LEGAL PAGES
+   ============================================================ */
+
+main > section.notFound,
+main > section.legalHero,
+main > article.legalBody {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.notFound {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: calc(var(--aq-c-spacing) * 2) var(--aq-c-spacing);
+  min-height: min(90svh, 96rem);
+  align-content: center;
+  padding: 16rem var(--aq-inset) calc(var(--aq-grid-cell) * 2);
+  background: #0b0b0b;
+  color: #fff;
+}
+
+.notFoundCode {
+  grid-column: 1 / span 5;
+  margin: 0;
+  color: var(--aq-accent);
+  font-family: var(--font-serif);
+  font-size: calc(var(--t-3xl) * 1.6);
+  line-height: 0.85;
+}
+
+.notFoundCopy {
+  display: grid;
+  grid-column: 7 / -1;
+  align-content: end;
+  gap: calc(var(--aq-c-spacing) * 1.2);
+}
+
+.notFoundEyebrow {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+}
+
+.notFoundCopy h1 {
+  margin: 0;
+  font-size: var(--t-xl);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-xl);
+  hyphens: manual;
+}
+
+.notFoundCopy > p:not(.notFoundEyebrow) {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--t-md);
+  line-height: 1.5;
+}
+
+.notFoundHome {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 1.2rem;
+  color: var(--aq-accent);
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.notFoundHome svg {
+  width: 40px;
+  height: 12px;
+}
+
+.notFoundLinks {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--aq-c-spacing);
+  margin: calc(var(--aq-c-spacing) * 2) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.notFoundLinks a {
+  display: grid;
+  gap: 0.8rem;
+  padding-top: var(--aq-c-spacing);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.3s var(--aq-ease-in-out);
+}
+
+.notFoundLinks strong {
+  font-family: var(--font-serif);
+  font-size: var(--t-2md);
+  font-weight: var(--fw-normal);
+}
+
+.notFoundLinks span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--t-sm);
+}
+
+@media (hover: hover) {
+  .notFoundLinks a:hover {
+    border-top-color: var(--aq-accent);
+  }
+}
+
+.legalHero {
+  display: grid;
+  gap: calc(var(--aq-c-spacing) * 1.2);
+  padding: 16rem var(--aq-inset) calc(var(--aq-grid-cell) * 1.5);
+  background: #fff;
+}
+
+.legalEyebrow {
+  margin: 0;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+}
+
+.legalHero h1 {
+  margin: 0;
+  font-size: var(--t-3xl);
+  font-weight: var(--t-3xl-weight);
+  line-height: var(--lh-3xl);
+  letter-spacing: var(--ls-3xl);
+}
+
+.legalUpdated {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: var(--t-sm);
+}
+
+.legalBody {
+  display: grid;
+  gap: calc(var(--aq-c-spacing) * 2.4);
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 var(--aq-inset) calc(var(--aq-grid-cell) * 2.5);
+  background: #fff;
+}
+
+.legalBody section {
+  display: grid;
+  gap: calc(var(--aq-c-spacing) * 0.9);
+  padding-top: calc(var(--aq-c-spacing) * 1.6);
+  border-top: 1px solid rgba(5, 5, 5, 0.12);
+}
+
+.legalBody h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--t-lg);
+  font-weight: var(--fw-normal);
+  line-height: 1.1;
+}
+
+.legalBody p,
+.legalBody li {
+  margin: 0;
+  color: #262626;
+  font-size: var(--t-md);
+  line-height: 1.6;
+}
+
+.legalBody ul {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding-left: 2rem;
+}
+
+.legalBody a {
+  color: inherit;
+  text-decoration-color: var(--aq-accent);
+  text-decoration-thickness: 0.18em;
+}
+
+@media (max-width: 1023px) {
+  .notFoundCode,
+  .notFoundCopy {
+    grid-column: 1 / -1;
+  }
+
+  .notFoundLinks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notFound,
+  .legalHero {
+    padding-top: 12rem;
+  }
+}
+
+/* Contact page social links (replaces the old portfolio badges). */
+.portfolioLinks > div {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.portfolioLinks > div > a,
+.portfolioLinks .portfolioLinkPending {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 16rem;
+  padding: 3rem;
+  background: #fff;
+  color: var(--ink);
+  font-size: var(--t-2sm);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  transition: background-color 0.3s var(--aq-ease-in-out);
+}
+
+.portfolioLinks .socialIcon {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+@media (hover: hover) {
+  .portfolioLinks > div > a:hover {
+    background: var(--aq-accent);
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolioLinks > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .portfolioLinks > div > a,
+  .portfolioLinks .portfolioLinkPending {
+    min-height: 10rem;
+    padding: 2rem;
+  }
+}
+
+/* Case pages without imagery: journey steps take the full width, and related
+   cards for such cases show the client logo on a light panel. */
+.whiskasFlowBody.isFull {
+  grid-template-columns: 1fr;
+}
+
+.figmaOtherServices > div > a:has(> img.isLogo) {
+  background: #f4f4f2;
+}
+
+.figmaOtherServices > div > a > img.isLogo {
+  inset: 22% 18% 38%;
+  width: 64%;
+  height: 40%;
+  object-fit: contain;
+}
+
+/* Contact page: Momentum offices grouped by region. */
+main > section.officeRegions {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.officeRegions {
+  display: grid;
+  gap: 5rem;
+}
+
+.officeRegion {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.officeRegionLabel {
+  margin: 0;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-sm);
+  text-transform: uppercase;
+}
+
+.officeRegion .officeGrid article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  min-height: 22rem;
+}
+
+.officeRegion .officeGrid h2 {
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.officeRegion .officeGrid .textLink {
+  margin-top: auto;
+  justify-self: start;
+  align-self: flex-start;
+}
+
+/* No grey filler when a region has fewer offices than columns: divider lines
+   on each card instead of the shared grid background. */
+.officeRegion .officeGrid {
+  gap: 0;
+  background: none;
+  border-top: 1px solid var(--line);
+}
+
+.officeRegion .officeGrid article {
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 761px) {
+  .officeRegion .officeGrid article + article {
+    border-left: 1px solid var(--line);
+  }
+
+  .officeRegion .officeGrid article:nth-child(4n + 1) {
+    border-left: 0;
   }
 }

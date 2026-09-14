@@ -1,27 +1,40 @@
+import type { Metadata } from "next";
 import type { CSSProperties } from "react";
+import { pageMetadata } from "../../lib/seo";
+import { INDEXED_UTILITY_PATHS } from "../../lib/site";
 import { ContactForm } from "../contact-form";
+import { notFound } from "next/navigation";
+import { AboutContent } from "../about-page";
+import { PrivacyPolicy } from "../privacy-policy";
 import { PageHero, SiteFooter, SiteHeader } from "../site-components";
-import { aboutPage, contactPage, industriesPage, utilityPages } from "../site-data";
+import { contactPage, industriesPage, isVisibleCaseHref, utilityPages } from "../site-data";
+import { SocialIcon } from "../social-icons";
 
-const careerTitles: Record<string, string> = {
-  "android-app-developer": "android app developer",
-  "back-end-developer": "back-end developer",
-  "creative-ui-ux-designer": "creative ui/ux designer",
-  "flutter-developer": "flutter developer",
-  "ios-developer": "ios developer",
-  "part-time-sales-specialist": "part-time sales specialist",
-  "product-owner-mobile-super-app": "product owner mobile super app",
-  "react-native-developer": "react native developer",
-  "senior-frontend-nextjs-developer": "senior frontend nextjs developer",
-  "senior-product-designer": "senior product designer",
-  "senior-product-designer-dubai": "senior product designer dubai",
-  "senior-product-owner-digital-product": "senior product owner digital product",
-  "shopify-developer": "shopify developer",
-  "software-quality-assurance-officer": "software quality assurance officer",
-  "ui-designer-design-code": "ui designer design code",
-  "ui-ux-designer": "ui/ux designer",
-  "webgl-specialist": "webgl specialist"
-};
+function toTitle(text: string) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+// Only real pages are built; any other address falls through to app/not-found.
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return INDEXED_UTILITY_PATHS.map((path) => ({ slug: path.split("/") }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const path = slug.join("/");
+  const page = utilityPages[path];
+  const indexed = INDEXED_UTILITY_PATHS.includes(path);
+
+  if (path === "industries") {
+    return pageMetadata({ title: "Industries", description: industriesPage.hero.summary, path: "/industries" });
+  }
+
+  const title = page ? toTitle(page.title) : toTitle(path.split("/").pop()?.replaceAll("-", " ") ?? "MomentumX");
+  // Fallback and placeholder pages rendered by this catch-all stay out of search.
+  return pageMetadata({ title, description: page?.summary, path: `/${path}`, noindex: !indexed });
+}
 
 export default async function UtilityPage({
   params
@@ -31,21 +44,11 @@ export default async function UtilityPage({
   const { slug } = await params;
   const path = slug.join("/");
   const top = slug[0];
-  const page =
-    utilityPages[path] ??
-    (top === "careers" && slug[1]
-      ? {
-          title: careerTitles[slug[1]] ?? slug[1].replaceAll("-", " "),
-          summary: "career detail page",
-          body:
-            "Explore how this role contributes to digital strategy, design, technology, content, AI, and regional customer experiences."
-        }
-      : utilityPages[top] ?? {
-          title: path.replaceAll("-", " "),
-          summary: "supporting page",
-          body:
-            "MomentumX uses this space for company information, digital resources, credentials, and regional brand-led content."
-        });
+  const page = utilityPages[path];
+
+  if (!page || !INDEXED_UTILITY_PATHS.includes(path)) {
+    notFound();
+  }
 
   if (path === "industries") {
     return (
@@ -88,8 +91,8 @@ export default async function UtilityPage({
                   <div className="industryProof">
                     <div>
                       <strong>Relevant work</strong>
-                      {industry.work.length ? (
-                        industry.work.map((work) => (
+                      {industry.work.filter((work) => isVisibleCaseHref(work.href)).length ? (
+                        industry.work.filter((work) => isVisibleCaseHref(work.href)).map((work) => (
                           <a href={work.href} key={work.label}>{work.label}</a>
                         ))
                       ) : (
@@ -163,140 +166,59 @@ export default async function UtilityPage({
   return (
     <main>
       <SiteHeader />
-      <PageHero eyebrow={top} title={page.title} summary={page.summary} />
+      {path === "about-us" || path === "privacy-policy" ? null : (
+        <PageHero eyebrow={top} title={page.title} summary={page.summary} />
+      )}
       {path === "about-us" ? (
-        <>
-          <section className="aboutHeroMedia sectionPad">
-            <img src={aboutPage.gallery[0]} alt="" />
-            <div>
-              <span className="sectionNumber">01.</span>
-              <h2>{aboutPage.title}</h2>
-              <p>{aboutPage.summary}</p>
-              <p>{aboutPage.intro}</p>
-            </div>
-          </section>
-          <section className="statsBand sectionPad">
-            <h2>{aboutPage.statement}</h2>
-            <div>
-              {aboutPage.stats.map(([value, label]) => (
-                <article key={label}>
-                  <strong>{value}</strong>
-                  <span>{label}</span>
-                </article>
-              ))}
-            </div>
-          </section>
-          <section className="imageMarquee">
-            <div>
-              {[...aboutPage.gallery, ...aboutPage.gallery].map((image, index) => (
-                <img src={image} alt="" key={`${image}-${index}`} />
-              ))}
-            </div>
-          </section>
-          <section className="relatedRail sectionPad">
-            <h2>the people behind momentumX</h2>
-            <div className="miniCardGrid">
-              {aboutPage.people.map(([capability, label], index) => (
-                <a className="miniMediaCard" href="/about-us" key={capability}>
-                  <img src={aboutPage.gallery[index % aboutPage.gallery.length]} alt="" />
-                  <span>{capability}</span>
-                  <strong>{label}</strong>
-                </a>
-              ))}
-            </div>
-          </section>
-          <section className="evolutionSection sectionPad">
-            <div className="sectionHead">
-              <p>our evolution</p>
-              <h2>experience that keeps evolving.</h2>
-              <p>
-                MomentumX represents the evolution of our experience - applying technology and
-                intelligence to increasingly complex business challenges.
-              </p>
-            </div>
-            <div className="evolutionFlow">
-              {aboutPage.evolution.map((step, index) => (
-                <article key={step}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <strong>{step}</strong>
-                </article>
-              ))}
-            </div>
-          </section>
-          <section className="testimonialBlock aboutStrengths sectionPad">
-            <h2>what we bring together</h2>
-            {aboutPage.strengths.map((strength) => (
-              <article key={strength.title}>
-                <h3>{strength.title}</h3>
-                <p>{strength.body}</p>
-              </article>
-            ))}
-          </section>
-          <section className="clientWall sectionPad">
-            <div className="sectionHead">
-              <p>our heritage</p>
-              <h2>built on Momentum.</h2>
-              <p>
-                MomentumX builds on Momentum&apos;s established experience working with leading
-                organisations and brands across the Middle East.
-              </p>
-            </div>
-            <div>
-              {aboutPage.heritageClients.map((client) => (
-                <span key={client}>{client}</span>
-              ))}
-            </div>
-          </section>
-        </>
+        <AboutContent />
+      ) : path === "privacy-policy" ? (
+        <PrivacyPolicy />
       ) : path === "contact-us" || top === "enquiry" ? (
         <>
-          <section className="officeGrid sectionPad">
-            {contactPage.offices.map((office) => (
-              <article key={office.city}>
-                <h2>{office.city}</h2>
-                <p>{office.address}</p>
-                <a className="textLink" href={office.map}>
-                  get directions
-                </a>
-              </article>
+          <section className="officeRegions sectionPad">
+            {[...new Set(contactPage.offices.map((office) => office.region))].map((region) => (
+              <div className="officeRegion" key={region}>
+                <p className="officeRegionLabel">{region}</p>
+                <div className="officeGrid">
+                  {contactPage.offices
+                    .filter((office) => office.region === region)
+                    .map((office) => (
+                      <article key={office.city}>
+                        <h2>{office.city}</h2>
+                        <p>{office.address}</p>
+                        <a className="textLink" href={office.map} target="_blank" rel="noreferrer">
+                          get directions
+                        </a>
+                      </article>
+                    ))}
+                </div>
+              </div>
             ))}
           </section>
           <ContactForm />
           <section className="portfolioLinks sectionPad">
-            <h2>Portfolios</h2>
+            <h2>Follow us</h2>
             <div>
-              {contactPage.portfolios.map(([label, image]) => (
-                <a href="/contact-us" key={label}>
-                  <img src={image} alt={label} />
-                  <span>{label}</span>
-                </a>
-              ))}
+              {contactPage.socials.map((social) => {
+                const content = (
+                  <>
+                    <SocialIcon network={social.network} />
+                    <span>{social.label}</span>
+                  </>
+                );
+                return social.href ? (
+                  <a href={social.href} key={social.network} target="_blank" rel="noreferrer" aria-label={social.label}>
+                    {content}
+                  </a>
+                ) : (
+                  <div className="portfolioLinkPending" key={social.network}>
+                    {content}
+                  </div>
+                );
+              })}
             </div>
           </section>
         </>
-      ) : top === "careers" && slug[1] ? (
-        <section className="jobDetail sectionPad">
-          <article>
-            <h2>requirements</h2>
-            <ul>
-              <li>strong experience contributing to digital product, platform, or customer experience work</li>
-              <li>comfort translating strategy and design direction into polished execution</li>
-              <li>ability to collaborate with strategy, design, technology, content, and delivery teams</li>
-            </ul>
-          </article>
-          <article>
-            <h2>skills</h2>
-            <ul>
-              <li>digital thinking, visual craft, communication, and delivery discipline</li>
-              <li>brand systems, platform execution, content planning, and rollout support</li>
-              <li>attention to detail across web, mobile, social, content, and digital touchpoints</li>
-            </ul>
-          </article>
-          <article>
-            <h2>why MomentumX?</h2>
-            <p>Work on ambitious regional digital services with a team that values craft, ownership, and practical impact.</p>
-          </article>
-        </section>
       ) : (
         <section className="articleBody sectionPad">
           <p>{page.body}</p>

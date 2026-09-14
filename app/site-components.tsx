@@ -178,22 +178,32 @@ export function SiteFooter() {
         <h3>Dubai Office</h3>
         <p>605, Tower A, Empire Heights, Business Bay, Dubai</p>
         <div className="footerLinks">
-          <a className="textLink" href="https://maps.app.goo.gl/2wv4CWYZo7KxQvYM8">
+          <a
+            className="textLink"
+            href="https://www.google.com/maps/search/?api=1&query=Momentum+Marketing+and+Events%2C+Empire+Heights%2C+Business+Bay%2C+Dubai"
+            target="_blank"
+            rel="noreferrer"
+          >
             Get Directions
           </a>
-          <a className="textLink" href="/careers">
-            Careers
-          </a>
-          <a className="textLink" href="/book-meeting">
+          <a className="textLink" href="/contact-us">
             Plan Appointment
           </a>
         </div>
       </div>
       <div>
         <h3>Get in touch</h3>
-        <p>hello@momentumx.com</p>
-        <p>+971 04 569 3033</p>
-        <p className="tagline">Momentum gives us the experience. MomentumX adds the intelligence.</p>
+        <p>
+          <a href="mailto:hello@momentumxme.com">hello@momentumxme.com</a>
+        </p>
+        <p>+971 4 569 3033</p>
+        <p className="tagline">
+          Momentum gives us the experience.
+          <br />
+          CWIT adds the intelligence.
+          <br />
+          Becomes MomentumX
+        </p>
       </div>
     </footer>
   );
@@ -253,48 +263,6 @@ export function CtaBand() {
         start a conversation
       </a>
     </section>
-  );
-}
-
-export function AutoRail({ children, className = "caseRail" }: { children: ReactNode; className?: string }) {
-  const railRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const rail = railRef.current;
-    if (!rail) {
-      return;
-    }
-
-    const getStep = () => {
-      const card = rail.querySelector<HTMLElement>(":scope > *");
-      const gap = Number.parseFloat(window.getComputedStyle(rail).columnGap) || 0;
-      return (card?.getBoundingClientRect().width ?? Math.max(rail.clientWidth * 0.36, 280)) + gap;
-    };
-
-    const timer = window.setInterval(() => {
-      if (rail.matches(":hover")) {
-        return;
-      }
-
-      const maxScroll = rail.scrollWidth - rail.clientWidth;
-      if (maxScroll <= 0) {
-        return;
-      }
-
-      if (rail.scrollLeft >= maxScroll - 8) {
-        rail.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        rail.scrollBy({ left: getStep(), behavior: "smooth" });
-      }
-    }, 2600);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
-  return (
-    <div className={`${className} autoRail`} ref={railRef}>
-      {children}
-    </div>
   );
 }
 

@@ -1,8 +1,16 @@
+import { pageMetadata } from "../../lib/seo";
 import { SiteFooter, SiteHeader } from "../site-components";
 import { innovationLabPage } from "../site-data";
 import { LabExplore } from "./lab-explore";
 import { LabPurposeReveal } from "./lab-purpose-reveal";
 import { StatusSystem } from "./status-system";
+
+export const metadata = pageMetadata({
+  title: "AI Innovation Lab",
+  description:
+    "The MomentumX AI Innovation Lab turns emerging technology and real business challenges into prototypes, pilots and new products.",
+  path: "/innovation-lab"
+});
 
 const DESIGN = "/assets/design";
 
@@ -161,10 +169,10 @@ export default function InnovationLabPage() {
         </div>
         <img
           className="labCtaMedia"
-          src="/assets/design/cta-new-1.png"
+          src="/assets/design/cta-person-momentumx.png"
           alt=""
-          width={438}
-          height={658}
+          width={630}
+          height={1478}
         />
       </section>
 

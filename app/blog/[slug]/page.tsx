@@ -1,43 +1,114 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "../../../lib/seo";
 import { notFound } from "next/navigation";
-import { PageHero, SiteFooter, SiteHeader } from "../../site-components";
-import { blogDetailBlocks, blogDetailMedia, posts } from "../../site-data";
+import { articles, insightImage, relatedInsights } from "../../insights";
+import { CtaBand, SiteFooter, SiteHeader } from "../../site-components";
 
 export function generateStaticParams() {
-  return posts.map((post) => ({ slug: post.slug }));
+  return articles.map((article) => ({ slug: article.slug }));
 }
 
-export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = posts.find((item) => item.slug === slug) ?? posts[0];
+  const article = articles.find((item) => item.slug === slug);
+  return article
+    ? pageMetadata({
+        title: article.title,
+        description: article.summary,
+        path: `/blog/${article.slug}`,
+        type: "article",
+        image: { url: insightImage(article, 1200), alt: article.image.alt }
+      })
+    : { title: "Insights", robots: { index: false } };
+}
 
-  if (!post) {
+const UNSPLASH_REFERRAL = "?utm_source=momentumx&utm_medium=referral";
+
+export default async function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = articles.find((item) => item.slug === slug);
+
+  if (!article) {
     notFound();
   }
 
+  const related = relatedInsights(article);
+
   return (
-    <main>
+    <main className="insightPage">
       <SiteHeader />
-      <PageHero eyebrow={post.date} title={post.title} summary={post.summary} />
-      <article className="articleBody sectionPad">
-        <img src={post.image} alt="" />
-        <h3>A note from MomentumX</h3>
-        <p>
-          Digital work becomes useful when strategy, brand understanding, design, technology, and
-          delivery move together. These notes explore how brands can turn ideas into platforms,
-          products, and customer experiences that create growth.
+
+      <header className="insightHero">
+        <p className="insightMeta">
+          <a href={`/services/${article.serviceSlug}`}>{article.category}</a>
+          <span>{article.date}</span>
+          <span>{article.readTime}</span>
         </p>
-        {blogDetailBlocks.map((block) => (
-          <section key={block.title}>
-            <h2>{block.title}</h2>
-            <p>{block.body}</p>
+        <h1>{article.title}</h1>
+        <p className="insightLead">{article.summary}</p>
+      </header>
+
+      <figure className="insightHeroMedia">
+        <img src={insightImage(article, 2000)} alt={article.image.alt} />
+        <figcaption>
+          Photo by{" "}
+          <a href={`${article.image.credit.url}${UNSPLASH_REFERRAL}`} rel="noreferrer" target="_blank">
+            {article.image.credit.name}
+          </a>{" "}
+          on{" "}
+          <a href={`https://unsplash.com/${UNSPLASH_REFERRAL}`} rel="noreferrer" target="_blank">
+            Unsplash
+          </a>
+        </figcaption>
+      </figure>
+
+      <article className="insightBody">
+        <p className="insightIntro">{article.intro}</p>
+        {article.sections.map((section) => (
+          <section key={section.heading}>
+            <h2>{section.heading}</h2>
+            {section.paragraphs.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
           </section>
         ))}
-        <div className="articleMediaGrid">
-          {blogDetailMedia.map((image) => (
-            <img src={image} alt="" key={image} />
-          ))}
-        </div>
+        <aside className="insightTakeaways">
+          <h2>Key takeaways</h2>
+          <ul>
+            {article.takeaways.map((takeaway) => (
+              <li key={takeaway}>{takeaway}</li>
+            ))}
+          </ul>
+          <a className="textLink" href={`/services/${article.serviceSlug}`}>
+            explore {article.category}
+          </a>
+        </aside>
       </article>
+
+      {related.length ? (
+        <section className="insightRelated">
+          <h2>Related insights</h2>
+          <div className="insightsGrid">
+            {related.map((item) => (
+              <a className="insightCard" href={`/blog/${item.slug}`} key={item.slug}>
+                <div className="insightCardMedia">
+                  <img src={insightImage(item, 900)} alt={item.image.alt} loading="lazy" />
+                </div>
+                <div className="insightCardCopy">
+                  <p className="insightMeta">
+                    <span>{item.category}</span>
+                    <span>{item.readTime}</span>
+                  </p>
+                  <h2>{item.title}</h2>
+                  <p className="insightCardSummary">{item.summary}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <CtaBand />
       <SiteFooter />
     </main>
   );

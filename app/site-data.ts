@@ -15,9 +15,7 @@ export const services: Service[] = [
       "AI strategy, readiness, opportunity discovery and transformation roadmaps built around measurable business value.",
     body:
       "MomentumX helps organizations identify where AI can create measurable value, then shapes readiness plans, opportunity maps and transformation roadmaps that connect strategy to delivery.",
-    image: "/assets/imgs/services-1.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1180785751/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=2234eb566b5ec5bbd384eb07afd23de891bf90694be298ac9e618a4d194bf0ce"
+    image: "/assets/imgs/services-1.png"
   },
   {
     slug: "ai-solutions-and-intelligent-systems",
@@ -26,9 +24,7 @@ export const services: Service[] = [
       "AI agents, copilots, generative AI, computer vision, machine learning and intelligent applications built for real-world use.",
     body:
       "We design and build intelligent systems for real operational contexts, including AI agents, copilots, generative AI tools, computer vision, machine learning and applied AI products.",
-    image: "/assets/imgs/services-2.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1096949701/rendition/720p/file.mp4?loc=external&log_user=0&signature=39f7576c7b26eabaee6ae6cacafd39551d5716c492e712e88f824151f03ddb19"
+    image: "/assets/imgs/services-2.png"
   },
   {
     slug: "automation-and-enterprise-solutions",
@@ -37,9 +33,7 @@ export const services: Service[] = [
       "Intelligent workflows, document AI, CRM, ERP and custom enterprise systems that transform how work gets done.",
     body:
       "Automation and enterprise work connects business processes with practical systems, from intelligent workflows and document AI to CRM, ERP and custom operational platforms.",
-    image: "/assets/imgs/services-3.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1180785751/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=2234eb566b5ec5bbd384eb07afd23de891bf90694be298ac9e618a4d194bf0ce"
+    image: "/assets/imgs/services-3.png"
   },
   {
     slug: "digital-experience-and-platforms",
@@ -48,9 +42,7 @@ export const services: Service[] = [
       "High-performance websites, portals, commerce and digital platforms designed around customers and business objectives.",
     body:
       "Digital experience and platform work brings together customer journeys, content, performance, commerce and technology into platforms that support business outcomes.",
-    image: "/assets/imgs/services-4.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/787553887/rendition/720p/file.mp4?loc=external&signature=75c1c8aeb372612ddaced02827f766136f000d54fbd337c1b57d39d17773eff7"
+    image: "/assets/imgs/services-4.png"
   },
   {
     slug: "web-and-mobile-applications",
@@ -59,9 +51,7 @@ export const services: Service[] = [
       "Custom web and mobile applications engineered for complex customer, operational and enterprise requirements.",
     body:
       "MomentumX engineers custom web and mobile applications around complex user journeys, operational requirements, integrations and enterprise-grade product needs.",
-    image: "/assets/imgs/services-5.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1064974329/rendition/720p/file.mp4?loc=external&log_user=0&signature=fb060fa5b22e73dec477b9bee7da9fdfede4c914425e71174256c3ec056f5fdb&user_id=20404911"
+    image: "/assets/imgs/services-5.png"
   },
   {
     slug: "data-and-intelligence",
@@ -79,9 +69,7 @@ export const services: Service[] = [
       "IoT, sensors, Wi-Fi intelligence, computer vision and indoor analytics connecting physical environments with digital intelligence.",
     body:
       "Smart and connected technology links physical spaces with digital intelligence through IoT, sensors, Wi-Fi intelligence, computer vision and indoor analytics.",
-    image: "/assets/imgs/services-7.png",
-    video:
-      "https://player.vimeo.com/progressive_redirect/playback/1096861274/rendition/720p/file.mp4?loc=external&log_user=0&signature=a682a6ebf6953100276ad90c0de14ce7bbe4798482fd9aaac9bba2e6b455ead2"
+    image: "/assets/imgs/services-7.png"
   },
   {
     slug: "cloud-and-infrastructure",
@@ -102,60 +90,6 @@ export const services: Service[] = [
     image: "/assets/imgs/services-9.png"
   }
 ];
-
-export const serviceDetailBlocks = {
-  introTitle: "Digital & AI transformation built around measurable business value.",
-  introBody:
-    "Each service connects Momentum's regional business understanding with MomentumX capability across AI, software engineering, automation, data, platforms and connected technology.",
-  process: [
-    {
-      title: "discover",
-      body: "We map business goals, operational context, customer behavior, data readiness, existing systems and transformation opportunities before solution design begins."
-    },
-    {
-      title: "design",
-      body: "Roadmaps, workflows, prototypes, experience models and technical architecture define how the solution should work in the real business environment."
-    },
-    {
-      title: "build",
-      body: "AI, software, integrations, automation, data layers, platforms and QA come together in an implementation ready for adoption and scale."
-    },
-    {
-      title: "optimize",
-      body: "After launch, monitoring, optimisation, support and continuous development keep systems useful, reliable and aligned with business outcomes."
-    }
-  ],
-  technologies: [
-    {
-      title: "Our Tech Stack",
-      image: "https://storage.tentwenty.com/small_tech_stack_1f2d5c8d39.jpg"
-    },
-    {
-      title: "Strapi CMS",
-      image: "https://storage.tentwenty.com/small_strapi_ea2b501fda.jpg"
-    },
-    {
-      title: "ChatGPT and AI workflows",
-      image: "https://storage.tentwenty.com/small_03_01_1_1_e912deeb08.jpg"
-    },
-    {
-      title: "Algolia personalization",
-      image: "https://storage.tentwenty.com/small_03_01_4_c62b6b7a0d.jpg"
-    },
-    {
-      title: "API integrations",
-      image: "https://storage.tentwenty.com/small_api_x_tentwenty_2afbcfdd98.jpg"
-    },
-    {
-      title: "WordPress CMS",
-      image: "https://storage.tentwenty.com/small_wordpress_f0791deee9.jpg"
-    }
-  ],
-  testimonials: [
-    "Thoroughly recommended. The team is professional, patient, and deeply aware of how digital products need to move across regional markets.",
-    "After working with MomentumX on digital platforms and customer experiences, I would wholeheartedly recommend them."
-  ]
-};
 
 export const servicePageDetails: Record<
   string,
@@ -949,14 +883,23 @@ export const cases = [
     slug: "whiskas-interactive-cat-game",
     title: "A game designed for cats, not humans.",
     client: "Whiskas",
-    summary:
-      "An interactive digital campaign that turned an iPad into a playground for cats and transformed playful moments into campaign entries.",
-    image: "https://storage.tentwenty.com/small_play_showreel_dca84a2c40.webp",
+    summary: "An interactive cat game on mall tablets that turns playful moments into campaign entries — with Play Pulse AI helping ops review authenticity and heat on submissions.",
+    name: "Whiskas Interactive Cat Game",
+    abstract: "A game designed for cats, not humans.",
+    expertise: [
+      "digital experience & platforms",
+      "web & mobile applications",
+      "AI solutions & intelligent systems"
+    ],
+    industry: ["Pet Care"],
+    image: "/assets/cases/whiskas/hero.jpg",
     logo: "Whiskas",
+    logoImage: "/assets/logos/whiskas.png",
     services: [
       "gamification",
       "interactive experience",
-      "UGC",
+      "ugc",
+      "computer vision",
       "campaign technology",
       "digital engagement"
     ]
@@ -967,8 +910,13 @@ export const cases = [
     client: "Bank Muscat",
     summary:
       "Implementation of IBM API Connect, creating a managed API environment for secure B2B and corporate banking connectivity.",
-    image: "https://storage.tentwenty.com/small_AWS_and_Azure_Hosting_1_8f35b1ee0b.webp",
+    name: "Bank Muscat API Connect",
+    abstract: "Building the API layer for connected corporate banking.",
+    expertise: ["automation & enterprise solutions"],
+    industry: ["Banking & Financial Services"],
+    image: "",
     logo: "Bank Muscat",
+    logoImage: "/assets/logos/bank-muscat.png",
     services: [
       "API management",
       "enterprise integration",
@@ -979,36 +927,44 @@ export const cases = [
   },
   {
     slug: "ferrero-back-to-school-campaign",
-    title: "From receipt to reward. In one conversation.",
+    title: "A WhatsApp draw that stays warm when the queue gets loud.",
     client: "Ferrero Group",
-    summary:
-      "A WhatsApp-first promotional platform connecting receipt submission, OCR processing, campaign qualification and instant-win outcomes.",
-    image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp",
+    summary: "A bilingual Nutella Instant Draw on WhatsApp that turns a receipt into a weekly-draw entry — with Campaign Admin OCR and AI assist helping ops review submissions at volume.",
+    name: "Nutella Instant Draw",
+    abstract: "A WhatsApp draw that stays warm when the queue gets loud.",
+    expertise: ["AI solutions & intelligent systems", "automation & enterprise solutions"],
+    industry: ["Food & Beverage"],
+    image: "/assets/cases/ferrero/hero.jpg",
     logo: "Ferrero Group",
+    logoImage: "/assets/logos/ferrero.svg",
     services: [
-      "WhatsApp",
-      "OCR",
-      "receipt processing",
-      "qualification engine",
-      "instant-win logic",
-      "campaign operations"
+      "conversational experience",
+      "whatsapp",
+      "ocr",
+      "campaign technology",
+      "prize ops",
+      "digital engagement"
     ]
   },
   {
     slug: "dentazon-ai-dental-care-platform",
-    title: "From a dental concern to the right care.",
+    title: "A calm bridge from “something hurts” to the right next step.",
     client: "Dentazon",
-    summary:
-      "A connected dental-care platform combining AI-assisted guidance, structured patient history, dentist discovery and appointment management.",
-    image: "https://storage.tentwenty.com/small_Mask_group_3_1_96df741620_47c47e2b74.webp",
+    summary: "An AI Care Concierge on Dentazon’s live site assistant — bilingual triage, treatment explainers and booking assist, with soft clinical limits always visible.",
+    name: "Dentazon Care Concierge",
+    abstract: "A calm bridge from “something hurts” to the right next step.",
+    expertise: ["AI solutions & intelligent systems", "web & mobile applications"],
+    industry: ["Healthcare"],
+    image: "/assets/cases/dentazon/hero.jpg",
     logo: "Dentazon",
+    logoImage: "/assets/logos/dentazon.png",
     services: [
-      "AI assistant",
+      "conversational ai",
+      "digital health",
       "patient experience",
-      "healthcare platform",
-      "dentist discovery",
-      "appointment system",
-      "patient records"
+      "triage assist",
+      "booking",
+      "care ops"
     ]
   },
   {
@@ -1017,8 +973,13 @@ export const cases = [
     client: "Nolte",
     summary:
       "Creating a premium digital platform for Nolte UAE designed around product discovery, lead generation and regional expansion.",
-    image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg",
+    name: "Nolte Digital Platform",
+    abstract: "One digital foundation. Built to grow across markets.",
+    expertise: ["digital experience & platforms", "web & mobile applications", "AI solutions & intelligent systems"],
+    industry: ["Home & Interiors"],
+    image: "",
     logo: "Nolte",
+    logoImage: "/assets/logos/nolte.svg",
     services: [
       "digital strategy",
       "UX/UI",
@@ -1035,8 +996,13 @@ export const cases = [
     client: "du",
     summary:
       "A field intelligence platform designed to transform retail observations, images and video into structured commercial intelligence.",
-    image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp",
+    name: "du Retail Intelligence",
+    abstract: "Turning every retail visit into market intelligence.",
+    expertise: ["data & intelligence", "AI solutions & intelligent systems"],
+    industry: ["Telecommunications"],
+    image: "",
     logo: "du",
+    logoImage: "/assets/logos/du.svg",
     services: [
       "enterprise platform",
       "field operations",
@@ -1047,13 +1013,155 @@ export const cases = [
     ]
   },
   {
+    slug: "lays-match-radar",
+    title: "From scan to “where to watch tonight” without losing Game ON truth.",
+    client: "Lay's",
+    summary: "A dual-surface Match Radar pilot for No Lay's, No Game — fan finder energy plus an AI ops console that flags dark venues and low stock before peak.",
+    name: "Lay's Match Radar",
+    abstract: "From scan to “where to watch tonight” without losing Game ON truth.",
+    expertise: [
+      "digital experience & platforms",
+      "AI solutions & intelligent systems",
+      "data & intelligence"
+    ],
+    industry: ["Food & Beverage"],
+    image: "/assets/cases/lays/hero.jpg",
+    logo: "Lay's",
+    logoImage: "/assets/logos/lays.svg",
+    services: [
+      "fan experience",
+      "sports entertainment",
+      "venue retail",
+      "campaign ops",
+      "partner portal",
+      "practical ai"
+    ]
+  },
+  {
+    slug: "moussy-cap-pulse",
+    title: "Cap codes that stay simple for fans and legible for ops.",
+    client: "Moussy",
+    summary: "A bilingual Cap Pulse web entry for Win Gold with Moussy — drink, enter codes, boost chances — with AI normalize assist and an anomaly ops desk behind the Grand Draw.",
+    name: "Moussy Cap Pulse",
+    abstract: "Cap codes that stay simple for fans and legible for ops.",
+    expertise: [
+      "digital experience & platforms",
+      "web & mobile applications",
+      "AI solutions & intelligent systems"
+    ],
+    industry: ["Food & Beverage"],
+    image: "/assets/cases/moussy/hero.jpg",
+    logo: "Moussy",
+    logoImage: "/assets/logos/moussy.png",
+    services: [
+      "consumer web",
+      "cap code entry",
+      "campaign ops",
+      "anomaly assist",
+      "bilingual experience",
+      "digital engagement"
+    ]
+  },
+  {
+    slug: "rff-circular-control",
+    title: "An operating layer for recycled polymers, not a brochure site.",
+    client: "Recycle For Future",
+    summary: "A dual-surface pilot for Recycle For Future — materials, logistics and compliance with a chat-first AI ops assistant grounded on the lot-level ledger.",
+    name: "RFF Circular Control",
+    abstract: "An operating layer for recycled polymers, not a brochure site.",
+    expertise: [
+      "AI solutions & intelligent systems",
+      "automation & enterprise solutions",
+      "data & intelligence"
+    ],
+    industry: ["Recycling & Manufacturing"],
+    image: "/assets/cases/rff/hero.jpg",
+    logo: "Recycle For Future",
+    logoImage: "/assets/logos/rff.png",
+    services: [
+      "industrial ops",
+      "materials traceability",
+      "compliance assist",
+      "ai copilot",
+      "customer portal",
+      "circular economy"
+    ]
+  },
+  {
+    slug: "da-vinci-talent-pulse",
+    title: "A trading house for game changers — careers, culture, and counsel.",
+    client: "Da Vinci Trading",
+    summary: "A MomentumX talent engagement for Da Vinci Trading — employer-brand intelligence grounded in the live careers story on davincitrading.com, with hard rails that keep Ask Recruiting at candidate altitude (no trade signals, no strategy advice, no returns promises).",
+    name: "Da Vinci Talent Pulse",
+    abstract: "A trading house for game changers — careers, culture, and counsel.",
+    expertise: ["digital experience & platforms", "AI solutions & intelligent systems"],
+    industry: ["Financial Services"],
+    image: "/assets/cases/da-vinci/hero.jpg",
+    logo: "Da Vinci Trading",
+    logoImage: "/assets/logos/da-vinci.svg",
+    services: [
+      "employer brand",
+      "talent orientation",
+      "conversational assist",
+      "careers content craft",
+      "culture systems",
+      "digital experience"
+    ]
+  },
+  {
+    slug: "luxe-port-lookbook",
+    title: "The house book, staged for the screen.",
+    client: "Luxe Port",
+    summary: "An immersive lookbook for Luxe Port Trading — full-bleed fragrance moments and editorial brand plates, with quiet content craft behind captions and crops.",
+    name: "Luxe Port Lookbook",
+    abstract: "The house book, staged for the screen.",
+    expertise: ["digital experience & platforms"],
+    industry: ["Luxury & Fragrance"],
+    image: "/assets/cases/luxe-port/hero.jpg",
+    logo: "Luxe Port",
+    logoImage: "/assets/logos/luxe-port.png",
+    services: [
+      "luxury experience",
+      "editorial lookbook",
+      "brand systems",
+      "retail theatre",
+      "content craft",
+      "digital engagement"
+    ]
+  },
+  {
+    slug: "rise-partner-pulse",
+    title: "A partner brochure that makes a multi-vertical portfolio feel browsable.",
+    client: "Rise",
+    summary: "An immersive Partner Pulse lookbook for Rise — magazine opening, vertical mosaic proof, and quiet partner intelligence without an ops-ledger hero.",
+    name: "Rise Partner Pulse",
+    abstract: "A partner brochure that makes a multi-vertical portfolio feel browsable.",
+    expertise: ["digital experience & platforms"],
+    industry: ["Holding & Investment"],
+    image: "/assets/cases/rise/hero.jpg",
+    logo: "Rise",
+    logoImage: "/assets/logos/rise.svg",
+    services: [
+      "partner experience",
+      "editorial design",
+      "multi-vertical brochure",
+      "content craft",
+      "inquiry pulse",
+      "digital engagement"
+    ]
+  },
+  {
     slug: "moments-of-magic",
     title: "Moments of Magic",
     client: "M&M's",
     summary:
       "A digital-ready brand story shaped around memorable moments, content, and audience attention.",
+    name: "Moments of Magic",
+    abstract: "A digital-ready brand story shaped around memorable moments, content, and audience attention.",
+    expertise: ["digital experience & platforms"],
+    industry: ["Food & Beverage"],
     image: "https://storage.tentwenty.com/98/G42_1cd52cacb0.webp",
-    logo: "https://storage.tentwenty.com/1/70/g42_left_94f440e03f.svg",
+    logo: "Whiskas",
     services: ["digital strategy", "content experience", "customer engagement"]
   },
   {
@@ -1062,8 +1170,12 @@ export const cases = [
     client: "Pedigree & IAMS",
     summary:
       "A pet-focused digital engagement concept designed to bring community and product storytelling together.",
+    name: "Pawtopia",
+    abstract: "A pet-focused digital engagement concept designed to bring community and product storytelling together.",
+    expertise: ["digital experience & platforms"],
+    industry: ["Pet Care"],
     image: "https://storage.tentwenty.com/98/G42_1_e21d5eb296.webp",
-    logo: "https://storage.tentwenty.com/client_3_98ad41588a.svg",
+    logo: "Pedigree & IAMS",
     services: ["digital engagement", "community experience", "content planning"]
   },
   {
@@ -1072,8 +1184,12 @@ export const cases = [
     client: "Tazal",
     summary:
       "A premium digital storytelling direction built around hospitality, attention, and crafted experience.",
+    name: "A Michelin Affair",
+    abstract: "A premium digital storytelling direction built around hospitality, attention, and crafted experience.",
+    expertise: ["digital experience & platforms"],
+    industry: ["Hospitality"],
     image: "https://storage.tentwenty.com/medium_UAE_Pavilion_Expo_2025_63f64b6389.webp",
-    logo: "https://storage.tentwenty.com/ithra_logo_c69cb03a85.svg",
+    logo: "Tazal",
     services: ["digital storytelling", "experience design", "content direction"]
   },
   {
@@ -1082,8 +1198,12 @@ export const cases = [
     client: "BRF",
     summary:
       "A consumer-facing digital experience shaped for regional audience engagement and content visibility.",
+    name: "Taste of Abu Dhabi",
+    abstract: "A consumer-facing digital experience shaped for regional audience engagement and content visibility.",
+    expertise: ["digital experience & platforms"],
+    industry: ["Food & Beverage"],
     image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp",
-    logo: "https://storage.tentwenty.com/Dubai_Watch_Week_fe2ad5f249.svg",
+    logo: "BRF",
     services: ["customer experience", "regional content", "digital engagement"]
   },
   {
@@ -1091,49 +1211,20 @@ export const cases = [
     title: "Ride back in Style",
     client: "Unilever",
     summary: "A lifestyle-led digital engagement connecting brand recall, useful content, and customer touchpoints.",
+    name: "Ride back in Style",
+    abstract: "A lifestyle-led digital engagement connecting brand recall, useful content, and customer touchpoints.",
+    expertise: ["digital experience & platforms"],
+    industry: ["Consumer Goods"],
     image: "https://storage.tentwenty.com/98/Pinza_Thumbnail_3e5ae1a237.webp",
-    logo: "https://storage.tentwenty.com/Pinza_7d5b658bc7.svg",
+    logo: "Unilever",
     services: ["digital experience", "content systems", "customer touchpoints"]
   }
 ];
 
-export const caseDetailBlocks = [
-  {
-    title: "from brand insight to digital experience",
-    body:
-      "Each engagement starts with the audience journey: where people meet the brand, what they need, and what action the digital experience should support."
-  },
-  {
-    title: "regional context with digital consistency",
-    body:
-      "Digital direction balances local market nuance with the standards, tone, and recognition global brands need to protect."
-  },
-  {
-    title: "experiences built for useful interaction",
-    body:
-      "The work is designed to help people explore, understand, compare, enquire, purchase, or connect through the right digital touchpoints."
-  },
-  {
-    title: "delivery that moves quickly across markets",
-    body:
-      "From Dubai to the wider region, execution is shaped around practical rollout, digital assets, scalable systems, and measurable business impact."
-  }
-];
-
-export const caseDetailMedia = [
-  {
-    title: "digital experience environment",
-    image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
-  },
-  {
-    title: "experience planning",
-    image: "https://storage.tentwenty.com/G42_Project_Brief_f04fb77727.jpg"
-  },
-  {
-    title: "digital platform assets",
-    image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
-  }
-];
+// Cases shown on the site; hidden ones keep their data but get no page or links.
+export const visibleCases = cases.filter((item) => !("hidden" in item && item.hidden));
+export const isVisibleCaseHref = (href: string) =>
+  !href.startsWith("/cases/") || visibleCases.some((item) => `/cases/${item.slug}` === href);
 
 export const casePageDetails: Record<
   string,
@@ -1156,6 +1247,8 @@ export const casePageDetails: Record<
       body: string;
       steps: string[];
       markets: string[];
+      cards?: { title: string; body: string }[];
+      closing?: string;
     };
     ecosystemEyebrow?: string;
     capabilities: string[];
@@ -1163,47 +1256,49 @@ export const casePageDetails: Record<
     testimonial?: { quote: string; attribution: string };
     relatedWork: { title: string; body: string; href: string }[];
     cta: { eyebrow: string; title: string; body: string; href: string; label: string };
+    media?: { hero: string; play: string; moment: string; flow: string };
+    moments?: { title: string; body: string }[];
   }
 > = {
   "whiskas-interactive-cat-game": {
     eyebrow: "WHISKAS · GAMIFIED CONSUMER EXPERIENCE",
     metadata: [
-      { label: "Engagement", value: "Interactive Cat Game / Gamified Campaign" },
-      { label: "Client", value: "Whiskas" },
+      {
+        label: "Engagement",
+        value: "Interactive Cat Game / AI Campaign Intelligence"
+      },
+      {
+        label: "Client",
+        value: "Whiskas"
+      },
       {
         label: "Experience",
-        value: "Tablet-based interactive game + video-led campaign participation"
+        value: "Tablet game + video participation + Play Pulse review"
       },
       {
         label: "Capabilities",
-        value:
-          "Gamification · Interactive Experience · UGC · Campaign Technology · Digital Engagement"
+        value: "Gamification · Interactive Experience · UGC · Computer Vision · Campaign Technology · Digital Engagement"
       }
     ],
     story: [
       {
         title: "THE IDEA",
-        body:
-          "Instead of creating another digital game for pet owners, the experience was designed around the natural behaviour of cats: curiosity, movement, chasing and play."
+        body: "Instead of another game for pet owners, the experience follows cats’ natural behaviour — curiosity, chasing and play — with an intelligence layer for ops on top."
       },
       {
         title: "THE INTERACTION",
-        body:
-          "An iPad placed on the floor becomes the play surface. Animated elements appear and move across the display, encouraging the cat to follow, chase and physically interact with the screen."
+        body: "An iPad on the floor becomes the play surface. Animated elements move across the display, inviting the cat to follow, chase and tap."
       },
       {
         title: "THE CONTENT",
-        body:
-          "While the cat plays, the owner records the interaction. The gameplay becomes more than an on-screen experience: it creates authentic, entertaining user-generated content around the brand."
+        body: "While the cat plays, the owner records the moment. Gameplay becomes authentic UGC around the brand — ready for campaign entry."
       },
       {
         title: "THE CAMPAIGN",
-        body:
-          "Owners upload their videos as campaign submissions, turning a simple interactive game into a participation mechanic built around pets, people and shareable content."
+        body: "Owners upload videos as submissions; Play Pulse gives the prize and heat desk a clearer view so teams can review and reward real play."
       }
     ],
-    builtIntro:
-      "A playful campaign experience that turns screen interaction into physical play, owner-created video and digital participation.",
+    builtIntro: "A playful campaign experience that turns screen interaction into physical play, owner-created video and digital participation — with Play Pulse for ops.",
     built: [
       {
         title: "Interactive Cat Game",
@@ -1211,141 +1306,175 @@ export const casePageDetails: Record<
       },
       {
         title: "Motion-Based Game Mechanics",
-        body: "Animated elements appear and travel across the screen to encourage chasing and tapping."
+        body: "Animated elements travel across the screen to encourage chasing and tapping."
       },
       {
         title: "Touch Interaction",
         body: "On-screen reactions are designed around physical interaction with the tablet."
       },
       {
-        title: "Campaign Experience",
-        body: "A digital journey connects the game to the wider Whiskas activation."
-      },
-      {
         title: "UGC Participation Flow",
-        body: "Owners can record and submit their cat's gameplay as campaign participation."
+        body: "Owners record and submit their cat’s gameplay as campaign participation."
       },
       {
         title: "Video Submission Journey",
-        body: "Owner-recorded content is turned into a structured participation asset."
+        body: "Owner-recorded content becomes a structured participation asset."
       },
       {
-        title: "Campaign Entry Logic",
-        body: "Valid submissions connect with the campaign entry process."
+        title: "Play Pulse Heat Studio",
+        body: "Computer vision maps paw-tap density so ops can see engagement heat on real play frames."
       },
       {
-        title: "Responsive Digital Experience",
-        body: "The campaign experience is designed across the relevant consumer devices and touchpoints."
+        title: "Authenticity & Prize Desk",
+        body: "AI-assisted review flags weak entries and keeps a fair prize queue under human control."
+      },
+      {
+        title: "Campaign Experience",
+        body: "A digital journey connects the floor game to the wider Whiskas activation."
       }
     ],
     journeyEyebrow: "the campaign journey",
     leadJourney: {
       title: "Play. Capture. Upload. Enter.",
-      body:
-        "The campaign turns a tablet game into a fluid participation journey, with the pet as the player and the owner as the content creator.",
+      body: "The campaign turns a tablet game into a fluid participation journey, with the pet as the player and the owner as the content creator.",
       steps: [
-        { title: "Discover", body: "The owner discovers the Whiskas campaign and interactive cat game." },
-        { title: "Open", body: "The game is opened on a tablet or iPad." },
-        { title: "Place", body: "The device is placed on the floor within reach of the cat." },
-        { title: "Play", body: "Moving interactive elements encourage the cat to chase and tap the screen." },
-        { title: "Record", body: "The owner captures the cat's reaction and gameplay on video." },
-        { title: "Upload", body: "The video is submitted through the campaign participation flow." },
-        { title: "Enter", body: "The content becomes a valid campaign entry according to campaign rules." },
-        { title: "Win", body: "Selected participants have the opportunity to receive campaign rewards." }
+        {
+          title: "Discover",
+          body: "The owner discovers the Whiskas campaign and interactive cat game."
+        },
+        {
+          title: "Open",
+          body: "The game is opened on a tablet or iPad."
+        },
+        {
+          title: "Place",
+          body: "The device is placed on the floor within reach of the cat."
+        },
+        {
+          title: "Play",
+          body: "Moving interactive elements encourage the cat to chase and tap the screen."
+        },
+        {
+          title: "Record",
+          body: "The owner captures the cat’s reaction and gameplay on video."
+        },
+        {
+          title: "Upload",
+          body: "The video is submitted through the campaign participation flow."
+        },
+        {
+          title: "Enter",
+          body: "Content becomes a valid campaign entry according to campaign rules."
+        },
+        {
+          title: "Win",
+          body: "Selected participants have the opportunity to receive campaign rewards."
+        }
       ],
-      note:
-        "The public case study avoids inventing scores, leaderboards, voting, moderation or reward mechanics beyond the confirmed campaign journey."
+      note: ""
     },
     visualStory: [
       {
-        title: "THE IDEA",
-        body: "A digital game made for a non-human player, with the product's real end beneficiary at the centre.",
-        image: "https://storage.tentwenty.com/small_play_showreel_dca84a2c40.webp"
-      },
-      {
         title: "THE PLAY",
         body: "Moving elements trigger curiosity, chasing, tapping and physical interaction with the screen.",
-        image: "https://storage.tentwenty.com/small_Showreel_vertical_09d7c91a59.webp"
+        image: "/assets/cases/whiskas/the-play.jpg"
       },
       {
         title: "THE MOMENT",
-        body: "The owner captures the interaction as video, turning gameplay into a shareable campaign moment.",
-        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
-      },
-      {
-        title: "THE ENTRY",
-        body: "Video upload and campaign submission turn the owner-recorded moment into participation.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
-      },
-      {
-        title: "THE CONTENT",
-        body: "Gameplay becomes user-generated campaign material built around authentic pet-owner moments.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+        body: "The owner captures the interaction as video; Play Pulse helps ops review authenticity and heat on submissions.",
+        image: "/assets/cases/whiskas/the-moment.jpg"
       }
     ],
     ecosystemEyebrow: "the experience architecture",
     ecosystem: {
-      title: "A simple experience. A connected campaign journey.",
-      body:
-        "The strength of the campaign is its simplicity at the front end: the technology creates a playful trigger, while the participation journey converts that moment into campaign engagement.",
+      title: "A Simple Experience. A Connected Campaign Journey.",
+      body: "The strength of the campaign is its simplicity at the front end: the technology creates a playful trigger, while the participation journey converts that moment into campaign engagement.",
       steps: [
         "WHISKAS CAMPAIGN",
         "INTERACTIVE TABLET GAME",
         "CAT INTERACTION",
         "OWNER VIDEO",
-        "UPLOAD / SUBMISSION",
-        "CAMPAIGN ENTRY",
-        "WINNER / REWARD PROCESS"
+        "PLAY PULSE REVIEW",
+        "CAMPAIGN ENTRY"
       ],
-      markets: ["THE PET", "THE OWNER", "THE BRAND"]
+      markets: ["THE PET", "THE OWNER", "THE BRAND"],
+      cards: [
+        {
+          title: "Whiskas Campaign",
+          body: "The owner discovers the Whiskas campaign and interactive cat game."
+        },
+        {
+          title: "Interactive Tablet Game",
+          body: "The game opens on a tablet placed where the cat can reach."
+        },
+        {
+          title: "Cat Interaction",
+          body: "Moving elements invite chase, tap and physical play on the screen."
+        },
+        {
+          title: "Owner Video",
+          body: "The owner records the gameplay as shareable campaign content."
+        },
+        {
+          title: "Play Pulse Review",
+          body: "Upload submissions land in Heat Studio and authenticity assist for ops."
+        },
+        {
+          title: "Campaign Entry",
+          body: "Qualified clips reach the prize desk; humans decide awards."
+        }
+      ],
+      closing: "Midnight Paws remains the experience. Whiskas Play Pulse is how CWIT adds the intelligence."
     },
     capabilities: [
-      "Interactive Game",
-      "Motion Mechanics",
-      "Touch Interaction",
-      "Campaign Experience",
-      "UGC Flow",
-      "Video Submission",
-      "Campaign Entry Logic",
+      "Gamification",
+      "Interactive Experience",
+      "UGC",
+      "Computer Vision",
+      "Campaign Technology",
       "Digital Engagement"
     ],
-    impact: [
-      {
-        title: "PET-FIRST INTERACTION",
-        body: "A digital experience designed around the behaviour of the product's real end beneficiary."
-      },
-      {
-        title: "OWNER ENGAGEMENT",
-        body: "Owners become participants through watching, recording and submitting the experience."
-      },
-      {
-        title: "CONTENT GENERATION",
-        body: "The campaign mechanic naturally produces video content from real interactions."
-      },
-      {
-        title: "PHYSICAL + DIGITAL",
-        body: "A screen-based experience creates a tangible real-world reaction and campaign moment."
-      },
-      {
-        title: "MEMORABLE BRAND EXPERIENCE",
-        body: "The brand becomes associated with an entertaining interaction between pet and owner."
-      }
-    ],
+    impact: [],
     relatedWork: [
-      { title: "Ferrero Group - Conversational Campaign", body: "OCR · Automation", href: "/cases/ferrero-back-to-school-campaign" },
-      { title: "du Retail Intelligence Platform", body: "Enterprise Transformation · Computer Vision · BI", href: "/cases/du-retail-intelligence-platform" },
-      { title: "Dentazon - AI Healthcare Product", body: "AI Product · Healthcare", href: "/cases/dentazon-ai-dental-care-platform" },
-      { title: "Bank Muscat - IBM API Connect", body: "Enterprise Integration", href: "/cases/bank-muscat-ibm-api-connect" },
-      { title: "Nolte - Digital Experience & Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" }
+      {
+        title: "Moussy Cap Pulse",
+        body: "Cap Pulse / AI Anomaly Ops",
+        href: "/cases/moussy-cap-pulse"
+      },
+      {
+        title: "Lay's Match Radar",
+        body: "Match Radar / AI Campaign Ops",
+        href: "/cases/lays-match-radar"
+      },
+      {
+        title: "Nutella Instant Draw",
+        body: "WhatsApp Instant Draw / AI Campaign Admin",
+        href: "/cases/ferrero-back-to-school-campaign"
+      }
     ],
     cta: {
       eyebrow: "have an idea people should interact with?",
       title: "Turn creative ideas into digital experiences.",
-      body:
-        "MomentumX combines creative thinking, interaction design and technology to build campaign experiences people - and sometimes their pets - actually want to engage with.",
+      body: "MomentumX combines creative thinking, interaction design and technology to build campaign experiences people - and sometimes their pets - actually want to engage with.",
       href: "/enquiry",
       label: "start a conversation"
-    }
+    },
+    media: {
+      hero: "/assets/cases/whiskas/hero.jpg",
+      play: "/assets/cases/whiskas/the-play.jpg",
+      moment: "/assets/cases/whiskas/the-moment.jpg",
+      flow: "/assets/cases/whiskas/campaign-flow.jpg"
+    },
+    moments: [
+      {
+        title: "The Play",
+        body: "Moving elements trigger curiosity, chasing, tapping and physical interaction with the screen."
+      },
+      {
+        title: "The Moment",
+        body: "The owner captures the interaction as video; Play Pulse helps ops review authenticity and heat on submissions."
+      }
+    ]
   },
   "bank-muscat-ibm-api-connect": {
     eyebrow: "BANK MUSCAT · ENTERPRISE INTEGRATION",
@@ -1439,27 +1568,27 @@ export const casePageDetails: Record<
       {
         title: "THE ENTERPRISE",
         body: "Corporate finance, treasury and business systems require controlled banking connectivity.",
-        image: "https://storage.tentwenty.com/small_AWS_and_Azure_Hosting_1_8f35b1ee0b.webp"
+        image: ""
       },
       {
         title: "THE BRIDGE",
         body: "IBM API Connect acts as the managed bridge between banking systems and authorised corporate consumers.",
-        image: "https://storage.tentwenty.com/small_tech_stack_1f2d5c8d39.jpg"
+        image: ""
       },
       {
         title: "THE REQUEST",
         body: "Authentication, policy handling, routing, banking service processing and response form one controlled flow.",
-        image: "https://storage.tentwenty.com/small_api_x_tentwenty_2afbcfdd98.jpg"
+        image: ""
       },
       {
         title: "THE CONTROL",
         body: "Management, security, policies and monitoring give the API environment operational governance.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+        image: ""
       },
       {
         title: "THE CONNECTION",
         body: "Banking capabilities can sit closer to corporate applications and workflows through authorised API consumption.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+        image: ""
       }
     ],
     ecosystemEyebrow: "the architecture",
@@ -1523,390 +1652,436 @@ export const casePageDetails: Record<
     }
   },
   "ferrero-back-to-school-campaign": {
-    eyebrow: "FERRERO GROUP · INTELLIGENT CAMPAIGN PLATFORM",
+    eyebrow: "FERRERO · CONVERSATIONAL CAMPAIGN",
     metadata: [
-      { label: "Client", value: "Ferrero Group" },
-      { label: "Campaign", value: "Back to School" },
-      { label: "Brands", value: "Nutella / Kinder" },
-      { label: "Market", value: "Saudi Arabia" },
-      { label: "Engagement", value: "Conversational Campaign Platform" },
+      {
+        label: "Engagement",
+        value: "WhatsApp Instant Draw / AI Campaign Admin"
+      },
+      {
+        label: "Client",
+        value: "Ferrero Group (Nutella / Kinder)"
+      },
+      {
+        label: "Experience",
+        value: "Bilingual chat journey + receipt upload + OCR review desk"
+      },
       {
         label: "Capabilities",
-        value:
-          "WhatsApp · OCR · Receipt Processing · Qualification Engine · Instant-Win Logic · Campaign Operations"
+        value: "Conversational Experience · WhatsApp · OCR · Campaign Technology · Prize Ops · Digital Engagement"
       }
     ],
     story: [
       {
-        title: "THE PARTICIPATION",
-        body:
-          "Instead of sending participants through a traditional campaign website and registration flow, the experience brings campaign participation directly into WhatsApp."
+        title: "THE IDEA",
+        body: "Back to School needs a bridge from shelf to draw that feels like Ferrero — warm, bilingual, and fair — with an intelligence layer for receipt ops."
       },
       {
-        title: "THE INTELLIGENCE",
-        body:
-          "Participants upload their purchase receipt inside the conversation. OCR and campaign logic read and structure the information required to process participation and assess eligibility."
+        title: "THE INTERACTION",
+        body: "WhatsApp carries language choice, T&Cs before PII, registration, sticker warmth, receipt upload and honest reject paths."
       },
       {
-        title: "THE DECISION",
-        body:
-          "Eligible receipts are converted into campaign entries and passed into automated campaign logic that determines the participant's instant-win outcome."
+        title: "THE CONTENT",
+        body: "Receipt photos become structured submissions; OCR assist extracts totals and SKUs so the weekly draw ledger stays operable."
       },
       {
-        title: "THE MOMENT",
-        body:
-          "Rather than asking participants to wait for a future draw, the platform can return the outcome within the same WhatsApp journey, making the result part of the campaign experience itself."
+        title: "THE CAMPAIGN",
+        body: "Validated entries feed prize inventory and a grounded AI ops assistant — assistive answers on confidence and remaining vouchers, never autonomous compliance."
       }
     ],
-    builtIntro:
-      "A conversational campaign engine designed to reduce friction between purchase, participation and result.",
+    builtIntro: "A conversational campaign experience that turns a WhatsApp chat into registration, receipt proof and weekly-draw participation.",
     built: [
       {
-        title: "WhatsApp Campaign Chatbot",
-        body: "An end-to-end conversational participation journey built around a channel consumers already use."
+        title: "Bilingual WhatsApp Journey",
+        body: "English / العربية welcome before any personal data."
       },
       {
-        title: "Receipt Upload & Processing",
-        body: "Participants submit purchase evidence directly within the campaign flow."
+        title: "T&Cs-First Consent",
+        body: "Terms preview on winwithnutella.com before PII capture."
       },
       {
-        title: "OCR Integration",
-        body: "Submitted receipts are processed so relevant purchase information can be extracted and structured."
+        title: "Registration & Confirm",
+        body: "Name, mobile, email with a clear YES confirm step."
       },
       {
-        title: "Campaign Qualification Engine",
-        body: "Campaign eligibility and qualifying-purchase rules are applied consistently within the platform."
+        title: "Sticker & Mission CTA",
+        body: "Brand warmth, then the SAR 50+ Nutella or Kinder receipt ask."
       },
       {
-        title: "Receipt Review Workflow",
-        body: "Operational review supports unclear, corrected or non-qualifying submissions."
+        title: "Receipt Upload Path",
+        body: "Photo intake, store capture and under-review acknowledgement."
       },
       {
-        title: "Duplicate Receipt Controls",
-        body: "Controls help identify repeated receipt submissions and protect campaign integrity."
+        title: "OCR Qualify Assist",
+        body: "AI extracts store, total and SKU lines with confidence for ops."
       },
       {
-        title: "Automated Entry Management",
-        body: "Qualifying participation is recorded automatically as campaign entries."
+        title: "Authenticity & Prize Desk",
+        body: "Approve / reject / clearer-photo queue plus voucher and iPad inventory."
       },
       {
-        title: "Instant-Win Engine",
-        body: "Automated campaign logic determines outcomes according to configured campaign rules."
-      },
-      {
-        title: "Prize Allocation Logic",
-        body: "Winning outcomes connect into the configured reward and fulfilment journey."
-      },
-      {
-        title: "Campaign Operations Platform",
-        body: "Participants, receipts, qualification status, winner outcomes and reporting are managed in one campaign environment."
+        title: "AI Ops Copilot",
+        body: "Grounded answers on reject reasons, OCR confidence and prizes remaining."
       }
     ],
-    journeyEyebrow: "the consumer journey",
+    journeyEyebrow: "the campaign journey",
     leadJourney: {
-      title: "From discovery to reward.",
-      body:
-        "The experience turns participation into one continuous WhatsApp-led journey, with receipt processing and campaign logic working behind the conversation.",
+      title: "Chat. Upload. Review. Draw.",
+      body: "The campaign turns a WhatsApp conversation into a fluid participation journey, with the fan in chat and ops on a shared receipt ledger.",
       steps: [
-        { title: "DISCOVER", body: "The consumer encounters the Back to School promotion and begins participation." },
-        { title: "WHATSAPP", body: "The campaign opens as a guided conversational experience." },
-        { title: "UPLOAD RECEIPT", body: "The participant submits purchase evidence directly in the chat." },
-        { title: "READ", body: "OCR extracts relevant receipt information." },
-        { title: "VALIDATE", body: "The system checks the receipt and required campaign information." },
-        { title: "QUALIFY", body: "Campaign rules determine whether the purchase is eligible." },
-        { title: "ENTER", body: "A qualifying participation is recorded automatically." },
-        { title: "INSTANT RESULT", body: "The instant-win engine determines the outcome according to campaign logic." },
-        { title: "REWARD", body: "Winning participants move into the appropriate prize or fulfilment journey." }
+        {
+          title: "Discover",
+          body: "Fan finds the Ferrero Back to School / Nutella Instant Draw invite."
+        },
+        {
+          title: "Open",
+          body: "Opens WhatsApp and chooses English or العربية."
+        },
+        {
+          title: "Place",
+          body: "Accepts T&Cs before sharing personal details."
+        },
+        {
+          title: "Play",
+          body: "Registers and confirms details with YES."
+        },
+        {
+          title: "Record",
+          body: "Photographs a qualifying Nutella or Kinder receipt."
+        },
+        {
+          title: "Upload",
+          body: "Submits the receipt photo into the chat journey."
+        },
+        {
+          title: "Enter",
+          body: "Ops review with OCR assist; validated entries join the weekly draw pool."
+        },
+        {
+          title: "Win",
+          body: "Weekly draw awards from a clean inventory of vouchers and Grand Prize stock."
+        }
       ],
-      note:
-        "Confidential probability, prize-allocation and campaign-control logic should remain abstracted in public-facing material."
+      note: ""
     },
     visualStory: [
       {
-        title: "THE CONVERSATION",
-        body: "Consumers participate directly through a guided WhatsApp campaign journey.",
-        image: "https://storage.tentwenty.com/small_03_01_1_1_e912deeb08.jpg"
-      },
-      {
-        title: "THE RECEIPT",
-        body: "Purchase evidence becomes structured campaign data through OCR and document processing.",
-        image: "https://storage.tentwenty.com/G42_Project_Brief_f04fb77727.jpg"
-      },
-      {
-        title: "THE DECISION",
-        body: "Validation, qualification and automated entry creation connect the receipt to campaign logic.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+        title: "THE PLAY",
+        body: "Fans choose a language, accept T&Cs, register, and upload a Nutella or Kinder receipt worth SAR 50+ — all inside WhatsApp.",
+        image: "/assets/cases/ferrero/the-play.jpg"
       },
       {
         title: "THE MOMENT",
-        body: "The outcome returns within the same conversation, making participation and result part of one experience.",
-        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
-      },
-      {
-        title: "THE OPERATIONS",
-        body: "A campaign operations layer manages receipts, entries, winners, prize allocation and reporting.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+        body: "Campaign Admin surfaces store, total, SKU lines and OCR confidence so ops can approve, reject or request a clearer photo — humans still decide.",
+        image: "/assets/cases/ferrero/the-moment.jpg"
       }
     ],
-    ecosystemEyebrow: "the campaign engine",
+    ecosystemEyebrow: "the experience architecture",
     ecosystem: {
-      title: "One conversation. An entire campaign engine behind it.",
-      body:
-        "The receipt is the bridge between a real-world purchase and digital campaign participation. Behind the consumer experience, the operational layer manages participants, receipts, qualification status, entries, winner outcomes and reporting.",
+      title: "A Simple Experience. A Connected Campaign Journey.",
+      body: "The strength of the campaign is its simplicity at the front end: WhatsApp creates a warm trigger, while Campaign Admin converts that moment into operable draw engagement.",
       steps: [
-        "WHATSAPP",
-        "RECEIPT",
-        "OCR",
-        "VALIDATION",
-        "QUALIFICATION",
-        "ENTRY",
-        "WIN ENGINE",
-        "RESULT",
-        "REWARD"
+        "FERRERO CAMPAIGN",
+        "CONVERSATIONAL ENTRY",
+        "RECEIPT PROOF",
+        "REVIEW QUEUE",
+        "OCR + AI ASSIST",
+        "WEEKLY DRAW OPS"
       ],
-      markets: ["CONSUMER LAYER", "INTELLIGENCE / AUTOMATION", "CAMPAIGN OPERATIONS"]
+      markets: ["THE FAN", "THE RECEIPT", "THE BRAND"],
+      cards: [
+        {
+          title: "Ferrero Campaign",
+          body: "Fan discovers the Back to School Instant Draw on WhatsApp."
+        },
+        {
+          title: "Conversational Entry",
+          body: "Language, T&Cs and registration live where the audience already is."
+        },
+        {
+          title: "Receipt Proof",
+          body: "A SAR 50+ Nutella or Kinder receipt becomes the participation asset."
+        },
+        {
+          title: "Review Queue",
+          body: "Submissions land pending / validated / rejected on one ledger."
+        },
+        {
+          title: "OCR + AI Assist",
+          body: "Campaign Admin confidence and a grounded ops copilot speed triage."
+        },
+        {
+          title: "Weekly Draw Ops",
+          body: "Prize inventory and fulfilment states keep the Grand Prize path honest."
+        }
+      ],
+      closing: "WhatsApp remains the experience. Nutella Instant Draw Campaign Admin is how CWIT adds the intelligence."
     },
     capabilities: [
-      "WhatsApp Campaign Chatbot",
-      "Receipt Processing",
-      "OCR Integration",
-      "Qualification Engine",
-      "Instant-Win Logic",
-      "Prize Allocation",
-      "Winner Communication",
-      "Campaign Reporting"
+      "Conversational Experience",
+      "WhatsApp",
+      "OCR",
+      "Campaign Technology",
+      "Prize Ops",
+      "Digital Engagement"
     ],
-    impact: [
-      {
-        title: "CONVERSATIONAL ENTRY",
-        body: "Bring participation into a channel consumers already use."
-      },
-      {
-        title: "AUTOMATED PROCESSING",
-        body: "Convert uploaded purchase evidence into structured campaign information."
-      },
-      {
-        title: "RULE-BASED QUALIFICATION",
-        body: "Apply campaign requirements consistently within the platform."
-      },
-      {
-        title: "INSTANT OUTCOME",
-        body: "Connect participation and result within the same customer journey."
-      },
-      {
-        title: "CONNECTED OPERATIONS",
-        body: "Bring receipts, entries, qualification and winner management into one campaign environment."
-      }
-    ],
+    impact: [],
     relatedWork: [
-      { title: "du Retail Intelligence Platform", body: "Enterprise Transformation · Computer Vision · BI", href: "/cases/du-retail-intelligence-platform" },
-      { title: "Dentazon - AI Healthcare Product", body: "AI Product · Healthcare", href: "/cases/dentazon-ai-dental-care-platform" },
-      { title: "Nolte - Digital Experience & Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" },
-      { title: "ShelfVision AI", body: "AI Innovation Lab · Computer Vision", href: "/innovation-lab" }
+      {
+        title: "Moussy Cap Pulse",
+        body: "Cap Pulse / AI Anomaly Ops",
+        href: "/cases/moussy-cap-pulse"
+      },
+      {
+        title: "Lay's Match Radar",
+        body: "Match Radar / AI Campaign Ops",
+        href: "/cases/lays-match-radar"
+      },
+      {
+        title: "Whiskas Interactive Cat Game",
+        body: "Interactive Cat Game / AI Campaign Intelligence",
+        href: "/cases/whiskas-interactive-cat-game"
+      }
     ],
     cta: {
       eyebrow: "have a campaign journey worth making smarter?",
       title: "Turn participation into an experience.",
-      body:
-        "MomentumX combines conversational technology, automation, data and digital experience to build campaign platforms around real consumer behaviour.",
+      body: "MomentumX combines conversational technology, automation, data and digital experience to build campaign platforms around real consumer behaviour.",
       href: "/enquiry",
       label: "start a conversation"
-    }
+    },
+    media: {
+      hero: "/assets/cases/ferrero/hero.jpg",
+      play: "/assets/cases/ferrero/the-play.jpg",
+      moment: "/assets/cases/ferrero/the-moment.jpg",
+      flow: "/assets/cases/ferrero/campaign-flow.jpg"
+    },
+    moments: [
+      {
+        title: "The Play",
+        body: "Fans choose a language, accept T&Cs, register, and upload a Nutella or Kinder receipt worth SAR 50+ — all inside WhatsApp."
+      },
+      {
+        title: "The Moment",
+        body: "Campaign Admin surfaces store, total, SKU lines and OCR confidence so ops can approve, reject or request a clearer photo — humans still decide."
+      }
+    ]
   },
   "dentazon-ai-dental-care-platform": {
-    eyebrow: "DENTAZON · AI-POWERED HEALTHCARE",
+    eyebrow: "DENTAZON · AI HEALTHCARE PRODUCT",
     metadata: [
-      { label: "Client", value: "Dentazon" },
-      { label: "Engagement", value: "AI-Powered Dental Care Platform" },
+      {
+        label: "Engagement",
+        value: "AI Care Concierge / Patient Engagement"
+      },
+      {
+        label: "Client",
+        value: "Dentazon"
+      },
+      {
+        label: "Experience",
+        value: "Live chat widget + triage + booking + Care Ops"
+      },
       {
         label: "Capabilities",
-        value:
-          "AI Assistant · Patient Experience · Healthcare Platform · Dentist Discovery · Appointment System · Patient Records"
-      },
-      { label: "Platform", value: "Web / Digital Healthcare" }
+        value: "Conversational AI · Digital Health · Patient Experience · Triage Assist · Booking · Care Ops"
+      }
     ],
     story: [
       {
-        title: "THE PROBLEM",
-        body:
-          "Dental concerns often begin with uncertainty. Patients may not know what their symptoms mean, how urgent the issue could be, or which type of dental professional they should approach."
-      },
-      {
         title: "THE IDEA",
-        body:
-          "Dentazon was designed to make the beginning of the care journey easier: use AI-assisted interaction to understand the concern, collect relevant context and guide the patient towards an appropriate next step."
+        body: "Dentazon already feels AI-aware; Care Concierge makes that intelligence purposeful — clarify, explain, escalate or book — without claiming diagnosis."
       },
       {
-        title: "THE CONNECTION",
-        body:
-          "The experience connects guidance with real-world action, helping patients move from an initial concern towards dentist discovery, appointment booking and professional consultation."
+        title: "THE INTERACTION",
+        body: "A dark-glass widget on the live site gathers language, who-for and age, then clarification chips and voice transcript before advice."
       },
       {
-        title: "THE PLATFORM",
-        body:
-          "AI assistance, patient history, dentist access, appointments and care records are brought together within one digital ecosystem rather than existing as disconnected experiences."
+        title: "THE CONTENT",
+        body: "Treatment explainers carry soft limitation disclaimers; urgency patterns close scheduling and surface a clinic call instead."
+      },
+      {
+        title: "THE CAMPAIGN",
+        body: "Confirmed bookings and session feedback land in Care Ops — a light console with an AI assistant grounded on session signals, not clinical magic."
       }
     ],
-    builtIntro:
-      "A connected healthcare product designed to move patients from uncertainty towards appropriate professional care.",
+    builtIntro: "An AI healthcare product experience that turns a site chat into triage, explanation, emergency gating and booking assist.",
     built: [
       {
-        title: "AI Dental Assistant",
-        body: "Conversational support helps patients describe dental concerns naturally and receive preliminary guidance within appropriate clinical boundaries."
+        title: "Live Assistant Widget",
+        body: "Chat launcher on the Dentazon site patients already open."
       },
       {
-        title: "AI-Assisted Oral Health Screening",
-        body: "An intelligent first layer gathers relevant symptoms, context and history before directing the patient towards the right next step."
+        title: "Bilingual Onboarding",
+        body: "English / Roman Urdu / اردو before advice begins."
       },
       {
-        title: "Conversational Patient History",
-        body: "Patient conversations are transformed into structured symptom and history information that can support the care journey."
+        title: "Who & Age Context",
+        body: "Context that keeps guidance appropriate for the patient."
       },
       {
-        title: "Patient Profile & Records",
-        body: "Relevant interactions, appointments and care information remain connected rather than disappearing after the first AI interaction."
+        title: "Clarification Triage",
+        body: "Chips and voice transcript gather what the assistant needs first."
       },
       {
-        title: "Dentist Discovery",
-        body: "Patients can move from guidance into finding appropriate dental professionals and understanding available care options."
+        title: "Treatment Explainers",
+        body: "Assistive FAQ with visible AI limits — not a dentist, no X-ray reading."
       },
       {
-        title: "Appointment Booking & Management",
-        body: "The care journey moves directly from concern and guidance into scheduling an appointment."
+        title: "Emergency Gate",
+        body: "Hard stop that closes scheduling when urgency patterns appear."
       },
       {
-        title: "Dentist-Side Patient Overview",
-        body: "Dental professionals can review relevant patient context before or during consultation."
+        title: "Booking Confirmation",
+        body: "Slot, clinic and phone as scheduling assist only."
       },
       {
-        title: "Consultation / Care Records",
-        body: "Care records help maintain continuity across the patient-to-dentist journey."
-      },
-      {
-        title: "Digital Healthcare Platform Architecture",
-        body: "The product foundation connects AI assistance, patient experience, dentist workflows and healthcare records into one platform."
+        title: "Care Ops + AI Notes",
+        body: "Sessions ledger, conversation detail and grounded ops Q&A."
       }
     ],
-    journeyEyebrow: "the core journey",
+    journeyEyebrow: "the campaign journey",
     leadJourney: {
-      title: "From question to care.",
-      body:
-        "Dentazon's core value is not simply generating an AI response. It connects intelligence to an actionable care journey.",
+      title: "Ask. Clarify. Guide. Book.",
+      body: "The product turns a site chat into a calm care journey, with the patient in the widget and the clinic on a shared ops desk.",
       steps: [
         {
-          title: "ASK",
-          body: "The patient describes a dental concern naturally."
+          title: "Discover",
+          body: "Patient finds Dentazon and opens Chat with us."
         },
         {
-          title: "UNDERSTAND",
-          body: "The system progressively gathers relevant symptoms, context and history."
+          title: "Open",
+          body: "Chooses English, Roman Urdu or اردو."
         },
         {
-          title: "GUIDE",
-          body: "AI-assisted logic provides preliminary guidance within appropriate clinical boundaries."
+          title: "Place",
+          body: "Shares who the visit is for and age context."
         },
         {
-          title: "CONNECT",
-          body: "The patient is guided towards an appropriate dental professional or care pathway."
+          title: "Play",
+          body: "Describes the concern; clarification chips and voice refine the ask."
         },
         {
-          title: "BOOK",
-          body: "The journey moves directly into appointment scheduling."
+          title: "Record",
+          body: "Assistant offers an assistive explainer with soft clinical limits."
         },
         {
-          title: "CARE",
-          body: "Relevant information can support the professional consultation and ongoing patient record."
+          title: "Upload",
+          body: "If urgent patterns appear, emergency gate closes chat scheduling."
+        },
+        {
+          title: "Enter",
+          body: "Otherwise a booking confirmation card captures the preferred slot."
+        },
+        {
+          title: "Win",
+          body: "Care Ops sees the session, feedback and booking queue for follow-through."
         }
       ],
-      note:
-        "The AI experience supports guidance and routing. It should not be presented as a definitive clinical diagnosis or a replacement for dental judgement."
+      note: ""
     },
     visualStory: [
       {
-        title: "THE CONCERN",
-        body: "Start with a real patient question and a conversational AI assistant designed around a healthcare journey.",
-        image: "https://storage.tentwenty.com/small_03_01_1_1_e912deeb08.jpg"
+        title: "THE PLAY",
+        body: "Patients open the live assistant, choose a language, share who-and-age context, then clarify symptoms before any advice begins.",
+        image: "/assets/cases/dentazon/the-play.jpg"
       },
       {
-        title: "THE INTELLIGENCE",
-        body: "Turn conversation into structured symptom context, patient history and next-step guidance.",
-        image: "https://storage.tentwenty.com/small_Artificial_Intelligence_Consultancy_and_Implementation_v3_412198b2cc.webp"
-      },
-      {
-        title: "THE CONNECTION",
-        body: "Move from guidance to dentist discovery, profiles and appropriate care pathways.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
-      },
-      {
-        title: "THE ACTION",
-        body: "Book care without leaving the journey, with appointment availability and confirmation connected to the patient record.",
-        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
-      },
-      {
-        title: "THE CONTINUITY",
-        body: "Give the dentist useful context through patient summaries, history and consultation records.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+        title: "THE MOMENT",
+        body: "Assistive explainers and an emergency gate guide the next step — book F-8 Markaz or call the clinic — while Care Ops reviews sessions with grounded AI notes.",
+        image: "/assets/cases/dentazon/the-moment.jpg"
       }
     ],
-    ecosystemEyebrow: "connected care ecosystem",
+    ecosystemEyebrow: "the experience architecture",
     ecosystem: {
-      title: "From AI answer to real-world action.",
-      body:
-        "The key product idea is continuity: information collected at the beginning of the journey should contribute to what happens next rather than disappearing after the AI interaction.",
+      title: "A Simple Experience. A Connected Campaign Journey.",
+      body: "The strength of the product is its simplicity at the front end: the live assistant creates a calm trigger, while Care Ops converts that moment into clinic-ready engagement.",
       steps: [
-        "PATIENT CONCERN",
-        "AI ASSISTANCE",
-        "STRUCTURED HISTORY",
-        "CARE GUIDANCE",
-        "DENTIST MATCHING",
-        "APPOINTMENT",
-        "CONSULTATION",
-        "HEALTH RECORD"
+        "DENTAZON SITE",
+        "LANGUAGE & CONTEXT",
+        "TRIAGE CONVERSATION",
+        "EXPLAINER OR GATE",
+        "AI CARE CONCIERGE",
+        "CARE OPS DESK"
       ],
-      markets: ["PATIENT", "AI ASSISTS", "DENTIST", "CLINICAL ASSESSMENT", "CARE RECORD"]
+      markets: ["THE PATIENT", "THE CLINIC", "THE BRAND"],
+      cards: [
+        {
+          title: "Dentazon Site",
+          body: "Patient discovers care and opens the live AI assistant."
+        },
+        {
+          title: "Language & Context",
+          body: "Bilingual onboarding and who/age before advice."
+        },
+        {
+          title: "Triage Conversation",
+          body: "Clarification and voice gather enough to guide safely."
+        },
+        {
+          title: "Explainer or Gate",
+          body: "Assistive FAQ — or an emergency stop to clinic call."
+        },
+        {
+          title: "AI Care Concierge",
+          body: "The product intelligence layer patients actually meet."
+        },
+        {
+          title: "Care Ops Desk",
+          body: "Sessions, bookings and grounded AI notes for the team."
+        }
+      ],
+      closing: "The live assistant remains the experience. Dentazon Care Concierge is how CWIT adds the intelligence."
     },
     capabilities: [
-      "AI Assistant",
+      "Conversational AI",
+      "Digital Health",
       "Patient Experience",
-      "Healthcare Platform",
-      "Dentist Discovery",
-      "Appointment System",
-      "Patient Records",
-      "Dentist Workspace",
-      "Connected Care"
+      "Triage Assist",
+      "Booking",
+      "Care Ops"
     ],
-    impact: [
+    impact: [],
+    relatedWork: [
       {
-        title: "ASSISTED FIRST STEP",
-        body: "Give patients a structured way to begin when they are unsure what to do."
+        title: "RFF Circular Control",
+        body: "Circular Control / AI Ops Assistant",
+        href: "/cases/rff-circular-control"
       },
       {
-        title: "CONNECTED JOURNEY",
-        body: "Bring guidance, dentist discovery and appointments into one experience."
+        title: "Nutella Instant Draw",
+        body: "WhatsApp Instant Draw / AI Campaign Admin",
+        href: "/cases/ferrero-back-to-school-campaign"
       },
       {
-        title: "STRUCTURED CONTEXT",
-        body: "Turn patient conversation into information that can support the next stage of care."
-      },
-      {
-        title: "HUMAN HANDOFF",
-        body: "Connect digital intelligence to professional dental assessment rather than stopping at an AI answer."
+        title: "Da Vinci Talent Pulse",
+        body: "Talent Pulse / Employer Brand Counsel",
+        href: "/cases/da-vinci-talent-pulse"
       }
     ],
-    relatedWork: [
-      { title: "du Retail Intelligence Platform", body: "Enterprise Transformation · Computer Vision · BI", href: "/cases/du-retail-intelligence-platform" },
-      { title: "Nolte - Digital Experience & Transformation", body: "Digital Experience", href: "/cases/nolte-digital-transformation" },
-      { title: "M&M's - Moments of Magic", body: "Consumer Experience", href: "/cases/moments-of-magic" },
-      { title: "ShelfVision AI", body: "AI Innovation Lab · Computer Vision", href: "/innovation-lab" }
-    ],
     cta: {
-      eyebrow: "have a customer journey AI could make easier?",
-      title: "Build intelligence into the experience.",
-      body:
-        "MomentumX combines AI, product design and technology to create digital experiences that move beyond answers and towards useful action.",
+      eyebrow: "have a patient journey worth making smarter?",
+      title: "Turn conversations into the right care.",
+      body: "MomentumX combines conversational AI, product design and operations tooling to build patient experiences that stay safe, clear and human.",
       href: "/enquiry",
       label: "start a conversation"
-    }
+    },
+    media: {
+      hero: "/assets/cases/dentazon/hero.jpg",
+      play: "/assets/cases/dentazon/the-play.jpg",
+      moment: "/assets/cases/dentazon/the-moment.jpg",
+      flow: "/assets/cases/dentazon/campaign-flow.jpg"
+    },
+    moments: [
+      {
+        title: "The Play",
+        body: "Patients open the live assistant, choose a language, share who-and-age context, then clarify symptoms before any advice begins."
+      },
+      {
+        title: "The Moment",
+        body: "Assistive explainers and an emergency gate guide the next step — book F-8 Markaz or call the clinic — while Care Ops reviews sessions with grounded AI notes."
+      }
+    ]
   },
   "nolte-digital-transformation": {
     eyebrow: "NOLTE · DIGITAL TRANSFORMATION",
@@ -2011,25 +2186,25 @@ export const casePageDetails: Record<
       {
         title: "THE EXPERIENCE",
         body: "A restrained, visual-first interface gives kitchens, wardrobes, materials and projects room to lead the experience.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+        image: ""
       },
       {
         title: "THE DETAIL",
         body:
           "Products, ranges, projects and supporting content are structured around how customers explore and evaluate premium interiors.",
-        image: "https://storage.tentwenty.com/G42_Project_Brief_f04fb77727.jpg"
+        image: ""
       },
       {
         title: "THE CONVERSION",
         body:
           "Quote, consultation, brochure, WhatsApp and assisted enquiry journeys create multiple paths from inspiration to conversation.",
-        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
+        image: ""
       },
       {
         title: "THE PLATFORM",
         body:
           "A flexible content and technology foundation supports regional adaptation while maintaining a consistent digital identity.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+        image: ""
       }
     ],
     ecosystem: {
@@ -2208,22 +2383,22 @@ export const casePageDetails: Record<
       {
         title: "THE FIELD",
         body: "Capture what is happening at the outlet through a structured field application and visit workflow.",
-        image: "https://storage.tentwenty.com/medium_Vip_booking_platform_Saudi_Pavilion_d2a25f002b.webp"
+        image: ""
       },
       {
         title: "THE VISION",
         body: "Photos and video become a second intelligence layer through practical computer-vision analysis.",
-        image: "https://storage.tentwenty.com/small_Artificial_Intelligence_Consultancy_and_Implementation_v3_412198b2cc.webp"
+        image: ""
       },
       {
         title: "THE MARKET",
         body: "Outlet intelligence can be explored geographically through map views, filters and clustered market activity.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Mobile_Screens_Banner_fc657376ae.webp"
+        image: ""
       },
       {
         title: "THE INTELLIGENCE",
         body: "BI dashboards turn field data into stakeholder views across product, competitor, territory and management needs.",
-        image: "https://storage.tentwenty.com/large_G42_Website_Desktop_Screens_1_f4055a5008.jpg"
+        image: ""
       }
     ],
     ecosystemEyebrow: "intelligent map and BI",
@@ -2285,6 +2460,1302 @@ export const casePageDetails: Record<
       href: "/enquiry",
       label: "start a conversation"
     }
+  },
+  "lays-match-radar": {
+    eyebrow: "LAY'S · MATCHDAY VENUE EXPERIENCE",
+    metadata: [
+      {
+        label: "Engagement",
+        value: "Match Radar / AI Campaign Ops"
+      },
+      {
+        label: "Client",
+        value: "PepsiCo / Lay's UAE"
+      },
+      {
+        label: "Experience",
+        value: "Fan Match Map + timings + ops & partner console"
+      },
+      {
+        label: "Capabilities",
+        value: "Fan Experience · Sports Entertainment · Venue Retail · Campaign Ops · Partner Portal · Practical AI"
+      }
+    ],
+    story: [
+      {
+        title: "THE IDEA",
+        body: "No Lay's, No Game already carries cultural heat; Match Radar adds the digital venue bridge fans and operators share on match night."
+      },
+      {
+        title: "THE INTERACTION",
+        body: "Fan UI routes from scan to where to watch, with EN | AR paths and an assist that recommends venues with stock and kickoff context."
+      },
+      {
+        title: "THE CONTENT",
+        body: "Ops pulse and venue ledger across DXB / AUH partners keep lit / dark / stock truth in one place."
+      },
+      {
+        title: "THE CAMPAIGN",
+        body: "Partners confirm stock, upload promo proof and see their match board — practical AI only, no autonomous logistics claims."
+      }
+    ],
+    builtIntro: "A matchday experience that turns a campaign scan into fan routing and shared venue truth.",
+    built: [
+      {
+        title: "Fan Hero",
+        body: "Campaign energy with clear paths into Where to watch and Ask Match Radar."
+      },
+      {
+        title: "Match Map",
+        body: "Game ON venues, stock signals and tonight’s window."
+      },
+      {
+        title: "Match Timings",
+        body: "Venue-level fixtures and actions for the night."
+      },
+      {
+        title: "Fan AI Assist",
+        body: "“Where should I watch?” answered with grounded recommendations."
+      },
+      {
+        title: "Campaign Pulse",
+        body: "Scans, check-ins, Game ON count and alerts on one board."
+      },
+      {
+        title: "AI Ops Copilot",
+        body: "Dark-venue and low-stock flags with draftable prompts."
+      },
+      {
+        title: "Venue Ledger",
+        body: "DXB / AUH partner truth behind the fan map."
+      },
+      {
+        title: "Partner Portal",
+        body: "Confirm stock, upload promo, see the match board."
+      }
+    ],
+    journeyEyebrow: "the campaign journey",
+    leadJourney: {
+      title: "Scan. Find. Watch. Confirm.",
+      body: "The campaign turns a pack or screen cue into a fluid match-night journey, with the fan on the map and partners on a shared board.",
+      steps: [
+        {
+          title: "Discover",
+          body: "Fan meets No Lay's, No Game and the Match Radar invite."
+        },
+        {
+          title: "Open",
+          body: "Opens the fan surface in EN or AR."
+        },
+        {
+          title: "Place",
+          body: "Lands on Match Map for tonight’s Game ON venues."
+        },
+        {
+          title: "Play",
+          body: "Checks timings, stock signals and watch recommendations."
+        },
+        {
+          title: "Record",
+          body: "Ops pulse sees scans, check-ins and lit-venue count."
+        },
+        {
+          title: "Upload",
+          body: "Partners confirm stock and upload promo proof."
+        },
+        {
+          title: "Enter",
+          body: "AI ops flags dark venues and low stock before peak."
+        },
+        {
+          title: "Win",
+          body: "Fans arrive where the game is on and the shelf is ready."
+        }
+      ],
+      note: ""
+    },
+    visualStory: [
+      {
+        title: "THE PLAY",
+        body: "Fans move from campaign hero into Match Map and match timings — Game ON venues, stock signals and tonight’s window in one flow.",
+        image: "/assets/cases/lays/the-play.jpg"
+      },
+      {
+        title: "THE MOMENT",
+        body: "Campaign ops AI flags lit venues, stock alerts and draftable partner nudges so the map stays honest after kickoff.",
+        image: "/assets/cases/lays/the-moment.jpg"
+      }
+    ],
+    ecosystemEyebrow: "the experience architecture",
+    ecosystem: {
+      title: "A Simple Experience. A Connected Campaign Journey.",
+      body: "The strength of the campaign is its simplicity at the front end: the fan finder creates a playful trigger, while ops and partners convert that moment into match-night engagement.",
+      steps: [
+        "LAY'S CAMPAIGN",
+        "MATCH MAP",
+        "TIMINGS ASSIST",
+        "PARTNER LOOP",
+        "AI OPS SCREEN",
+        "CAMPAIGN PULSE"
+      ],
+      markets: ["THE FAN", "THE PARTNER", "THE BRAND"],
+      cards: [
+        {
+          title: "Lay's Campaign",
+          body: "Fan discovers Match Radar from the No Lay's, No Game moment."
+        },
+        {
+          title: "Match Map",
+          body: "Venues and stock signals become the scan destination."
+        },
+        {
+          title: "Timings Assist",
+          body: "Fixtures and recommendations guide where to watch."
+        },
+        {
+          title: "Partner Loop",
+          body: "Stock confirm and promo proof keep the map honest."
+        },
+        {
+          title: "AI Ops Screen",
+          body: "Copilot flags anomalies and drafts prompts from context."
+        },
+        {
+          title: "Campaign Pulse",
+          body: "Night board for scans, Game ON count and alerts."
+        }
+      ],
+      closing: "The fan map remains the experience. Lay's Match Radar ops is how CWIT adds the intelligence."
+    },
+    capabilities: [
+      "Fan Experience",
+      "Sports Entertainment",
+      "Venue Retail",
+      "Campaign Ops",
+      "Partner Portal",
+      "Practical AI"
+    ],
+    impact: [],
+    relatedWork: [
+      {
+        title: "Moussy Cap Pulse",
+        body: "Cap Pulse / AI Anomaly Ops",
+        href: "/cases/moussy-cap-pulse"
+      },
+      {
+        title: "Nutella Instant Draw",
+        body: "WhatsApp Instant Draw / AI Campaign Admin",
+        href: "/cases/ferrero-back-to-school-campaign"
+      },
+      {
+        title: "Whiskas Interactive Cat Game",
+        body: "Interactive Cat Game / AI Campaign Intelligence",
+        href: "/cases/whiskas-interactive-cat-game"
+      }
+    ],
+    cta: {
+      eyebrow: "have a matchday moment to own?",
+      title: "Turn fan energy into shared venue truth.",
+      body: "MomentumX combines fan experience, partner tooling and practical AI to connect campaigns with the places people gather.",
+      href: "/enquiry",
+      label: "start a conversation"
+    },
+    media: {
+      hero: "/assets/cases/lays/hero.jpg",
+      play: "/assets/cases/lays/the-play.jpg",
+      moment: "/assets/cases/lays/the-moment.jpg",
+      flow: "/assets/cases/lays/campaign-flow.jpg"
+    },
+    moments: [
+      {
+        title: "The Play",
+        body: "Fans move from campaign hero into Match Map and match timings — Game ON venues, stock signals and tonight’s window in one flow."
+      },
+      {
+        title: "The Moment",
+        body: "Campaign ops AI flags lit venues, stock alerts and draftable partner nudges so the map stays honest after kickoff."
+      }
+    ]
+  },
+  "moussy-cap-pulse": {
+    eyebrow: "MOUSSY · CAP CODE CAMPAIGN",
+    metadata: [
+      {
+        label: "Engagement",
+        value: "Cap Pulse / AI Anomaly Ops"
+      },
+      {
+        label: "Client",
+        value: "Moussy"
+      },
+      {
+        label: "Experience",
+        value: "Consumer web entry + code validation + draw pulse desk"
+      },
+      {
+        label: "Capabilities",
+        value: "Consumer Web · Cap Code Entry · Campaign Ops · Anomaly Assist · Bilingual Experience · Digital Engagement"
+      }
+    ],
+    story: [
+      {
+        title: "THE IDEA",
+        body: "Win Gold with Moussy already owns the pack moment; Cap Pulse adds the intelligence layer around codes without pretending AI guarantees a fair draw."
+      },
+      {
+        title: "THE INTERACTION",
+        body: "A web-first bilingual promo surface — hero, how it works, enter code, success — matching the live Grand Draw mechanic."
+      },
+      {
+        title: "THE CONTENT",
+        body: "Assistive validation strips noise, uppercases segments and surfaces format oddities before a human decides."
+      },
+      {
+        title: "THE CAMPAIGN",
+        body: "Entries connect to Campaign Ops — ledger, anomaly queue, draw pulse — review and export stay human-owned."
+      }
+    ],
+    builtIntro: "A consumer campaign experience that turns a cap code into Grand Draw participation with an honest ops desk.",
+    built: [
+      {
+        title: "Grand Draw Hero",
+        body: "Fan entry energy aligned to Win Gold with Moussy."
+      },
+      {
+        title: "How It Works",
+        body: "Drink, find code, boost chances in three clear steps."
+      },
+      {
+        title: "Cap Code Entry",
+        body: "Cap-code intake with normalize / validate assist and visible rails."
+      },
+      {
+        title: "Success Tally",
+        body: "Code logged and entries counted so fans keep collecting."
+      },
+      {
+        title: "Arabic Surface",
+        body: "First-class عربي toggle matching the live promo."
+      },
+      {
+        title: "AI Code Assist",
+        body: "Normalize and format flags before ops review."
+      },
+      {
+        title: "Anomaly & AI Notes",
+        body: "Velocity / reuse / pattern flags with hard rails."
+      },
+      {
+        title: "Draw Pulse Desk",
+        body: "Pool size, codes per fan and ledger export readiness."
+      }
+    ],
+    journeyEyebrow: "the campaign journey",
+    leadJourney: {
+      title: "Drink. Enter. Boost. Draw.",
+      body: "The campaign turns a bottle cap into a fluid participation journey, with the fan on the web and ops on a shared code ledger.",
+      steps: [
+        {
+          title: "Discover",
+          body: "Fan meets Win Gold with Moussy and Cap Pulse."
+        },
+        {
+          title: "Open",
+          body: "Opens the bilingual Grand Draw web experience."
+        },
+        {
+          title: "Place",
+          body: "Reads how it works and promo terms."
+        },
+        {
+          title: "Play",
+          body: "Enters a cap code with normalize assist."
+        },
+        {
+          title: "Record",
+          body: "Success tally shows entries logged."
+        },
+        {
+          title: "Upload",
+          body: "Codes land on the ops ledger with status."
+        },
+        {
+          title: "Enter",
+          body: "Anomaly assist flags suspicious patterns for review."
+        },
+        {
+          title: "Win",
+          body: "Draw pulse informs a human-owned Grand Draw."
+        }
+      ],
+      note: ""
+    },
+    visualStory: [
+      {
+        title: "THE PLAY",
+        body: "Fans follow a Grand Draw web path — how it works, cap-code entry, success tally and first-class Arabic toggle.",
+        image: "/assets/cases/moussy/the-play.jpg"
+      },
+      {
+        title: "THE MOMENT",
+        body: "Ops see entry ledger, draw-pulse KPIs and assistive anomaly flags with thin AI notes — humans still own the draw.",
+        image: "/assets/cases/moussy/the-moment.jpg"
+      }
+    ],
+    ecosystemEyebrow: "the experience architecture",
+    ecosystem: {
+      title: "A Simple Experience. A Connected Campaign Journey.",
+      body: "The strength of the campaign is its simplicity at the front end: the web entry creates a playful trigger, while Cap Pulse ops converts that moment into draw-ready engagement.",
+      steps: [
+        "MOUSSY CAMPAIGN",
+        "WEB ENTRY",
+        "CODE CAPTURE",
+        "SUCCESS LOOP",
+        "AI ANOMALY DESK",
+        "DRAW PULSE"
+      ],
+      markets: ["THE FAN", "THE CODE", "THE BRAND"],
+      cards: [
+        {
+          title: "Moussy Campaign",
+          body: "Fan discovers Win Gold with Moussy Cap Pulse."
+        },
+        {
+          title: "Web Entry",
+          body: "Bilingual Grand Draw path for code intake."
+        },
+        {
+          title: "Code Capture",
+          body: "Cap codes normalize before they argue."
+        },
+        {
+          title: "Success Loop",
+          body: "Tally encourages fans to keep collecting."
+        },
+        {
+          title: "AI Anomaly Desk",
+          body: "Assistive flags and notes with hard rails."
+        },
+        {
+          title: "Draw Pulse",
+          body: "KPIs and export keep the Grand Draw operable."
+        }
+      ],
+      closing: "The promo web remains the experience. Moussy Cap Pulse is how CWIT adds the intelligence."
+    },
+    capabilities: [
+      "Consumer Web",
+      "Cap Code Entry",
+      "Campaign Ops",
+      "Anomaly Assist",
+      "Bilingual Experience",
+      "Digital Engagement"
+    ],
+    impact: [],
+    relatedWork: [
+      {
+        title: "Nutella Instant Draw",
+        body: "WhatsApp Instant Draw / AI Campaign Admin",
+        href: "/cases/ferrero-back-to-school-campaign"
+      },
+      {
+        title: "Lay's Match Radar",
+        body: "Match Radar / AI Campaign Ops",
+        href: "/cases/lays-match-radar"
+      },
+      {
+        title: "Whiskas Interactive Cat Game",
+        body: "Interactive Cat Game / AI Campaign Intelligence",
+        href: "/cases/whiskas-interactive-cat-game"
+      }
+    ],
+    cta: {
+      eyebrow: "running a promotion at scale?",
+      title: "Turn every code into clean participation.",
+      body: "MomentumX combines consumer web, campaign operations and assistive AI to run promotions fans enjoy and teams can trust.",
+      href: "/enquiry",
+      label: "start a conversation"
+    },
+    media: {
+      hero: "/assets/cases/moussy/hero.jpg",
+      play: "/assets/cases/moussy/the-play.jpg",
+      moment: "/assets/cases/moussy/the-moment.jpg",
+      flow: "/assets/cases/moussy/campaign-flow.jpg"
+    },
+    moments: [
+      {
+        title: "The Play",
+        body: "Fans follow a Grand Draw web path — how it works, cap-code entry, success tally and first-class Arabic toggle."
+      },
+      {
+        title: "The Moment",
+        body: "Ops see entry ledger, draw-pulse KPIs and assistive anomaly flags with thin AI notes — humans still own the draw."
+      }
+    ]
+  },
+  "rff-circular-control": {
+    eyebrow: "RFF · CIRCULAR MATERIALS INTELLIGENCE",
+    metadata: [
+      {
+        label: "Engagement",
+        value: "Circular Control / AI Ops Assistant"
+      },
+      {
+        label: "Client",
+        value: "Recycle For Future Ltd"
+      },
+      {
+        label: "Experience",
+        value: "Plant ops console + materials ledger + customer portal"
+      },
+      {
+        label: "Capabilities",
+        value: "Industrial Ops · Materials Traceability · Compliance Assist · AI Copilot · Customer Portal · Circular Economy"
+      }
+    ],
+    story: [
+      {
+        title: "THE IDEA",
+        body: "Traceability and carbon advantage were already part of the brand; Circular Control adds the operating layer that holds stock, paperwork and customer proof together."
+      },
+      {
+        title: "THE INTERACTION",
+        body: "Plant teams chat with live context beside the ledger — weighbridge tickets and waste transfer notes structure into lots without leaving the conversation."
+      },
+      {
+        title: "THE CONTENT",
+        body: "Compliance and carbon views score completeness, queue copilot actions and keep an evidence register tied to movements."
+      },
+      {
+        title: "THE CAMPAIGN",
+        body: "Customers act in a sandboxed portal — ask about recycled content, approve docs, download COA and carbon packs, request collections."
+      }
+    ],
+    builtIntro: "An industrial ops experience that turns yard reality into a connected materials, logistics and compliance journey.",
+    built: [
+      {
+        title: "Operations Overview",
+        body: "Confidence board for throughput, stock truth and movements."
+      },
+      {
+        title: "Materials Ledger",
+        body: "Lot-level stock, grades, bays and mass-balance streams."
+      },
+      {
+        title: "Logistics Register",
+        body: "Collections and shipments with document completeness."
+      },
+      {
+        title: "Compliance & Carbon",
+        body: "Completeness scoring and evidence register for teams."
+      },
+      {
+        title: "Client Portal",
+        body: "Ask, approve, download and request in one customer surface."
+      },
+      {
+        title: "Circular Control AI",
+        body: "Chat-first ops assistant grounded on the live ledger."
+      },
+      {
+        title: "Intake Structuring",
+        body: "Tickets and WTNs posted into lots without spreadsheet chaos."
+      },
+      {
+        title: "Missing-Doc Flags",
+        body: "Gaps surfaced before dispatch close-out."
+      }
+    ],
+    journeyEyebrow: "the campaign journey",
+    leadJourney: {
+      title: "Intake. Trace. Prove. Ship.",
+      body: "The product turns yard paperwork into a fluid operating journey, with the plant on the ledger and the customer on a proof portal.",
+      steps: [
+        {
+          title: "Discover",
+          body: "Team opens Circular Control for the shift."
+        },
+        {
+          title: "Open",
+          body: "AI ops surface loads with live stock and doc context."
+        },
+        {
+          title: "Place",
+          body: "Weighbridge tickets and WTNs are ingested into lots."
+        },
+        {
+          title: "Play",
+          body: "Materials and logistics views show bay truth and mass balance."
+        },
+        {
+          title: "Record",
+          body: "Compliance scores completeness and queues copilot actions."
+        },
+        {
+          title: "Upload",
+          body: "Evidence packs and carbon summaries are prepared from tonnage."
+        },
+        {
+          title: "Enter",
+          body: "Customer portal asks, approves and downloads shipment docs."
+        },
+        {
+          title: "Win",
+          body: "Ship-ready lots leave with cleaner paperwork and clearer trust."
+        }
+      ],
+      note: ""
+    },
+    visualStory: [
+      {
+        title: "THE PLAY",
+        body: "Overview, materials and logistics screens hold throughput, stock truth, mass balance and shipment registers dense enough for a shift handover.",
+        image: "/assets/cases/rff/the-play.jpg"
+      },
+      {
+        title: "THE MOMENT",
+        body: "A ChatGPT-style operations assistant ingests tickets and WTNs, answers stock questions and surfaces missing-doc gaps — assistive intelligence, not certification.",
+        image: "/assets/cases/rff/the-moment.jpg"
+      }
+    ],
+    ecosystemEyebrow: "the experience architecture",
+    ecosystem: {
+      title: "A Simple Experience. A Connected Campaign Journey.",
+      body: "The strength of the product is its simplicity at the front end: chat and overview create a practical trigger, while the ledger converts that moment into auditable plant engagement.",
+      steps: [
+        "RFF OPERATION",
+        "MATERIALS TRUTH",
+        "LOGISTICS FLOW",
+        "COMPLIANCE VIEW",
+        "AI OPS ASSISTANT",
+        "CUSTOMER PORTAL"
+      ],
+      markets: ["THE PLANT", "THE CUSTOMER", "THE BRAND"],
+      cards: [
+        {
+          title: "RFF Operation",
+          body: "Plant team opens Circular Control for the day."
+        },
+        {
+          title: "Materials Truth",
+          body: "Lot-level ledger holds grades, bays and mass balance."
+        },
+        {
+          title: "Logistics Flow",
+          body: "Collections and shipments track with document status."
+        },
+        {
+          title: "Compliance View",
+          body: "Completeness and evidence stay tied to movements."
+        },
+        {
+          title: "AI Ops Assistant",
+          body: "Grounded chat answers stock, docs and carbon questions."
+        },
+        {
+          title: "Customer Portal",
+          body: "Proof and action for recycled-content buyers."
+        }
+      ],
+      closing: "The plant remains the experience. RFF Circular Control is how CWIT adds the intelligence."
+    },
+    capabilities: [
+      "Industrial Ops",
+      "Materials Traceability",
+      "Compliance Assist",
+      "AI Copilot",
+      "Customer Portal",
+      "Circular Economy"
+    ],
+    impact: [],
+    relatedWork: [
+      {
+        title: "Dentazon Care Concierge",
+        body: "AI Care Concierge / Patient Engagement",
+        href: "/cases/dentazon-ai-dental-care-platform"
+      },
+      {
+        title: "Rise Partner Pulse",
+        body: "Partner Brochure / Mosaic Experience",
+        href: "/cases/rise-partner-pulse"
+      },
+      {
+        title: "Lay's Match Radar",
+        body: "Match Radar / AI Campaign Ops",
+        href: "/cases/lays-match-radar"
+      }
+    ],
+    cta: {
+      eyebrow: "have operations worth connecting?",
+      title: "Turn yard reality into an operating layer.",
+      body: "MomentumX combines enterprise platforms, data and grounded AI assistants to give industrial teams one trusted view of their operations.",
+      href: "/enquiry",
+      label: "start a conversation"
+    },
+    media: {
+      hero: "/assets/cases/rff/hero.jpg",
+      play: "/assets/cases/rff/the-play.jpg",
+      moment: "/assets/cases/rff/the-moment.jpg",
+      flow: "/assets/cases/rff/campaign-flow.jpg"
+    },
+    moments: [
+      {
+        title: "The Play",
+        body: "Overview, materials and logistics screens hold throughput, stock truth, mass balance and shipment registers dense enough for a shift handover."
+      },
+      {
+        title: "The Moment",
+        body: "A ChatGPT-style operations assistant ingests tickets and WTNs, answers stock questions and surfaces missing-doc gaps — assistive intelligence, not certification."
+      }
+    ]
+  },
+  "da-vinci-talent-pulse": {
+    eyebrow: "DA VINCI · TALENT PULSE / ASK RECRUITING",
+    metadata: [
+      {
+        label: "Engagement",
+        value: "Talent Pulse / Employer Brand Counsel"
+      },
+      {
+        label: "Client",
+        value: "Da Vinci Trading"
+      },
+      {
+        label: "Experience",
+        value: "Live careers orientation + Ask Recruiting assist"
+      },
+      {
+        label: "Capabilities",
+        value: "Employer Brand · Talent Orientation · Conversational Assist · Careers Content Craft · Culture Systems · Digital Experience"
+      }
+    ],
+    story: [
+      {
+        title: "THE IDEA",
+        body: "High-calibre candidates meet Da Vinci across site, events and recruiter threads; Talent Pulse sharpens one coherent employer-brand question without claiming the trading stack."
+      },
+      {
+        title: "THE INTERACTION",
+        body: "Culture and careers lead — Amsterdam HQ, Miami, Mumbai, Hong Kong — so orientation feels like the house, not a SaaS tour."
+      },
+      {
+        title: "THE CONTENT",
+        body: "Public careers language only: teams from Trading through Risk/Legal/Compliance, benefits, and a fast, fair application process."
+      },
+      {
+        title: "THE CAMPAIGN",
+        body: "Ask Recruiting assists at careers altitude; refusals stay product guardrails — no signals, no strategy coaching, no guaranteed returns."
+      }
+    ],
+    builtIntro: "An employer-brand experience that turns Da Vinci’s public careers story into a clear Talent Pulse journey — counsel first, assist second, trading stack untouched.",
+    built: [
+      {
+        title: "House Open",
+        body: "“The Art of Trading” hero and game-changer positioning from the live site."
+      },
+      {
+        title: "Culture Pillars",
+        body: "Collaborate · Innovate · Challenge · Achieve as the shared language."
+      },
+      {
+        title: "Teams Spine",
+        body: "Trading, Quantitative Research, Development and supporting houses."
+      },
+      {
+        title: "Global Offices",
+        body: "Amsterdam HQ · Miami · Mumbai · Hong Kong."
+      },
+      {
+        title: "Careers Surface",
+        body: "Live roles grid with department and office filters."
+      },
+      {
+        title: "Ask Recruiting",
+        body: "Candidate assist for roles, culture, offices and process."
+      },
+      {
+        title: "Hard Rails",
+        body: "No trade signals · no strategy advice · no guaranteed returns."
+      },
+      {
+        title: "MomentumX Line",
+        body: "Experience from counsel; intelligence only on employer brand."
+      }
+    ],
+    journeyEyebrow: "the campaign journey",
+    leadJourney: {
+      title: "Meet the house. Orient. Ask. Apply.",
+      body: "The journey mirrors davincitrading.com/careers — from “Let’s change the game together” through filters, roles and process — with Ask Recruiting as a quiet assist.",
+      steps: [
+        {
+          title: "Arrive",
+          body: "Open the Da Vinci house story on davincitrading.com."
+        },
+        {
+          title: "Feel",
+          body: "Read “A Trading House for Game Changers.”"
+        },
+        {
+          title: "Align",
+          body: "Absorb Collaborate · Innovate · Challenge · Achieve."
+        },
+        {
+          title: "Place",
+          body: "Filter by department and office (Amsterdam · Miami · Mumbai · Hong Kong)."
+        },
+        {
+          title: "Browse",
+          body: "Scan live roles across Trading, Quant, Engineering and support."
+        },
+        {
+          title: "Ask",
+          body: "Use Ask Recruiting for safe orientation on culture, tracks and process."
+        },
+        {
+          title: "Guard",
+          body: "Assist stops before books, signals, strategies or returns."
+        },
+        {
+          title: "Continue",
+          body: "Move to application channels with a clearer brief of the house."
+        }
+      ],
+      note: ""
+    },
+    visualStory: [
+      {
+        title: "THE PLAY",
+        body: "Collaborate · Innovate · Challenge · Achieve — the house culture pillars, staged the way candidates meet them on davincitrading.com.",
+        image: "/assets/cases/da-vinci/the-play.jpg"
+      },
+      {
+        title: "THE MOMENT",
+        body: "Ask Recruiting orients extraordinary talent on roles, offices and process language from the live careers surface — then stops before the book.",
+        image: "/assets/cases/da-vinci/the-moment.jpg"
+      }
+    ],
+    ecosystemEyebrow: "the experience architecture",
+    ecosystem: {
+      title: "A Clear Careers Story. A Connected Talent Journey.",
+      body: "Strength at the front end is simplicity: live site craft creates the honest trigger, while Ask Recruiting adds employer-brand intelligence without becoming a trading tutor.",
+      steps: [
+        "TALENT PULSE",
+        "LIVE SITE CRAFT",
+        "CULTURE ALTITUDE",
+        "CAREERS SURFACE",
+        "ASK RECRUITING",
+        "HARD RAILS"
+      ],
+      markets: ["THE CANDIDATE", "THE HOUSE", "THE COUNSEL"],
+      cards: [
+        {
+          title: "Talent Pulse",
+          body: "Employer-brand counsel opens the engagement."
+        },
+        {
+          title: "Live Site Craft",
+          body: "Real davincitrading.com moments carry the visual proof."
+        },
+        {
+          title: "Culture Altitude",
+          body: "Pillars and motto without crossing into the book."
+        },
+        {
+          title: "Careers Surface",
+          body: "Roles, offices, benefits and process language."
+        },
+        {
+          title: "Ask Recruiting",
+          body: "AI assist for orientation answers only."
+        },
+        {
+          title: "Hard Rails",
+          body: "Product guardrails; trading stack attribution untouched."
+        }
+      ],
+      closing: "The careers story remains the experience. Ask Recruiting is how CWIT adds honest intelligence on employer brand — never on the book. Momentum gives us the experience. CWIT adds the intelligence. Becomes MomentumX."
+    },
+    capabilities: [
+      "Employer Brand",
+      "Talent Orientation",
+      "Conversational Assist",
+      "Careers Content Craft",
+      "Culture Systems",
+      "Digital Experience"
+    ],
+    impact: [],
+    relatedWork: [
+      {
+        title: "Rise Partner Pulse",
+        body: "Partner Brochure / Mosaic Experience",
+        href: "/cases/rise-partner-pulse"
+      },
+      {
+        title: "Luxe Port Lookbook",
+        body: "Luxury Lookbook / Content Craft",
+        href: "/cases/luxe-port-lookbook"
+      },
+      {
+        title: "Dentazon Care Concierge",
+        body: "AI Care Concierge / Patient Engagement",
+        href: "/cases/dentazon-ai-dental-care-platform"
+      }
+    ],
+    cta: {
+      eyebrow: "hiring for extraordinary talent?",
+      title: "Turn your careers story into a clearer journey.",
+      body: "MomentumX combines employer-brand counsel, content craft and careful AI assist to help the right candidates understand your house.",
+      href: "/enquiry",
+      label: "start a conversation"
+    },
+    media: {
+      hero: "/assets/cases/da-vinci/hero.jpg",
+      play: "/assets/cases/da-vinci/the-play.jpg",
+      moment: "/assets/cases/da-vinci/the-moment.jpg",
+      flow: "/assets/cases/da-vinci/campaign-flow.jpg"
+    },
+    moments: [
+      {
+        title: "The Play",
+        body: "Collaborate · Innovate · Challenge · Achieve — the house culture pillars, staged the way candidates meet them on davincitrading.com."
+      },
+      {
+        title: "The Moment",
+        body: "Ask Recruiting orients extraordinary talent on roles, offices and process language from the live careers surface — then stops before the book."
+      }
+    ]
+  },
+  "luxe-port-lookbook": {
+    eyebrow: "LUXE PORT · LUXURY LOOKBOOK EXPERIENCE",
+    metadata: [
+      {
+        label: "Engagement",
+        value: "Luxury Lookbook / Content Craft"
+      },
+      {
+        label: "Client",
+        value: "Luxe Port Trading LLC"
+      },
+      {
+        label: "Experience",
+        value: "Brand plates + product stories + podium theatre"
+      },
+      {
+        label: "Capabilities",
+        value: "Luxury Experience · Editorial Lookbook · Brand Systems · Retail Theatre · Content Craft · Digital Engagement"
+      }
+    ],
+    story: [
+      {
+        title: "THE IDEA",
+        body: "A master distributor’s site can look beautiful and still feel bolted to spreadsheets; the lookbook gives houses a magazine stage instead."
+      },
+      {
+        title: "THE INTERACTION",
+        body: "Black / cream / gold immersion — home, brand plate, product story, podium — reads like retail theatre on screen."
+      },
+      {
+        title: "THE CONTENT",
+        body: "Crystal Emerald, Atkinsons heritage and Michael Kors twin icons become craft spreads, not CRM card grids."
+      },
+      {
+        title: "THE CAMPAIGN",
+        body: "Content craft stays quiet and human-gated; no brands-ledger hero, no publish-queue SaaS twin, no autonomous brand voice."
+      }
+    ],
+    builtIntro: "A luxury lookbook experience that turns distributor houses into editorial moments on screen.",
+    built: [
+      {
+        title: "Lookbook Home",
+        body: "Editorial entry for the house book."
+      },
+      {
+        title: "Brand Plates",
+        body: "Six houses as magazine cards."
+      },
+      {
+        title: "Product Stories",
+        body: "Crystal Emerald and fragrance narratives as craft spreads."
+      },
+      {
+        title: "Podium Moments",
+        body: "Mega podium retail theatre beats."
+      },
+      {
+        title: "Heritage Spreads",
+        body: "Atkinsons London cream-on-black storytelling."
+      },
+      {
+        title: "Twin Icons",
+        body: "Michael Kors dual fragrance spreads."
+      },
+      {
+        title: "Content Craft Assist",
+        body: "Caption and crop drafts with human publish control."
+      },
+      {
+        title: "Portfolio Close",
+        body: "Six houses, one digital stage."
+      }
+    ],
+    journeyEyebrow: "the campaign journey",
+    leadJourney: {
+      title: "Enter. Plate. Story. Stage.",
+      body: "The lookbook turns a distributor portfolio into a fluid editorial journey, with fragrance moments up front and craft kept quiet.",
+      steps: [
+        {
+          title: "Discover",
+          body: "Visitor meets Luxe Port Lookbook."
+        },
+        {
+          title: "Open",
+          body: "Enters the black / cream / gold home."
+        },
+        {
+          title: "Place",
+          body: "Browses house brand plates."
+        },
+        {
+          title: "Play",
+          body: "Opens a product story spread."
+        },
+        {
+          title: "Record",
+          body: "Views podium and heritage theatre beats."
+        },
+        {
+          title: "Upload",
+          body: "Craft assist drafts a caption or crop flag."
+        },
+        {
+          title: "Enter",
+          body: "Human reviews and gates publish."
+        },
+        {
+          title: "Win",
+          body: "Houses feel staged — ready for retail conversation."
+        }
+      ],
+      note: ""
+    },
+    visualStory: [
+      {
+        title: "THE PLAY",
+        body: "Houses from Versace through Dsquared2 sit as magazine brand plates, then open into product stories and podium theatre.",
+        image: "/assets/cases/luxe-port/the-play.jpg"
+      },
+      {
+        title: "THE MOMENT",
+        body: "A demoted craft still drafts captions and crop flags before the podium — assistive only; humans keep publish.",
+        image: "/assets/cases/luxe-port/the-moment.jpg"
+      }
+    ],
+    ecosystemEyebrow: "the experience architecture",
+    ecosystem: {
+      title: "A Simple Experience. A Connected Campaign Journey.",
+      body: "The strength of the lookbook is its simplicity at the front end: editorial craft creates a luxury trigger, while brand plates convert that moment into house-book engagement.",
+      steps: [
+        "LUXE PORT LOOKBOOK",
+        "BRAND PLATES",
+        "PRODUCT STORIES",
+        "PODIUM THEATRE",
+        "CONTENT CRAFT",
+        "PORTFOLIO STAGE"
+      ],
+      markets: ["THE HOUSE", "THE RETAILER", "THE BRAND"],
+      cards: [
+        {
+          title: "Luxe Port Lookbook",
+          body: "Visitor discovers the house book."
+        },
+        {
+          title: "Brand Plates",
+          body: "Houses arranged as magazine cards."
+        },
+        {
+          title: "Product Stories",
+          body: "Fragrance narratives as craft spreads."
+        },
+        {
+          title: "Podium Theatre",
+          body: "Retail moments staged for screen."
+        },
+        {
+          title: "Content Craft",
+          body: "Assistive captions and crops, human-gated."
+        },
+        {
+          title: "Portfolio Stage",
+          body: "One digital stage for the distributor set."
+        }
+      ],
+      closing: "The lookbook remains the experience. Luxe Port content craft is how CWIT adds quiet intelligence."
+    },
+    capabilities: [
+      "Luxury Experience",
+      "Editorial Lookbook",
+      "Brand Systems",
+      "Retail Theatre",
+      "Content Craft",
+      "Digital Engagement"
+    ],
+    impact: [],
+    relatedWork: [
+      {
+        title: "Rise Partner Pulse",
+        body: "Partner Brochure / Mosaic Experience",
+        href: "/cases/rise-partner-pulse"
+      },
+      {
+        title: "Da Vinci Talent Pulse",
+        body: "Talent Pulse / Employer Brand Counsel",
+        href: "/cases/da-vinci-talent-pulse"
+      },
+      {
+        title: "Lay's Match Radar",
+        body: "Match Radar / AI Campaign Ops",
+        href: "/cases/lays-match-radar"
+      }
+    ],
+    cta: {
+      eyebrow: "have a portfolio worth staging?",
+      title: "Turn brand houses into editorial moments.",
+      body: "MomentumX combines luxury design, content craft and digital experience to present portfolios with the gravity they deserve.",
+      href: "/enquiry",
+      label: "start a conversation"
+    },
+    media: {
+      hero: "/assets/cases/luxe-port/hero.jpg",
+      play: "/assets/cases/luxe-port/the-play.jpg",
+      moment: "/assets/cases/luxe-port/the-moment.jpg",
+      flow: "/assets/cases/luxe-port/campaign-flow.jpg"
+    },
+    moments: [
+      {
+        title: "The Play",
+        body: "Houses from Versace through Dsquared2 sit as magazine brand plates, then open into product stories and podium theatre."
+      },
+      {
+        title: "The Moment",
+        body: "A demoted craft still drafts captions and crop flags before the podium — assistive only; humans keep publish."
+      }
+    ]
+  },
+  "rise-partner-pulse": {
+    eyebrow: "RISE · PARTNER BROCHURE EXPERIENCE",
+    metadata: [
+      {
+        label: "Engagement",
+        value: "Partner Brochure / Mosaic Experience"
+      },
+      {
+        label: "Client",
+        value: "Rise (National Holding Group)"
+      },
+      {
+        label: "Experience",
+        value: "Editorial booklet + vertical mosaic + inquiry pulse"
+      },
+      {
+        label: "Capabilities",
+        value: "Partner Experience · Editorial Design · Multi-Vertical Brochure · Content Craft · Inquiry Pulse · Digital Engagement"
+      }
+    ],
+    story: [
+      {
+        title: "THE IDEA",
+        body: "Rise’s breadth was fragmented across site stories; Partner Pulse frames one immersive booklet so partners feel the portfolio before they file anything."
+      },
+      {
+        title: "THE INTERACTION",
+        body: "Editorial opening leads into a staggered mosaic wall — five tall vertical cards as visual proof, not a SaaS navigator grid."
+      },
+      {
+        title: "THE CONTENT",
+        body: "Each chapter reads as a brochure beat — Cyber through IoT — so orientation happens by browsing, not hunting a form farm."
+      },
+      {
+        title: "THE CAMPAIGN",
+        body: "Inquiry stays light: one pulse strip for partner, lane and urgency — assistive notes with hard rails, never autonomous trading or device control."
+      }
+    ],
+    builtIntro: "A partner brochure experience that turns multi-vertical breadth into a browsable mosaic journey.",
+    built: [
+      {
+        title: "Brochure Open",
+        body: "Magazine split with editorial gravity and issue chips."
+      },
+      {
+        title: "Mosaic Wall",
+        body: "Five staggered vertical cards as the visual spine."
+      },
+      {
+        title: "Cyber Chapter",
+        body: "Shield lane staged as a tall brochure beat."
+      },
+      {
+        title: "Fintech Chapter",
+        body: "Rails partners can read without a console."
+      },
+      {
+        title: "Energy Chapter",
+        body: "Solar, desalination and EV as brochure columns."
+      },
+      {
+        title: "Healthcare Chapter",
+        body: "Calm care spread with proof cards."
+      },
+      {
+        title: "IoT + Inquiry Pulse",
+        body: "Chapter close with one subtle intelligence strip."
+      },
+      {
+        title: "Partner Orientation",
+        body: "Browse-first path; no RFQ farm as hero."
+      }
+    ],
+    journeyEyebrow: "the campaign journey",
+    leadJourney: {
+      title: "Open. Browse. Orient. Inquire.",
+      body: "The brochure turns a multi-vertical portfolio into a fluid partner journey, with mosaic proof up front and inquiry kept light.",
+      steps: [
+        {
+          title: "Discover",
+          body: "Partner meets Rise Partner Pulse."
+        },
+        {
+          title: "Open",
+          body: "Opens the magazine-grade brochure surface."
+        },
+        {
+          title: "Place",
+          body: "Reads the editorial thesis and vertical chips."
+        },
+        {
+          title: "Play",
+          body: "Browses the mosaic wall of five chapters."
+        },
+        {
+          title: "Record",
+          body: "Dwells on Cyber, Fintech, Energy, Healthcare or IoT."
+        },
+        {
+          title: "Upload",
+          body: "Notes a lane of interest on the inquiry-pulse strip."
+        },
+        {
+          title: "Enter",
+          body: "Assistive partner intelligence drafts a light next-step note."
+        },
+        {
+          title: "Win",
+          body: "Partner leaves oriented — ready for a human conversation."
+        }
+      ],
+      note: ""
+    },
+    visualStory: [
+      {
+        title: "THE PLAY",
+        body: "Partners open a magazine-grade brochure — navy editorial meeting white issue pages with vertical chapter chips.",
+        image: "/assets/cases/rise/the-play.jpg"
+      },
+      {
+        title: "THE MOMENT",
+        body: "A mosaic of Cyber, Fintech, Energy, Healthcare and IoT chapters orients partners; a subtle inquiry-pulse strip notes interest without becoming a console.",
+        image: "/assets/cases/rise/the-moment.jpg"
+      }
+    ],
+    ecosystemEyebrow: "the experience architecture",
+    ecosystem: {
+      title: "A Simple Experience. A Connected Campaign Journey.",
+      body: "The strength of the brochure is its simplicity at the front end: editorial craft creates a calm trigger, while mosaic chapters convert that moment into partner engagement.",
+      steps: [
+        "RISE BROCHURE",
+        "EDITORIAL OPEN",
+        "MOSAIC WALL",
+        "CHAPTER DEPTH",
+        "INQUIRY PULSE",
+        "HUMAN HANDOFF"
+      ],
+      markets: ["THE PARTNER", "THE PORTFOLIO", "THE BRAND"],
+      cards: [
+        {
+          title: "Rise Brochure",
+          body: "Partner discovers Partner Pulse."
+        },
+        {
+          title: "Editorial Open",
+          body: "Magazine framing sets gravity."
+        },
+        {
+          title: "Mosaic Wall",
+          body: "Five vertical chapters as proof."
+        },
+        {
+          title: "Chapter Depth",
+          body: "Cyber through IoT as browsable beats."
+        },
+        {
+          title: "Inquiry Pulse",
+          body: "Light partner intelligence, not an ops hero."
+        },
+        {
+          title: "Human Handoff",
+          body: "Notes assist; conversations stay human-owned."
+        }
+      ],
+      closing: "The brochure remains the experience. Rise Partner Pulse is how CWIT adds quiet intelligence."
+    },
+    capabilities: [
+      "Partner Experience",
+      "Editorial Design",
+      "Multi-Vertical Brochure",
+      "Content Craft",
+      "Inquiry Pulse",
+      "Digital Engagement"
+    ],
+    impact: [],
+    relatedWork: [
+      {
+        title: "Luxe Port Lookbook",
+        body: "Luxury Lookbook / Content Craft",
+        href: "/cases/luxe-port-lookbook"
+      },
+      {
+        title: "Da Vinci Talent Pulse",
+        body: "Talent Pulse / Employer Brand Counsel",
+        href: "/cases/da-vinci-talent-pulse"
+      },
+      {
+        title: "RFF Circular Control",
+        body: "Circular Control / AI Ops Assistant",
+        href: "/cases/rff-circular-control"
+      }
+    ],
+    cta: {
+      eyebrow: "have a portfolio partners should explore?",
+      title: "Turn breadth into a browsable story.",
+      body: "MomentumX combines editorial design, digital experience and light partner intelligence to help partners understand what you do.",
+      href: "/enquiry",
+      label: "start a conversation"
+    },
+    media: {
+      hero: "/assets/cases/rise/hero.jpg",
+      play: "/assets/cases/rise/the-play.jpg",
+      moment: "/assets/cases/rise/the-moment.jpg",
+      flow: "/assets/cases/rise/campaign-flow.jpg"
+    },
+    moments: [
+      {
+        title: "The Play",
+        body: "Partners open a magazine-grade brochure — navy editorial meeting white issue pages with vertical chapter chips."
+      },
+      {
+        title: "The Moment",
+        body: "A mosaic of Cyber, Fintech, Energy, Healthcare and IoT chapters orients partners; a subtle inquiry-pulse strip notes interest without becoming a console."
+      }
+    ]
   },
   "moments-of-magic": {
     eyebrow: "M&M'S · CONSUMER EXPERIENCE",
@@ -3158,99 +4629,6 @@ export const casePageDetails: Record<
   }
 };
 
-export const posts = [
-  {
-    slug: "building-digital-growth-platforms-in-mena",
-    title: "building digital growth platforms in MENA",
-    date: "2026",
-    summary:
-      "How regional insight, brand understanding, and digital execution shape stronger customer experiences.",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
-  },
-  {
-    slug: "momentumx-digital-showreel",
-    title: "MomentumX digital showreel",
-    date: "2025",
-    summary: "A moving snapshot of selected digital work, brand moments, and regional growth thinking.",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=80"
-  },
-  {
-    slug: "why-digital-experience-still-matters",
-    title: "why digital experience still matters",
-    date: "2024",
-    summary: "Why useful interfaces, fast platforms, and clear content still shape customer trust.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80"
-  },
-  {
-    slug: "turning-brand-ideas-into-digital-products",
-    title: "turning brand ideas into digital products",
-    date: "2024",
-    summary: "The strategic and technical choices behind digital experiences people use and remember.",
-    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1400&q=80"
-  },
-  {
-    slug: "designing-interaction-for-digital-experiences",
-    title: "designing interaction for digital experiences",
-    date: "2026",
-    summary: "How interface, content, and motion help customers move from attention to action.",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1400&q=80"
-  },
-  {
-    slug: "what-global-brands-need-from-regional-digital-teams",
-    title: "what global brands need from regional digital teams",
-    date: "2025",
-    summary: "Balancing brand consistency with market nuance, platform quality, and local user behavior.",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=80"
-  },
-  {
-    slug: "digital-growth-opportunities-in-the-middle-east",
-    title: "digital growth opportunities in the middle east",
-    date: "2023",
-    summary: "A look at regional opportunity, user behavior, and digital brand growth across the Middle East.",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80"
-  },
-  {
-    slug: "inside-a-digital-delivery-mindset",
-    title: "inside a digital delivery mindset",
-    date: "2020",
-    summary: "A studio note on speed, clarity, craft, and practical rollout for digital platforms.",
-    image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=80"
-  }
-];
-
-export const blogDetailBlocks = [
-  {
-    title: "A note from MomentumX",
-    body:
-      "Strong digital work starts with a clear user moment: what people need, where they arrive, and what they should do next."
-  },
-  {
-    title: "Big ideas need practical delivery",
-    body:
-      "Strategy becomes valuable when it moves into interfaces, systems, content workflows, integrations, and measurable user journeys."
-  },
-  {
-    title: "Regional nuance still matters",
-    body:
-      "Digital platforms in the GCC and wider MENA region need cultural intelligence as much as they need technical polish."
-  },
-  {
-    title: "Interaction creates trust",
-    body:
-      "Useful flows, responsive interfaces, clear content, and reliable platforms give audiences a reason to engage."
-  },
-  {
-    title: "Impact is the measure",
-    body:
-      "The goal is not only visibility. It is stronger customer connection, measurable digital value, and long-term platform usefulness."
-  }
-];
-
-export const blogDetailMedia = [
-  "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1400&q=80",
-  "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1400&q=80"
-];
-
 export const aboutPage = {
   title: "momentum heritage. digital & AI future.",
   summary:
@@ -3265,14 +4643,25 @@ export const aboutPage = {
     ["REGION", "Middle East understanding"],
     ["INNOVATION", "built for what's next"]
   ],
-  gallery: [
-    "https://storage.tentwenty.com/small_Group_427320014_abd389ec22.jpg",
-    "https://storage.tentwenty.com/small_27b81d5d_2a44_4257_a5da_27d766d143e4_751b43b1a9.jpg",
-    "https://storage.tentwenty.com/small_IMG_1901_28651f9ba9.JPG",
-    "https://storage.tentwenty.com/small_IMG_1071_8e8e9703e0.jpg",
-    "https://storage.tentwenty.com/small_bbec111e_51f6_4e31_80e8_63f39d3ad194_04de558ccb.jpg",
-    "https://storage.tentwenty.com/small_S_DSC_0652_f509d9ddbd.jpg"
+  equation: [
+    { name: "Momentum", line: "gives us the experience." },
+    { name: "CWIT", line: "adds the intelligence." },
+    { name: "Becomes", line: "MomentumX" }
   ],
+  images: {
+    region: {
+      src: "https://images.unsplash.com/photo-1652707228067-25672fa0b082",
+      alt: "Downtown Dubai at dusk, with traffic light trails running between the towers",
+      name: "PhotoHound",
+      url: "https://unsplash.com/@photohoundco"
+    },
+    pattern: {
+      src: "https://images.unsplash.com/photo-1719194981461-fa0ec450999e",
+      alt: "White wall carved with an interlocking Islamic geometric pattern",
+      name: "KC Shum",
+      url: "https://unsplash.com/@kcshum"
+    }
+  },
   people: [
     ["STRATEGY", "Business & transformation"],
     ["EXPERIENCE", "UX & digital design"],
@@ -3315,27 +4704,69 @@ export const aboutPage = {
 };
 
 export const contactPage = {
+  // Momentum offices (from mmc-ae.com), grouped by region on the contact page.
   offices: [
     {
+      region: "UAE",
       city: "dubai",
       address: "605, Tower A, Empire Heights, Business Bay, Dubai",
-      map: "https://maps.app.goo.gl/8HZbZaRxBduMsqHx8"
+      map: "https://www.google.com/maps/search/?api=1&query=Momentum+Marketing+and+Events%2C+Empire+Heights%2C+Business+Bay%2C+Dubai"
     },
     {
+      region: "UAE",
       city: "abu dhabi",
       address: "M202, Gift Tower, Hamdan Street, Abu Dhabi",
-      map: "https://goo.gl/maps/ZK4v68d5vXK2nWHQ7"
+      map: "https://www.google.com/maps/search/?api=1&query=Gift+Tower%2C+Hamdan+Street%2C+Abu+Dhabi"
     },
     {
+      region: "Saudi Arabia",
       city: "riyadh",
-      address: "2801, Kingdom Tower, King Fahd Road, Al Olaya",
-      map: "https://goo.gl/maps/mhhGpzJjS9LjuqNZ8"
+      address: "2801, Kingdom Tower, King Fahd Road, Al Olaya, Riyadh",
+      map: "https://www.google.com/maps/search/?api=1&query=Kingdom+Tower%2C+King+Fahd+Road%2C+Al+Olaya%2C+Riyadh"
+    },
+    {
+      region: "Saudi Arabia",
+      city: "jeddah",
+      address: "409, Quartz Building, Kurnaysh Road, Shati, Jeddah",
+      map: "https://www.google.com/maps/search/?api=1&query=Quartz+Building%2C+Kurnaysh+Road%2C+Ash+Shati%2C+Jeddah"
+    },
+    {
+      region: "Saudi Arabia",
+      city: "dammam",
+      address: "206, Al Rashed Towers, Dhahran Heights Road, Al Khobar",
+      map: "https://www.google.com/maps/search/?api=1&query=Al+Rashed+Tower%2C+Al+Khobar"
+    },
+    {
+      region: "Regional",
+      city: "doha",
+      address: "1503, Al Fardan Tower, Al Funduq Street, Doha, Qatar",
+      map: "https://www.google.com/maps/search/?api=1&query=Al+Fardan+Tower%2C+Al+Funduq+Street%2C+Doha"
+    },
+    {
+      region: "Regional",
+      city: "bahrain",
+      address: "2202, West Tower, Bahrain Financial Harbour, King Faisal Highway, Manama",
+      map: "https://www.google.com/maps/search/?api=1&query=Bahrain+Financial+Harbour+West+Tower%2C+Manama"
+    },
+    {
+      region: "Regional",
+      city: "kuwait",
+      address: "1805, Sahab Tower, Mohammad Thunayan Street, Kuwait City",
+      map: "https://www.google.com/maps/search/?api=1&query=Sahab+Tower%2C+Mohammad+Thunayan+Street%2C+Kuwait"
+    },
+    {
+      region: "Regional",
+      city: "amman",
+      address: "309, Armada Tower, Arar Street, Amman, Jordan",
+      map: "https://www.google.com/maps/search/?api=1&query=Armada+Tower%2C+Arar+Street%2C+Amman"
     }
   ],
-  portfolios: [
-    ["behance", "https://storage.tentwenty.com/behance_new_755396d1db.svg"],
-    ["dribbble", "https://storage.tentwenty.com/dribbble_new_ee89e64a10.svg"],
-    ["awwwards", "https://storage.tentwenty.com/awwwards_ccfdedb82a.svg"]
+  // Add each profile URL to make the icon a link on the contact and enquiry pages.
+  socials: [
+    { network: "facebook", label: "Facebook", href: "" },
+    { network: "x", label: "X", href: "" },
+    { network: "instagram", label: "Instagram", href: "" },
+    { network: "linkedin", label: "LinkedIn", href: "" }
   ]
 };
 
@@ -3648,7 +5079,7 @@ export const utilityPages: Record<string, { title: string; summary: string; body
     title: "contact us",
     summary: "Reach out to the Dubai office.",
     body:
-      "605, Tower A, Empire Heights, Business Bay, Dubai. Call +971 04 569 3033."
+      "605, Tower A, Empire Heights, Business Bay, Dubai. Call +971 4 569 3033."
   },
   enquiry: {
     title: "enquiry",
@@ -3656,60 +5087,16 @@ export const utilityPages: Record<string, { title: string; summary: string; body
     body:
       "Share the website, app, AI workflow, commerce experience, platform, or digital change you are planning, and the team can help shape the next move."
   },
-  careers: {
-    title: "careers",
-    summary: "Open roles across strategy, design, technology, content, AI, and digital delivery.",
-    body:
-      "MomentumX brings together strategists, designers, technologists, content specialists, and delivery leads for digital growth work across the region."
-  },
   "book-meeting": {
     title: "book a meeting",
     summary: "Book a 30 minute digital consultation.",
     body:
       "Use this page as the future home for digital discovery, website and app planning, AI opportunities, platform strategy, and meeting booking integrations."
   },
-  solutions: {
-    title: "solutions",
-    summary: "AI, automation, data, platforms, and connected technology for business transformation.",
-    body:
-      "MomentumX develops intelligent systems, enterprise platforms, data-led experiences, automation workflows, and connected technology shaped around practical business challenges."
-  },
-  "innovation-lab": {
-    title: "AI innovation lab",
-    summary: "A space for prototypes, proof-of-concepts, and new product ideas.",
-    body:
-      "The lab explores emerging technologies and recurring business challenges, turning them into concepts such as ShelfVision AI, SmartSpace, and AML Copilot."
-  },
-  "ai-lab": {
-    title: "AI innovation lab",
-    summary: "A space for prototypes, proof-of-concepts, and new product ideas.",
-    body:
-      "The lab explores emerging technologies and recurring business challenges, turning them into concepts such as ShelfVision AI, SmartSpace, and AML Copilot."
-  },
-  "film-showreel": {
-    title: "film showreel",
-    summary: "A dedicated showreel landing page for motion and film work.",
-    body: "Video-led storytelling, production, and digital brand assets can live here."
-  },
-  showreel: {
-    title: "showreel",
-    summary: "Selected digital and brand-led work in motion.",
-    body: "A full-screen showreel experience for MomentumX digital work, product storytelling, and brand moments."
-  },
-  profile: {
-    title: "profile",
-    summary: "Company profile and credentials.",
-    body: "Use this route for credentials, awards, regional capabilities, digital service work, and downloadable profile content."
-  },
-  initiatives: {
-    title: "initiatives",
-    summary: "MomentumX initiatives and experimental projects.",
-    body: "A landing page for internal initiatives, digital experiments, and community projects."
-  },
   "privacy-policy": {
     title: "privacy policy",
-    summary: "Privacy and data handling information.",
-    body: "Replica placeholder for privacy policy content."
+    summary: "How MomentumX collects, uses and protects personal data.",
+    body: "How MomentumX collects, uses and protects personal data."
   },
   "terms-and-conditions": {
     title: "terms and conditions",

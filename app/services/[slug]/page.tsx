@@ -1,9 +1,22 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "../../../lib/seo";
 import { notFound } from "next/navigation";
+import { insightsForService } from "../../insights";
 import { CapabilityAccordion, CollaborationSlider, SiteFooter, SiteHeader } from "../../site-components";
 import { servicePageDetails, services } from "../../site-data";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const service = services.find((item) => item.slug === slug);
+  if (!service) {
+    return { title: "Services", robots: { index: false } };
+  }
+  const title = service.title.charAt(0).toUpperCase() + service.title.slice(1);
+  return pageMetadata({ title, description: service.summary, path: `/services/${service.slug}` });
 }
 
 const figmaAssets = {
@@ -349,16 +362,16 @@ export default async function ServiceDetailPage({
       <section className="figmaInsights sectionPad">
         <h2>Related Insights</h2>
         <div>
-          {detail.insights.slice(0, 3).map((insight) => (
-            <a key={insight} href="/blog">
-              <strong>{insight}</strong>
-              <span className="figmaInsightBody">{detail.hero.capabilityLine}</span>
+          {insightsForService(service.slug).map((article) => (
+            <a key={article.slug} href={`/blog/${article.slug}`}>
+              <strong>{article.title}</strong>
+              <span className="figmaInsightBody">{article.summary}</span>
               <span className="figmaInsightMeta">
-                <span>News &amp; Insights</span>
+                <span>{article.category}</span>
                 <i />
-                <span>Explore</span>
+                <span>{article.readTime}</span>
               </span>
-              <em>Explore more</em>
+              <em>Read article</em>
             </a>
           ))}
         </div>

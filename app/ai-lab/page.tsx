@@ -1,1 +1,1 @@
-export { default } from "../innovation-lab/page";
+export { default, metadata } from "../innovation-lab/page";

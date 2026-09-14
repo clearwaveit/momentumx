@@ -1,31 +1,37 @@
+import type { CSSProperties } from "react";
+import type { Metadata } from "next";
+import { pageMetadata } from "../../../lib/seo";
 import { notFound } from "next/navigation";
-import { CtaBand, MediaBlock, PageHero, SiteFooter, SiteHeader } from "../../site-components";
-import { caseDetailBlocks, caseDetailMedia, casePageDetails, cases } from "../../site-data";
+import { logoAspectRatio } from "../../logo-ratio";
+import { SiteFooter, SiteHeader } from "../../site-components";
+import { casePageDetails, isVisibleCaseHref, visibleCases as cases } from "../../site-data";
+
+// Hidden cases are not built, so their addresses return the 404 page.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return cases.map((item) => ({ slug: item.slug }));
 }
 
-const SHARED_ASSETS = {
-  heroA: "https://www.figma.com/api/mcp/asset/5fa911c2-8345-4683-a913-001317b7104d.png",
-  heroB: "https://www.figma.com/api/mcp/asset/a6a973a3-a29a-4db8-bdbc-b18af7b9da66.png",
-  play: "https://www.figma.com/api/mcp/asset/e3c8efdf-1a43-401c-8b19-22e0e9dfcc39.png",
-  moment: "https://www.figma.com/api/mcp/asset/c900ca72-73c0-4f3d-81a0-9ff5f98794f9.png",
-  idea: "https://www.figma.com/api/mcp/asset/d531b4cf-01a8-4024-ba39-38c5438fb270.png",
-  interaction: "https://www.figma.com/api/mcp/asset/fa1ed9a3-a2fb-4d60-834b-b3a6e8b3055f.png",
-  content: "https://www.figma.com/api/mcp/asset/08d0212d-2726-4880-8019-5c00286ffaa4.png",
-  campaign: "https://www.figma.com/api/mcp/asset/83bbf2c4-78e4-4625-8955-28e3ebd3b133.png",
-  flow: "https://www.figma.com/api/mcp/asset/70f09773-99f5-4efb-befe-715c25fc0e60.png",
-  ctaPerson: "/assets/design/cta-new-1.png",
-  builtIcon: "https://www.figma.com/api/mcp/asset/163f278c-4fc3-4575-86e7-1ccfd0f3bd28.svg",
-  storyDark: "https://www.figma.com/api/mcp/asset/f4336805-e569-40db-a754-c659a9e719c6.svg",
-  storyLight: "https://www.figma.com/api/mcp/asset/c4d28009-5b10-4ec0-b5dc-4c23b2e24b7e.svg",
-  arrow: "https://www.figma.com/api/mcp/asset/0b9fa235-cbef-4895-9122-6370e0243841.svg"
-};
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const item = cases.find((entry) => entry.slug === slug);
+  if (!item) {
+    return { title: "Work", robots: { index: false } };
+  }
+  return pageMetadata({
+    title: `${item.name} case study`,
+    description: item.summary,
+    path: `/cases/${item.slug}`,
+    type: "article",
+    image: item.image.startsWith("/") ? { url: item.image, alt: item.name } : undefined
+  });
+}
 
-const WHISKAS_ASSETS = {
-  ...SHARED_ASSETS,
-  ctaPerson: "https://www.figma.com/api/mcp/asset/ff5efe00-2b01-4f7d-9362-6674dae49768.png"
+// Local chrome shared by every case; cases with `media` bring their own four images.
+const SHARED_ASSETS = {
+  ctaPerson: "/assets/design/cta-person-momentumx.png",
+  arrow: "/assets/design/arrow-tile.svg"
 };
 
 const STORY_THEMES = ["navy", "yellow", "black", "grey"] as const;
@@ -36,9 +42,17 @@ function toStoryHeading(title: string) {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
-function resolveCaseImage(href: string, fallback: string) {
+// Related-work card media: the case's own image, else its client logo, else nothing.
+function resolveCaseMedia(href: string, fallback?: string): { src: string; isLogo: boolean } | null {
   const slug = href.replace(/^\/cases\//, "");
-  return cases.find((entry) => entry.slug === slug)?.image ?? fallback;
+  const entry = cases.find((item) => item.slug === slug);
+  if (entry?.image) {
+    return { src: entry.image, isLogo: false };
+  }
+  if (entry?.logoImage) {
+    return { src: entry.logoImage, isLogo: true };
+  }
+  return fallback ? { src: fallback, isLogo: false } : null;
 }
 
 export default async function CaseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -51,77 +65,11 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
 
   const detail = casePageDetails[item.slug];
 
-  if (detail) {
-    return <WorkCaseDetail item={item} detail={detail} />;
+  if (!detail) {
+    notFound();
   }
 
-  return (
-    <main>
-      <SiteHeader />
-      <PageHero eyebrow={item.client} title={item.title} summary={item.summary} />
-      <section className="caseDetail sectionPad">
-        <MediaBlock image={item.image} />
-        <div className="detailCopy">
-          <div className="caseLogoLarge textLogo">{item.client}</div>
-          <h2>project scope</h2>
-          <p>
-            A digital engagement shaped around audience behavior, brand consistency, platform
-            clarity, and measurable customer impact across the right touchpoints.
-          </p>
-          <ul>
-            {item.services.map((service) => (
-              <li key={service}>{service}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-      <section className="storyStack sectionPad">
-        {caseDetailBlocks.map((block, index) => (
-          <article key={block.title}>
-            <span className="sectionNumber">{String(index + 1).padStart(2, "0")}.</span>
-            <h2>{block.title}</h2>
-            <p>{block.body}</p>
-          </article>
-        ))}
-      </section>
-      <section className="caseGallery sectionPad">
-        {caseDetailMedia.map((media) => (
-          <figure key={media.title}>
-            <img src={media.image} alt={media.title} />
-            <figcaption>{media.title}</figcaption>
-          </figure>
-        ))}
-      </section>
-      <section className="testimonialBlock sectionPad">
-        <h2>client testimonial</h2>
-        <blockquote>
-          MomentumX brings strategy, cultural awareness, and production focus into digital work
-          that feels relevant in-market.
-        </blockquote>
-        <blockquote>
-          Responsibility, punctuality, and attentiveness helped the project move with confidence
-          from idea to rollout.
-        </blockquote>
-      </section>
-      <section className="relatedRail sectionPad">
-        <h2>next work</h2>
-        <div className="miniCardGrid">
-          {cases
-            .filter((caseItem) => caseItem.slug !== item.slug)
-            .slice(0, 4)
-            .map((caseItem) => (
-              <a className="miniMediaCard" key={caseItem.slug} href={`/cases/${caseItem.slug}`}>
-                <img src={caseItem.image} alt="" />
-                <span>{caseItem.client}</span>
-                <strong>{caseItem.title}</strong>
-              </a>
-            ))}
-        </div>
-      </section>
-      <CtaBand />
-      <SiteFooter />
-    </main>
-  );
+  return <WorkCaseDetail item={item} detail={detail} />;
 }
 
 function WorkCaseDetail({
@@ -131,43 +79,52 @@ function WorkCaseDetail({
   item: (typeof cases)[number];
   detail: (typeof casePageDetails)[string];
 }) {
-  const isWhiskas = item.slug === "whiskas-interactive-cat-game";
-  const assets = isWhiskas ? WHISKAS_ASSETS : SHARED_ASSETS;
-  const visualImages = detail.visualStory.map((entry) => entry.image);
-  const fallbackImages = [item.image, ...visualImages, assets.idea, assets.interaction, assets.content, assets.campaign];
+  const media = detail.media;
+  const assets = SHARED_ASSETS;
+  // Some cases have no imagery yet; every image slot below collapses when empty.
+  const visualImages = detail.visualStory.map((entry) => entry.image).filter(Boolean);
+  const fallbackImages = [item.image, ...visualImages].filter(Boolean);
 
-  const heroImages = isWhiskas
-    ? [assets.heroA, assets.heroB]
-    : [fallbackImages[0], fallbackImages[1] ?? fallbackImages[0]];
+  const heroImages = media
+    ? [media.hero]
+    : fallbackImages.length
+      ? [fallbackImages[0], fallbackImages[1] ?? fallbackImages[0]]
+      : [];
 
-  const pairedMoments = isWhiskas
-    ? [
-        {
-          title: "The Play",
-          body: "Moving elements trigger curiosity, chasing, tapping and physical interaction with the screen.",
-          image: assets.play
-        },
-        {
-          title: "The Moment",
-          body: "The owner captures the interaction as video, turning gameplay into a shareable campaign moment.",
-          image: assets.moment
-        }
-      ]
-    : detail.visualStory.slice(0, 2).map((entry) => ({
-        title: toStoryHeading(entry.title),
-        body: entry.body,
-        image: entry.image
-      }));
+  const pairedMoments =
+    media && detail.moments
+      ? detail.moments.slice(0, 2).map((moment, index) => ({
+          title: moment.title,
+          body: moment.body,
+          image: index === 0 ? media.play : media.moment
+        }))
+      : detail.visualStory
+          .filter((entry) => entry.image)
+          .slice(0, 2)
+          .map((entry) => ({
+            title: toStoryHeading(entry.title),
+            body: entry.body,
+            image: entry.image
+          }));
 
-  const storyAssets = isWhiskas
-    ? [assets.idea, assets.interaction, assets.content, assets.campaign]
-    : detail.story.map((_, index) => fallbackImages[(index + 2) % fallbackImages.length]);
+  const storyAssets = fallbackImages.length
+    ? detail.story.map((_, index) => fallbackImages[(index + 2) % fallbackImages.length])
+    : [];
 
-  const flowImage = isWhiskas ? assets.flow : (visualImages[visualImages.length - 1] ?? assets.flow);
+  const flowImage = media ? media.flow : (visualImages[visualImages.length - 1] ?? item.image);
 
-  const relatedItems = detail.relatedWork.slice(0, 3);
-  const relatedImages = relatedItems.map((work, index) =>
-    resolveCaseImage(work.href, fallbackImages[index % fallbackImages.length])
+  // Cases with written architecture cards use them; others borrow the journey step copy.
+  const architectureCards = (
+    detail.ecosystem.cards ??
+    detail.ecosystem.steps.map((step, index) => ({
+      title: step,
+      body: detail.leadJourney.steps[index]?.body ?? detail.ecosystem.body
+    }))
+  ).slice(0, 6);
+
+  const relatedItems = detail.relatedWork.filter((work) => isVisibleCaseHref(work.href)).slice(0, 3);
+  const relatedMedia = relatedItems.map((work, index) =>
+    resolveCaseMedia(work.href, fallbackImages.length ? fallbackImages[index % fallbackImages.length] : undefined)
   );
 
   const journeyEyebrow = detail.journeyEyebrow ?? "The campaign journey";
@@ -190,15 +147,29 @@ function WorkCaseDetail({
           <p className="whiskasHeroSummary">{item.summary}</p>
         </div>
       </section>
+{heroImages.length ? (
       <section className="whiskasHeroImage" aria-label={`${item.client} campaign artwork`}>
-        <img src={heroImages[0]} alt="" />
-        <img src={heroImages[1]} alt="" />
+        {heroImages.filter(Boolean).map((src, index) => (
+          <img key={index} src={src} alt="" />
+        ))}
       </section>
+      ) : null}
 
       <section className="whiskasMeta">
         <div className="whiskasMetaHead">
           <p>Project Metadata</p>
-          <h2>{item.client}</h2>
+          <h2>
+            {item.logoImage ? (
+              <img
+                className="whiskasMetaLogo"
+                src={item.logoImage}
+                alt={item.client}
+                style={{ "--logo-r": logoAspectRatio(item.logoImage) ?? 1 } as CSSProperties}
+              />
+            ) : (
+              item.client
+            )}
+          </h2>
         </div>
         <div className="whiskasMetaGrid">
           {metadataBlocks.map((meta) => (
@@ -214,7 +185,7 @@ function WorkCaseDetail({
         <section className="whiskasMoments sectionPad">
           {pairedMoments.map((moment) => (
             <figure key={moment.title}>
-              <img src={moment.image} alt="" />
+              <img className={media ? "isLandscape" : undefined} src={moment.image} alt="" />
               <figcaption>
                 <strong>{moment.title}</strong>
                 <span>{moment.body}</span>
@@ -228,11 +199,12 @@ function WorkCaseDetail({
         {detail.story.map((story, index) => (
           <article className={`whiskasStoryCard is-${STORY_THEMES[index % STORY_THEMES.length]}`} key={story.title}>
             <div>
-              <img src={index % 2 === 0 ? assets.storyDark : assets.storyLight} alt="" />
               <h2>{toStoryHeading(story.title)}</h2>
             </div>
             <p>{story.body}</p>
-            <img className="whiskasStoryImage" src={storyAssets[index % storyAssets.length]} alt="" />
+            {media || !storyAssets.length ? null : (
+              <img className="whiskasStoryImage" src={storyAssets[index % storyAssets.length]} alt="" />
+            )}
           </article>
         ))}
       </section>
@@ -249,9 +221,6 @@ function WorkCaseDetail({
           <div className="whiskasBuiltGrid">
             {detail.built.map((built) => (
               <article key={built.title}>
-                <span>
-                  <img src={assets.builtIcon} alt="" />
-                </span>
                 <div className="whiskasBuiltCopy">
                   <h3>{built.title}</h3>
                   <p>{built.body}</p>
@@ -271,7 +240,7 @@ function WorkCaseDetail({
           <h2>{detail.leadJourney.title}</h2>
           <p>{detail.leadJourney.body}</p>
         </div>
-        <div className="whiskasFlowBody">
+        <div className={flowImage ? "whiskasFlowBody" : "whiskasFlowBody isFull"}>
           <div className="whiskasFlowSteps">
             {detail.leadJourney.steps.map((step) => (
               <article key={step.title}>
@@ -280,7 +249,7 @@ function WorkCaseDetail({
               </article>
             ))}
           </div>
-          <img src={flowImage} alt="" />
+          {flowImage ? <img className={media ? "isPortrait" : undefined} src={flowImage} alt="" /> : null}
         </div>
       </section>
 
@@ -308,13 +277,14 @@ function WorkCaseDetail({
                 <span key={market}>{market}</span>
               ))}
             </div>
+            {detail.ecosystem.closing ? <p>{detail.ecosystem.closing}</p> : null}
           </div>
           <div className="whiskasJourneyCards">
-            {detail.ecosystem.steps.slice(0, 6).map((step, index) => (
-              <article key={step}>
+            {architectureCards.map((card, index) => (
+              <article key={card.title}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{step.toLowerCase().replace(" / ", " ")}</h3>
-                <p>{detail.leadJourney.steps[index]?.body ?? detail.ecosystem.body}</p>
+                <h3>{card.title.toLowerCase().replace(" / ", " ")}</h3>
+                <p>{card.body}</p>
               </article>
             ))}
           </div>
@@ -326,7 +296,13 @@ function WorkCaseDetail({
         <div>
           {relatedItems.map((work, index) => (
             <a href={work.href} key={work.href}>
-              <img src={relatedImages[index]} alt="" />
+              {relatedMedia[index] ? (
+                <img
+                  className={relatedMedia[index].isLogo ? "isLogo" : undefined}
+                  src={relatedMedia[index].src}
+                  alt=""
+                />
+              ) : null}
               <strong>{work.title}</strong>
               <span>
                 <img src={assets.arrow} alt="" />
