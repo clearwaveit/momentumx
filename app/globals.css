@@ -99,12 +99,14 @@ body {
   letter-spacing: normal;
 }
 
+/* break-word only splits a word that can't fit on a line by itself; "anywhere"
+   plus auto hyphens split words mid-way whenever a box was a little narrow. */
 h1, h2, h3, p {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 h1, h2, h3 {
-  hyphens: auto;
+  hyphens: manual;
 }
 
 a {
@@ -13296,4 +13298,61 @@ main > section.officeRegions {
   .officeRegion .officeGrid article:nth-child(4n + 1) {
     border-left: 0;
   }
+}
+
+/* Case study hero: the headline had a 73.6rem box, far too narrow for the
+   display size, so it broke after every word and hyphenated. */
+.whiskasHero > div {
+  width: min(150rem, 100%);
+}
+
+.whiskasHero h1 {
+  max-width: 18ch;
+  hyphens: manual;
+  text-wrap: balance;
+}
+
+.whiskasHeroSummary {
+  max-width: 76rem;
+}
+
+/* Case study CTA: type scales with the viewport (--aq) but the section had a
+   fixed 61.1rem height and a 52.4rem copy column, so on wide screens the copy
+   wrapped into a tall column and ran under the footer. */
+@media (min-width: 1181px) {
+  .figmaCta {
+    height: auto;
+    min-height: 61.1rem;
+    padding-bottom: 12rem;
+  }
+
+  .figmaCta > div {
+    width: min(45%, calc(var(--aq) * 60));
+  }
+
+  .figmaCta > div > p {
+    max-width: none;
+  }
+
+  .figmaCta > img {
+    top: auto;
+    bottom: -3.6rem;
+    left: auto;
+    right: 12%;
+  }
+}
+
+/* Homepage lab cards: the title box was a fixed 26rem while the display type
+   grows with the viewport, so long names split mid-word ("SHELFVISI / ON AI"). */
+.labGrid h3 {
+  max-width: none;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
+  text-wrap: balance;
+}
+
+/* Stop the copy short of the decorative circle in the bottom-right corner. */
+.labGrid p {
+  max-width: min(36ch, calc(100% - 9rem));
 }
