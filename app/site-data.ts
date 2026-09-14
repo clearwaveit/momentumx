@@ -892,7 +892,7 @@ export const cases = [
       "AI solutions & intelligent systems"
     ],
     industry: ["Pet Care"],
-    image: "/assets/cases/whiskas/hero.jpg",
+    image: "/assets/cases/whiskas/hero-new.png",
     logo: "Whiskas",
     logoImage: "/assets/logos/whiskas.png",
     services: [
@@ -906,6 +906,7 @@ export const cases = [
   },
   {
     slug: "bank-muscat-ibm-api-connect",
+    hidden: true, // temporarily hidden
     title: "Building the API layer for connected corporate banking.",
     client: "Bank Muscat",
     summary:
@@ -934,7 +935,7 @@ export const cases = [
     abstract: "A WhatsApp draw that stays warm when the queue gets loud.",
     expertise: ["AI solutions & intelligent systems", "automation & enterprise solutions"],
     industry: ["Food & Beverage"],
-    image: "/assets/cases/ferrero/hero.jpg",
+    image: "/assets/cases/ferrero/hero-new.png",
     logo: "Ferrero Group",
     logoImage: "/assets/logos/ferrero.svg",
     services: [
@@ -955,7 +956,7 @@ export const cases = [
     abstract: "A calm bridge from “something hurts” to the right next step.",
     expertise: ["AI solutions & intelligent systems", "web & mobile applications"],
     industry: ["Healthcare"],
-    image: "/assets/cases/dentazon/hero.jpg",
+    image: "/assets/cases/dentazon/hero-new.png",
     logo: "Dentazon",
     logoImage: "/assets/logos/dentazon.png",
     services: [
@@ -977,7 +978,7 @@ export const cases = [
     abstract: "One digital foundation. Built to grow across markets.",
     expertise: ["digital experience & platforms", "web & mobile applications", "AI solutions & intelligent systems"],
     industry: ["Home & Interiors"],
-    image: "",
+    image: "/assets/cases/nolte/hero-new.png",
     logo: "Nolte",
     logoImage: "/assets/logos/nolte.svg",
     services: [
@@ -1000,7 +1001,7 @@ export const cases = [
     abstract: "Turning every retail visit into market intelligence.",
     expertise: ["data & intelligence", "AI solutions & intelligent systems"],
     industry: ["Telecommunications"],
-    image: "",
+    image: "/assets/cases/du/hero-new.png",
     logo: "du",
     logoImage: "/assets/logos/du.svg",
     services: [
@@ -1025,7 +1026,7 @@ export const cases = [
       "data & intelligence"
     ],
     industry: ["Food & Beverage"],
-    image: "/assets/cases/lays/hero.jpg",
+    image: "/assets/cases/lays/hero-new.png",
     logo: "Lay's",
     logoImage: "/assets/logos/lays.svg",
     services: [
@@ -1050,7 +1051,7 @@ export const cases = [
       "AI solutions & intelligent systems"
     ],
     industry: ["Food & Beverage"],
-    image: "/assets/cases/moussy/hero.jpg",
+    image: "/assets/cases/moussy/hero-new.png",
     logo: "Moussy",
     logoImage: "/assets/logos/moussy.png",
     services: [
@@ -1075,7 +1076,7 @@ export const cases = [
       "data & intelligence"
     ],
     industry: ["Recycling & Manufacturing"],
-    image: "/assets/cases/rff/hero.jpg",
+    image: "/assets/cases/rff/hero-new.png",
     logo: "Recycle For Future",
     logoImage: "/assets/logos/rff.png",
     services: [
@@ -1096,7 +1097,7 @@ export const cases = [
     abstract: "A trading house for game changers — careers, culture, and counsel.",
     expertise: ["digital experience & platforms", "AI solutions & intelligent systems"],
     industry: ["Financial Services"],
-    image: "/assets/cases/da-vinci/hero.jpg",
+    image: "/assets/cases/da-vinci/hero-new.png",
     logo: "Da Vinci Trading",
     logoImage: "/assets/logos/da-vinci.svg",
     services: [
@@ -1117,7 +1118,7 @@ export const cases = [
     abstract: "The house book, staged for the screen.",
     expertise: ["digital experience & platforms"],
     industry: ["Luxury & Fragrance"],
-    image: "/assets/cases/luxe-port/hero.jpg",
+    image: "/assets/cases/luxe-port/hero-new.png",
     logo: "Luxe Port",
     logoImage: "/assets/logos/luxe-port.png",
     services: [
@@ -1152,6 +1153,7 @@ export const cases = [
   },
   {
     slug: "moments-of-magic",
+    hidden: true, // temporarily hidden
     title: "Moments of Magic",
     client: "M&M's",
     summary:
@@ -1166,6 +1168,7 @@ export const cases = [
   },
   {
     slug: "pawtopia",
+    hidden: true, // temporarily hidden
     title: "Pawtopia",
     client: "Pedigree & IAMS",
     summary:
@@ -1180,6 +1183,7 @@ export const cases = [
   },
   {
     slug: "a-michelin-affair",
+    hidden: true, // temporarily hidden
     title: "A Michelin Affair",
     client: "Tazal",
     summary:
@@ -1194,6 +1198,7 @@ export const cases = [
   },
   {
     slug: "taste-of-abu-dhabi",
+    hidden: true, // temporarily hidden
     title: "Taste of Abu Dhabi",
     client: "BRF",
     summary:
@@ -1208,6 +1213,7 @@ export const cases = [
   },
   {
     slug: "ride-back-in-style",
+    hidden: true, // temporarily hidden
     title: "Ride back in Style",
     client: "Unilever",
     summary: "A lifestyle-led digital engagement connecting brand recall, useful content, and customer touchpoints.",
@@ -1377,12 +1383,12 @@ export const casePageDetails: Record<
       {
         title: "THE PLAY",
         body: "Moving elements trigger curiosity, chasing, tapping and physical interaction with the screen.",
-        image: "/assets/cases/whiskas/the-play.jpg"
+        image: "/assets/cases/whiskas/the-play-new.png"
       },
       {
         title: "THE MOMENT",
         body: "The owner captures the interaction as video; Play Pulse helps ops review authenticity and heat on submissions.",
-        image: "/assets/cases/whiskas/the-moment.jpg"
+        image: "/assets/cases/whiskas/the-moment-new.png"
       }
     ],
     ecosystemEyebrow: "the experience architecture",
@@ -1460,10 +1466,10 @@ export const casePageDetails: Record<
       label: "start a conversation"
     },
     media: {
-      hero: "/assets/cases/whiskas/hero.jpg",
-      play: "/assets/cases/whiskas/the-play.jpg",
-      moment: "/assets/cases/whiskas/the-moment.jpg",
-      flow: "/assets/cases/whiskas/campaign-flow.jpg"
+      hero: "/assets/cases/whiskas/hero-new.png",
+      play: "/assets/cases/whiskas/the-play-new.png",
+      moment: "/assets/cases/whiskas/the-moment-new.png",
+      flow: "/assets/cases/whiskas/campaign-flow-new.png"
     },
     moments: [
       {
@@ -1768,12 +1774,12 @@ export const casePageDetails: Record<
       {
         title: "THE PLAY",
         body: "Fans choose a language, accept T&Cs, register, and upload a Nutella or Kinder receipt worth SAR 50+ — all inside WhatsApp.",
-        image: "/assets/cases/ferrero/the-play.jpg"
+        image: "/assets/cases/ferrero/the-play-new.png"
       },
       {
         title: "THE MOMENT",
         body: "Campaign Admin surfaces store, total, SKU lines and OCR confidence so ops can approve, reject or request a clearer photo — humans still decide.",
-        image: "/assets/cases/ferrero/the-moment.jpg"
+        image: "/assets/cases/ferrero/the-moment-new.png"
       }
     ],
     ecosystemEyebrow: "the experience architecture",
@@ -1851,10 +1857,10 @@ export const casePageDetails: Record<
       label: "start a conversation"
     },
     media: {
-      hero: "/assets/cases/ferrero/hero.jpg",
-      play: "/assets/cases/ferrero/the-play.jpg",
-      moment: "/assets/cases/ferrero/the-moment.jpg",
-      flow: "/assets/cases/ferrero/campaign-flow.jpg"
+      hero: "/assets/cases/ferrero/hero-new.png",
+      play: "/assets/cases/ferrero/the-play-new.png",
+      moment: "/assets/cases/ferrero/the-moment-new.png",
+      flow: "/assets/cases/ferrero/campaign-flow-new.png"
     },
     moments: [
       {
@@ -1984,12 +1990,12 @@ export const casePageDetails: Record<
       {
         title: "THE PLAY",
         body: "Patients open the live assistant, choose a language, share who-and-age context, then clarify symptoms before any advice begins.",
-        image: "/assets/cases/dentazon/the-play.jpg"
+        image: "/assets/cases/dentazon/the-play-new.png"
       },
       {
         title: "THE MOMENT",
         body: "Assistive explainers and an emergency gate guide the next step — book F-8 Markaz or call the clinic — while Care Ops reviews sessions with grounded AI notes.",
-        image: "/assets/cases/dentazon/the-moment.jpg"
+        image: "/assets/cases/dentazon/the-moment-new.png"
       }
     ],
     ecosystemEyebrow: "the experience architecture",
@@ -2067,10 +2073,10 @@ export const casePageDetails: Record<
       label: "start a conversation"
     },
     media: {
-      hero: "/assets/cases/dentazon/hero.jpg",
-      play: "/assets/cases/dentazon/the-play.jpg",
-      moment: "/assets/cases/dentazon/the-moment.jpg",
-      flow: "/assets/cases/dentazon/campaign-flow.jpg"
+      hero: "/assets/cases/dentazon/hero-new.png",
+      play: "/assets/cases/dentazon/the-play-new.png",
+      moment: "/assets/cases/dentazon/the-moment-new.png",
+      flow: "/assets/cases/dentazon/campaign-flow-new.png"
     },
     moments: [
       {
@@ -2186,13 +2192,13 @@ export const casePageDetails: Record<
       {
         title: "THE EXPERIENCE",
         body: "A restrained, visual-first interface gives kitchens, wardrobes, materials and projects room to lead the experience.",
-        image: ""
+        image: "/assets/cases/nolte/the-play-new.png"
       },
       {
         title: "THE DETAIL",
         body:
           "Products, ranges, projects and supporting content are structured around how customers explore and evaluate premium interiors.",
-        image: ""
+        image: "/assets/cases/nolte/the-moment-new.png"
       },
       {
         title: "THE CONVERSION",
@@ -2204,7 +2210,7 @@ export const casePageDetails: Record<
         title: "THE PLATFORM",
         body:
           "A flexible content and technology foundation supports regional adaptation while maintaining a consistent digital identity.",
-        image: ""
+        image: "/assets/cases/nolte/campaign-flow-new.png"
       }
     ],
     ecosystem: {
@@ -2267,7 +2273,23 @@ export const casePageDetails: Record<
         "From customer journeys and enterprise platforms to intelligent experiences, let's explore what technology can unlock for your business.",
       href: "/enquiry",
       label: "start a conversation"
-    }
+    },
+    media: {
+      hero: "/assets/cases/nolte/hero-new.png",
+      play: "/assets/cases/nolte/the-play-new.png",
+      moment: "/assets/cases/nolte/the-moment-new.png",
+      flow: "/assets/cases/nolte/campaign-flow-new.png"
+    },
+    moments: [
+      {
+        title: "The Experience",
+        body: "A restrained, visual-first interface gives kitchens, wardrobes, materials and projects room to lead the experience."
+      },
+      {
+        title: "The Detail",
+        body: "Products, ranges, projects and supporting content are structured around how customers explore and evaluate premium interiors."
+      }
+    ]
   },
   "du-retail-intelligence-platform": {
     eyebrow: "DU · RETAIL INTELLIGENCE",
@@ -2383,12 +2405,12 @@ export const casePageDetails: Record<
       {
         title: "THE FIELD",
         body: "Capture what is happening at the outlet through a structured field application and visit workflow.",
-        image: ""
+        image: "/assets/cases/du/the-play.png"
       },
       {
         title: "THE VISION",
         body: "Photos and video become a second intelligence layer through practical computer-vision analysis.",
-        image: ""
+        image: "/assets/cases/du/the-moment-new.png"
       },
       {
         title: "THE MARKET",
@@ -2398,7 +2420,7 @@ export const casePageDetails: Record<
       {
         title: "THE INTELLIGENCE",
         body: "BI dashboards turn field data into stakeholder views across product, competitor, territory and management needs.",
-        image: ""
+        image: "/assets/cases/du/campaign-flow-new.png"
       }
     ],
     ecosystemEyebrow: "intelligent map and BI",
@@ -2459,7 +2481,23 @@ export const casePageDetails: Record<
         "From field operations and enterprise platforms to computer vision and business intelligence, MomentumX builds technology around real operational challenges.",
       href: "/enquiry",
       label: "start a conversation"
-    }
+    },
+    media: {
+      hero: "/assets/cases/du/hero-new.png",
+      play: "/assets/cases/du/the-play.png",
+      moment: "/assets/cases/du/the-moment-new.png",
+      flow: "/assets/cases/du/campaign-flow-new.png"
+    },
+    moments: [
+      {
+        title: "The Field",
+        body: "Capture what is happening at the outlet through a structured field application and visit workflow."
+      },
+      {
+        title: "The Vision",
+        body: "Photos and video become a second intelligence layer through practical computer-vision analysis."
+      }
+    ]
   },
   "lays-match-radar": {
     eyebrow: "LAY'S · MATCHDAY VENUE EXPERIENCE",
@@ -2578,12 +2616,12 @@ export const casePageDetails: Record<
       {
         title: "THE PLAY",
         body: "Fans move from campaign hero into Match Map and match timings — Game ON venues, stock signals and tonight’s window in one flow.",
-        image: "/assets/cases/lays/the-play.jpg"
+        image: "/assets/cases/lays/the-play-new.png"
       },
       {
         title: "THE MOMENT",
         body: "Campaign ops AI flags lit venues, stock alerts and draftable partner nudges so the map stays honest after kickoff.",
-        image: "/assets/cases/lays/the-moment.jpg"
+        image: "/assets/cases/lays/the-moment-new.png"
       }
     ],
     ecosystemEyebrow: "the experience architecture",
@@ -2661,10 +2699,10 @@ export const casePageDetails: Record<
       label: "start a conversation"
     },
     media: {
-      hero: "/assets/cases/lays/hero.jpg",
-      play: "/assets/cases/lays/the-play.jpg",
-      moment: "/assets/cases/lays/the-moment.jpg",
-      flow: "/assets/cases/lays/campaign-flow.jpg"
+      hero: "/assets/cases/lays/hero-new.png",
+      play: "/assets/cases/lays/the-play-new.png",
+      moment: "/assets/cases/lays/the-moment-new.png",
+      flow: "/assets/cases/lays/campaign-flow-new.png"
     },
     moments: [
       {
@@ -2794,12 +2832,12 @@ export const casePageDetails: Record<
       {
         title: "THE PLAY",
         body: "Fans follow a Grand Draw web path — how it works, cap-code entry, success tally and first-class Arabic toggle.",
-        image: "/assets/cases/moussy/the-play.jpg"
+        image: "/assets/cases/moussy/the-play-new.png"
       },
       {
         title: "THE MOMENT",
         body: "Ops see entry ledger, draw-pulse KPIs and assistive anomaly flags with thin AI notes — humans still own the draw.",
-        image: "/assets/cases/moussy/the-moment.jpg"
+        image: "/assets/cases/moussy/the-moment-new.png"
       }
     ],
     ecosystemEyebrow: "the experience architecture",
@@ -2877,10 +2915,10 @@ export const casePageDetails: Record<
       label: "start a conversation"
     },
     media: {
-      hero: "/assets/cases/moussy/hero.jpg",
-      play: "/assets/cases/moussy/the-play.jpg",
-      moment: "/assets/cases/moussy/the-moment.jpg",
-      flow: "/assets/cases/moussy/campaign-flow.jpg"
+      hero: "/assets/cases/moussy/hero-new.png",
+      play: "/assets/cases/moussy/the-play-new.png",
+      moment: "/assets/cases/moussy/the-moment-new.png",
+      flow: "/assets/cases/moussy/campaign-flow-new.png"
     },
     moments: [
       {
@@ -3010,12 +3048,12 @@ export const casePageDetails: Record<
       {
         title: "THE PLAY",
         body: "Overview, materials and logistics screens hold throughput, stock truth, mass balance and shipment registers dense enough for a shift handover.",
-        image: "/assets/cases/rff/the-play.jpg"
+        image: "/assets/cases/rff/the-play-new.png"
       },
       {
         title: "THE MOMENT",
         body: "A ChatGPT-style operations assistant ingests tickets and WTNs, answers stock questions and surfaces missing-doc gaps — assistive intelligence, not certification.",
-        image: "/assets/cases/rff/the-moment.jpg"
+        image: "/assets/cases/rff/the-moment-new.png"
       }
     ],
     ecosystemEyebrow: "the experience architecture",
@@ -3093,10 +3131,10 @@ export const casePageDetails: Record<
       label: "start a conversation"
     },
     media: {
-      hero: "/assets/cases/rff/hero.jpg",
-      play: "/assets/cases/rff/the-play.jpg",
-      moment: "/assets/cases/rff/the-moment.jpg",
-      flow: "/assets/cases/rff/campaign-flow.jpg"
+      hero: "/assets/cases/rff/hero-new.png",
+      play: "/assets/cases/rff/the-play-new.png",
+      moment: "/assets/cases/rff/the-moment-new.png",
+      flow: "/assets/cases/rff/campaign-flow-new.png"
     },
     moments: [
       {
@@ -3226,12 +3264,12 @@ export const casePageDetails: Record<
       {
         title: "THE PLAY",
         body: "Collaborate · Innovate · Challenge · Achieve — the house culture pillars, staged the way candidates meet them on davincitrading.com.",
-        image: "/assets/cases/da-vinci/the-play.jpg"
+        image: "/assets/cases/da-vinci/the-play-new.png"
       },
       {
         title: "THE MOMENT",
         body: "Ask Recruiting orients extraordinary talent on roles, offices and process language from the live careers surface — then stops before the book.",
-        image: "/assets/cases/da-vinci/the-moment.jpg"
+        image: "/assets/cases/da-vinci/the-moment-new.png"
       }
     ],
     ecosystemEyebrow: "the experience architecture",
@@ -3309,10 +3347,10 @@ export const casePageDetails: Record<
       label: "start a conversation"
     },
     media: {
-      hero: "/assets/cases/da-vinci/hero.jpg",
-      play: "/assets/cases/da-vinci/the-play.jpg",
-      moment: "/assets/cases/da-vinci/the-moment.jpg",
-      flow: "/assets/cases/da-vinci/campaign-flow.jpg"
+      hero: "/assets/cases/da-vinci/hero-new.png",
+      play: "/assets/cases/da-vinci/the-play-new.png",
+      moment: "/assets/cases/da-vinci/the-moment-new.png",
+      flow: "/assets/cases/da-vinci/campaign-flow-new.png"
     },
     moments: [
       {
@@ -3442,12 +3480,12 @@ export const casePageDetails: Record<
       {
         title: "THE PLAY",
         body: "Houses from Versace through Dsquared2 sit as magazine brand plates, then open into product stories and podium theatre.",
-        image: "/assets/cases/luxe-port/the-play.jpg"
+        image: "/assets/cases/luxe-port/the-play-new.png"
       },
       {
         title: "THE MOMENT",
         body: "A demoted craft still drafts captions and crop flags before the podium — assistive only; humans keep publish.",
-        image: "/assets/cases/luxe-port/the-moment.jpg"
+        image: "/assets/cases/luxe-port/the-moment-new.png"
       }
     ],
     ecosystemEyebrow: "the experience architecture",
@@ -3525,10 +3563,10 @@ export const casePageDetails: Record<
       label: "start a conversation"
     },
     media: {
-      hero: "/assets/cases/luxe-port/hero.jpg",
-      play: "/assets/cases/luxe-port/the-play.jpg",
-      moment: "/assets/cases/luxe-port/the-moment.jpg",
-      flow: "/assets/cases/luxe-port/campaign-flow.jpg"
+      hero: "/assets/cases/luxe-port/hero-new.png",
+      play: "/assets/cases/luxe-port/the-play-new.png",
+      moment: "/assets/cases/luxe-port/the-moment-new.png",
+      flow: "/assets/cases/luxe-port/campaign-flow-new.png"
     },
     moments: [
       {
