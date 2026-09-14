@@ -33,14 +33,14 @@ const featuredWorks: SelectedWork[] = [
     href: "/cases/whiskas-interactive-cat-game",
     expertise: ["Gamification", "Interactive Experience", "UGC"],
     description: "A tablet-based game turning pet play into user-generated campaign participation.",
-    media: { type: "image", src: "/assets/cases/whiskas/hero.jpg" }
+    media: { type: "image", src: "/assets/case-studies/Whiskas.png" }
   },
   {
     title: "Dentazon Care Concierge",
     href: "/cases/dentazon-ai-dental-care-platform",
     expertise: ["Conversational AI", "Digital Health", "Triage Assist"],
     description: "A bilingual AI assistant that guides patients from a dental concern to the right next step.",
-    media: { type: "image", src: "/assets/cases/dentazon/hero.jpg" }
+    media: { type: "image", src: "/assets/case-studies/Dentazon.png" }
   },
   {
     title: "Ferrero Group Back to School Campaign",
@@ -48,7 +48,28 @@ const featuredWorks: SelectedWork[] = [
     expertise: ["WhatsApp", "OCR", "Receipt Processing"],
     description:
       "A WhatsApp-first promotional platform connecting receipt submission, OCR and instant-win outcomes.",
-    media: { type: "image", src: "/assets/cases/ferrero/hero.jpg" }
+    media: { type: "image", src: "/assets/case-studies/Nutella.png" }
+  },
+  {
+    title: "Lay's Match Radar",
+    href: "/cases/lays-match-radar",
+    expertise: ["Fan Experience", "Sports Entertainment", "Campaign Ops"],
+    description: "A matchday fan finder and AI ops console that routes fans to Game ON venues with stock before peak.",
+    media: { type: "image", src: "/assets/case-studies/Lays.png" }
+  },
+  {
+    title: "RFF Circular Control",
+    href: "/cases/rff-circular-control",
+    expertise: ["Industrial Ops", "Materials Traceability", "AI Copilot"],
+    description: "An AI-assisted operating layer for recycled polymers across materials, logistics, compliance and client portal.",
+    media: { type: "image", src: "/assets/case-studies/RFF.png" }
+  },
+  {
+    title: "Moussy Cap Pulse",
+    href: "/cases/moussy-cap-pulse",
+    expertise: ["Consumer Web", "Cap Code Entry", "Anomaly Assist"],
+    description: "A bilingual cap-code entry for Win Gold with Moussy, with AI assist flagging anomalies behind the Grand Draw.",
+    media: { type: "image", src: "/assets/case-studies/Moussay.png" }
   }
 ];
 
