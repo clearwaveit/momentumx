@@ -129,9 +129,11 @@ export function AboutContent() {
             brands across the Middle East.
           </p>
         </div>
-        <ul>
+        <ul className="aboutHeritageLogos" aria-label="Brands Momentum has worked with">
           {aboutPage.heritageClients.map((client) => (
-            <li key={client}>{client}</li>
+            <li key={client.name}>
+              <img src={client.logo} alt={client.name} width={600} height={278} loading="lazy" decoding="async" />
+            </li>
           ))}
         </ul>
       </section>

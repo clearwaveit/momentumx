@@ -12707,21 +12707,64 @@ main > section.aboutHeritage {
   line-height: var(--lh-md);
 }
 
+/* Client logo wall: full-width grid of equal tiles divided by hairlines. The
+   logos are drawn on 600x278 canvases with their own padding. */
 .aboutHeritage ul {
-  display: flex;
-  flex-wrap: wrap;
-  grid-column: 7 / -1;
-  align-content: start;
-  gap: 0.6rem 2.4rem;
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   margin: 0;
   padding: 0;
   list-style: none;
+  border-top: 1px solid rgba(5, 5, 5, 0.12);
+  border-left: 1px solid rgba(5, 5, 5, 0.12);
 }
 
 .aboutHeritage li {
-  font-family: var(--font-serif);
-  font-size: var(--t-xl);
-  line-height: var(--lh-xl);
+  display: grid;
+  place-items: center;
+  padding: 3.6rem 4rem;
+  border-right: 1px solid rgba(5, 5, 5, 0.12);
+  border-bottom: 1px solid rgba(5, 5, 5, 0.12);
+  background: #fff;
+}
+
+.aboutHeritage li img {
+  display: block;
+  width: 100%;
+  max-width: 17rem;
+  height: auto;
+  transition: filter 0.35s ease, opacity 0.35s ease;
+}
+
+/* Calm greyscale wall that comes to colour under the pointer; touch screens
+   keep the original colours. */
+@media (hover: hover) {
+  .aboutHeritage li img {
+    filter: grayscale(1);
+    opacity: 0.7;
+  }
+
+  .aboutHeritage li:hover img {
+    filter: none;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1023px) {
+  .aboutHeritage ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .aboutHeritage ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .aboutHeritage li {
+    padding: 1.6rem 1.4rem;
+  }
 }
 
 @media (max-width: 1023px) {

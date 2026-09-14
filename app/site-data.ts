@@ -4738,7 +4738,43 @@ export const aboutPage = {
       body: "From identifying an opportunity to building, deploying and evolving the solution."
     }
   ],
-  heritageClients: ["Mars", "M&M's", "Unilever", "BRF", "Skittles", "Snickers"]
+  // Momentum's client wall, in the order mmc-ae.com shows it.
+  heritageClients: [
+    ["Mars", "mars"],
+    ["Galaxy", "galaxy"],
+    ["Snickers", "snickers"],
+    ["M&M's", "mms"],
+    ["Magnum", "magnum"],
+    ["Unilever", "unilever"],
+    ["Carlsberg", "carlsberg"],
+    ["Coca-Cola", "coca-cola"],
+    ["Holsten", "holsten"],
+    ["Drink Dry", "drink-dry"],
+    ["McDonald's", "mcdonalds"],
+    ["Barilla", "barilla"],
+    ["Kraft", "kraft"],
+    ["DAMAC", "damac"],
+    ["Emirates NBD", "emirates-nbd"],
+    ["Nokia", "nokia"],
+    ["P&G", "pg"],
+    ["L'Oréal", "loreal"],
+    ["Nestlé", "nestle"],
+    ["BAT", "bat"],
+    ["Philip Morris International", "philip-morris"],
+    ["GMG", "gmg"],
+    ["Abbott", "abbott"],
+    ["Wilkinson Sword", "wilkinson-sword"],
+    ["Al Ain Water", "al-ain"],
+    ["ADIB", "adib"],
+    ["Pernod Ricard", "pernod-ricard"],
+    ["BRF", "brf"],
+    ["Imperial Tobacco", "imperial-tobacco"],
+    ["Tazal", "tazal"],
+    ["Sadia", "sadia"],
+    ["Del Monte", "del-monte"],
+    ["HBL UAE", "hbl"],
+    ["Al Foah", "al-foah"]
+  ].map(([name, file]) => ({ name, logo: `/assets/logos/heritage/${file}.png` }))
 };
 
 export const contactPage = {
